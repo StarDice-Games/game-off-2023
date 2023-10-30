@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://c231qmwyovhcq"]
 
-[ext_resource type="Texture2D" uid="uid://bjn1m5qtjaiff" path="res://icon.svg" id="1_mppcp"]
+[ext_resource type="Texture2D" uid="uid://bjn1m5qtjaiff" path="res://Icone/icon.svg" id="1_wr4ms"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Nome icona" type="Sprite2D" parent="."]
 position = Vector2(487, 284)
-texture = ExtResource("1_mppcp")
+texture = ExtResource("1_wr4ms")
