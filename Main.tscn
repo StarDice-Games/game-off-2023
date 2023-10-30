@@ -4,6 +4,6 @@
 
 [node name="Main" type="Node2D"]
 
-[node name="Nome dell icona" type="Sprite2D" parent="."]
+[node name="Nome icona" type="Sprite2D" parent="."]
 position = Vector2(487, 284)
 texture = ExtResource("1_mppcp")
