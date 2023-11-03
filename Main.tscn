@@ -1,3 +1,86 @@
-[gd_scene format=3 uid="uid://c231qmwyovhcq"]
+[gd_scene load_steps=6 format=3 uid="uid://c231qmwyovhcq"]
+
+[ext_resource type="PackedScene" uid="uid://7g5dujg470i7" path="res://Scenes/Coin/Coin.tscn" id="1_oh5f0"]
+[ext_resource type="PackedScene" uid="uid://kea2ubmg7h7r" path="res://Scenes/Pong/Ball/ball.tscn" id="3_8wmtw"]
+[ext_resource type="Script" path="res://Scripts/Score.gd" id="4_cpxfn"]
+[ext_resource type="PackedScene" uid="uid://d38f1niqgg0bb" path="res://Scenes/Pong/Bat/bat.tscn" id="4_cttf1"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jwcap"]
 
 [node name="Main" type="Node2D"]
+
+[node name="Coin2" parent="." instance=ExtResource("1_oh5f0")]
+position = Vector2(819, 69)
+rotation = -2.93865
+
+[node name="Coin" parent="." instance=ExtResource("1_oh5f0")]
+position = Vector2(220, 85)
+rotation = 0.628566
+
+[node name="Ball" parent="." instance=ExtResource("3_8wmtw")]
+position = Vector2(374, 264)
+
+[node name="bat2" parent="." instance=ExtResource("4_cttf1")]
+position = Vector2(1079, 315)
+player = 2
+
+[node name="bat" parent="." instance=ExtResource("4_cttf1")]
+position = Vector2(77, 316)
+
+[node name="CharacterBody2D" type="RigidBody2D" parent="."]
+position = Vector2(559, 639)
+mass = 2.33
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+scale = Vector2(6.08, 1)
+shape = SubResource("WorldBoundaryShape2D_jwcap")
+
+[node name="CharacterBody2D3" type="RigidBody2D" parent="."]
+position = Vector2(577, 14)
+rotation = 3.14159
+mass = 2.33
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D3"]
+scale = Vector2(6.08, 1)
+shape = SubResource("WorldBoundaryShape2D_jwcap")
+
+[node name="GoalP1" type="RigidBody2D" parent="."]
+position = Vector2(8.99988, 307)
+rotation = 1.56489
+scale = Vector2(0.588281, 0.951227)
+mass = 2.33
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalP1"]
+scale = Vector2(6.08, 1)
+shape = SubResource("WorldBoundaryShape2D_jwcap")
+
+[node name="GoalP2" type="RigidBody2D" parent="."]
+position = Vector2(1177, 318)
+rotation = 4.71238
+scale = Vector2(0.588281, 0.951227)
+mass = 2.33
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalP2"]
+scale = Vector2(6.08, 1)
+shape = SubResource("WorldBoundaryShape2D_jwcap")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 512.0
+offset_top = 31.0
+offset_right = 552.0
+offset_bottom = 57.0
+text = "0"
+script = ExtResource("4_cpxfn")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 614.0
+offset_top = 28.0
+offset_right = 654.0
+offset_bottom = 54.0
+text = "0"
+script = ExtResource("4_cpxfn")
+player = 2
