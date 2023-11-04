@@ -61,7 +61,7 @@ func _physics_process(delta):
 		
 		
 	if pickedItem != null:
-			pickedItem.position = position + $PickupPosition.position
+			pickedItem.position = position + ($PickupPosition.position * scale)
 				
 	move_and_slide()
 
