@@ -8,9 +8,12 @@ var scorep2 : int = 0;
 var activePlayer = 0; #Change with an enum to be player left = 0 or right=0
 
 var players : Array[CharacterBody2D] = [null, null]
+var goals : Array[Node2D] = [null, null]
 
 @export var scaleFactor = Vector2(2, 2)
-@export var next_scene : PackedScene
+@export var scenes : Array[PackedScene]
+
+var next_scene = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,6 +24,12 @@ func _ready():
 
 func setPlayer(number, player : CharacterBody2D):
 	players[number] = player
+	
+func setGoal(number, goal : Node):
+	goals[number] = goal
+	
+func getPlayer(index):
+	return players[index]
 
 func changeActivePlayer():
 	match activePlayer:
@@ -31,6 +40,9 @@ func changeActivePlayer():
 				
 func setActivePlayer(number):
 	activePlayer = number
+
+func goalIsAchieved(goal):
+	return goal.achieved
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -74,7 +86,16 @@ func _process(delta):
 						startingPlayer.dropItem()
 						changeActivePlayer()
 	
+	#Check if the level is complete
+	var levelComplete = goals.all(goalIsAchieved)
+	
+	if levelComplete:
+		print("Level is complete !!!")
+		get_tree().change_scene_to_packed(scenes[next_scene])
+		next_scene += 1
+		next_scene %= scenes.size()
+			
 	#TODO remove this
 	if Input.is_action_just_pressed("ChangeLevelDebug"):
-		get_tree().change_scene_to_packed(next_scene)
+		get_tree().change_scene_to_packed(scenes[next_scene])
 	pass
