@@ -59,9 +59,10 @@ func _physics_process(delta):
 			if collindingNode != null && pickedItem == null:
 				pickupItem(collindingNode)
 		
-		if pickedItem != null:
+		
+	if pickedItem != null:
 			pickedItem.position = position + $PickupPosition.position
-	
+				
 	move_and_slide()
 
 func pickupItem(item):
