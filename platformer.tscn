@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://hokdakf8x4lx"]
+[gd_scene load_steps=7 format=3 uid="uid://hokdakf8x4lx"]
 
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="1_33jua"]
 [ext_resource type="PackedScene" uid="uid://b1omndopqlxo6" path="res://Scenes/PlatformerPlayer/Obstacle/obstacle.tscn" id="2_o8t8r"]
+[ext_resource type="PackedScene" uid="uid://bsixpcp0671pa" path="res://Scenes/PlatformerPlayer/Pickable/pickupKinematicRound.tscn" id="4_anaua"]
 [ext_resource type="PackedScene" uid="uid://cc34wwhhably3" path="res://Scenes/PlatformerPlayer/Pickable/pickupKinematic.tscn" id="4_buhlk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orutt"]
@@ -63,8 +64,22 @@ position = Vector2(55, 488)
 [node name="StaticBody2D3" parent="." instance=ExtResource("2_o8t8r")]
 position = Vector2(631, 488)
 
-[node name="StaticBody2D4" parent="." instance=ExtResource("2_o8t8r")]
-position = Vector2(635, 330)
+[node name="StaticBody2D5" parent="." instance=ExtResource("2_o8t8r")]
+position = Vector2(790, 330)
+
+[node name="StaticBody2D6" parent="." instance=ExtResource("2_o8t8r")]
+position = Vector2(787, 490)
+
+[node name="StaticBody2D7" parent="." instance=ExtResource("2_o8t8r")]
+position = Vector2(341, 413)
+rotation = -0.24961
+
+[node name="StaticBody2D8" parent="." instance=ExtResource("2_o8t8r")]
+position = Vector2(577, 422)
+scale = Vector2(0.504665, 0.513436)
+
+[node name="Pickup" parent="." instance=ExtResource("4_anaua")]
+position = Vector2(417.319, 253.568)
 
 [node name="Pickup3" parent="." instance=ExtResource("4_buhlk")]
-position = Vector2(427, 349)
+position = Vector2(152, 263)

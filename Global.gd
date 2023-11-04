@@ -26,12 +26,21 @@ func changeActivePlayer():
 				activePlayer = 1
 			1 : 
 				activePlayer = 0
+				
+func setActivePlayer(number):
+	activePlayer = number
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
 	if Input.is_action_just_pressed("ChangePlayer") :
 		changeActivePlayer()
+	
+	if Input.is_action_just_pressed("ChangePlayerLeft") :
+		setActivePlayer(0)
+	
+	if Input.is_action_just_pressed("ChangePlayerRight") :
+		setActivePlayer(1)
 	
 	if Input.is_action_just_pressed("SwapPickable") :
 		match activePlayer:
