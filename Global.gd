@@ -58,7 +58,7 @@ func _process(delta):
 #					the picket item is changed and transfered
 					var  toTransfer : CharacterBody2D = startingPlayer.pickedItem
 					if toTransfer != null:
-						toTransfer.scale = Vector2(0.5,0.5)
+						toTransfer.scale = Vector2(1,1)
 						receivingPlayer.pickupItem(toTransfer)
 						startingPlayer.dropItem()
 						changeActivePlayer()

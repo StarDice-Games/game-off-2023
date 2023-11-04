@@ -49,15 +49,15 @@ func _physics_process(delta):
 			if pickedItem != null :
 				#drop the item
 				pickedItem.held = false
+				pickedItem.setCollisions(true)
+				
 				var itemScale = pickedItem.scale
 				pickedItem.position.x = position.x + ((directionOffsetZ * itemScale.x) * lastDirection)
 				pickedItem = null
 				collindingNode = null
 				
 			if collindingNode != null && pickedItem == null:
-#				collindingNode.freeze = true
-				pickedItem = collindingNode
-				pickedItem.held = true
+				pickupItem(collindingNode)
 		
 		if pickedItem != null:
 			pickedItem.position = position + $PickupPosition.position
@@ -67,6 +67,7 @@ func _physics_process(delta):
 func pickupItem(item):
 	pickedItem = item
 	pickedItem.held = true
+	pickedItem.setCollisions(false)
 
 func dropItem(): #TODO change this to transferItem or something
 	pickedItem = null
