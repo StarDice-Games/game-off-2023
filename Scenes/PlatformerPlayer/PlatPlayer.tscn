@@ -22,7 +22,7 @@ position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_hqee2")
 
 [node name="PickupPosition" type="Marker2D" parent="."]
-position = Vector2(0, -205)
+position = Vector2(1, -103)
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2

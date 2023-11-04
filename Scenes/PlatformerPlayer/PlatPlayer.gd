@@ -42,17 +42,18 @@ func _physics_process(delta):
 		
 		#Pick up and drop items
 		if Input.is_action_just_pressed("Pickup") :
-#			if pickedItem != null :
-#				#drop the item
-#				pickedItem.freeze = false
-#				pickedItem.position = position
-#				pickedItem = null
+			if pickedItem != null :
+				#drop the item
+				pickedItem.freeze = false
+				pickedItem.position = position
+				pickedItem = null
+				collindingNode = null
 			if collindingNode != null && pickedItem == null:
 				collindingNode.freeze = true
 				pickedItem = collindingNode
 		
 		if pickedItem != null:
-			pickedItem.position = $PickupPosition.position
+			pickedItem.position = position + $PickupPosition.position
 	
 	move_and_slide()
 
@@ -65,4 +66,6 @@ func _on_area_2d_area_entered(area):
 			print("root node %s" % rootNode.name)
 			if group == "Pickable":
 				collindingNode = rootNode
+			else :
+				collindingNode = null
 	pass # Replace with function body.
