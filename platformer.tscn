@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://hokdakf8x4lx"]
 
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="1_33jua"]
-[ext_resource type="PackedScene" uid="uid://cknlblnl3goyk" path="res://Scenes/PlatformerPlayer/Pickable/pickup.tscn" id="2_nspdc"]
 [ext_resource type="PackedScene" uid="uid://b1omndopqlxo6" path="res://Scenes/PlatformerPlayer/Obstacle/obstacle.tscn" id="2_o8t8r"]
+[ext_resource type="PackedScene" uid="uid://cc34wwhhably3" path="res://Scenes/PlatformerPlayer/Pickable/pickupKinematic.tscn" id="4_buhlk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orutt"]
 size = Vector2(1180.62, 20)
@@ -12,23 +12,18 @@ size = Vector2(35, 34)
 
 [node name="platformer" type="Node2D"]
 
-[node name="PlatPlayer" parent="." instance=ExtResource("1_33jua")]
+[node name="PlatPlayer" parent="." groups=["Players"] instance=ExtResource("1_33jua")]
 position = Vector2(257, 395)
 scale = Vector2(0.5, 0.5)
-SPEED = 300.0
 JUMP_VELOCITY = -550.0
 push_force = 50
-player = 0
-directionOffsetZ = 75.0
 
-[node name="PlatPlayer2" parent="." instance=ExtResource("1_33jua")]
+[node name="PlatPlayer2" parent="." groups=["Players"] instance=ExtResource("1_33jua")]
 position = Vector2(1053, 371)
 scale = Vector2(0.5, 0.5)
-SPEED = 300.0
 JUMP_VELOCITY = -550.0
 push_force = 50
 player = 1
-directionOffsetZ = 75.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(243.753, 366.368)
@@ -58,9 +53,6 @@ offset_bottom = 40.0
 position = Vector2(19, 19)
 shape = SubResource("RectangleShape2D_lpfyx")
 
-[node name="Pickup" parent="." instance=ExtResource("2_nspdc")]
-position = Vector2(710, 342)
-
 [node name="Divider" parent="." instance=ExtResource("2_o8t8r")]
 position = Vector2(575, -17)
 scale = Vector2(0.0566152, 9.05514)
@@ -70,3 +62,6 @@ position = Vector2(55, 488)
 
 [node name="StaticBody2D3" parent="." instance=ExtResource("2_o8t8r")]
 position = Vector2(631, 488)
+
+[node name="Pickup3" parent="." instance=ExtResource("4_buhlk")]
+position = Vector2(427, 349)

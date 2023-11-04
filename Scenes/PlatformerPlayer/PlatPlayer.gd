@@ -7,12 +7,16 @@ extends CharacterBody2D
 @export var player = 0
 @export var directionOffsetZ = 75.0
 
-var collindingNode : RigidBody2D = null
-var pickedItem : RigidBody2D = null
+var collindingNode : CharacterBody2D = null
+var pickedItem : CharacterBody2D = null
+
+var lastDirection = 1
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+func _ready():
+	Global.setPlayer(player, self)
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -30,7 +34,7 @@ func _physics_process(delta):
 		var direction = Input.get_axis("ui_left", "ui_right")
 		if direction:
 			velocity.x = direction * SPEED
-			
+			lastDirection = direction
 			$Area2D/CollisionShape2D.position.x = direction * directionOffsetZ
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -44,24 +48,34 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("Pickup") :
 			if pickedItem != null :
 				#drop the item
-				pickedItem.freeze = false
-				pickedItem.position = position
+				pickedItem.held = false
+				var itemScale = pickedItem.scale
+				pickedItem.position.x = position.x + ((directionOffsetZ * itemScale.x) * lastDirection)
 				pickedItem = null
 				collindingNode = null
+				
 			if collindingNode != null && pickedItem == null:
-				collindingNode.freeze = true
+#				collindingNode.freeze = true
 				pickedItem = collindingNode
+				pickedItem.held = true
 		
 		if pickedItem != null:
 			pickedItem.position = position + $PickupPosition.position
 	
 	move_and_slide()
 
+func pickupItem(item):
+	pickedItem = item
+	pickedItem.held = true
+
+func dropItem(): #TODO change this to transferItem or something
+	pickedItem = null
+	collindingNode = null
 
 func _on_area_2d_area_entered(area):
 	print("Area Entered %s" % area.name)
 	var rootNode = area.get_parent()
-	if rootNode != null && rootNode is RigidBody2D:
+	if rootNode != null :
 		for group in rootNode.get_groups():
 			print("root node %s" % rootNode.name)
 			if group == "Pickable":
