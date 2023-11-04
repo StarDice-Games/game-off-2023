@@ -9,6 +9,7 @@ var activePlayer = 0; #Change with an enum to be player left = 0 or right=0
 
 var players : Array[CharacterBody2D] = [null, null]
 
+@export var scaleFactor = Vector2(2, 2)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -52,7 +53,7 @@ func _process(delta):
 #					the picket item is changed and transfered
 					var  toTransfer : CharacterBody2D = startingPlayer.pickedItem
 					if toTransfer != null:
-						toTransfer.scale = Vector2(2,2)
+						toTransfer.scale = scaleFactor
 						receivingPlayer.pickupItem(toTransfer)
 						startingPlayer.dropItem()
 						changeActivePlayer()
