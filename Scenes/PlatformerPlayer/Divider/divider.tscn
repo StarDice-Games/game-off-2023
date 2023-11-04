@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://duvywv1d1kgyo"]
+
+[ext_resource type="Texture2D" uid="uid://cg1ymalfuxac" path="res://Resources/Images/New Piskel.png" id="1_chxfk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u70l6"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_56tun"]
+
+[node name="Divider" type="StaticBody2D" groups=["Dividers"]]
+collision_layer = 4
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.247059, 1, 1)
+texture = ExtResource("1_chxfk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_u70l6")
+
+[node name="DividerArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DividerArea"]
+scale = Vector2(3.60411, -1.5459)
+shape = SubResource("RectangleShape2D_56tun")

@@ -10,6 +10,7 @@ extends CharacterBody2D
 var collindingNode : CharacterBody2D = null
 var pickedItem : CharacterBody2D = null
 
+var isHittingDivider = false
 var lastDirection = 1
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -35,9 +36,10 @@ func _physics_process(delta):
 		if direction:
 			velocity.x = direction * SPEED
 			lastDirection = direction
-			$Area2D/CollisionShape2D.position.x = direction * directionOffsetZ
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+		$Area2D/CollisionShape2D.position.x = sign(lastDirection) * directionOffsetZ
 		
 		for index in get_slide_collision_count():
 			var collision = get_slide_collision(index)
@@ -47,12 +49,17 @@ func _physics_process(delta):
 		#Pick up and drop items
 		if Input.is_action_just_pressed("Pickup") :
 			if pickedItem != null :
+				
+				if isHittingDivider:
+					return
+				
 				#drop the item
 				pickedItem.held = false
 				pickedItem.setCollisions(true)
 				
 				var itemScale = pickedItem.scale
-				pickedItem.position.x = position.x + ((directionOffsetZ * itemScale.x) * lastDirection)
+#				pickedItem.position.x = position.x + ((directionOffsetZ * itemScale.x) * lastDirection)
+				pickedItem.position = position + ($Area2D/CollisionShape2D.position * scale)
 				pickedItem = null
 				collindingNode = null
 				
@@ -80,8 +87,27 @@ func _on_area_2d_area_entered(area):
 	if rootNode != null :
 		for group in rootNode.get_groups():
 			print("root node %s" % rootNode.name)
-			if group == "Pickable":
-				collindingNode = rootNode
-			else :
-				collindingNode = null
+			match group:
+				"Pickable":
+					collindingNode = rootNode
+				"Dividers":
+					print("Hitting devider")
+					isHittingDivider = true
+				_ :
+					collindingNode = null
+	pass # Replace with function body.
+
+
+func _on_area_2d_area_exited(area):
+	print("Area Exit %s" % area.name)
+	var rootNode = area.get_parent()
+	if rootNode != null :
+		for group in rootNode.get_groups():
+			print("root node %s" % rootNode.name)
+			match group:
+				"Dividers":
+					print("Exit divider")
+					isHittingDivider = false
+				_ :
+					collindingNode = null
 	pass # Replace with function body.
