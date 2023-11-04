@@ -60,7 +60,7 @@ position = Vector2(575, -17)
 scale = Vector2(0.0566152, 9.05514)
 
 [node name="StaticBody2D2" parent="." instance=ExtResource("2_vxsyq")]
-position = Vector2(378, 483)
+position = Vector2(436, 483)
 
 [node name="StaticBody2D3" parent="." instance=ExtResource("2_vxsyq")]
 position = Vector2(918, 478)
@@ -79,7 +79,7 @@ position = Vector2(577, 422)
 scale = Vector2(0.504665, 0.513436)
 
 [node name="Pickup" parent="." instance=ExtResource("3_bustj")]
-position = Vector2(629, 261)
+position = Vector2(648, 261)
 
 [node name="Pickup3" parent="." instance=ExtResource("4_0xa3u")]
 position = Vector2(152, 263)
