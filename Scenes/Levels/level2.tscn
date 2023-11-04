@@ -79,7 +79,7 @@ position = Vector2(577, 422)
 scale = Vector2(0.504665, 0.513436)
 
 [node name="Pickup" parent="." instance=ExtResource("3_bustj")]
-position = Vector2(417.319, 253.568)
+position = Vector2(629, 261)
 
 [node name="Pickup3" parent="." instance=ExtResource("4_0xa3u")]
 position = Vector2(152, 263)
