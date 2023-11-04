@@ -10,6 +10,7 @@ var activePlayer = 0; #Change with an enum to be player left = 0 or right=0
 var players : Array[CharacterBody2D] = [null, null]
 
 @export var scaleFactor = Vector2(2, 2)
+@export var next_scene : PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -72,4 +73,8 @@ func _process(delta):
 						receivingPlayer.pickupItem(toTransfer)
 						startingPlayer.dropItem()
 						changeActivePlayer()
+	
+	#TODO remove this
+	if Input.is_action_just_pressed("ChangeLevelDebug"):
+		get_tree().change_scene_to_packed(next_scene)
 	pass
