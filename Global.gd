@@ -44,6 +44,28 @@ func setActivePlayer(number):
 func goalIsAchieved(goal):
 	return goal.achieved
 
+enum Scaling {
+	INCREASE,
+	DECREASE
+}
+	
+func transferPickable(starting, receiver, scaling : Scaling):
+	#do not transfer if the other player has an item
+	if receiver.pickedItem != null:
+		return
+	
+#					the picket item is changed and transfered
+	var  toTransfer : CharacterBody2D = starting.pickedItem
+	if toTransfer != null:
+		if scaling == Scaling.INCREASE:
+			toTransfer.scale *= scaleFactor
+		elif scaling == Scaling.DECREASE:
+			toTransfer.scale /= scaleFactor
+		
+		receiver.pickupItem(toTransfer)
+		starting.dropItem()
+		changeActivePlayer()
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
@@ -57,34 +79,19 @@ func _process(delta):
 		setActivePlayer(1)
 	
 	if Input.is_action_just_pressed("SwapPickable") :
-		match activePlayer:
+		match activePlayer: #TODO move this in a function, to remove duplicate code
 			0 :
 				if not players[0] == null:
 					var startingPlayer = players[0]
 					var receivingPlayer = players[1]
 					
-#					the picket item is changed and transfered
-					var  toTransfer : CharacterBody2D = startingPlayer.pickedItem
-					if toTransfer != null:
-						toTransfer.scale *= scaleFactor
-						receivingPlayer.pickupItem(toTransfer)
-						startingPlayer.dropItem()
-						changeActivePlayer()
-					
-					print("Player 1 item", players[0].pickedItem)
-					
+					transferPickable(startingPlayer, receivingPlayer, Scaling.INCREASE)
 			1 :
 				if not players[1] == null:
 					var startingPlayer = players[1]
 					var receivingPlayer = players[0]
 					
-#					the picket item is changed and transfered
-					var  toTransfer : CharacterBody2D = startingPlayer.pickedItem
-					if toTransfer != null:
-						toTransfer.scale /= scaleFactor
-						receivingPlayer.pickupItem(toTransfer)
-						startingPlayer.dropItem()
-						changeActivePlayer()
+					transferPickable(startingPlayer, receivingPlayer, Scaling.DECREASE)
 	
 	#Check if the level is complete
 	var levelComplete = goals.all(goalIsAchieved)

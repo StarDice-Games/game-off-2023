@@ -11,15 +11,12 @@ size = Vector2(1180.62, 20)
 
 [node name="platformer" type="Node2D"]
 
-[node name="PlatPlayer" parent="." groups=["Players"] instance=ExtResource("1_33jua")]
-position = Vector2(257, 395)
+[node name="PlatPlayer" parent="." instance=ExtResource("1_33jua")]
+position = Vector2(267.101, 321.005)
 scale = Vector2(0.5, 0.5)
-JUMP_VELOCITY = -550.0
-push_force = 50
 
 [node name="PlatPlayer2" parent="." groups=["Players"] instance=ExtResource("1_33jua")]
 position = Vector2(1053, 371)
-scale = Vector2(0.5, 0.5)
 JUMP_VELOCITY = -550.0
 push_force = 50
 player = 1
@@ -67,7 +64,7 @@ scale = Vector2(0.504665, 0.513436)
 position = Vector2(902, 466)
 
 [node name="Pickup3" parent="." instance=ExtResource("4_buhlk")]
-position = Vector2(152, 263)
+position = Vector2(147, 256)
 
 [node name="Goal" parent="." instance=ExtResource("5_t21sj")]
 position = Vector2(82, 460)
