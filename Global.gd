@@ -18,8 +18,7 @@ var next_scene = 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
-	#Get a reference to the players in the level so i can swap the objects between them
-	#Use groups ? or direct ? Let's try directly 
+	next_scene %= scenes.size() #adapt the next_scene based on the total scenes
 	pass # Replace with function body.
 
 func setPlayer(number, player : CharacterBody2D):
@@ -73,6 +72,10 @@ func transferPickable(starting, receiver, scaling : Scaling):
 func _process(delta):
 	
 	if Input.is_action_just_pressed("ChangePlayer") :
+		for player in players:
+			if player == null:
+				continue
+			player.velocity = Vector2.ZERO
 		changeActivePlayer()
 	
 	if Input.is_action_just_pressed("ChangePlayerLeft") :
@@ -100,10 +103,12 @@ func _process(delta):
 	var levelComplete = goals.all(goalIsAchieved)
 	
 	if levelComplete:
-		print("Level is complete !!!")
-		get_tree().change_scene_to_packed(scenes[next_scene])
-		next_scene += 1
-		next_scene %= scenes.size()
+		print("Level is complete !!!", scenes.size())
+#		if next_scene + 1 < scenes.size() :
+		if scenes[next_scene] != null:
+			get_tree().change_scene_to_packed(scenes[next_scene])
+			next_scene += 1
+			next_scene %= scenes.size()
 			
 	#TODO remove this
 	if Input.is_action_just_pressed("ChangeLevelDebug"):
