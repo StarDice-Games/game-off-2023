@@ -115,8 +115,5 @@ func _process(delta):
 		get_tree().change_scene_to_packed(scenes[next_scene])
 
 	if Input.is_action_just_pressed("ResetLevel"):
-		if next_scene == 0:
-			next_scene = scenes.size()
-		
-		get_tree().change_scene_to_packed(scenes[next_scene - 1])
+		get_tree().reload_current_scene()
 	pass
