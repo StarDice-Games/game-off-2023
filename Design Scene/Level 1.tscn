@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://brtmw4waob8c7"]
+
+[ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="1_576s2"]
+[ext_resource type="PackedScene" uid="uid://duvywv1d1kgyo" path="res://Scenes/PlatformerPlayer/Divider/divider.tscn" id="2_o10ta"]
+[ext_resource type="PackedScene" uid="uid://b1omndopqlxo6" path="res://Scenes/PlatformerPlayer/Obstacle/obstacle.tscn" id="3_qr1bo"]
+[ext_resource type="PackedScene" uid="uid://clq5fqcyxk5fk" path="res://Scenes/PlatformerPlayer/Goal/Goal.tscn" id="4_w6qlm"]
+
+[node name="Level 1" type="Node2D"]
+
+[node name="PlatPlayer" parent="." instance=ExtResource("1_576s2")]
+position = Vector2(60, 601)
+scale = Vector2(0.5, 0.5)
+
+[node name="PlatPlayer2" parent="." instance=ExtResource("1_576s2")]
+position = Vector2(1056, 566)
+player = 1
+
+[node name="Divider" parent="." instance=ExtResource("2_o10ta")]
+position = Vector2(575, 335)
+scale = Vector2(0.5, 30)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("3_qr1bo")]
+position = Vector2(-171, 635)
+scale = Vector2(10, 0.5)
+
+[node name="Goal" parent="." instance=ExtResource("4_w6qlm")]
+position = Vector2(55, 193)
+
+[node name="Goal2" parent="." instance=ExtResource("4_w6qlm")]
+position = Vector2(1066, 191)
+goalNumber = 1
