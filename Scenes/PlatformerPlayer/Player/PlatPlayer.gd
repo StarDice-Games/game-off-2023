@@ -5,12 +5,19 @@ extends CharacterBody2D
 @export var push_force = 100
 @export var player = 0
 @export var directionOffsetZ = 75.0
+@export var windResistance = 50.0
 
 var collindingNode : CharacterBody2D = null
 var pickedItem : CharacterBody2D = null
 
+var windApplied : Node2D = null
+var windLastDirection : Vector2
+var windSpeedX = 0.0
+var windSpeedY = 0.0
+
 var isHittingDivider = false
 var lastDirection = 1
+var umblellaDirection = Vector2.ZERO
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -32,6 +39,16 @@ func _physics_process(delta):
 		# As good practice, you should replace UI actions with custom gameplay actions.
 		# Todo change controls
 		var direction = Input.get_axis("MoveLeft", "MoveRight")
+		
+		var umbrellaVericalDirection = Input.get_axis("UmbrellaUp", "UmbrellaDown")
+		var umbrellaHorizontalDirection = Input.get_axis("UmbrellaLeft", "UmbrellaRight")
+		
+		umblellaDirection.x =  umbrellaHorizontalDirection
+		umblellaDirection.y =  umbrellaVericalDirection
+				
+		$Umbrella.position.x = directionOffsetZ * umblellaDirection.x
+		$Umbrella.position.y = directionOffsetZ * umblellaDirection.y
+		
 		if direction:
 			velocity.x = direction * SPEED
 			lastDirection = direction
@@ -40,30 +57,24 @@ func _physics_process(delta):
 		
 #		$Area2D/CollisionShape2D.position.x = sign(lastDirection) * directionOffsetZ
 		
+		if umbrellaVericalDirection != 0 or umbrellaHorizontalDirection != 0:
+			#umbrella is open
+			if windApplied != null:
+				windLastDirection = umblellaDirection.lerp(windApplied.windDirection, 0.8)
+				print("Dir:", windLastDirection)	
+				velocity.x += windLastDirection.x * windSpeedX
+				velocity.y += windLastDirection.y * windSpeedY
+				
+		#mantain the wind speed a little after exiting the Area
+#		windSpeedX = move_toward(windSpeedX, 0, windResistance)
+#		windSpeedY = move_toward(windSpeedY, 0, windResistance)
+		
+		
+		
 		for index in get_slide_collision_count():
 			var collision = get_slide_collision(index)
 			if collision.get_collider() is RigidBody2D:
 				collision.get_collider().apply_central_impulse(-collision.get_normal() * push_force)
-		
-		#Pick up and drop items
-#		if Input.is_action_just_pressed("Pickup") :
-#			if pickedItem != null :
-#
-#				if isHittingDivider:
-#					return
-#
-#				#drop the item
-#				pickedItem.held = false
-#				pickedItem.setCollisions(true)
-#
-#				var itemScale = pickedItem.scale
-##				pickedItem.position.x = position.x + ((directionOffsetZ * itemScale.x) * lastDirection)
-#				pickedItem.position = position + ($Area2D/CollisionShape2D.position * scale)
-#				pickedItem = null
-#				collindingNode = null
-#
-#			if collindingNode != null && pickedItem == null:
-#				pickupItem(collindingNode)
 		
 		
 #	if pickedItem != null:
@@ -92,6 +103,11 @@ func _on_area_2d_area_entered(area):
 				"Dividers":
 					print("Hitting devider")
 					isHittingDivider = true
+				"Winds":
+					print("Hitting wind")
+					windApplied = rootNode;
+					windSpeedX = windApplied.windSpeedX
+					windSpeedY = windApplied.windSpeedY
 				_ :
 					collindingNode = null
 	pass # Replace with function body.
@@ -107,6 +123,9 @@ func _on_area_2d_area_exited(area):
 				"Dividers":
 					print("Exit divider")
 					isHittingDivider = false
+				"Winds":
+					print("Hitting wind")
+					windApplied = null;
 				_ :
 					collindingNode = null
 	pass # Replace with function body.

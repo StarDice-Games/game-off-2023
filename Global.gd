@@ -50,13 +50,13 @@ func _process(delta):
 	#Check if the level is complete
 	var levelComplete = goals.all(goalIsAchieved)
 	
-	if levelComplete:
-		print("Level is complete !!!", scenes.size())
-#		if next_scene + 1 < scenes.size() :
-		if scenes[next_scene] != null:
-			get_tree().change_scene_to_packed(scenes[next_scene])
-			next_scene += 1
-			next_scene %= scenes.size()
+#	if levelComplete:
+#		print("Level is complete !!!", scenes.size())
+##		if next_scene + 1 < scenes.size() :
+#		if scenes[next_scene] != null:
+#			get_tree().change_scene_to_packed(scenes[next_scene])
+#			next_scene += 1
+#			next_scene %= scenes.size()
 			
 	
 	if Input.is_action_just_pressed("ResetLevel"):

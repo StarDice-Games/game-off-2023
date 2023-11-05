@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bklo68yxnr5vs"]
+
+[ext_resource type="Script" path="res://Scenes/HorizonatalWind/Wind.gd" id="1_od8a5"]
+[ext_resource type="Texture2D" uid="uid://cg1ymalfuxac" path="res://Resources/Images/New Piskel.png" id="2_jq3a3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbs5i"]
+size = Vector2(20, 282)
+
+[node name="HorizontalWind" type="Node2D" groups=["Winds"]]
+script = ExtResource("1_od8a5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.0392157, 0.431373, 0.458824, 1)
+position = Vector2(0, 2.99999)
+scale = Vector2(1, 8.875)
+texture = ExtResource("2_jq3a3")
+
+[node name="Wind" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wind"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_vbs5i")

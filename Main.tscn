@@ -1,16 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://hokdakf8x4lx"]
+[gd_scene load_steps=5 format=3 uid="uid://hokdakf8x4lx"]
 
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/Player/PlatPlayer.tscn" id="1_wvy3f"]
 [ext_resource type="PackedScene" uid="uid://b1omndopqlxo6" path="res://Scenes/PlatformerPlayer/Obstacle/obstacle.tscn" id="2_uyavw"]
+[ext_resource type="PackedScene" uid="uid://bklo68yxnr5vs" path="res://Scenes/HorizonatalWind/HorizontalWind.tscn" id="3_cenbj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orutt"]
-size = Vector2(1180.62, 20)
+size = Vector2(2647.95, 22.9686)
 
 [node name="main" type="Node2D"]
 
+[node name="VerticalWind3" parent="." instance=ExtResource("3_cenbj")]
+position = Vector2(594, 471)
+rotation = 1.57079
+windDirection = Vector2(-1, 0)
+
+[node name="HorizontalWind" parent="." instance=ExtResource("3_cenbj")]
+position = Vector2(62, 385)
+windDirection = Vector2(0, -1)
+windSpeedX = 0.0
+windSpeedY = 20.0
+
+[node name="VerticalWind2" parent="." instance=ExtResource("3_cenbj")]
+position = Vector2(600, 271)
+rotation = 1.57079
+scale = Vector2(2.64, 1.52)
+windDirection = Vector2(1, 0)
+windSpeedX = 150.0
+
 [node name="PlatPlayer" parent="." instance=ExtResource("1_wvy3f")]
-position = Vector2(161, 202)
+position = Vector2(220, 434)
 scale = Vector2(0.5, 0.5)
+windResistance = 5.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(243.753, 366.368)
@@ -24,7 +44,9 @@ offset_bottom = 232.632
 scale = Vector2(29.4813, 0.897258)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(332.935, 211.632)
+position = Vector2(333.247, 211.132)
+rotation = -3.14159
+scale = Vector2(0.444117, -1.43675)
 shape = SubResource("RectangleShape2D_orutt")
 
 [node name="StaticBody2D4" parent="." instance=ExtResource("2_uyavw")]
@@ -32,21 +54,21 @@ position = Vector2(2794, 952)
 scale = Vector2(54.76, 1.2544)
 
 [node name="StaticBody2D2" parent="." instance=ExtResource("2_uyavw")]
-position = Vector2(280, 437)
+position = Vector2(270, 516)
 scale = Vector2(7.4, 1.12)
 
 [node name="StaticBody2D5" parent="." instance=ExtResource("2_uyavw")]
-position = Vector2(542, 399)
+position = Vector2(212, 361)
 scale = Vector2(7.4, 1.12)
 
 [node name="StaticBody2D6" parent="." instance=ExtResource("2_uyavw")]
-position = Vector2(804, 355)
+position = Vector2(927, 367)
 scale = Vector2(7.4, 1.12)
 
 [node name="StaticBody2D9" parent="." instance=ExtResource("2_uyavw")]
-position = Vector2(623, 195)
+position = Vector2(553, 73)
 scale = Vector2(7.4, 1.12)
 
 [node name="StaticBody2D3" parent="." instance=ExtResource("2_uyavw")]
-position = Vector2(490, 356)
-scale = Vector2(4.20431, -1.02274)
+position = Vector2(593, 508)
+scale = Vector2(9.73457, -1.02274)
