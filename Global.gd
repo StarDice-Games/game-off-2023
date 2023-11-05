@@ -42,7 +42,10 @@ func setActivePlayer(number):
 	activePlayer = number
 
 func goalIsAchieved(goal):
-	return goal.achieved
+	if goal == null :
+		return false
+		
+	return goal.achieved 
 
 enum Scaling {
 	INCREASE,
