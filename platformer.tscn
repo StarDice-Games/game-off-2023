@@ -15,6 +15,7 @@ size = Vector2(1180.62, 20)
 [node name="PlatPlayer" parent="." groups=["Players"] instance=ExtResource("1_33jua")]
 position = Vector2(267.101, 321.005)
 scale = Vector2(0.5, 0.5)
+JUMP_VELOCITY = -800.0
 
 [node name="PlatPlayer2" parent="." groups=["Players"] instance=ExtResource("1_33jua")]
 position = Vector2(1053, 371)

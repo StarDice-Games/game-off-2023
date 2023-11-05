@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5sep273wr1mk"]
+[gd_scene load_steps=7 format=3 uid="uid://b5sep273wr1mk"]
 
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="1_055yc"]
 [ext_resource type="PackedScene" uid="uid://b1omndopqlxo6" path="res://Scenes/PlatformerPlayer/Obstacle/obstacle.tscn" id="2_vxsyq"]
 [ext_resource type="PackedScene" uid="uid://bsixpcp0671pa" path="res://Scenes/PlatformerPlayer/Pickable/pickupKinematicRound.tscn" id="3_bustj"]
 [ext_resource type="PackedScene" uid="uid://cc34wwhhably3" path="res://Scenes/PlatformerPlayer/Pickable/pickupKinematic.tscn" id="4_0xa3u"]
-[ext_resource type="PackedScene" uid="uid://clq5fqcyxk5fk" path="res://Scenes/PlatformerPlayer/Goal/Goal.tscn" id="5_gry0a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orutt"]
 size = Vector2(1180.62, 20)
@@ -17,15 +16,24 @@ size = Vector2(35, 34)
 [node name="PlatPlayer" parent="." groups=["Players"] instance=ExtResource("1_055yc")]
 position = Vector2(491, 422)
 scale = Vector2(0.5, 0.5)
+SPEED = null
 JUMP_VELOCITY = -550.0
 push_force = 50
+player = null
+directionOffsetZ = null
+jumpScaleForceUp = null
+jumpScaleForce = null
 
 [node name="PlatPlayer2" parent="." groups=["Players"] instance=ExtResource("1_055yc")]
 position = Vector2(739, 435)
 scale = Vector2(0.5, 0.5)
+SPEED = null
 JUMP_VELOCITY = -550.0
 push_force = 50
 player = 1
+directionOffsetZ = null
+jumpScaleForceUp = null
+jumpScaleForce = null
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(240, 370)
@@ -83,10 +91,3 @@ position = Vector2(648, 261)
 
 [node name="Pickup3" parent="." instance=ExtResource("4_0xa3u")]
 position = Vector2(152, 263)
-
-[node name="Goal" parent="." instance=ExtResource("5_gry0a")]
-position = Vector2(55, 549)
-
-[node name="Goal2" parent="." instance=ExtResource("5_gry0a")]
-position = Vector2(1034, 327)
-goalNumber = 1

@@ -13,6 +13,13 @@ size = Vector2(31.5, 113)
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_go3e0")
+SPEED = null
+JUMP_VELOCITY = null
+push_force = null
+player = null
+directionOffsetZ = null
+jumpScaleForceUp = null
+jumpScaleForce = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_2ii4c")
