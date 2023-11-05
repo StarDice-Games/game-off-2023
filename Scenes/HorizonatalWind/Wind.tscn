@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vbs5i"]
 size = Vector2(20, 282)
 
-[node name="HorizontalWind" type="Node2D" groups=["Winds"]]
+[node name="Wind" type="Node2D" groups=["Winds"]]
 script = ExtResource("1_od8a5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

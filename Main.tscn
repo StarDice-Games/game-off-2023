@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/Player/PlatPlayer.tscn" id="1_wvy3f"]
 [ext_resource type="PackedScene" uid="uid://b1omndopqlxo6" path="res://Scenes/PlatformerPlayer/Obstacle/obstacle.tscn" id="2_uyavw"]
-[ext_resource type="PackedScene" uid="uid://bklo68yxnr5vs" path="res://Scenes/HorizonatalWind/HorizontalWind.tscn" id="3_cenbj"]
+[ext_resource type="PackedScene" uid="uid://bklo68yxnr5vs" path="res://Scenes/HorizonatalWind/Wind.tscn" id="3_cenbj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orutt"]
 size = Vector2(2647.95, 22.9686)
@@ -31,7 +31,7 @@ windSpeedX = 150.0
 position = Vector2(220, 434)
 scale = Vector2(0.5, 0.5)
 JUMP_VELOCITY = -450.0
-umbrellaDrag = -875.0
+umbrellaDrag = -575.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(243.753, 366.368)
