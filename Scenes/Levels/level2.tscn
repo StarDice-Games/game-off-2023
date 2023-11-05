@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://b5sep273wr1mk"]
 
-[ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="1_055yc"]
+[ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/Player/PlatPlayer.tscn" id="1_055yc"]
 [ext_resource type="PackedScene" uid="uid://b1omndopqlxo6" path="res://Scenes/PlatformerPlayer/Obstacle/obstacle.tscn" id="2_vxsyq"]
 [ext_resource type="PackedScene" uid="uid://bsixpcp0671pa" path="res://Scenes/PlatformerPlayer/Pickable/pickupKinematicRound.tscn" id="3_bustj"]
 [ext_resource type="PackedScene" uid="uid://cc34wwhhably3" path="res://Scenes/PlatformerPlayer/Pickable/pickupKinematic.tscn" id="4_0xa3u"]

@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 @export var SPEED = 300.0
 @export var JUMP_VELOCITY = -400.0
 @export var push_force = 100
@@ -39,7 +38,7 @@ func _physics_process(delta):
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 		
-		$Area2D/CollisionShape2D.position.x = sign(lastDirection) * directionOffsetZ
+#		$Area2D/CollisionShape2D.position.x = sign(lastDirection) * directionOffsetZ
 		
 		for index in get_slide_collision_count():
 			var collision = get_slide_collision(index)
@@ -47,28 +46,28 @@ func _physics_process(delta):
 				collision.get_collider().apply_central_impulse(-collision.get_normal() * push_force)
 		
 		#Pick up and drop items
-		if Input.is_action_just_pressed("Pickup") :
-			if pickedItem != null :
-				
-				if isHittingDivider:
-					return
-				
-				#drop the item
-				pickedItem.held = false
-				pickedItem.setCollisions(true)
-				
-				var itemScale = pickedItem.scale
-#				pickedItem.position.x = position.x + ((directionOffsetZ * itemScale.x) * lastDirection)
-				pickedItem.position = position + ($Area2D/CollisionShape2D.position * scale)
-				pickedItem = null
-				collindingNode = null
-				
-			if collindingNode != null && pickedItem == null:
-				pickupItem(collindingNode)
+#		if Input.is_action_just_pressed("Pickup") :
+#			if pickedItem != null :
+#
+#				if isHittingDivider:
+#					return
+#
+#				#drop the item
+#				pickedItem.held = false
+#				pickedItem.setCollisions(true)
+#
+#				var itemScale = pickedItem.scale
+##				pickedItem.position.x = position.x + ((directionOffsetZ * itemScale.x) * lastDirection)
+#				pickedItem.position = position + ($Area2D/CollisionShape2D.position * scale)
+#				pickedItem = null
+#				collindingNode = null
+#
+#			if collindingNode != null && pickedItem == null:
+#				pickupItem(collindingNode)
 		
 		
-	if pickedItem != null:
-			pickedItem.position = position + ($PickupPosition.position * scale)
+#	if pickedItem != null:
+#			pickedItem.position = position + ($PickupPosition.position * scale)
 				
 	move_and_slide()
 

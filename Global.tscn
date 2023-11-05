@@ -1,8 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxeb2iva4yrgw"]
+[gd_scene load_steps=3 format=3 uid="uid://0ign0svifgwm"]
 
 [ext_resource type="Script" path="res://Global.gd" id="1_j5qpw"]
-[ext_resource type="PackedScene" path="res://Design Scene/Level 1.tscn" id="2_oayv0"]
+[ext_resource type="PackedScene" uid="uid://hokdakf8x4lx" path="res://main.tscn" id="2_8o4wg"]
 
 [node name="Global" type="Node2D"]
 script = ExtResource("1_j5qpw")
-scenes = Array[PackedScene]([ExtResource("2_oayv0")])
+scenes = Array[PackedScene]([ExtResource("2_8o4wg")])
