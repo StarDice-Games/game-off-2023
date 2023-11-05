@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var push_force = 100
 @export var player = 0
 @export var directionOffsetZ = 75.0
-@export var windResistance = 50.0
+@export var umbrellaDrag = -50.0
 
 var collindingNode : CharacterBody2D = null
 var pickedItem : CharacterBody2D = null
@@ -27,8 +27,10 @@ func _ready():
 
 func _physics_process(delta):
 	if not is_on_floor():
-			velocity.y += gravity * delta
-			
+		velocity.y += gravity * delta
+		if umblellaDirection.y == -1:
+			velocity.y += (umbrellaDrag * delta)
+	
 	if Global.activePlayer == player:
 
 		# Handle Jump.
@@ -64,11 +66,6 @@ func _physics_process(delta):
 				print("Dir:", windLastDirection)	
 				velocity.x += windLastDirection.x * windSpeedX
 				velocity.y += windLastDirection.y * windSpeedY
-				
-		#mantain the wind speed a little after exiting the Area
-#		windSpeedX = move_toward(windSpeedX, 0, windResistance)
-#		windSpeedY = move_toward(windSpeedY, 0, windResistance)
-		
 		
 		
 		for index in get_slide_collision_count():
