@@ -7,25 +7,29 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orutt"]
 size = Vector2(2647.95, 22.9686)
 
-[node name="main" type="Node2D"]
+[node name="mainNode" type="Node2D"]
+
+[node name="Wind" parent="." instance=ExtResource("3_cenbj")]
+position = Vector2(51, 379)
+particleSpeed = Vector2(0, -150)
 
 [node name="VerticalWind3" parent="." instance=ExtResource("3_cenbj")]
 position = Vector2(594, 471)
-rotation = 1.57079
+rotation = -1.57079
 windDirection = Vector2(-1, 0)
-
-[node name="HorizontalWind" parent="." instance=ExtResource("3_cenbj")]
-position = Vector2(62, 385)
-windDirection = Vector2(0, -1)
-windSpeedX = 0.0
-windSpeedY = 20.0
+windSpeedX = 450.0
+windSpeedY = 1.0
+impulse = true
+particleSpeed = Vector2(-150, 0)
 
 [node name="VerticalWind2" parent="." instance=ExtResource("3_cenbj")]
 position = Vector2(600, 271)
 rotation = 1.57079
 scale = Vector2(2.64, 1.52)
 windDirection = Vector2(1, 0)
-windSpeedX = 150.0
+windSpeedX = 600.0
+windSpeedY = 1.0
+particleSpeed = Vector2(150, 0)
 
 [node name="PlatPlayer" parent="." instance=ExtResource("1_wvy3f")]
 position = Vector2(220, 434)

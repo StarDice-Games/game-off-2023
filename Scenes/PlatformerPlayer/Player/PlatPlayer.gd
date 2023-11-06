@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var SPEED = 300.0
+@export var AIR_SPEED = 150.0
 @export var JUMP_VELOCITY = -400.0
 @export var push_force = 100
 @export var player = 0
@@ -15,6 +16,7 @@ var windLastDirection : Vector2
 var windSpeedX = 0.0
 var windSpeedY = 0.0
 
+
 var isHittingDivider = false
 var lastDirection = 1
 var umblellaDirection = Vector2.ZERO
@@ -24,12 +26,16 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	Global.setPlayer(player, self)
+	
+
+func applyGravity(delta):
+	velocity.y += gravity * delta
+	if umblellaDirection.y == -1:
+		velocity.y += (umbrellaDrag * delta)
 
 func _physics_process(delta):
 	if not is_on_floor():
-		velocity.y += gravity * delta
-		if umblellaDirection.y == -1:
-			velocity.y += (umbrellaDrag * delta)
+		applyGravity(delta)
 	
 	if Global.activePlayer == player:
 
@@ -51,11 +57,15 @@ func _physics_process(delta):
 		$Umbrella.position.x = directionOffsetZ * umblellaDirection.x
 		$Umbrella.position.y = directionOffsetZ * umblellaDirection.y
 		
+		var speed = SPEED
+#		if not is_on_floor():
+#			speed = AIR_SPEED
+		
 		if direction:
-			velocity.x = direction * SPEED
+			velocity.x = direction * speed
 			lastDirection = direction
 		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.x = move_toward(velocity.x, 0, speed)
 		
 #		$Area2D/CollisionShape2D.position.x = sign(lastDirection) * directionOffsetZ
 		
@@ -63,9 +73,14 @@ func _physics_process(delta):
 			#umbrella is open
 			if windApplied != null:
 				windLastDirection = umblellaDirection.lerp(windApplied.windDirection, 0.8)
-				print("Dir:", windLastDirection)	
-				velocity.x += windLastDirection.x * windSpeedX
-				velocity.y += windLastDirection.y * windSpeedY
+				print("Dir:", windLastDirection)
+				
+				if(windApplied.impulse == true):
+					velocity.x = windLastDirection.x * windApplied.windSpeedX
+					velocity.y = windLastDirection.y * windApplied.windSpeedY
+				else:
+					velocity.x += windLastDirection.x * windApplied.windSpeedX
+					velocity.y += windLastDirection.y * windApplied.windSpeedY
 		
 		
 		for index in get_slide_collision_count():
