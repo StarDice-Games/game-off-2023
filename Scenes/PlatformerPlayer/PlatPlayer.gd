@@ -7,8 +7,8 @@ extends CharacterBody2D
 @export var player = 0
 @export var directionOffsetZ = 75.0
 
-var collindingNode : CharacterBody2D = null
-var pickedItem : CharacterBody2D = null
+var collindingNode : Node2D = null
+var pickedItem : Node2D = null
 
 var isHittingDivider = false
 var lastDirection = 1
@@ -59,7 +59,7 @@ func _physics_process(delta):
 				
 				var itemScale = pickedItem.scale
 #				pickedItem.position.x = position.x + ((directionOffsetZ * itemScale.x) * lastDirection)
-				pickedItem.position = position + ($Area2D/CollisionShape2D.position * scale)
+				pickedItem.global_position = position + ($Area2D/CollisionShape2D.position * scale)
 				pickedItem = null
 				collindingNode = null
 				
@@ -68,7 +68,8 @@ func _physics_process(delta):
 		
 		
 	if pickedItem != null:
-			pickedItem.position = position + ($PickupPosition.position * scale)
+		
+		pickedItem.global_position = position + ($PickupPosition.position * scale)
 				
 	move_and_slide()
 
@@ -89,6 +90,7 @@ func _on_area_2d_area_entered(area):
 			print("root node %s" % rootNode.name)
 			match group:
 				"Pickable":
+					#now the pickable need to get the father
 					collindingNode = rootNode
 				"Dividers":
 					print("Hitting devider")

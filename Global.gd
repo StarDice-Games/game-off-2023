@@ -57,12 +57,12 @@ func transferPickable(starting, receiver, scaling : Scaling):
 		return
 	
 #	the picket item is changed and transfered
-	var  toTransfer : CharacterBody2D = starting.pickedItem
+	var  toTransfer : Node2D = starting.pickedItem
 	if toTransfer != null:
-		if scaling == Scaling.INCREASE:
-			toTransfer.scale *= scaleFactor
-		elif scaling == Scaling.DECREASE:
-			toTransfer.scale /= scaleFactor
+		if scaling == Scaling.INCREASE: #toRightSide
+			toTransfer.setSide(1)
+		elif scaling == Scaling.DECREASE: #toLeftSide
+			toTransfer.setSide(0)
 		
 		receiver.pickupItem(toTransfer)
 		starting.dropItem()

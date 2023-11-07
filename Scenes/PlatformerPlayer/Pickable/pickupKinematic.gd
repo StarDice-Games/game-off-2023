@@ -1,4 +1,5 @@
-extends CharacterBody2D
+@tool
+extends Node2D
 
 
 const SPEED = 300.0
@@ -8,12 +9,27 @@ const JUMP_VELOCITY = -400.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var held = false
+@export var currentSide = 0
 
-func _physics_process(delta):
-	# Add the gravity.
-	if not is_on_floor() && not held:
-		velocity.y += gravity * delta
-	move_and_slide()
+func _process(delta):
+	match currentSide:
+		0: #left
+			$LeftSide.process_mode = Node.PROCESS_MODE_INHERIT
+			$LeftSide.show()
+			
+			$RightSide.process_mode = Node.PROCESS_MODE_DISABLED
+			$RightSide.hide()
+		1: #right
+			$RightSide.process_mode = Node.PROCESS_MODE_INHERIT
+			$RightSide.show()
+			
+			$LeftSide.process_mode = Node.PROCESS_MODE_DISABLED
+			$LeftSide.hide()
+	pass
 
+func setSide(side):
+	currentSide = side
+	
 func setCollisions(state):
-	$CollisionShape2D.disabled = !state; #cause is inverted
+	$LeftSide/CollisionShape2D.disabled = !state; #cause is inverted
+	$RightSide/RightCollision.disabled = !state; #cause is inverted

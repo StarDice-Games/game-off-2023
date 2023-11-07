@@ -1,34 +1,76 @@
-[gd_scene load_steps=6 format=3 uid="uid://cc34wwhhably3"]
+[gd_scene load_steps=9 format=3 uid="uid://cc34wwhhably3"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Pickable/pickupKinematic.gd" id="1_1vihy"]
+[ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Pickable/LeftSide.gd" id="2_eqsvq"]
 [ext_resource type="Texture2D" uid="uid://cg1ymalfuxac" path="res://Resources/Images/New Piskel.png" id="2_nfm0g"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7dbp8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpfyx"]
-size = Vector2(35, 34)
+size = Vector2(32.8205, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5fxvy"]
-size = Vector2(40, 38)
+size = Vector2(32, 31.8142)
 
-[node name="Pickup" type="CharacterBody2D" groups=["Pickable"]]
-collision_layer = 4
-collision_mask = 7
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k6gkd"]
+size = Vector2(65.641, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rofam"]
+size = Vector2(64, 63.6284)
+
+[node name="Pickup" type="Node2D"]
 script = ExtResource("1_1vihy")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="LeftSide" type="CharacterBody2D" parent="." groups=["Pickable"]]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("2_eqsvq")
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftSide"]
 modulate = Color(0.588235, 0.498039, 0.701961, 1)
 material = SubResource("CanvasItemMaterial_7dbp8")
 texture = ExtResource("2_nfm0g")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftSide"]
 scale = Vector2(0.975, 1)
 shape = SubResource("RectangleShape2D_lpfyx")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="LeftSide" groups=["Pickable"]]
 collision_layer = 4
 collision_mask = 7
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftSide/Area2D"]
 scale = Vector2(1, 1.00584)
 shape = SubResource("RectangleShape2D_5fxvy")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="LeftSide"]
+remote_path = NodePath("../..")
+
+[node name="RightSide" type="CharacterBody2D" parent="." groups=["Pickable"]]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("2_eqsvq")
+
+[node name="Sprite2D2" type="Sprite2D" parent="RightSide"]
+modulate = Color(0.65098, 0.529412, 0.207843, 1)
+material = SubResource("CanvasItemMaterial_7dbp8")
+scale = Vector2(2, 2)
+texture = ExtResource("2_nfm0g")
+
+[node name="RightCollision" type="CollisionShape2D" parent="RightSide"]
+position = Vector2(-9.53674e-07, -9.53674e-07)
+scale = Vector2(0.975, 1)
+shape = SubResource("RectangleShape2D_k6gkd")
+
+[node name="Area2D2" type="Area2D" parent="RightSide"]
+collision_layer = 4
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightSide/Area2D2"]
+position = Vector2(0, -9.53674e-07)
+scale = Vector2(1, 1.00584)
+shape = SubResource("RectangleShape2D_rofam")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.686275, 0.0705882, 0.14902, 1)
+texture = ExtResource("2_nfm0g")
