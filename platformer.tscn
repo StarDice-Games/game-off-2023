@@ -79,3 +79,7 @@ currentSide = 1
 [node name="Pickup2" parent="." instance=ExtResource("5_4s70o")]
 position = Vector2(435, 381.197)
 currentSide = 1
+
+[node name="Pickup3" parent="." instance=ExtResource("5_4s70o")]
+position = Vector2(329, 191)
+scale = Vector2(2.87715, 1.17452)

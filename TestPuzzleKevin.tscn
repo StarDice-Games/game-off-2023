@@ -1,9 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bjk44tfegwe3j"]
+[gd_scene load_steps=6 format=3 uid="uid://bjk44tfegwe3j"]
 
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="1_ny88f"]
 [ext_resource type="PackedScene" uid="uid://b1omndopqlxo6" path="res://Scenes/PlatformerPlayer/Obstacle/obstacle.tscn" id="2_wxuh4"]
-[ext_resource type="PackedScene" uid="uid://bsixpcp0671pa" path="res://Scenes/PlatformerPlayer/Pickable/pickupKinematicRound.tscn" id="3_116i6"]
-[ext_resource type="PackedScene" uid="uid://cc34wwhhably3" path="res://Scenes/PlatformerPlayer/Pickable/pickupKinematic.tscn" id="4_mpqsm"]
 [ext_resource type="PackedScene" uid="uid://clq5fqcyxk5fk" path="res://Scenes/PlatformerPlayer/Goal/Goal.tscn" id="5_14e1c"]
 [ext_resource type="PackedScene" uid="uid://duvywv1d1kgyo" path="res://Scenes/PlatformerPlayer/Divider/divider.tscn" id="6_kh0cg"]
 
@@ -67,46 +65,6 @@ position = Vector2(396, 397)
 
 [node name="StaticBody2D10" parent="." instance=ExtResource("2_wxuh4")]
 position = Vector2(318, 104)
-
-[node name="Pickup" parent="." instance=ExtResource("3_116i6")]
-position = Vector2(761, 544)
-
-[node name="Pickup9" parent="." instance=ExtResource("3_116i6")]
-position = Vector2(624, 36)
-scale = Vector2(1.45184, 1.45649)
-
-[node name="Pickup7" parent="." instance=ExtResource("3_116i6")]
-position = Vector2(603, 275)
-
-[node name="Pickup2" parent="." instance=ExtResource("3_116i6")]
-position = Vector2(837, 484)
-scale = Vector2(0.993041, 4.78968)
-
-[node name="Pickup3" parent="." instance=ExtResource("4_mpqsm")]
-position = Vector2(179, 542)
-
-[node name="Pickup4" parent="." instance=ExtResource("4_mpqsm")]
-position = Vector2(229, 542)
-
-[node name="Pickup11" parent="." instance=ExtResource("4_mpqsm")]
-position = Vector2(64, 541)
-
-[node name="Pickup8" parent="." instance=ExtResource("4_mpqsm")]
-position = Vector2(189, 253)
-
-[node name="Pickup12" parent="." instance=ExtResource("4_mpqsm")]
-position = Vector2(324, 84)
-
-[node name="Pickup10" parent="." instance=ExtResource("4_mpqsm")]
-position = Vector2(254, 252)
-scale = Vector2(0.5, 0.5)
-
-[node name="Pickup6" parent="." instance=ExtResource("4_mpqsm")]
-position = Vector2(350, 261)
-scale = Vector2(1.08, 0.36)
-
-[node name="Pickup5" parent="." instance=ExtResource("4_mpqsm")]
-position = Vector2(1114, 541)
 
 [node name="Divider2" parent="." instance=ExtResource("6_kh0cg")]
 position = Vector2(572, 269)
