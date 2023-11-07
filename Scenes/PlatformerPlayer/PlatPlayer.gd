@@ -59,7 +59,7 @@ func _physics_process(delta):
 				
 				var itemScale = pickedItem.scale
 #				pickedItem.position.x = position.x + ((directionOffsetZ * itemScale.x) * lastDirection)
-				pickedItem.global_position = position + ($Area2D/CollisionShape2D.position * scale)
+				pickedItem.position = position + ($Area2D/CollisionShape2D.position * scale)
 				pickedItem = null
 				collindingNode = null
 				
@@ -67,9 +67,8 @@ func _physics_process(delta):
 				pickupItem(collindingNode)
 		
 		
-	if pickedItem != null:
-		
-		pickedItem.global_position = position + ($PickupPosition.position * scale)
+	if pickedItem != null:		
+		pickedItem.position = position + ($PickupPosition.position * scale)
 				
 	move_and_slide()
 

@@ -57,7 +57,9 @@ func transferPickable(starting, receiver, scaling : Scaling):
 		return
 	
 #	the picket item is changed and transfered
-	var  toTransfer : Node2D = starting.pickedItem
+#	now the picked item need to call this on the parent node
+	var toTransfer : Node2D = starting.pickedItem
+#	var parent = toTransfer.get_parent()
 	if toTransfer != null:
 		if scaling == Scaling.INCREASE: #toRightSide
 			toTransfer.setSide(1)

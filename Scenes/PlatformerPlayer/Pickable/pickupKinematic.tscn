@@ -23,7 +23,7 @@ script = ExtResource("1_1vihy")
 
 [node name="LeftSide" type="CharacterBody2D" parent="." groups=["Pickable"]]
 collision_layer = 4
-collision_mask = 3
+collision_mask = 7
 script = ExtResource("2_eqsvq")
 
 [node name="Sprite2D" type="Sprite2D" parent="LeftSide"]
@@ -42,9 +42,6 @@ collision_mask = 7
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftSide/Area2D"]
 scale = Vector2(1, 1.00584)
 shape = SubResource("RectangleShape2D_5fxvy")
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="LeftSide"]
-remote_path = NodePath("../..")
 
 [node name="RightSide" type="CharacterBody2D" parent="." groups=["Pickable"]]
 collision_layer = 4
