@@ -1,8 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxeb2iva4yrgw"]
+[gd_scene load_steps=4 format=3 uid="uid://bxeb2iva4yrgw"]
 
 [ext_resource type="Script" path="res://Global.gd" id="1_j5qpw"]
 [ext_resource type="PackedScene" uid="uid://brtmw4waob8c7" path="res://Design Scene/Level 1.tscn" id="2_oayv0"]
+[ext_resource type="PackedScene" uid="uid://dqijkmgdh5ulw" path="res://Scenes/Menus/MainMenu/MainMenu.tscn" id="3_wleec"]
 
 [node name="Global" type="Node2D"]
 script = ExtResource("1_j5qpw")
 scenes = Array[PackedScene]([ExtResource("2_oayv0")])
+
+[node name="MainMenu" parent="." instance=ExtResource("3_wleec")]

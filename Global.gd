@@ -15,11 +15,27 @@ var goals : Array[Node2D] = [null, null]
 
 var next_scene = 1
 
+enum GameState {
+	MAIN_MENU,
+	PAUSE,
+	LEVEL_SELECT,
+	IN_GAME
+}
+
+enum Scaling {
+	INCREASE,
+	DECREASE
+}
+
+var currentGameState = GameState.MAIN_MENU
+
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	
+func _ready():	
 	next_scene %= scenes.size() #adapt the next_scene based on the total scenes
-		
+	print("Global ready")
+	toggleNode($MainMenu, true)
+	$MainMenu.connect("exit_pressed", _on_main_menu_exit_pressed)
+	$MainMenu.connect("new_game_pressed", _on_main_menu_new_game_pressed)
 	pass # Replace with function body.
 
 func setPlayer(number, player : CharacterBody2D):
@@ -49,11 +65,6 @@ func goalIsAchieved(goal):
 		
 	return goal.achieved 
 
-enum Scaling {
-	INCREASE,
-	DECREASE
-}
-	
 func transferPickable(starting, receiver, scaling : Scaling):
 	#do not transfer if the other player has an item
 	if receiver.pickedItem != null:
@@ -74,7 +85,21 @@ func transferPickable(starting, receiver, scaling : Scaling):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
+	match currentGameState:
+		GameState.MAIN_MENU:
+			processMainMenu(delta)
+			pass
+		GameState.PAUSE:
+			processPause(delta)
+			pass
+		GameState.LEVEL_SELECT:
+			pass
+		GameState.IN_GAME:
+			processGame(delta)
+			pass
+#	
+
+func processGame(delta):
 #	if Input.is_action_just_pressed("ChangePlayer") :
 #		for player in players:
 #			if player == null:
@@ -123,7 +148,43 @@ func _process(delta):
 	if Input.is_action_just_pressed("ResetLevel"):
 		get_tree().reload_current_scene()
 	pass
+	pass
+
+func processMainMenu(delta):
+	#not sure at the moment	
+	pass
+
+func processPause(delta):
+	pass
+
+func processLevelSelect(delta):
+	pass
+
+func toggleNode(node, state):
+	if state:
+		node.show()
+		node.process_mode = PROCESS_MODE_INHERIT
+	else:
+		node.hide()
+		node.process_mode = PROCESS_MODE_DISABLED
 
 func onPlayerDeath():
 	print("Player Died")
 	get_tree().reload_current_scene()
+
+
+func _on_main_menu_exit_pressed():
+	print("Quit the game")
+	get_tree().quit()
+	pass # Replace with function body.
+
+func _on_main_menu_new_game_pressed():
+	print("Start the game")
+	#hide the menu
+	toggleNode($MainMenu, false)
+	#change the status
+	currentGameState = GameState.IN_GAME
+	#load the first scene
+	if scenes.size() > 0:
+		get_tree().change_scene_to_packed(scenes.front())
+	pass # Replace with function body.
