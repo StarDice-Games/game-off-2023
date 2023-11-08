@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3w0vp34bfsu4"]
+
+[ext_resource type="Script" path="res://Scenes/Menus/PauseMenu/PauseMenu.gd" id="1_0vhar"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0vhar")
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 283.0
+offset_top = 11.0
+offset_right = 323.0
+offset_bottom = 51.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 76.0
+offset_right = 250.0
+offset_bottom = 116.0
+scale = Vector2(2.70692, 4.32182)
+color = Color(0.212305, 0.212305, 0.212305, 1)
+
+[node name="Resume" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 228.0
+offset_top = 88.0
+offset_right = 298.0
+offset_bottom = 119.0
+text = "Resume"
+
+[node name="Restart" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 228.0
+offset_top = 145.0
+offset_right = 298.0
+offset_bottom = 176.0
+text = "Restart"
+
+[node name="Exit" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 228.0
+offset_top = 206.0
+offset_right = 298.0
+offset_bottom = 237.0
+text = "Exit"
+
+[connection signal="pressed" from="Control/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Control/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Control/Exit" to="." method="_on_exit_pressed"]

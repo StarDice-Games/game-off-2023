@@ -12,7 +12,12 @@ var goals : Array[Node2D] = [null, null]
 
 @export var scaleFactor = Vector2(2, 2)
 @export var scenes : Array[PackedScene]
+@export var pauseMenuScene : PackedScene
+@export var mainScene : PackedScene
 
+#var pauseMenuScene = load(pauseMenuPath.get_concatenated_names())
+
+var nodeInstance = null
 var next_scene = 1
 
 enum GameState {
@@ -34,8 +39,16 @@ func _ready():
 	next_scene %= scenes.size() #adapt the next_scene based on the total scenes
 	print("Global ready")
 	toggleNode($MainMenu, true)
+	
 	$MainMenu.connect("exit_pressed", _on_main_menu_exit_pressed)
 	$MainMenu.connect("new_game_pressed", _on_main_menu_new_game_pressed)
+	
+	#testing not sure if it's ok
+	if pauseMenuScene != null:		
+		nodeInstance = pauseMenuScene.instantiate()
+	else:
+		printerr("Error missing pause scene")
+	
 	pass # Replace with function body.
 
 func setPlayer(number, player : CharacterBody2D):
@@ -148,7 +161,15 @@ func processGame(delta):
 	if Input.is_action_just_pressed("ResetLevel"):
 		get_tree().reload_current_scene()
 	pass
-	pass
+	
+	if Input.is_action_just_pressed("Pause"):
+		#Add the packed scene to the root, so its on top and stop the game
+		get_tree().root.add_child(nodeInstance)
+		currentGameState = GameState.PAUSE
+		nodeInstance.connect("on_resume_pressed", resumeGame)
+		nodeInstance.connect("on_restart_pressed", restartLevel)
+		nodeInstance.connect("on_exit_pressed", exitGame)
+	
 
 func processMainMenu(delta):
 	#not sure at the moment	
@@ -188,3 +209,37 @@ func _on_main_menu_new_game_pressed():
 	if scenes.size() > 0:
 		get_tree().change_scene_to_packed(scenes.front())
 	pass # Replace with function body.
+
+func resumeGame():
+	print("Resume the current game")
+	currentGameState = GameState.IN_GAME
+	
+	var pauseNode = get_tree().root.get_node("PauseMenu")
+	if pauseNode != null:
+		get_tree().root.remove_child(pauseNode)
+
+func restartLevel():
+	print("restart the current game")
+	currentGameState = GameState.IN_GAME
+	
+	var pauseNode = get_tree().root.get_node("PauseMenu")
+	if pauseNode != null:
+		get_tree().root.remove_child(pauseNode)
+		
+	get_tree().reload_current_scene()
+
+func exitGame():
+	print("back to the main menu")
+	currentGameState = GameState.MAIN_MENU
+	
+	var pauseNode = get_tree().root.get_node("PauseMenu")
+	if pauseNode != null:
+		get_tree().root.remove_child(pauseNode)
+		
+	toggleNode($MainMenu, true)
+	
+	#load the main scene ? or add the main menu as before ?
+	if mainScene != null:
+		get_tree().change_scene_to_packed(mainScene)
+	else:
+		push_error("Main scene missing in Global")

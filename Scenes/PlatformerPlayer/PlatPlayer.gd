@@ -22,6 +22,9 @@ func _ready():
 	Global.setPlayer(player, self)
 
 func _physics_process(delta):
+	if Global.currentGameState != Global.GameState.IN_GAME:
+		return
+	
 	if not is_on_floor():
 			velocity.y += gravity * delta
 			
