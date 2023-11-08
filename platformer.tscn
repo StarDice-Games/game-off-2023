@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://hokdakf8x4lx"]
+[gd_scene load_steps=8 format=3 uid="uid://hokdakf8x4lx"]
 
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="1_33jua"]
 [ext_resource type="PackedScene" uid="uid://b1omndopqlxo6" path="res://Scenes/PlatformerPlayer/Obstacle/obstacle.tscn" id="2_o8t8r"]
 [ext_resource type="PackedScene" uid="uid://cknlblnl3goyk" path="res://Scenes/PlatformerPlayer/Pickable/pickup.tscn" id="5_4s70o"]
 [ext_resource type="PackedScene" uid="uid://clq5fqcyxk5fk" path="res://Scenes/PlatformerPlayer/Goal/Goal.tscn" id="5_t21sj"]
 [ext_resource type="PackedScene" uid="uid://duvywv1d1kgyo" path="res://Scenes/PlatformerPlayer/Divider/divider.tscn" id="6_detyv"]
+[ext_resource type="PackedScene" uid="uid://do88ox8hahe8i" path="res://Scenes/PlatformerPlayer/Spikes/Spikes.tscn" id="6_dmm0c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orutt"]
 size = Vector2(1180.62, 20)
@@ -72,10 +73,6 @@ goalNumber = 1
 position = Vector2(572, 269)
 scale = Vector2(0.783267, 33.523)
 
-[node name="Pickup" parent="." instance=ExtResource("5_4s70o")]
-position = Vector2(136, 212)
-currentSide = 1
-
 [node name="Pickup2" parent="." instance=ExtResource("5_4s70o")]
 position = Vector2(435, 381.197)
 currentSide = 1
@@ -83,3 +80,9 @@ currentSide = 1
 [node name="Pickup3" parent="." instance=ExtResource("5_4s70o")]
 position = Vector2(329, 191)
 scale = Vector2(2.87715, 1.17452)
+
+[node name="Spikes" parent="." instance=ExtResource("6_dmm0c")]
+position = Vector2(130, 469)
+
+[node name="Spikes" parent="Spikes" instance=ExtResource("6_dmm0c")]
+position = Vector2(700, -159)

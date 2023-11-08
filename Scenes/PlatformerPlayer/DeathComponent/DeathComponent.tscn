@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu75kel0q2p7r"]
+
+[ext_resource type="Script" path="res://Scenes/PlatformerPlayer/DeathComponent/DeathComponent.gd" id="1_6eydo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tliwh"]
+
+[node name="DeathComponent" type="Area2D"]
+collision_mask = 6
+script = ExtResource("1_6eydo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tliwh")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

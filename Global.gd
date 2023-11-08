@@ -19,10 +19,13 @@ var next_scene = 1
 func _ready():
 	
 	next_scene %= scenes.size() #adapt the next_scene based on the total scenes
+		
 	pass # Replace with function body.
 
 func setPlayer(number, player : CharacterBody2D):
 	players[number] = player
+	#also connect the died event
+	players[number].connect("died", onPlayerDeath)
 	
 func setGoal(number, goal : Node):
 	goals[number] = goal
@@ -120,3 +123,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("ResetLevel"):
 		get_tree().reload_current_scene()
 	pass
+
+func onPlayerDeath():
+	print("Player Died")
+	get_tree().reload_current_scene()

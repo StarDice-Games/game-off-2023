@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name PlatPlayer
 
 @export var SPEED = 300.0
 @export var JUMP_VELOCITY = -400.0
@@ -12,6 +12,8 @@ var pickedItem : Node2D = null
 
 var isHittingDivider = false
 var lastDirection = 1
+
+signal died
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -70,7 +72,13 @@ func _physics_process(delta):
 	if pickedItem != null:		
 		pickedItem.position = position + ($PickupPosition.position * scale)
 				
-	move_and_slide()
+	if move_and_slide():
+		var collision = get_last_slide_collision()
+		var collider = collision.get_collider()
+		if collider.has_node("DeathComponent"):
+			print("Death ", collision.get_collider().name)
+			died.emit()
+		
 
 func pickupItem(item):
 	pickedItem = item
@@ -111,4 +119,9 @@ func _on_area_2d_area_exited(area):
 					isHittingDivider = false
 				_ :
 					collindingNode = null
+	pass # Replace with function body.
+
+
+func _on_area_2d_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	print("PatPLayer _on_area_2d_body_shape_entered %s" % body.name)
 	pass # Replace with function body.
