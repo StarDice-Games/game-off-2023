@@ -236,6 +236,9 @@ func restartLevel():
 	print("restart the current game")
 	currentGameState = GameState.IN_GAME
 	
+	#TODO reset the status of the player
+	activePlayer = 0
+	
 	var pauseNode = get_tree().root.get_node("PauseMenu")
 	if pauseNode != null:
 		get_tree().root.remove_child(pauseNode)

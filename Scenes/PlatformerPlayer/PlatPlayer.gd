@@ -24,6 +24,9 @@ func _ready():
 func _physics_process(delta):
 	if Global.currentGameState != Global.GameState.IN_GAME:
 		return
+		
+	if pickedItem != null:		
+		pickedItem.position = position + ($PickupPosition.position * scale)
 	
 	if not is_on_floor():
 			velocity.y += gravity * delta
@@ -72,8 +75,7 @@ func _physics_process(delta):
 				pickupItem(collindingNode)
 		
 		
-	if pickedItem != null:		
-		pickedItem.position = position + ($PickupPosition.position * scale)
+	
 				
 	if move_and_slide():
 		var collision = get_last_slide_collision()
