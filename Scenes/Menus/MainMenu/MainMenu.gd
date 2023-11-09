@@ -7,11 +7,12 @@ signal exit_pressed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$NewGame.grab_focus()
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(delta):	
 	pass
 
 
@@ -30,4 +31,9 @@ func _on_level_select_pressed():
 func _on_exit_pressed():
 	exit_pressed.emit()
 	print("Exit from the game")
+	pass # Replace with function body.
+
+func _on_draw():
+	print("main menu Become visible")
+	$NewGame.grab_focus()
 	pass # Replace with function body.

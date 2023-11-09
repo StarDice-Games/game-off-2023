@@ -16,6 +16,7 @@ grow_vertical = 2
 script = ExtResource("1_qdm7w")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 6280.0
 offset_bottom = 3272.0
 scale = Vector2(0.181089, 0.195609)
@@ -54,6 +55,10 @@ offset_top = 340.0
 offset_right = 587.0
 offset_bottom = 371.0
 scale = Vector2(1.99241, 1.81114)
+focus_neighbor_top = NodePath("../Exit")
+focus_neighbor_bottom = NodePath("../LevelSelect")
+focus_next = NodePath("../LevelSelect")
+focus_previous = NodePath("../Exit")
 text = "New Game"
 
 [node name="LevelSelect" type="Button" parent="."]
@@ -76,6 +81,8 @@ scale = Vector2(1.7161, 1.81114)
 text = "Exit
 "
 
+[connection signal="draw" from="." to="." method="_on_draw"]
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="NewGame" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="LevelSelect" to="." method="_on_level_select_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

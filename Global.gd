@@ -220,7 +220,8 @@ func _on_main_menu_select_level_pressed():
 		var levelSelectInstance = selectLevelScene.instantiate()
 		get_tree().root.add_child(levelSelectInstance)
 		levelSelectInstance.setItems(scenes)
-	
+		levelSelectInstance.connect("on_level_selected", loadSelectedLevel)
+		levelSelectInstance.connect("on_back", backToMainMenu)
 		
 
 func resumeGame():
@@ -248,6 +249,35 @@ func exitGame():
 	var pauseNode = get_tree().root.get_node("PauseMenu")
 	if pauseNode != null:
 		get_tree().root.remove_child(pauseNode)
+		
+	toggleNode($MainMenu, true)
+	
+	#load the main scene ? or add the main menu as before ?
+	if mainScene != null:
+		get_tree().change_scene_to_packed(mainScene)
+	else:
+		push_error("Main scene missing in Global")
+
+func loadSelectedLevel(index):
+	print("Load level index")
+	if index < scenes.size():
+		var sceneToLoad = scenes[index].scene
+		currentGameState = GameState.IN_GAME
+		
+		var selectLevelNode = get_tree().root.get_node("SelectLevel")
+		if selectLevelNode != null:
+			get_tree().root.remove_child(selectLevelNode)
+		
+		get_tree().change_scene_to_packed(sceneToLoad)
+		
+
+func backToMainMenu():
+	print("back to the main menu")
+	currentGameState = GameState.MAIN_MENU
+	
+	var selectLevelNode = get_tree().root.get_node("SelectLevel")
+	if selectLevelNode != null:
+		get_tree().root.remove_child(selectLevelNode)
 		
 	toggleNode($MainMenu, true)
 	

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://blauksugtg8ro"]
+[gd_scene load_steps=3 format=3 uid="uid://blauksugtg8ro"]
 
 [ext_resource type="Script" path="res://Scenes/Menus/LevelSelect/SelectLevel.gd" id="1_8sxpd"]
+[ext_resource type="Texture2D" uid="uid://gb0kvlkeqvp1" path="res://Resources/Images/testBack.png" id="2_sk47v"]
 
 [node name="SelectLevel" type="Control"]
 layout_mode = 3
@@ -11,12 +12,34 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8sxpd")
 
-[node name="ItemList" type="ItemList" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.490196)
 layout_mode = 0
-offset_right = 317.0
-offset_bottom = 357.0
+offset_right = 1154.0
+offset_bottom = 651.0
+texture = ExtResource("2_sk47v")
+expand_mode = 1
+
+[node name="ItemList" type="ItemList" parent="."]
+modulate = Color(0.568627, 1, 1, 1)
+layout_mode = 0
+offset_left = 422.0
+offset_top = 86.0
+offset_right = 739.0
+offset_bottom = 443.0
 max_columns = 2
 same_column_width = true
 
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 523.0
+offset_top = 485.0
+offset_right = 573.0
+offset_bottom = 516.0
+scale = Vector2(2.23602, 2.00834)
+text = "BACK"
+
+[connection signal="item_activated" from="ItemList" to="." method="_on_item_list_item_activated"]
 [connection signal="item_clicked" from="ItemList" to="." method="_on_item_list_item_clicked"]
 [connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

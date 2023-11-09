@@ -7,6 +7,7 @@ signal on_exit_pressed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Control/Resume.grab_focus()
 	pass # Replace with function body.
 
 
@@ -30,4 +31,9 @@ func _on_restart_pressed():
 func _on_exit_pressed():
 	print("Exit pressed")
 	on_exit_pressed.emit()
+	pass # Replace with function body.
+
+
+func _on_control_draw():
+	$Control/Resume.grab_focus()
 	pass # Replace with function body.

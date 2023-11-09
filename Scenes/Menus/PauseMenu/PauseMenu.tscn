@@ -51,6 +51,7 @@ offset_right = 298.0
 offset_bottom = 237.0
 text = "Exit"
 
+[connection signal="draw" from="Control" to="." method="_on_control_draw"]
 [connection signal="pressed" from="Control/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Control/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="Control/Exit" to="." method="_on_exit_pressed"]
