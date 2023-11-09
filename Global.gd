@@ -11,6 +11,7 @@ var players : Array[CharacterBody2D] = [null, null]
 var goals : Array[Node2D] = [null, null]
 
 @export var scaleFactor = Vector2(2, 2)
+@export var useMenu = true
 @export var scenes : Array[LevelResource]
 @export var pauseMenuScene : PackedScene
 @export var mainScene : PackedScene
@@ -39,7 +40,10 @@ var currentGameState = GameState.MAIN_MENU
 func _ready():	
 	next_scene %= scenes.size() #adapt the next_scene based on the total scenes
 	print("Global ready")
-	toggleNode($MainMenu, true)
+	
+	toggleNode($MainMenu, useMenu)
+	if not useMenu:
+		currentGameState = GameState.IN_GAME
 	
 	$MainMenu.connect("exit_pressed", _on_main_menu_exit_pressed)
 	$MainMenu.connect("new_game_pressed", _on_main_menu_new_game_pressed)

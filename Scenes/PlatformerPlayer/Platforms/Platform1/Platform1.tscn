@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d4diwwos6tieb"]
+
+[ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Platforms/MovingPlatform/MovingComponent.gd" id="1_xslsx"]
+[ext_resource type="Texture2D" uid="uid://cg1ymalfuxac" path="res://Resources/Images/New Piskel.png" id="2_rjcky"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bwo16"]
+size = Vector2(28, 28.9143)
+
+[node name="Platform1" type="CharacterBody2D"]
+script = ExtResource("1_xslsx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3.53205, 1.37037)
+texture = ExtResource("2_rjcky")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8.9407e-08)
+scale = Vector2(4, 1.52174)
+shape = SubResource("RectangleShape2D_bwo16")
