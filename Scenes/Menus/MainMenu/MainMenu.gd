@@ -23,6 +23,7 @@ func _on_new_game_pressed():
 
 func _on_level_select_pressed():
 	print("Open select level TBD")
+	select_level_ressed.emit()
 	pass # Replace with function body.
 
 

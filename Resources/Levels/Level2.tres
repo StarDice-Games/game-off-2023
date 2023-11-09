@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LevelResource" load_steps=4 format=3 uid="uid://dpki32i41f8ih"]
+
+[ext_resource type="Texture2D" uid="uid://cg1ymalfuxac" path="res://Resources/Images/New Piskel.png" id="1_uuc2h"]
+[ext_resource type="PackedScene" uid="uid://bjk44tfegwe3j" path="res://TestPuzzleKevin.tscn" id="2_bfepa"]
+[ext_resource type="Script" path="res://Resources/Levels/LevelResource.gd" id="3_g7l5e"]
+
+[resource]
+script = ExtResource("3_g7l5e")
+name = "Second level"
+icon = ExtResource("1_uuc2h")
+scene = ExtResource("2_bfepa")

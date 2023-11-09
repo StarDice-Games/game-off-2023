@@ -11,9 +11,10 @@ var players : Array[CharacterBody2D] = [null, null]
 var goals : Array[Node2D] = [null, null]
 
 @export var scaleFactor = Vector2(2, 2)
-@export var scenes : Array[PackedScene]
+@export var scenes : Array[LevelResource]
 @export var pauseMenuScene : PackedScene
 @export var mainScene : PackedScene
+@export var selectLevelScene : PackedScene
 
 #var pauseMenuScene = load(pauseMenuPath.get_concatenated_names())
 
@@ -42,6 +43,7 @@ func _ready():
 	
 	$MainMenu.connect("exit_pressed", _on_main_menu_exit_pressed)
 	$MainMenu.connect("new_game_pressed", _on_main_menu_new_game_pressed)
+	$MainMenu.connect("select_level_ressed", _on_main_menu_select_level_pressed)
 	
 	#testing not sure if it's ok
 	if pauseMenuScene != null:		
@@ -150,13 +152,13 @@ func processGame(delta):
 		print("Level is complete !!!", scenes.size())
 #		if next_scene + 1 < scenes.size() :
 		if scenes[next_scene] != null:
-			get_tree().change_scene_to_packed(scenes[next_scene])
+			get_tree().change_scene_to_packed(scenes[next_scene].scene)
 			next_scene += 1
 			next_scene %= scenes.size()
 			
 	#TODO remove this
 	if Input.is_action_just_pressed("ChangeLevelDebug"):
-		get_tree().change_scene_to_packed(scenes[next_scene])
+		get_tree().change_scene_to_packed(scenes[next_scene].scene)
 
 	if Input.is_action_just_pressed("ResetLevel"):
 		get_tree().reload_current_scene()
@@ -207,8 +209,19 @@ func _on_main_menu_new_game_pressed():
 	currentGameState = GameState.IN_GAME
 	#load the first scene
 	if scenes.size() > 0:
-		get_tree().change_scene_to_packed(scenes.front())
+		get_tree().change_scene_to_packed(scenes.front().scene)
 	pass # Replace with function body.
+
+func _on_main_menu_select_level_pressed():
+	print("Select levels")
+	if scenes.size() > 0:
+		toggleNode($MainMenu, false)
+		currentGameState = GameState.LEVEL_SELECT
+		var levelSelectInstance = selectLevelScene.instantiate()
+		get_tree().root.add_child(levelSelectInstance)
+		levelSelectInstance.setItems(scenes)
+	
+		
 
 func resumeGame():
 	print("Resume the current game")
