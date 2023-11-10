@@ -1,7 +1,11 @@
 extends CharacterBody2D
 class_name PlatPlayer
 
-@export var SPEED = 300.0
+@export var GROUND_SPEED = 300.0
+@export var AIR_SPEED = 300.0
+@export var GROUND_FRICTION = 300.0
+
+
 @export var JUMP_VELOCITY = -400.0
 @export var push_force = 100
 @export var player = 0
@@ -27,8 +31,11 @@ func _physics_process(delta):
 		
 	if pickedItem != null:		
 		pickedItem.position = position + ($PickupPosition.position * scale)
+		
+	var moveSpeed = GROUND_SPEED
 	
 	if not is_on_floor():
+			moveSpeed = AIR_SPEED
 			velocity.y += gravity * delta
 			
 	if Global.activePlayer == player:
@@ -42,10 +49,10 @@ func _physics_process(delta):
 		# Todo change controls
 		var direction = Input.get_axis("MoveLeft", "MoveRight")
 		if direction:
-			velocity.x = direction * SPEED
+			velocity.x = direction * moveSpeed
 			lastDirection = direction
 		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.x = move_toward(velocity.x, 0, GROUND_FRICTION)
 		
 		$Area2D/CollisionShape2D.position.x = sign(lastDirection) * directionOffsetZ
 		
