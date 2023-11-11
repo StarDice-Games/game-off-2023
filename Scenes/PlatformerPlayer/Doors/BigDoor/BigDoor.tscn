@@ -12,9 +12,11 @@ size = Vector2(32, 32)
 size = Vector2(20, 19)
 
 [node name="BigDoor" type="StaticBody2D"]
+collision_mask = 3
 script = ExtResource("1_6xypb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0, 1, 0, 1)
 texture = ExtResource("1_k4bpc")
 
@@ -25,6 +27,7 @@ shape = SubResource("RectangleShape2D_vktie")
 script = ExtResource("2_j5eds")
 
 [node name="Goal" parent="." instance=ExtResource("4_hsend")]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
 position = Vector2(0, 0.5)

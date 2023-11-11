@@ -10,6 +10,7 @@ var isOpen = false
 func _ready():
 	$Goal.goalNumber = goalNumber
 	$Goal.active = false
+	Global.setGoal(goalNumber, $Goal)
 	pass # Replace with function body.
 
 
@@ -40,11 +41,13 @@ func _on_receiver_component_triggered():
 
 
 func _on_goal_body_entered(body):
+	print("Goal enter")
 	if body is PlatPlayer:
 		$Goal.achieved = true
 	pass # Replace with function body.
 
 
 func _on_goal_body_exited(body):
+	print("Goal exit")
 	$Goal.achieved = false
 	pass # Replace with function body.
