@@ -20,7 +20,7 @@ func _process(delta):
 	pass
 
 func _on_area_entered(area):
-#	print("%s _on_area_entered:" % name)
+	print("%s _on_area_entered:" % name)
 #	senderComp.activate()
 	pass # Replace with function body.
 

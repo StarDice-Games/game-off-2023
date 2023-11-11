@@ -12,7 +12,7 @@ class_name PlatPlayer
 @export var directionOffsetZ = 75.0
 
 var collindingNode : Node2D = null
-var pickedItem : Node2D = null
+var pickedItem : PickupComponent = null
 
 var isHittingDivider = false
 var lastDirection = 1
@@ -30,7 +30,7 @@ func _physics_process(delta):
 		return
 		
 	if pickedItem != null:		
-		pickedItem.position = position + ($PickupPosition.position * scale)
+		pickedItem.setPosition(position + ($PickupPosition.position * scale)) 
 		
 	var moveSpeed = GROUND_SPEED
 	
@@ -74,7 +74,7 @@ func _physics_process(delta):
 				
 				var itemScale = pickedItem.scale
 #				pickedItem.position.x = position.x + ((directionOffsetZ * itemScale.x) * lastDirection)
-				pickedItem.position = position + ($Area2D/CollisionShape2D.position * scale)
+				pickedItem.setPosition(position + ($Area2D/CollisionShape2D.position * scale))
 				pickedItem = null
 				collindingNode = null
 				
@@ -110,7 +110,7 @@ func _on_area_2d_area_entered(area):
 			match group:
 				"Pickable":
 					#now the pickable need to get the father
-					collindingNode = rootNode
+					collindingNode = area
 				"Dividers":
 					print("Hitting devider")
 					isHittingDivider = true
