@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://hokdakf8x4lx"]
+[gd_scene load_steps=18 format=3 uid="uid://hokdakf8x4lx"]
 
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="1_33jua"]
 [ext_resource type="PackedScene" uid="uid://b1omndopqlxo6" path="res://Scenes/PlatformerPlayer/Obstacle/obstacle.tscn" id="2_o8t8r"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://6a1c38prt1a4" path="res://Scenes/PlatformerPlayer/Buttons/Button1/Button01.tscn" id="11_0ia5l"]
 [ext_resource type="Script" path="res://LevelUI.gd" id="12_alyh1"]
 [ext_resource type="PackedScene" uid="uid://c8qbn2xe7w0yv" path="res://Scenes/PlatformerPlayer/Doors/BigDoor/BigDoor.tscn" id="12_qsipq"]
+[ext_resource type="PackedScene" uid="uid://b8upryncqwmc6" path="res://Scenes/PlatformerPlayer/Doors/SmallDoor/SmallDoor.tscn" id="13_oiyny"]
+[ext_resource type="PackedScene" uid="uid://cxjw8tk4kep1p" path="res://Scenes/PlatformerPlayer/Keys/Key01/Key01.tscn" id="14_wd5oj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orutt"]
 size = Vector2(1180.62, 38)
@@ -155,19 +157,9 @@ scale = Vector2(1.52, 2.68)
 position = Vector2(89.1929, 459.495)
 receivers = [NodePath("../BigDoor")]
 
-[node name="Button02" parent="." node_paths=PackedStringArray("receivers", "senderComp") instance=ExtResource("11_0ia5l")]
-position = Vector2(868, 452)
-receivers = [NodePath("../BigDoor2")]
-senderComp = NodePath("../Button01/SenderComponent")
-
 [node name="BigDoor" parent="." instance=ExtResource("12_qsipq")]
 position = Vector2(89.4421, 77.9181)
 maxButton = 1
-
-[node name="BigDoor2" parent="." instance=ExtResource("12_qsipq")]
-position = Vector2(1088, 418)
-maxButton = 1
-goalNumber = 1
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -189,3 +181,17 @@ offset_left = 607.0
 offset_top = 4.0
 offset_right = 647.0
 offset_bottom = 44.0
+
+[node name="SmallDoor" parent="." instance=ExtResource("13_oiyny")]
+position = Vector2(1084, 419)
+maxKeys = 2
+goalNumber = 1
+
+[node name="Key01" parent="." node_paths=PackedStringArray("receivers") instance=ExtResource("14_wd5oj")]
+position = Vector2(744, 461)
+receivers = [NodePath("../SmallDoor")]
+
+[node name="Key02" parent="." node_paths=PackedStringArray("receivers", "senderComp") instance=ExtResource("14_wd5oj")]
+position = Vector2(851, 464)
+receivers = [NodePath("../SmallDoor")]
+senderComp = NodePath("../Key01/SenderComponent")
