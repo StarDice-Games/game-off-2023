@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dewmyoy3hjk3u"]
+[gd_scene load_steps=8 format=3 uid="uid://dewmyoy3hjk3u"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Pickable/Pickup01/Pickup01.gd" id="1_8w4vg"]
 [ext_resource type="Texture2D" uid="uid://cwsn3wyf4u7t4" path="res://Resources/Images/circle.png" id="2_sg0h7"]
@@ -7,12 +7,14 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_304fi"]
 radius = 15.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m30e8"]
-radius = 14.0
-height = 42.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_n0pwp"]
+radius = 32.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gk50x"]
-radius = 15.0
+radius = 16.0312
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_luky4"]
+radius = 32.0624
 
 [node name="Pickup01" type="CharacterBody2D" groups=["Pickable"]]
 position = Vector2(0, 596350)
@@ -28,24 +30,31 @@ process_mode = 4
 visible = false
 modulate = Color(0.996078, 0.784314, 0.67451, 1)
 position = Vector2(0, 7.15256e-07)
-scale = Vector2(1, 1.3125)
+scale = Vector2(2, 2)
 texture = ExtResource("2_sg0h7")
 
 [node name="LeftCollsion" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_304fi")
+disabled = true
 
 [node name="RightCollision" type="CollisionShape2D" parent="."]
 process_mode = 4
 visible = false
-shape = SubResource("CapsuleShape2D_m30e8")
+shape = SubResource("CircleShape2D_n0pwp")
 disabled = true
 
 [node name="PickupComponent" parent="." node_paths=PackedStringArray("leftElement", "rightElement", "collisionLeft", "collisionRight") instance=ExtResource("3_54186")]
-leftElement = [NodePath("../LeftSpr"), NodePath("../LeftCollsion")]
-rightElement = [NodePath("../RightSpr"), NodePath("../RightCollision")]
+leftElement = [NodePath("../LeftSpr"), NodePath("../LeftCollsion"), NodePath("AreaLeft")]
+rightElement = [NodePath("../RightSpr"), NodePath("../RightCollision"), NodePath("AreaRight")]
 collisionLeft = NodePath("../LeftCollsion")
 collisionRight = NodePath("../RightCollision")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupComponent"]
+[node name="AreaLeft" type="CollisionShape2D" parent="PickupComponent"]
 shape = SubResource("CircleShape2D_gk50x")
 debug_color = Color(1, 0, 1, 0.419608)
+
+[node name="AreaRight" type="CollisionShape2D" parent="PickupComponent"]
+process_mode = 4
+visible = false
+shape = SubResource("CircleShape2D_luky4")
+debug_color = Color(0.109804, 0.623529, 0.498039, 0.419608)
