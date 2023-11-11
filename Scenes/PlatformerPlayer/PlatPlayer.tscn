@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://cqnl53v0iei8b"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/PlatPlayer.gd" id="1_go3e0"]
-[ext_resource type="Texture2D" uid="uid://bf4xlmloblnw6" path="res://Resources/Assets/Test/Triangolo_rosso.png" id="2_1yc8q"]
+[ext_resource type="Texture2D" uid="uid://dmoc1ncyye42w" path="res://Resources/Assets/Test/Quadrato_blu.png" id="2_bxgsg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dmfwo"]
-radius = 23.0
-height = 203.0
+radius = 26.0
+height = 126.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ynrlp"]
-size = Vector2(31.5, 113)
+size = Vector2(31.5, 114.5)
 
 [node name="PlatPlayer" type="CharacterBody2D"]
 collision_layer = 2
@@ -17,12 +17,11 @@ script = ExtResource("1_go3e0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -1)
-scale = Vector2(0.861386, 0.861386)
-texture = ExtResource("2_1yc8q")
+scale = Vector2(1.26322, 1.26322)
+texture = ExtResource("2_bxgsg")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-20, 3)
+position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_dmfwo")
 
 [node name="PickupPosition" type="Marker2D" parent="."]
@@ -34,7 +33,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-103, 0)
+position = Vector2(-48, -0.75)
 shape = SubResource("RectangleShape2D_ynrlp")
 
 [node name="ColorRect" type="ColorRect" parent="Area2D/CollisionShape2D"]
