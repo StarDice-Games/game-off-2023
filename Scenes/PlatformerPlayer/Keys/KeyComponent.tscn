@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d328j21q7nv5d"]
+
+[ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Keys/KeyComponent.gd" id="1_jp2xq"]
+
+[node name="KeyComponent" type="Area2D"]
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("1_jp2xq")
