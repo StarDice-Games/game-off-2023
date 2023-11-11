@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://hokdakf8x4lx"]
+[gd_scene load_steps=14 format=3 uid="uid://hokdakf8x4lx"]
 
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="1_33jua"]
 [ext_resource type="PackedScene" uid="uid://b1omndopqlxo6" path="res://Scenes/PlatformerPlayer/Obstacle/obstacle.tscn" id="2_o8t8r"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dewmyoy3hjk3u" path="res://Scenes/PlatformerPlayer/Pickable/Pickup01/Pickup01.tscn" id="8_23v43"]
 [ext_resource type="PackedScene" uid="uid://bc4tsc83nd2al" path="res://Scenes/PlatformerPlayer/PressurePlates/PressurePlate1/PressurePlate1.tscn" id="8_jijfm"]
 [ext_resource type="PackedScene" uid="uid://js3ym6n0f3po" path="res://Scenes/PlatformerPlayer/Pickable/RigidBodyPickable/PicakbleBall.tscn" id="8_xw4eb"]
+[ext_resource type="PackedScene" uid="uid://c3htusdfespqa" path="res://Scenes/PlatformerPlayer/Doors/BlockDoor/BlockDoor.tscn" id="10_bfycr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orutt"]
 size = Vector2(1180.62, 38)
@@ -73,7 +74,7 @@ position = Vector2(577, 422)
 scale = Vector2(0.504665, 0.513436)
 
 [node name="Goal" parent="." instance=ExtResource("5_t21sj")]
-position = Vector2(40, 45)
+position = Vector2(473, 385)
 
 [node name="Goal2" parent="." instance=ExtResource("5_t21sj")]
 position = Vector2(1107, 37)
@@ -123,7 +124,7 @@ path = NodePath("..")
 
 [node name="PressurePlate2" parent="." node_paths=PackedStringArray("receivers") instance=ExtResource("8_jijfm")]
 position = Vector2(114, 471)
-receivers = [NodePath("../Path2D/PathFollow2D/Platform1")]
+receivers = [NodePath("../Path2D/PathFollow2D/Platform1"), NodePath("../BlockDoor")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 323)
@@ -142,3 +143,7 @@ position = Vector2(203, 325)
 collision_layer = 4
 collision_mask = 15
 velocity = Vector2(0, 0)
+
+[node name="BlockDoor" parent="." instance=ExtResource("10_bfycr")]
+position = Vector2(430, 360)
+scale = Vector2(1.52, 3.36)
