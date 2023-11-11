@@ -29,11 +29,14 @@ point_count = 3
 [node name="PlatPlayer" parent="." groups=["Players"] instance=ExtResource("1_33jua")]
 position = Vector2(428, 371)
 scale = Vector2(0.5, 0.5)
+GROUND_SPEED = 230.0
+AIR_SPEED = 180.0
 
 [node name="PlatPlayer2" parent="." groups=["Players"] instance=ExtResource("1_33jua")]
 position = Vector2(1053, 371)
 scale = Vector2(0.5, 0.5)
-JUMP_VELOCITY = -550.0
+AIR_SPEED = 180.0
+JUMP_VELOCITY = -480.0
 push_force = 50
 player = 1
 
