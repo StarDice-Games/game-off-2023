@@ -25,7 +25,7 @@ func _on_area_entered(area):
 	pass # Replace with function body.
 
 func _on_body_entered(body):
-	print("%s _on_body_entered:" % name)
+	print("%s _on_body_entered:%s" % name, body.name)
 	senderComp.activate()
 	get_tree().queue_delete(self)
 	pass # Replace with function body.

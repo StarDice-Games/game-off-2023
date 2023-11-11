@@ -20,6 +20,8 @@ radius = 32.0624
 position = Vector2(0, 596350)
 velocity = Vector2(0, 43348.4)
 script = ExtResource("1_8w4vg")
+hangTime = null
+friction = null
 
 [node name="LeftSpr" type="Sprite2D" parent="."]
 modulate = Color(0.937255, 0.772549, 0.941176, 1)

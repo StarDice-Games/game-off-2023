@@ -1,7 +1,11 @@
 extends StaticBody2D
 
+@export var openingSpeed = 0.0
+@export var OpeningAnimation : Animation 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	pass # Replace with function body.
 
 
@@ -22,6 +26,7 @@ func fullyClosed():
 	
 func _on_receiver_component_enabled():
 	#open the door , play a little animation at the end remove the collider
+	
 	$AnimationPlayer.play("open")
 	pass # Replace with function body.
 

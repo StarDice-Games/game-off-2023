@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://hokdakf8x4lx"]
+[gd_scene load_steps=20 format=3 uid="uid://hokdakf8x4lx"]
 
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="1_33jua"]
 [ext_resource type="PackedScene" uid="uid://b1omndopqlxo6" path="res://Scenes/PlatformerPlayer/Obstacle/obstacle.tscn" id="2_o8t8r"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://c8qbn2xe7w0yv" path="res://Scenes/PlatformerPlayer/Doors/BigDoor/BigDoor.tscn" id="12_qsipq"]
 [ext_resource type="PackedScene" uid="uid://b8upryncqwmc6" path="res://Scenes/PlatformerPlayer/Doors/SmallDoor/SmallDoor.tscn" id="13_oiyny"]
 [ext_resource type="PackedScene" uid="uid://cxjw8tk4kep1p" path="res://Scenes/PlatformerPlayer/Keys/Key01/Key01.tscn" id="14_wd5oj"]
+[ext_resource type="PackedScene" uid="uid://sn8oy4jcubwe" path="res://Scenes/PlatformerPlayer/Platforms/DisappearPlatform1/DisapperaPlatform1.tscn" id="15_3nfh8"]
+[ext_resource type="PackedScene" uid="uid://cdoatt4q6g2nt" path="res://Scenes/PlatformerPlayer/Walls/BreakableWall/BreakableWall.tscn" id="16_1ak77"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orutt"]
 size = Vector2(1180.62, 38)
@@ -37,14 +39,14 @@ position = Vector2(417, 168)
 scale = Vector2(0.5, 0.5)
 
 [node name="PlatPlayer2" parent="." groups=["Players"] instance=ExtResource("1_33jua")]
-position = Vector2(1014, 402)
+position = Vector2(863, 165)
 scale = Vector2(0.5, 0.5)
 JUMP_VELOCITY = -550.0
 push_force = 50
 player = 1
 
 [node name="CharacterBody2D" type="StaticBody2D" parent="."]
-position = Vector2(243.753, 366.368)
+position = Vector2(181.753, 362.368)
 
 [node name="ColorRect" type="ColorRect" parent="CharacterBody2D"]
 offset_left = -259.753
@@ -64,7 +66,10 @@ position = Vector2(55, 488)
 position = Vector2(631, 487)
 
 [node name="StaticBody2D5" parent="." instance=ExtResource("2_o8t8r")]
-position = Vector2(962, 451)
+position = Vector2(812, 226)
+
+[node name="StaticBody2D11" parent="." instance=ExtResource("2_o8t8r")]
+position = Vector2(968, 226)
 
 [node name="StaticBody2D6" parent="." instance=ExtResource("2_o8t8r")]
 position = Vector2(787, 487)
@@ -115,7 +120,7 @@ path = NodePath("..")
 active = false
 
 [node name="Path2D2" type="Path2D" parent="."]
-position = Vector2(738, 234)
+position = Vector2(661, 98)
 curve = SubResource("Curve2D_l5bcp")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
@@ -135,19 +140,22 @@ receivers = [NodePath("../Path2D/PathFollow2D/Platform1")]
 position = Vector2(576, 323)
 
 [node name="StaticBody2D" parent="." instance=ExtResource("2_o8t8r")]
-position = Vector2(597, 237)
-rotation = 0.543287
+position = Vector2(690, 265)
+rotation = 1.08529
 scale = Vector2(1.44, 0.192982)
 
 [node name="Ball" parent="." instance=ExtResource("8_xw4eb")]
-position = Vector2(624, 221)
+position = Vector2(320, 521)
 side = 0
+massLeft = 1
+massRight = 2
 
 [node name="Pickup01" parent="." instance=ExtResource("8_23v43")]
-position = Vector2(203, 325)
+position = Vector2(141, 321)
 collision_layer = 4
 collision_mask = 15
 velocity = Vector2(0, 0)
+hangTime = 0
 
 [node name="BlockDoor" parent="." instance=ExtResource("10_bfycr")]
 position = Vector2(430, 374)
@@ -188,10 +196,26 @@ maxKeys = 2
 goalNumber = 1
 
 [node name="Key01" parent="." node_paths=PackedStringArray("receivers") instance=ExtResource("14_wd5oj")]
-position = Vector2(744, 461)
+position = Vector2(1006, 518)
 receivers = [NodePath("../SmallDoor")]
 
-[node name="Key02" parent="." node_paths=PackedStringArray("receivers", "senderComp") instance=ExtResource("14_wd5oj")]
-position = Vector2(851, 464)
+[node name="DisapperaPlatform1" parent="." instance=ExtResource("15_3nfh8")]
+position = Vector2(174, 364)
+
+[node name="BreakableWall" parent="." instance=ExtResource("16_1ak77")]
+position = Vector2(895, 352)
+
+[node name="BreakableWall2" parent="." instance=ExtResource("16_1ak77")]
+position = Vector2(895, 409)
+
+[node name="BreakableWall3" parent="." instance=ExtResource("16_1ak77")]
+position = Vector2(976, 365)
+
+[node name="Ball2" parent="." instance=ExtResource("8_xw4eb")]
+position = Vector2(699, 431)
+massLeft = 1
+massRight = 2
+
+[node name="Key02" parent="." node_paths=PackedStringArray("receivers") instance=ExtResource("14_wd5oj")]
+position = Vector2(1057.62, 178.154)
 receivers = [NodePath("../SmallDoor")]
-senderComp = NodePath("../Key01/SenderComponent")
