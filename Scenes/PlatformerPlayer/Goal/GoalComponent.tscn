@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cs8xishx48a2x"]
+
+[ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Goal/Goal.gd" id="1_x6kl5"]
+
+[node name="Goal" type="Area2D" groups=["Goals"]]
+script = ExtResource("1_x6kl5")
