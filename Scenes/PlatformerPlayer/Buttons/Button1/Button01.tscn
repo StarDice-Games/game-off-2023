@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://6a1c38prt1a4"]
+
+[ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Buttons/ButtonComponent.gd" id="1_ijfxw"]
+[ext_resource type="PackedScene" uid="uid://db2r5vwiirvo8" path="res://Scenes/PlatformerPlayer/TriggerComponent/SenderComponent.tscn" id="2_xaxxl"]
+[ext_resource type="Texture2D" uid="uid://cg1ymalfuxac" path="res://Resources/Images/New Piskel.png" id="3_m7r7v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mimy8"]
+
+[node name="Button01" type="Area2D" node_paths=PackedStringArray("senderComp")]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_ijfxw")
+senderComp = NodePath("SenderComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mimy8")
+
+[node name="SenderComponent" parent="." instance=ExtResource("2_xaxxl")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_m7r7v")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
