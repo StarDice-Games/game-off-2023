@@ -38,7 +38,8 @@ var currentGameState = GameState.MAIN_MENU
 
 # Called when the node enters the scene tree for the first time.
 func _ready():	
-	next_scene %= scenes.size() #adapt the next_scene based on the total scenes
+	if scenes.size() > 0:
+		next_scene %= scenes.size() #adapt the next_scene based on the total scenes
 	print("Global ready")
 	
 	toggleNode($MainMenu, useMenu)
