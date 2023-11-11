@@ -4,6 +4,8 @@ class_name PressurePlateComponent
 @export var receivers : Array[Node2D]
 @export var senderComp : SenderComponent
 
+var numOfObject = 0;
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if senderComp != null:
@@ -27,11 +29,14 @@ func _on_area_entered(area):
 func _on_body_entered(body):
 	print("%s _on_body_entered:" % name)
 	senderComp.present(true)
+	numOfObject += 1
 	pass # Replace with function body.
 
 func _on_body_exited(body):
 	print("%s _on_body_exited:" % name)
-	senderComp.present(false)
+	numOfObject -= 1
+	if numOfObject <= 0:
+		senderComp.present(false)
 	pass # Replace with function body.
 
 func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
