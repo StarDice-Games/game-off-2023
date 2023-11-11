@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d4diwwos6tieb"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Platforms/MovingPlatform/MovingComponent.gd" id="1_xslsx"]
-[ext_resource type="Texture2D" uid="uid://cg1ymalfuxac" path="res://Resources/Images/New Piskel.png" id="2_rjcky"]
+[ext_resource type="Texture2D" uid="uid://buwaq11fw15nu" path="res://Resources/Assets/Test/Platform_blu.png" id="2_nltrw"]
 [ext_resource type="PackedScene" uid="uid://bhntgodhqptoj" path="res://Scenes/PlatformerPlayer/TriggerComponent/ReceiverComponent.tscn" id="3_0bopd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bwo16"]
@@ -11,13 +11,16 @@ size = Vector2(28, 28.9143)
 script = ExtResource("1_xslsx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(3.53205, 1.37037)
-texture = ExtResource("2_rjcky")
+position = Vector2(-0.749999, 12)
+scale = Vector2(0.981343, 1.37255)
+texture = ExtResource("2_nltrw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 1
 position = Vector2(0, -8.9407e-08)
 scale = Vector2(4, 1.52174)
 shape = SubResource("RectangleShape2D_bwo16")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="ReceiverComponent" parent="." instance=ExtResource("3_0bopd")]
 

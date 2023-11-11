@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwcfypjn44hr7"]
+
+[ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Platforms/MovingPlatform/MovingComponent.gd" id="1_uljva"]
+[ext_resource type="Texture2D" uid="uid://dhygrefhjnums" path="res://Resources/Assets/Test/Platform_rossa.png" id="2_s86oi"]
+[ext_resource type="PackedScene" uid="uid://bhntgodhqptoj" path="res://Scenes/PlatformerPlayer/TriggerComponent/ReceiverComponent.tscn" id="3_mqea2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bwo16"]
+size = Vector2(28, 28.9143)
+
+[node name="Platform1" type="CharacterBody2D"]
+script = ExtResource("1_uljva")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-0.499996, 12)
+scale = Vector2(0.977612, 1.37255)
+texture = ExtResource("2_s86oi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8.9407e-08)
+scale = Vector2(4, 1.52174)
+shape = SubResource("RectangleShape2D_bwo16")
+
+[node name="ReceiverComponent" parent="." instance=ExtResource("3_mqea2")]
+
+[connection signal="disabled" from="ReceiverComponent" to="." method="_on_receiver_component_disabled"]
+[connection signal="enabled" from="ReceiverComponent" to="." method="_on_receiver_component_enabled"]
+[connection signal="triggered" from="ReceiverComponent" to="." method="_on_receiver_component_triggered"]
