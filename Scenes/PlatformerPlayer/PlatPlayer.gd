@@ -8,7 +8,7 @@ class_name PlatPlayer
 
 @export var JUMP_VELOCITY = -400.0
 @export var push_force = 100
-@export var player = 0
+@export var side = 0
 @export var directionOffsetZ = 75.0
 
 var collindingNode : Node2D = null
@@ -23,7 +23,7 @@ signal died
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
-	Global.setPlayer(player, self)
+	Global.setPlayer(side, self)
 
 func _physics_process(delta):
 	if Global.currentGameState != Global.GameState.IN_GAME:
@@ -39,7 +39,7 @@ func _physics_process(delta):
 			velocity.y += gravity * delta
 #	$PointLight2D.enabled = false
 			
-	if Global.activePlayer == player:
+	if Global.activePlayer == side:
 
 #		$PointLight2D.enabled = true
 		# Handle Jump.

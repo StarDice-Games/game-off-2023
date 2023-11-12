@@ -1,10 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqnl53v0iei8b"]
+[gd_scene load_steps=8 format=3 uid="uid://cqnl53v0iei8b"]
 
-[ext_resource type="Texture2D" uid="uid://bjn1m5qtjaiff" path="res://Icons/icon.svg" id="1_2ii4c"]
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/PlatPlayer.gd" id="1_go3e0"]
+[ext_resource type="Texture2D" uid="uid://bf4xlmloblnw6" path="res://Resources/Assets/Test/Triangolo_rosso.png" id="2_s44mg"]
+[ext_resource type="PackedScene" uid="uid://dnuopb0n063hc" path="res://Scenes/PlatformerPlayer/Pickable/PickupComponent/PickupComponent.tscn" id="3_0rr4x"]
+[ext_resource type="Texture2D" uid="uid://dmoc1ncyye42w" path="res://Resources/Assets/Test/Quadrato_blu.png" id="3_87eym"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqee2"]
 size = Vector2(116, 116)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w3jm4"]
+radius = 46.0
+height = 108.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ynrlp"]
 size = Vector2(31.5, 113)
@@ -14,12 +20,26 @@ collision_layer = 2
 collision_mask = 61
 script = ExtResource("1_go3e0")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_2ii4c")
+[node name="Left" type="Sprite2D" parent="."]
+position = Vector2(0.499999, -1.5)
+scale = Vector2(0.579208, 0.483193)
+texture = ExtResource("2_s44mg")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+[node name="Right" type="Sprite2D" parent="."]
+process_mode = 4
+visible = false
+texture = ExtResource("3_87eym")
+
+[node name="LeftCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_hqee2")
+
+[node name="RightCollision" type="CollisionShape2D" parent="."]
+process_mode = 4
+visible = false
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_w3jm4")
+disabled = true
 
 [node name="PickupPosition" type="Marker2D" parent="."]
 position = Vector2(0, -88)
@@ -39,6 +59,13 @@ offset_top = -20.0
 offset_right = 20.0
 offset_bottom = 20.0
 color = Color(0.996078, 0.819608, 0.388235, 1)
+
+[node name="PickupComponent" parent="." node_paths=PackedStringArray("father", "leftElement", "rightElement", "collisionLeft", "collisionRight") instance=ExtResource("3_0rr4x")]
+father = NodePath("..")
+leftElement = [NodePath("../Left"), NodePath("../LeftCollision")]
+rightElement = [NodePath("../Right"), NodePath("../RightCollision")]
+collisionLeft = NodePath("../LeftCollision")
+collisionRight = NodePath("../RightCollision")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

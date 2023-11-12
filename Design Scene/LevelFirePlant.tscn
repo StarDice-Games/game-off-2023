@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dnwf8l1fgx3nf"]
+[gd_scene load_steps=18 format=3 uid="uid://dnwf8l1fgx3nf"]
 
 [ext_resource type="PackedScene" uid="uid://b1omndopqlxo6" path="res://Scenes/PlatformerPlayer/Obstacle/obstacle.tscn" id="1_tn11t"]
 [ext_resource type="PackedScene" uid="uid://duvywv1d1kgyo" path="res://Scenes/PlatformerPlayer/Divider/divider.tscn" id="2_eoq52"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cxjw8tk4kep1p" path="res://Scenes/PlatformerPlayer/Keys/Key01/Key01.tscn" id="12_th2a1"]
 [ext_resource type="PackedScene" uid="uid://b8upryncqwmc6" path="res://Scenes/PlatformerPlayer/Doors/SmallDoor/SmallDoor.tscn" id="13_eshey"]
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="14_btakk"]
+[ext_resource type="PackedScene" uid="uid://b50r2cbdgb676" path="res://Scenes/PlatformerPlayer/Pickable/WaterContainer/WaterContainer.tscn" id="15_bbvrw"]
 
 [sub_resource type="Curve2D" id="Curve2D_531on"]
 _data = {
@@ -243,6 +244,9 @@ goalNumber = 1
 position = Vector2(1067.95, 168.949)
 receivers = [NodePath("../SmallDoor")]
 
+[node name="WaterContainer" parent="." instance=ExtResource("15_bbvrw")]
+position = Vector2(1839.41, 755.019)
+
 [node name="PlatPlayer" parent="." instance=ExtResource("14_btakk")]
 position = Vector2(193.198, 937.274)
 
@@ -250,7 +254,7 @@ position = Vector2(193.198, 937.274)
 position = Vector2(1817.84, 944.446)
 scale = Vector2(0.5, 0.5)
 JUMP_VELOCITY = -300.0
-player = 1
+side = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 modulate = Color(1, 0, 0, 1)
