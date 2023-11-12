@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cey1gdjnupbeh"]
+
+[ext_resource type="Texture2D" uid="uid://cg1ymalfuxac" path="res://Resources/Images/New Piskel.png" id="1_kxhnd"]
+
+[node name="Darkness" type="CanvasModulate"]
+color = Color(0, 0, 0, 0.811765)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(972, 575)
+scale = Vector2(61.75, 36.9375)
+texture = ExtResource("1_kxhnd")

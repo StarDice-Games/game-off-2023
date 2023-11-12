@@ -1,8 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3w0vp34bfsu4"]
+[gd_scene load_steps=5 format=3 uid="uid://d3w0vp34bfsu4"]
 
 [ext_resource type="Script" path="res://Scenes/Menus/PauseMenu/PauseMenu.gd" id="1_0vhar"]
+[ext_resource type="Material" uid="uid://bdjvh3cymune7" path="res://Resources/Materials/Unshaded.tres" id="2_2qwo7"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rolu0"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5mvg7"]
+light_mode = 1
 
 [node name="PauseMenu" type="Control"]
+light_mask = 2
+material = SubResource("CanvasItemMaterial_rolu0")
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,6 +28,7 @@ offset_right = 323.0
 offset_bottom = 51.0
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
+material = SubResource("CanvasItemMaterial_5mvg7")
 layout_mode = 0
 offset_left = 210.0
 offset_top = 76.0
@@ -28,6 +38,7 @@ scale = Vector2(2.70692, 4.32182)
 color = Color(0.212305, 0.212305, 0.212305, 1)
 
 [node name="Resume" type="Button" parent="Control"]
+material = ExtResource("2_2qwo7")
 layout_mode = 0
 offset_left = 228.0
 offset_top = 88.0
@@ -36,6 +47,7 @@ offset_bottom = 119.0
 text = "Resume"
 
 [node name="Restart" type="Button" parent="Control"]
+material = ExtResource("2_2qwo7")
 layout_mode = 0
 offset_left = 228.0
 offset_top = 145.0
@@ -44,6 +56,7 @@ offset_bottom = 176.0
 text = "Restart"
 
 [node name="Exit" type="Button" parent="Control"]
+material = ExtResource("2_2qwo7")
 layout_mode = 0
 offset_left = 228.0
 offset_top = 206.0

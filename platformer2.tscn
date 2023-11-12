@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://ctjnxt7nrlrlu"]
+
+[ext_resource type="PackedScene" uid="uid://cey1gdjnupbeh" path="res://Scenes/Darkness/Darkness.tscn" id="1_m2jn7"]
+[ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="2_w4tjy"]
+[ext_resource type="Texture2D" uid="uid://dn1qd8etg2lr2" path="res://Resources/Images/light.png" id="3_8acw1"]
+[ext_resource type="Texture2D" uid="uid://bf4xlmloblnw6" path="res://Resources/Assets/Test/Triangolo_rosso.png" id="3_36cnh"]
+[ext_resource type="Texture2D" uid="uid://cg1ymalfuxac" path="res://Resources/Images/New Piskel.png" id="5_43fff"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xkm4t"]
+light_mode = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0somh"]
+size = Vector2(32.194, 29.0322)
+
+[node name="platformer2" type="Node2D"]
+
+[node name="Darkness" parent="." instance=ExtResource("1_m2jn7")]
+
+[node name="PlatPlayer" parent="." instance=ExtResource("2_w4tjy")]
+position = Vector2(819, 716)
+
+[node name="PointLight2D" type="PointLight2D" parent="PlatPlayer"]
+texture = ExtResource("3_8acw1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_xkm4t")
+position = Vector2(343, 566)
+texture = ExtResource("3_36cnh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(821.985, 807.214)
+scale = Vector2(25.16, 1.24)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("5_43fff")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.000587463, -0.17218)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_0somh")

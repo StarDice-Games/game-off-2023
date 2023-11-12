@@ -37,9 +37,11 @@ func _physics_process(delta):
 	if not is_on_floor():
 			moveSpeed = AIR_SPEED
 			velocity.y += gravity * delta
+#	$PointLight2D.enabled = false
 			
 	if Global.activePlayer == player:
 
+#		$PointLight2D.enabled = true
 		# Handle Jump.
 		if Input.is_action_just_pressed("Jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
