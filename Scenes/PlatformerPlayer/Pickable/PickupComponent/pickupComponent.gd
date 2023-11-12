@@ -6,6 +6,8 @@ var held = false
 
 @export var currentSide = 0
 
+@export var father : Node2D 
+
 @export var leftElement : Array[Node2D] = []
 @export var rightElement : Array[Node2D] = []
 
@@ -14,9 +16,14 @@ var held = false
 @export var collisionRight : CollisionShape2D
 
 func _ready():
+	if father != null:
+		currentSide = father.side
 	pass
 
 func _process(delta):
+	if Engine.is_editor_hint() and father != null:
+		currentSide = father.side
+	
 	match currentSide:
 		0: #left
 			changeLeft(true)
@@ -36,11 +43,15 @@ func changeLeft(state):
 					collisionLeft.disabled = !state;
 			node.show()
 			node.process_mode = Node.PROCESS_MODE_INHERIT
+			if node is CollisionShape2D and not held:
+				node.disabled = !state
 		else:
 			node.hide()
 			node.process_mode = Node.PROCESS_MODE_DISABLED
 			if collisionLeft != null:
 				collisionLeft.disabled = !state;
+			if node is CollisionShape2D:
+				node.disabled = !state
 
 func changeRight(state):
 	for node in rightElement:
@@ -52,11 +63,15 @@ func changeRight(state):
 			if not Engine.is_editor_hint():
 				if not held and collisionRight != null:
 					collisionRight.disabled = !state;
+			if node is CollisionShape2D and not held:
+				node.disabled = !state
 		else:
 			node.hide()
 			node.process_mode = Node.PROCESS_MODE_DISABLED
 			if collisionRight != null:
 				collisionRight.disabled = !state;
+			if node is CollisionShape2D:
+				node.disabled = !state
 
 func setSide(side):
 	currentSide = side
