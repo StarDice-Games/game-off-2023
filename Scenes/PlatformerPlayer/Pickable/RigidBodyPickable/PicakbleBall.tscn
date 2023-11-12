@@ -16,7 +16,7 @@ radius = 16.0312
 [sub_resource type="CircleShape2D" id="CircleShape2D_ky8ox"]
 radius = 31.5
 
-[node name="Ball" type="RigidBody2D" groups=["Pickable"]]
+[node name="Ball" type="RigidBody2D" groups=["BreaksWalls", "Pickable"]]
 collision_layer = 4
 collision_mask = 7
 max_contacts_reported = 1

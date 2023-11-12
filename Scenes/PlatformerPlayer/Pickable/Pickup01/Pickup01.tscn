@@ -16,7 +16,7 @@ radius = 16.0312
 [sub_resource type="CircleShape2D" id="CircleShape2D_luky4"]
 radius = 32.0624
 
-[node name="Pickup01" type="CharacterBody2D" groups=["Pickable"]]
+[node name="Pickup01" type="CharacterBody2D" groups=["BreaksWalls", "Pickable"]]
 position = Vector2(0, 596350)
 velocity = Vector2(0, 43348.4)
 script = ExtResource("1_8w4vg")

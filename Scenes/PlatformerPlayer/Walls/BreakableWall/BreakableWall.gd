@@ -19,8 +19,11 @@ func _physics_process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	if body is Ball:
-		get_tree().queue_delete(self)
+#	if body is Ball:
+#		get_tree().queue_delete(self)
+	for group in body.get_groups():
+		if group == "BreaksWalls":
+			get_tree().queue_delete(self)
 	pass # Replace with function body.
 
 
