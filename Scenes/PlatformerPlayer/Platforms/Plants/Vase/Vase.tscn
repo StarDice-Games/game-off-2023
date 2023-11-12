@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3eux8dwlxtov"]
+
+[ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Platforms/Plants/Vase/Vase.gd" id="1_fpijm"]
+[ext_resource type="Texture2D" uid="uid://cg1ymalfuxac" path="res://Resources/Images/New Piskel.png" id="1_yqrsv"]
+[ext_resource type="Script" path="res://Scenes/PlatformerPlayer/TriggerComponent/SenderComponent.gd" id="2_lqxn7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_paksl"]
+size = Vector2(32, 32)
+
+[node name="Vase" type="Area2D"]
+modulate = Color(0.364706, 0.12549, 0, 1)
+visibility_layer = 3
+collision_mask = 4
+script = ExtResource("1_fpijm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_yqrsv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_paksl")
+
+[node name="SenderComponent" type="Node2D" parent="." node_paths=PackedStringArray("father")]
+script = ExtResource("2_lqxn7")
+father = NodePath("..")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
