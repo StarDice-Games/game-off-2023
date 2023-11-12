@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://hokdakf8x4lx"]
+[gd_scene load_steps=27 format=3 uid="uid://hokdakf8x4lx"]
 
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="1_33jua"]
 [ext_resource type="PackedScene" uid="uid://b1omndopqlxo6" path="res://Scenes/PlatformerPlayer/Obstacle/obstacle.tscn" id="2_o8t8r"]
@@ -19,6 +19,10 @@
 [ext_resource type="PackedScene" uid="uid://cg5qp6djrjlof" path="res://Scenes/PlatformerPlayer/Platforms/DisappearPlatform2/DisapperaPlatform2.tscn" id="17_3167d"]
 [ext_resource type="PackedScene" uid="uid://pd5e2y2wk2ql" path="res://Scenes/PlatformerPlayer/Pickable/Spring/Spring.tscn" id="18_34l6t"]
 [ext_resource type="PackedScene" uid="uid://dvhrt43a8uu5r" path="res://Scenes/PlatformerPlayer/Pickable/Box/BoxPickable.tscn" id="18_m3f6e"]
+[ext_resource type="PackedScene" uid="uid://bwwry4wow68b6" path="res://Scenes/PlatformerPlayer/Obstacle/Fire/Fire.tscn" id="20_ii5wd"]
+[ext_resource type="PackedScene" uid="uid://b50r2cbdgb676" path="res://Scenes/PlatformerPlayer/Pickable/WaterContainer/WaterContainer.tscn" id="21_buhc0"]
+[ext_resource type="PackedScene" uid="uid://c3eux8dwlxtov" path="res://Scenes/PlatformerPlayer/Platforms/Plants/Vase/Vase.tscn" id="22_dq6fc"]
+[ext_resource type="PackedScene" uid="uid://birka5inve0vm" path="res://Scenes/PlatformerPlayer/Platforms/Plants/LeafPlatform/LeafPlatform.tscn" id="23_dq4h0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orutt"]
 size = Vector2(1180.62, 38)
@@ -41,7 +45,7 @@ point_count = 3
 position = Vector2(958, 580)
 
 [node name="PlatPlayer" parent="." groups=["Players"] instance=ExtResource("1_33jua")]
-position = Vector2(481.156, 617)
+position = Vector2(542, 617)
 scale = Vector2(0.5, 0.5)
 
 [node name="PlatPlayer2" parent="." groups=["Players"] instance=ExtResource("1_33jua")]
@@ -67,7 +71,6 @@ position = Vector2(1350, 519.846)
 
 [node name="StaticBody2D13" parent="StaticLevel" instance=ExtResource("2_o8t8r")]
 position = Vector2(1517, 520)
-scale = Vector2(1, 1)
 
 [node name="StaticBody2D6" parent="StaticLevel" instance=ExtResource("2_o8t8r")]
 position = Vector2(1169, 780.846)
@@ -166,13 +169,13 @@ position = Vector2(130, 905)
 receivers = [NodePath("../Path2D/PathFollow2D/Platform1")]
 
 [node name="Ball" parent="." instance=ExtResource("8_xw4eb")]
-position = Vector2(542.156, 686)
+position = Vector2(340, 1005)
 side = 0
 massLeft = 1
 massRight = 2
 
 [node name="Pickup01" parent="." instance=ExtResource("8_23v43")]
-position = Vector2(416.156, 685)
+position = Vector2(407, 1023)
 collision_layer = 4
 collision_mask = 15
 velocity = Vector2(0, 0)
@@ -253,3 +256,24 @@ side = 1
 [node name="Spring" parent="." instance=ExtResource("18_34l6t")]
 position = Vector2(784.383, 831.607)
 JUMP_FORCE = -400
+
+[node name="Fire" parent="." instance=ExtResource("20_ii5wd")]
+position = Vector2(616, 694)
+
+[node name="WaterContainer" parent="." instance=ExtResource("21_buhc0")]
+position = Vector2(413, 683)
+
+[node name="PlantTest" type="Node2D" parent="."]
+
+[node name="Vase" parent="PlantTest" node_paths=PackedStringArray("receivers") instance=ExtResource("22_dq6fc")]
+position = Vector2(1225, 501)
+receivers = [NodePath("../LeafPlatform"), NodePath("../LeafPlatform2"), NodePath("../LeafPlatform3")]
+
+[node name="LeafPlatform" parent="PlantTest" instance=ExtResource("23_dq4h0")]
+position = Vector2(1121, 420)
+
+[node name="LeafPlatform2" parent="PlantTest" instance=ExtResource("23_dq4h0")]
+position = Vector2(1116, 237)
+
+[node name="LeafPlatform3" parent="PlantTest" instance=ExtResource("23_dq4h0")]
+position = Vector2(1343, 322)
