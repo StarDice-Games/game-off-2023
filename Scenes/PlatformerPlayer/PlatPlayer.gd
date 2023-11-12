@@ -113,9 +113,11 @@ func _on_area_2d_area_entered(area):
 				"Pickable":
 					#now the pickable need to get the father
 					collindingNode = area
+					return
 				"Dividers":
 					print("Hitting devider")
 					isHittingDivider = true
+					return
 				_ :
 					collindingNode = null
 	pass # Replace with function body.
