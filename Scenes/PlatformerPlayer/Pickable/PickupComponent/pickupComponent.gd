@@ -15,6 +15,8 @@ var held = false
 @export var collisionLeft : CollisionShape2D
 @export var collisionRight : CollisionShape2D
 
+var activeSprite : Sprite2D
+
 func _ready():
 	if father != null:
 		currentSide = father.side
@@ -45,6 +47,8 @@ func changeLeft(state):
 			node.process_mode = Node.PROCESS_MODE_INHERIT
 			if node is CollisionShape2D and not held:
 				node.disabled = !state
+			if node is Sprite2D:
+				activeSprite = node
 		else:
 			node.hide()
 			node.process_mode = Node.PROCESS_MODE_DISABLED
@@ -52,6 +56,8 @@ func changeLeft(state):
 				collisionLeft.disabled = !state;
 			if node is CollisionShape2D:
 				node.disabled = !state
+			if node is Sprite2D:
+				activeSprite = null
 
 func changeRight(state):
 	for node in rightElement:
@@ -65,6 +71,8 @@ func changeRight(state):
 					collisionRight.disabled = !state;
 			if node is CollisionShape2D and not held:
 				node.disabled = !state
+			if node is Sprite2D:
+				activeSprite = node
 		else:
 			node.hide()
 			node.process_mode = Node.PROCESS_MODE_DISABLED
@@ -72,6 +80,8 @@ func changeRight(state):
 				collisionRight.disabled = !state;
 			if node is CollisionShape2D:
 				node.disabled = !state
+			if node is Sprite2D:
+				activeSprite = null
 
 func setSide(side):
 	currentSide = side
@@ -84,3 +94,7 @@ func setCollisions(state):
 
 func setPosition(position):
 	get_parent().position = position
+
+func setScale(scale):
+	if activeSprite != null:
+		activeSprite.flip_h = scale

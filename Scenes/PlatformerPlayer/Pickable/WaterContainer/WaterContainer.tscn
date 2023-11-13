@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b50r2cbdgb676"]
+[gd_scene load_steps=11 format=3 uid="uid://b50r2cbdgb676"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Pickable/WaterContainer/WaterContainer.gd" id="1_886g2"]
 [ext_resource type="PackedScene" uid="uid://dnuopb0n063hc" path="res://Scenes/PlatformerPlayer/Pickable/PickupComponent/PickupComponent.tscn" id="1_b3ec7"]
 [ext_resource type="Texture2D" uid="uid://5n1ji7w75p7h" path="res://Resources/Images/bucket.png" id="2_xjt1y"]
 [ext_resource type="Texture2D" uid="uid://t58uy6g314pw" path="res://Resources/Images/sprinkle.png" id="3_wksnb"]
+[ext_resource type="Texture2D" uid="uid://cwsn3wyf4u7t4" path="res://Resources/Images/circle.png" id="5_nrhd0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8pf4b"]
 size = Vector2(32, 32)
@@ -17,30 +18,36 @@ size = Vector2(32, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nsq6e"]
 size = Vector2(32, 32)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7hbax"]
+size = Vector2(20, 94)
+
 [node name="WaterContainer" type="CharacterBody2D" groups=["Pickable", "Water"]]
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_886g2")
+side = 1
 
 [node name="Left" type="Sprite2D" parent="."]
+process_mode = 4
+visible = false
 texture = ExtResource("2_xjt1y")
 
 [node name="Right" type="Sprite2D" parent="."]
-process_mode = 4
-visible = false
 texture = ExtResource("3_wksnb")
+flip_h = true
 
 [node name="LefiCollision" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_8pf4b")
-
-[node name="RightCollision" type="CollisionShape2D" parent="."]
 process_mode = 4
 visible = false
-shape = SubResource("RectangleShape2D_djtta")
+shape = SubResource("RectangleShape2D_8pf4b")
 disabled = true
+
+[node name="RightCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_djtta")
 debug_color = Color(0.741176, 0.282353, 0.917647, 0.419608)
 
 [node name="PickupComponent" parent="." node_paths=PackedStringArray("father", "leftElement", "rightElement", "collisionLeft", "collisionRight") groups=["Water"] instance=ExtResource("1_b3ec7")]
+currentSide = 1
 father = NodePath("..")
 leftElement = [NodePath("../Left"), NodePath("../LefiCollision"), NodePath("LeftArea")]
 rightElement = [NodePath("../Right"), NodePath("../RightCollision"), NodePath("RightArea")]
@@ -48,14 +55,38 @@ collisionLeft = NodePath("../LefiCollision")
 collisionRight = NodePath("../RightCollision")
 
 [node name="LeftArea" type="CollisionShape2D" parent="PickupComponent"]
-shape = SubResource("RectangleShape2D_qr3wd")
-
-[node name="RightArea" type="CollisionShape2D" parent="PickupComponent"]
 process_mode = 4
 visible = false
-shape = SubResource("RectangleShape2D_nsq6e")
+shape = SubResource("RectangleShape2D_qr3wd")
 disabled = true
+
+[node name="RightArea" type="CollisionShape2D" parent="PickupComponent"]
+shape = SubResource("RectangleShape2D_nsq6e")
 debug_color = Color(0.831373, 0.180392, 0.843137, 0.419608)
 
-[node name="Sprinkle" type="CollisionShape2D" parent="PickupComponent"]
-visible = false
+[node name="Sprinkle" type="Area2D" parent="." groups=["Water"]]
+collision_layer = 4
+collision_mask = 5
+
+[node name="Sprinkle" type="CollisionShape2D" parent="Sprinkle"]
+position = Vector2(-29, 5)
+shape = SubResource("RectangleShape2D_7hbax")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Sprinkle/Sprinkle"]
+position = Vector2(3, -20)
+amount = 50
+lifetime = 1.5
+fixed_fps = 30
+texture = ExtResource("5_nrhd0")
+emission_shape = 2
+emission_sphere_radius = 1.0
+direction = Vector2(-140, 20)
+spread = 90.0
+gravity = Vector2(0, 40)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+linear_accel_min = 2.0
+linear_accel_max = 2.0
+scale_amount_min = 0.13
+scale_amount_max = 0.13
+color = Color(0, 0.690196, 0.803922, 1)

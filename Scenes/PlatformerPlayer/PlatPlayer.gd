@@ -30,7 +30,8 @@ func _physics_process(delta):
 		return
 		
 	if pickedItem != null:		
-		pickedItem.setPosition(position + ($PickupPosition.position * scale)) 
+		pickedItem.setPosition(position + ($PickupPosition.position * scale))
+		pickedItem.setScale(lastDirection > 0)
 		
 	var moveSpeed = GROUND_SPEED
 	
