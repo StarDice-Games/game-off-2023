@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvhrt43a8uu5r"]
+[gd_scene load_steps=9 format=3 uid="uid://dvhrt43a8uu5r"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Pickable/Box/BoxPickable.gd" id="1_1jlfo"]
 [ext_resource type="Texture2D" uid="uid://cg1ymalfuxac" path="res://Resources/Images/New Piskel.png" id="1_boqfp"]
 [ext_resource type="PackedScene" uid="uid://dnuopb0n063hc" path="res://Scenes/PlatformerPlayer/Pickable/PickupComponent/PickupComponent.tscn" id="2_1lxe1"]
+[ext_resource type="Material" uid="uid://bdjvh3cymune7" path="res://Resources/Materials/Unshaded.tres" id="3_j1ld0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uo74p"]
 size = Vector2(64, 64)
@@ -30,6 +31,7 @@ texture = ExtResource("1_boqfp")
 
 [node name="Left" type="Sprite2D" parent="."]
 modulate = Color(1, 0.568627, 0, 1)
+material = ExtResource("3_j1ld0")
 texture = ExtResource("1_boqfp")
 
 [node name="RightCollision" type="CollisionShape2D" parent="."]

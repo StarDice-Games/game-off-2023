@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cqnl53v0iei8b"]
+[gd_scene load_steps=9 format=3 uid="uid://cqnl53v0iei8b"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/PlatPlayer.gd" id="1_go3e0"]
+[ext_resource type="Material" uid="uid://bdjvh3cymune7" path="res://Resources/Materials/Unshaded.tres" id="2_4bwpy"]
 [ext_resource type="Texture2D" uid="uid://bf4xlmloblnw6" path="res://Resources/Assets/Test/Triangolo_rosso.png" id="2_s44mg"]
 [ext_resource type="PackedScene" uid="uid://dnuopb0n063hc" path="res://Scenes/PlatformerPlayer/Pickable/PickupComponent/PickupComponent.tscn" id="3_0rr4x"]
 [ext_resource type="Texture2D" uid="uid://dmoc1ncyye42w" path="res://Resources/Assets/Test/Quadrato_blu.png" id="3_87eym"]
@@ -21,6 +22,7 @@ collision_mask = 61
 script = ExtResource("1_go3e0")
 
 [node name="Left" type="Sprite2D" parent="."]
+material = ExtResource("2_4bwpy")
 position = Vector2(0.499999, -1.5)
 scale = Vector2(0.579208, 0.483193)
 texture = ExtResource("2_s44mg")

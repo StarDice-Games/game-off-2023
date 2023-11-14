@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://xai6e8p1v1tj"]
+
+[ext_resource type="Script" path="res://Scenes/Darkness/Flashlight/Lamplight.gd" id="1_elp8m"]
+[ext_resource type="Texture2D" uid="uid://cg1ymalfuxac" path="res://Resources/Images/New Piskel.png" id="2_1otsx"]
+[ext_resource type="Material" uid="uid://bdjvh3cymune7" path="res://Resources/Materials/Unshaded.tres" id="2_x62kw"]
+[ext_resource type="PackedScene" uid="uid://dnuopb0n063hc" path="res://Scenes/PlatformerPlayer/Pickable/PickupComponent/PickupComponent.tscn" id="3_5t701"]
+[ext_resource type="Texture2D" uid="uid://dn1qd8etg2lr2" path="res://Resources/Images/light.png" id="5_2wrq5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ddj3d"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cd01w"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_noqic"]
+size = Vector2(32, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkbt1"]
+
+[node name="Lamplight" type="CharacterBody2D" groups=["Light", "Pickable"]]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_elp8m")
+side = 1
+
+[node name="Left" type="Sprite2D" parent="."]
+process_mode = 4
+visible = false
+modulate = Color(1, 1, 0.32549, 1)
+material = ExtResource("2_x62kw")
+position = Vector2(0, -1)
+scale = Vector2(1, 0.5)
+texture = ExtResource("2_1otsx")
+
+[node name="Right" type="Sprite2D" parent="."]
+texture = ExtResource("2_1otsx")
+
+[node name="LeftCollision" type="CollisionShape2D" parent="."]
+process_mode = 4
+visible = false
+shape = SubResource("RectangleShape2D_ddj3d")
+disabled = true
+
+[node name="RightCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cd01w")
+
+[node name="PickupComponent" parent="." node_paths=PackedStringArray("father", "leftElement", "rightElement", "collisionLeft", "collisionRight") instance=ExtResource("3_5t701")]
+currentSide = 1
+father = NodePath("..")
+leftElement = [NodePath("../Left"), NodePath("../LeftCollision"), NodePath("AreaLeft")]
+rightElement = [NodePath("../Right"), NodePath("../RightCollision"), NodePath("AreaRight"), NodePath("../PointLight2D")]
+collisionLeft = NodePath("../LeftCollision")
+collisionRight = NodePath("../RightCollision")
+
+[node name="AreaLeft" type="CollisionShape2D" parent="PickupComponent"]
+process_mode = 4
+visible = false
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_noqic")
+disabled = true
+debug_color = Color(0.827451, 0, 0.952941, 0.419608)
+
+[node name="AreaRight" type="CollisionShape2D" parent="PickupComponent"]
+shape = SubResource("RectangleShape2D_hkbt1")
+debug_color = Color(0.929412, 0.188235, 0.47451, 0.419608)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = ExtResource("5_2wrq5")
+texture_scale = 2.0
