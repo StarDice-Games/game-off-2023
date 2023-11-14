@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b4mmfaocavncn"]
+[gd_scene load_steps=23 format=3 uid="uid://b4mmfaocavncn"]
 
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="1_4byku"]
 [ext_resource type="PackedScene" uid="uid://b1omndopqlxo6" path="res://Scenes/PlatformerPlayer/Obstacle/obstacle.tscn" id="2_cmj87"]
@@ -8,10 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bc4tsc83nd2al" path="res://Scenes/PlatformerPlayer/PressurePlates/PressurePlate1/PressurePlate1.tscn" id="6_roh35"]
 [ext_resource type="PackedScene" uid="uid://js3ym6n0f3po" path="res://Scenes/PlatformerPlayer/Pickable/RigidBodyPickable/PicakbleBall.tscn" id="7_dbqqi"]
 [ext_resource type="PackedScene" uid="uid://b50r2cbdgb676" path="res://Scenes/PlatformerPlayer/Pickable/WaterContainer/WaterContainer.tscn" id="8_kkbcl"]
-[ext_resource type="PackedScene" uid="uid://dewmyoy3hjk3u" path="res://Scenes/PlatformerPlayer/Pickable/Pickup01/Pickup01.tscn" id="8_sf5lr"]
-[ext_resource type="PackedScene" uid="uid://c3htusdfespqa" path="res://Scenes/PlatformerPlayer/Doors/BlockDoor/BlockDoor.tscn" id="9_cdlpl"]
 [ext_resource type="PackedScene" uid="uid://bwwry4wow68b6" path="res://Scenes/PlatformerPlayer/Obstacle/Fire/Fire.tscn" id="9_ki45q"]
-[ext_resource type="PackedScene" uid="uid://6a1c38prt1a4" path="res://Scenes/PlatformerPlayer/Buttons/Button1/Button01.tscn" id="10_u0smm"]
 [ext_resource type="PackedScene" uid="uid://c8qbn2xe7w0yv" path="res://Scenes/PlatformerPlayer/Doors/BigDoor/BigDoor.tscn" id="11_hmck6"]
 [ext_resource type="PackedScene" uid="uid://dvhrt43a8uu5r" path="res://Scenes/PlatformerPlayer/Pickable/Box/BoxPickable.tscn" id="11_jybdh"]
 [ext_resource type="Script" path="res://LevelUI.gd" id="12_yqr6c"]
@@ -29,15 +26,9 @@ size = Vector2(1180.62, 38)
 
 [sub_resource type="Curve2D" id="Curve2D_h5cyk"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -58.1565, 104.406, 0, 0, 0, 0, 217, 105, 0, 0, 0, 0, 68, -32, 0, 0, 0, 0, 166, -58, 0, 0, 0, 0, 47, -95, 0, 0, 0, 0, 314, -106)
+"points": PackedVector2Array(0, 0, 0, 0, -58.1565, 104.406, 0, 0, 0, 0, -327, -453)
 }
-point_count = 6
-
-[sub_resource type="Curve2D" id="Curve2D_l5bcp"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 57, -69, 0, 0, 0, 0, 166, 7, 0, 0, 0, 0, 247, -67)
-}
-point_count = 3
+point_count = 2
 
 [node name="platformer" type="Node2D"]
 
@@ -45,11 +36,11 @@ point_count = 3
 position = Vector2(958, 580)
 
 [node name="PlatPlayer" parent="." groups=["Players"] instance=ExtResource("1_4byku")]
-position = Vector2(542, 617)
+position = Vector2(806, 1029)
 scale = Vector2(0.5, 0.5)
 
 [node name="PlatPlayer2" parent="." groups=["Players"] instance=ExtResource("1_4byku")]
-position = Vector2(1365, 400)
+position = Vector2(1214, 1031)
 scale = Vector2(0.5, 0.5)
 JUMP_VELOCITY = -550.0
 push_force = 50
@@ -58,26 +49,10 @@ side = 1
 [node name="StaticLevel" type="Node2D" parent="."]
 
 [node name="StaticBody2D2" parent="StaticLevel" instance=ExtResource("2_cmj87")]
-position = Vector2(109, 931)
-
-[node name="StaticBody2D3" parent="StaticLevel" instance=ExtResource("2_cmj87")]
-position = Vector2(576, 952)
-
-[node name="StaticBody2D5" parent="StaticLevel" instance=ExtResource("2_cmj87")]
-position = Vector2(1194, 519.846)
-
-[node name="StaticBody2D11" parent="StaticLevel" instance=ExtResource("2_cmj87")]
-position = Vector2(1350, 519.846)
-
-[node name="StaticBody2D13" parent="StaticLevel" instance=ExtResource("2_cmj87")]
-position = Vector2(1517, 520)
+position = Vector2(13, 946)
 
 [node name="StaticBody2D6" parent="StaticLevel" instance=ExtResource("2_cmj87")]
-position = Vector2(1169, 780.846)
-
-[node name="StaticBody2D7" parent="StaticLevel" instance=ExtResource("2_cmj87")]
-position = Vector2(405.156, 862)
-rotation = -0.00629646
+position = Vector2(1729, 776)
 
 [node name="StaticBody2D9" parent="StaticLevel" instance=ExtResource("2_cmj87")]
 position = Vector2(39, 114)
@@ -86,19 +61,6 @@ rotation = -0.00629646
 [node name="StaticBody2D8" parent="StaticLevel" instance=ExtResource("2_cmj87")]
 position = Vector2(640, 856)
 scale = Vector2(0.504665, 0.513436)
-
-[node name="StaticBody2D12" parent="StaticLevel" instance=ExtResource("2_cmj87")]
-position = Vector2(111, 868)
-rotation = 1.57079
-scale = Vector2(0.504665, 0.513436)
-
-[node name="StaticBody2D10" parent="StaticLevel" instance=ExtResource("2_cmj87")]
-position = Vector2(390.156, 713)
-scale = Vector2(1.57393, 0.460256)
-
-[node name="Divider2" parent="StaticLevel" instance=ExtResource("3_lggr0")]
-position = Vector2(927, 573)
-scale = Vector2(0.783267, 33.523)
 
 [node name="Divider3" parent="StaticLevel" instance=ExtResource("3_lggr0")]
 position = Vector2(-4.76837e-07, 546)
@@ -109,13 +71,23 @@ position = Vector2(1913, 593)
 scale = Vector2(0.783267, 33.523)
 
 [node name="StaticBody2D" parent="StaticLevel" instance=ExtResource("2_cmj87")]
-position = Vector2(1072, 558.846)
+position = Vector2(1537, 535)
 rotation = 1.08529
 scale = Vector2(1.44, 0.192982)
 
-[node name="StaticBody2D4" parent="StaticLevel" instance=ExtResource("2_cmj87")]
-position = Vector2(393, 744)
-rotation = 2.10031
+[node name="StaticBody2D11" parent="StaticLevel" instance=ExtResource("2_cmj87")]
+position = Vector2(1537, 144)
+rotation = 1.08529
+scale = Vector2(1.44, 0.192982)
+
+[node name="StaticBody2D5" parent="StaticLevel" instance=ExtResource("2_cmj87")]
+position = Vector2(1648, 498)
+rotation = -0.928515
+scale = Vector2(1.44, 0.192982)
+
+[node name="StaticBody2D7" parent="StaticLevel" instance=ExtResource("2_cmj87")]
+position = Vector2(79.0001, 938)
+rotation = -0.928515
 scale = Vector2(1.44, 0.192982)
 
 [node name="CharacterBody2D" type="StaticBody2D" parent="StaticLevel"]
@@ -138,7 +110,7 @@ shape = SubResource("RectangleShape2D_orutt")
 position = Vector2(682, 842)
 
 [node name="Path2D" type="Path2D" parent="."]
-position = Vector2(470, 447)
+position = Vector2(550, 563)
 curve = SubResource("Curve2D_h5cyk")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
@@ -147,48 +119,14 @@ rotates = false
 loop = false
 
 [node name="Platform1" parent="Path2D/PathFollow2D" node_paths=PackedStringArray("path") instance=ExtResource("5_qwvhq")]
-position = Vector2(-199.844, -92.406)
+position = Vector2(-1.84351, -1.406)
 speed = 250.0
 path = NodePath("..")
 active = false
 
-[node name="Path2D2" type="Path2D" parent="."]
-position = Vector2(1166, 176)
-curve = SubResource("Curve2D_l5bcp")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
-position = Vector2(57, -69)
-rotates = false
-loop = false
-
-[node name="Platform1" parent="Path2D2/PathFollow2D" node_paths=PackedStringArray("path") instance=ExtResource("5_qwvhq")]
-speed = 500.0
-path = NodePath("..")
-
 [node name="PressurePlate2" parent="." node_paths=PackedStringArray("receivers") instance=ExtResource("6_roh35")]
-position = Vector2(130, 905)
+position = Vector2(54, 931)
 receivers = [NodePath("../Path2D/PathFollow2D/Platform1")]
-
-[node name="Ball" parent="." instance=ExtResource("7_dbqqi")]
-position = Vector2(340, 1005)
-side = 0
-massLeft = 1
-massRight = 2
-
-[node name="Pickup01" parent="." instance=ExtResource("8_sf5lr")]
-position = Vector2(407, 1023)
-collision_layer = 4
-collision_mask = 15
-velocity = Vector2(0, 0)
-hangTime = 0
-
-[node name="BlockDoor" parent="." instance=ExtResource("9_cdlpl")]
-position = Vector2(494.156, 823)
-scale = Vector2(1.52, 2.68)
-
-[node name="Button01" parent="." node_paths=PackedStringArray("receivers") instance=ExtResource("10_u0smm")]
-position = Vector2(199, 414)
-receivers = [NodePath("../BigDoor")]
 
 [node name="BigDoor" parent="." instance=ExtResource("11_hmck6")]
 position = Vector2(89.4421, 77.9181)
@@ -219,65 +157,111 @@ offset_bottom = 116.0
 metadata/_edit_use_anchors_ = true
 
 [node name="SmallDoor" parent="." instance=ExtResource("13_wn0mf")]
-position = Vector2(1466, 712.846)
+position = Vector2(1784, 1046)
 maxKeys = 2
 goalNumber = 1
 
 [node name="DisapperaPlatform1" parent="." instance=ExtResource("14_yiuf4")]
-position = Vector2(175.156, 877)
+position = Vector2(296, 782)
+
+[node name="DisapperaPlatform2" parent="." instance=ExtResource("14_yiuf4")]
+position = Vector2(335, 815)
+
+[node name="DisapperaPlatform3" parent="." instance=ExtResource("14_yiuf4")]
+position = Vector2(384, 848)
+
+[node name="DisapperaPlatform4" parent="." instance=ExtResource("14_yiuf4")]
+position = Vector2(424, 881)
+
+[node name="DisapperaPlatform5" parent="." instance=ExtResource("14_yiuf4")]
+position = Vector2(537, 881)
+
+[node name="DisapperaPlatform6" parent="." instance=ExtResource("14_yiuf4")]
+position = Vector2(787, 883)
 
 [node name="KeyItems" type="Node2D" parent="."]
 
 [node name="Key02" parent="KeyItems" node_paths=PackedStringArray("receivers") instance=ExtResource("15_tkyut")]
-position = Vector2(1439.62, 472)
+position = Vector2(1698, 1039)
 receivers = [NodePath("../../SmallDoor")]
 
 [node name="DisapperaPlatform2" parent="KeyItems" instance=ExtResource("16_dqyci")]
-position = Vector2(730.852, 710.938)
+position = Vector2(859, 915)
+
+[node name="DisapperaPlatform3" parent="KeyItems" instance=ExtResource("16_dqyci")]
+position = Vector2(910, 947)
+
+[node name="DisapperaPlatform4" parent="KeyItems" instance=ExtResource("16_dqyci")]
+position = Vector2(932, 978)
 
 [node name="Key01" parent="KeyItems" node_paths=PackedStringArray("receivers") instance=ExtResource("15_tkyut")]
-position = Vector2(1388, 811.846)
+position = Vector2(1634, 1040)
 receivers = [NodePath("../../SmallDoor")]
 
 [node name="BreakableWall" parent="KeyItems" instance=ExtResource("17_d85ch")]
-position = Vector2(1277, 645.846)
+position = Vector2(1759, 645)
 
 [node name="BreakableWall2" parent="KeyItems" instance=ExtResource("17_d85ch")]
-position = Vector2(1277, 702.846)
+position = Vector2(1759, 702)
 
 [node name="BreakableWall3" parent="KeyItems" instance=ExtResource("17_d85ch")]
-position = Vector2(1277, 759.846)
+position = Vector2(1759, 759)
 
 [node name="Ball2" parent="KeyItems" instance=ExtResource("7_dbqqi")]
-position = Vector2(1081, 724.846)
+position = Vector2(1299, 1026)
 massLeft = 1
 massRight = 2
 
 [node name="BoxPickable" parent="KeyItems" instance=ExtResource("11_jybdh")]
-position = Vector2(1606.27, 460.051)
+position = Vector2(1429, 1024)
 side = 1
 
 [node name="Spring" parent="." instance=ExtResource("19_5l73n")]
-position = Vector2(784.383, 831.607)
+position = Vector2(1080, 1041)
+JUMP_FORCE = -400
+
+[node name="Spring2" parent="." instance=ExtResource("19_5l73n")]
+position = Vector2(328, 740)
 JUMP_FORCE = -400
 
 [node name="Fire" parent="." instance=ExtResource("9_ki45q")]
-position = Vector2(616, 694)
+position = Vector2(486, 1041)
 
 [node name="WaterContainer" parent="." instance=ExtResource("8_kkbcl")]
-position = Vector2(413, 683)
+position = Vector2(560, 1041)
 
 [node name="PlantTest" type="Node2D" parent="."]
 
 [node name="Vase" parent="PlantTest" node_paths=PackedStringArray("receivers") instance=ExtResource("22_rmmla")]
-position = Vector2(1225, 501)
-receivers = [NodePath("../LeafPlatform"), NodePath("../LeafPlatform2"), NodePath("../LeafPlatform3")]
+position = Vector2(1137, 1039)
+receivers = [NodePath("../LeafPlatform"), NodePath("../LeafPlatform2"), NodePath("../LeafPlatform3"), NodePath("../LeafPlatform4"), NodePath("../LeafPlatform5"), NodePath("../LeafPlatform6"), NodePath("../LeafPlatform7"), NodePath("../LeafPlatform8"), NodePath("../LeafPlatform9"), NodePath("../LeafPlatform10")]
 
 [node name="LeafPlatform" parent="PlantTest" instance=ExtResource("23_pfcvw")]
-position = Vector2(1121, 420)
+position = Vector2(1102, 891)
 
 [node name="LeafPlatform2" parent="PlantTest" instance=ExtResource("23_pfcvw")]
-position = Vector2(1116, 237)
+position = Vector2(1097, 708)
+
+[node name="LeafPlatform4" parent="PlantTest" instance=ExtResource("23_pfcvw")]
+position = Vector2(1324, 609)
+
+[node name="LeafPlatform5" parent="PlantTest" instance=ExtResource("23_pfcvw")]
+position = Vector2(1101, 503)
+
+[node name="LeafPlatform6" parent="PlantTest" instance=ExtResource("23_pfcvw")]
+position = Vector2(1322, 422)
+
+[node name="LeafPlatform7" parent="PlantTest" instance=ExtResource("23_pfcvw")]
+position = Vector2(1096, 329)
+
+[node name="LeafPlatform8" parent="PlantTest" instance=ExtResource("23_pfcvw")]
+position = Vector2(1327, 243)
+
+[node name="LeafPlatform9" parent="PlantTest" instance=ExtResource("23_pfcvw")]
+position = Vector2(1102, 151)
+
+[node name="LeafPlatform10" parent="PlantTest" instance=ExtResource("23_pfcvw")]
+position = Vector2(1439, 125)
 
 [node name="LeafPlatform3" parent="PlantTest" instance=ExtResource("23_pfcvw")]
-position = Vector2(1343, 322)
+position = Vector2(1324, 793)
