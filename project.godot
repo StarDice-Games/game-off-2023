@@ -121,3 +121,8 @@ Pause={
 2d_physics/layer_4="PressurePlate"
 2d_physics/layer_5="Buttons"
 2d_physics/layer_6="Keys"
+2d_physics/layer_7="WaterFloor"
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.243137, 0.219608, 0.231373, 1)
