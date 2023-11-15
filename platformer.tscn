@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://hokdakf8x4lx"]
+[gd_scene load_steps=27 format=3 uid="uid://hokdakf8x4lx"]
 
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="1_33jua"]
 [ext_resource type="PackedScene" uid="uid://b1omndopqlxo6" path="res://Scenes/PlatformerPlayer/Obstacle/obstacle.tscn" id="2_o8t8r"]
@@ -23,7 +23,6 @@
 [ext_resource type="PackedScene" uid="uid://b50r2cbdgb676" path="res://Scenes/PlatformerPlayer/Pickable/WaterContainer/WaterContainer.tscn" id="21_buhc0"]
 [ext_resource type="PackedScene" uid="uid://c3eux8dwlxtov" path="res://Scenes/PlatformerPlayer/Platforms/Plants/Vase/Vase.tscn" id="22_dq6fc"]
 [ext_resource type="PackedScene" uid="uid://birka5inve0vm" path="res://Scenes/PlatformerPlayer/Platforms/Plants/LeafPlatform/LeafPlatform.tscn" id="23_dq4h0"]
-[ext_resource type="Texture2D" uid="uid://b8oisydyuud61" path="res://Screenshot 2023-11-15 122526.png" id="24_vc4ue"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orutt"]
 size = Vector2(1180.62, 38)
@@ -282,10 +281,3 @@ position = Vector2(1116, 237)
 
 [node name="LeafPlatform3" parent="PlantTest" instance=ExtResource("23_dq4h0")]
 position = Vector2(1343, 322)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0.537255, 1, 1)
-z_index = -1
-position = Vector2(1024, 576)
-scale = Vector2(1.33496, 1.33237)
-texture = ExtResource("24_vc4ue")
