@@ -39,18 +39,18 @@ position = Vector2(0.000587463, -0.17218)
 shape = SubResource("RectangleShape2D_0somh")
 
 [node name="StaticBody2D2" parent="." instance=ExtResource("9_oc4vh")]
-position = Vector2(1242, 881)
+position = Vector2(653, 946)
 
 [node name="StaticBody2D3" parent="." instance=ExtResource("9_oc4vh")]
 position = Vector2(945, 1008)
 scale = Vector2(6.48, 0.64)
 
 [node name="PlatPlayer3" parent="." instance=ExtResource("2_w4tjy")]
-position = Vector2(136.843, 650.578)
+position = Vector2(196, 646)
 
 [node name="PlatPlayer" parent="." instance=ExtResource("2_w4tjy")]
 position = Vector2(1331, 762)
 side = 1
 
 [node name="Lamplight" parent="." instance=ExtResource("8_j7uym")]
-position = Vector2(1253, 758)
+position = Vector2(545, 677)
