@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d4diwwos6tieb"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Platforms/MovingPlatform/MovingComponent.gd" id="1_xslsx"]
-[ext_resource type="Texture2D" uid="uid://buwaq11fw15nu" path="res://Resources/Assets/Test/Platform_blu.png" id="2_a0cgp"]
+[ext_resource type="Texture2D" uid="uid://e4dsjxwsw52u" path="res://Resources/Assets/Elementi_blu/Blocco_grande_blu.png" id="2_7v1a3"]
 [ext_resource type="PackedScene" uid="uid://bhntgodhqptoj" path="res://Scenes/PlatformerPlayer/TriggerComponent/ReceiverComponent.tscn" id="3_0bopd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bwo16"]
@@ -13,8 +13,8 @@ script = ExtResource("1_xslsx")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(0.56, 0.973)
-texture = ExtResource("2_a0cgp")
-offset = Vector2(0, 8.22199)
+texture = ExtResource("2_7v1a3")
+offset = Vector2(0, -4.76837e-06)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
