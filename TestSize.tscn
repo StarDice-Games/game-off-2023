@@ -1,0 +1,151 @@
+[gd_scene load_steps=13 format=3 uid="uid://bjemjnbbp63na"]
+
+[ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="1_gtsi8"]
+[ext_resource type="PackedScene" uid="uid://d4diwwos6tieb" path="res://Scenes/PlatformerPlayer/Platforms/Platform1/Platform1.tscn" id="5_kp2d6"]
+[ext_resource type="PackedScene" uid="uid://phjy1geq4nek" path="res://Scenes/PlatformerPlayer/Platforms/Platform1/Platform2.tscn" id="9_8g4qb"]
+[ext_resource type="Texture2D" uid="uid://bo04kloimwmpv" path="res://Resources/Assets/Background/Fondo.png" id="10_2wk6v"]
+[ext_resource type="PackedScene" uid="uid://6a1c38prt1a4" path="res://Scenes/PlatformerPlayer/Buttons/Button1/Button01.tscn" id="10_xuv0k"]
+[ext_resource type="PackedScene" uid="uid://pd5e2y2wk2ql" path="res://Scenes/PlatformerPlayer/Pickable/Spring/Spring.tscn" id="11_eqark"]
+[ext_resource type="PackedScene" uid="uid://c8qbn2xe7w0yv" path="res://Scenes/PlatformerPlayer/Doors/BigDoor/BigDoor.tscn" id="11_omu61"]
+[ext_resource type="PackedScene" uid="uid://dvhrt43a8uu5r" path="res://Scenes/PlatformerPlayer/Pickable/Box/BoxPickable.tscn" id="11_x6x4g"]
+[ext_resource type="Script" path="res://LevelUI.gd" id="12_pew3a"]
+[ext_resource type="PackedScene" uid="uid://b8upryncqwmc6" path="res://Scenes/PlatformerPlayer/Doors/SmallDoor/SmallDoor.tscn" id="13_e638a"]
+[ext_resource type="PackedScene" uid="uid://cxjw8tk4kep1p" path="res://Scenes/PlatformerPlayer/Keys/Key01/Key01.tscn" id="15_tyo11"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_orutt"]
+size = Vector2(1180.62, 38)
+
+[node name="platformer" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(958, 580)
+
+[node name="StaticLevel" type="Node2D" parent="."]
+
+[node name="leftCollider" type="StaticBody2D" parent="StaticLevel"]
+position = Vector2(224, -3.05176e-05)
+rotation = 1.5708
+scale = Vector2(1.17, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticLevel/leftCollider"]
+position = Vector2(332.935, 211.632)
+shape = SubResource("RectangleShape2D_orutt")
+
+[node name="rightCollider" type="StaticBody2D" parent="StaticLevel"]
+position = Vector2(2112, 3.63798e-12)
+rotation = 1.5708
+scale = Vector2(1.17, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticLevel/rightCollider"]
+position = Vector2(332.935, 211.632)
+shape = SubResource("RectangleShape2D_orutt")
+
+[node name="MiddleCollider" type="StaticBody2D" parent="StaticLevel"]
+position = Vector2(1370, -2)
+rotation = 1.5708
+scale = Vector2(1.17, 1.795)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticLevel/MiddleCollider"]
+position = Vector2(332.935, 211.632)
+shape = SubResource("RectangleShape2D_orutt")
+
+[node name="bottomCollider" type="StaticBody2D" parent="StaticLevel"]
+position = Vector2(288, 848)
+scale = Vector2(1.95241, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticLevel/bottomCollider"]
+position = Vector2(332.935, 211.632)
+shape = SubResource("RectangleShape2D_orutt")
+
+[node name="Players" type="Node2D" parent="."]
+
+[node name="PlatPlayer" parent="Players" groups=["Players"] instance=ExtResource("1_gtsi8")]
+position = Vector2(1243, 985)
+scale = Vector2(0.48, 0.48)
+GROUND_SPEED = 230.0
+AIR_SPEED = 180.0
+JUMP_VELOCITY = -350.0
+
+[node name="PlatPlayer2" parent="Players" groups=["Players"] instance=ExtResource("1_gtsi8")]
+position = Vector2(538, 958)
+scale = Vector2(0.98, 0.98)
+AIR_SPEED = 180.0
+JUMP_VELOCITY = -430.0
+push_force = 50
+side = 1
+
+[node name="Button01" parent="." node_paths=PackedStringArray("receivers") instance=ExtResource("10_xuv0k")]
+modulate = Color(0.827451, 0.0784314, 0.0784314, 1)
+position = Vector2(692, 1001)
+receivers = [NodePath("../BigDoor")]
+
+[node name="BigDoor" parent="." instance=ExtResource("11_omu61")]
+position = Vector2(89.4421, 77.9181)
+maxButton = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("12_pew3a")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = 789.0
+offset_top = 71.0
+offset_right = 829.0
+offset_bottom = 111.0
+
+[node name="ColorRect2" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = 1023.0
+offset_top = 76.0
+offset_right = 1063.0
+offset_bottom = 116.0
+
+[node name="SmallDoor" parent="." instance=ExtResource("13_e638a")]
+position = Vector2(1466, 712.846)
+maxKeys = 2
+goalNumber = 1
+
+[node name="KeyItems" type="Node2D" parent="."]
+
+[node name="Key02" parent="KeyItems" node_paths=PackedStringArray("receivers") instance=ExtResource("15_tyo11")]
+position = Vector2(1424, 992)
+receivers = [NodePath("../../SmallDoor")]
+
+[node name="Key01" parent="KeyItems" node_paths=PackedStringArray("receivers") instance=ExtResource("15_tyo11")]
+position = Vector2(1472, 472)
+receivers = [NodePath("../../SmallDoor")]
+
+[node name="Platform1" parent="." instance=ExtResource("9_8g4qb")]
+position = Vector2(704, 878)
+active = false
+
+[node name="Platform3" parent="." instance=ExtResource("9_8g4qb")]
+position = Vector2(474, 730)
+active = false
+
+[node name="Platform2" parent="." instance=ExtResource("5_kp2d6")]
+position = Vector2(1328, 992)
+active = false
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+texture_filter = 1
+offset_left = 1.0
+offset_top = 43.0
+offset_right = 1921.0
+offset_bottom = 1123.0
+texture = ExtResource("10_2wk6v")
+
+[node name="BoxPickable2" parent="." instance=ExtResource("11_x6x4g")]
+position = Vector2(1487, 1015)
+
+[node name="BoxPickable" parent="." instance=ExtResource("11_x6x4g")]
+position = Vector2(1114, 1024)
+
+[node name="Spring" parent="." instance=ExtResource("11_eqark")]
+position = Vector2(1171, 994)
+JUMP_FORCE = -400

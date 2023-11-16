@@ -48,12 +48,16 @@ position = Vector2(958, 580)
 [node name="PlatPlayer" parent="." groups=["Players"] instance=ExtResource("1_33jua")]
 position = Vector2(542, 617)
 scale = Vector2(0.5, 0.5)
+AIR_SPEED = 180.0
+JUMP_VELOCITY = -430.0
+push_force = 50
 
 [node name="PlatPlayer2" parent="." groups=["Players"] instance=ExtResource("1_33jua")]
 position = Vector2(1365, 400)
 scale = Vector2(0.5, 0.5)
-JUMP_VELOCITY = -550.0
-push_force = 50
+GROUND_SPEED = 230.0
+AIR_SPEED = 180.0
+JUMP_VELOCITY = -350.0
 side = 1
 
 [node name="StaticLevel" type="Node2D" parent="."]
