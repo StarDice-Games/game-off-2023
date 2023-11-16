@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kchtjebyku6l"
-path="res://.godot/imported/WaterContainer.png-8d59e1d62f649408b1886bf88792bffe.ctex"
+uid="uid://b01e0tohfmknw"
+path="res://.godot/imported/Palla_piccola.png-7566463a59c2a6447cffea4231ae8377.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Assets/Oggetti/WaterContainer.png"
-dest_files=["res://.godot/imported/WaterContainer.png-8d59e1d62f649408b1886bf88792bffe.ctex"]
+source_file="res://Resources/Assets/Oggetti/Palla_piccola.png"
+dest_files=["res://.godot/imported/Palla_piccola.png-7566463a59c2a6447cffea4231ae8377.ctex"]
 
 [params]
 

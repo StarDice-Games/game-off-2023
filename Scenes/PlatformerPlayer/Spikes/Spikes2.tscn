@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3cbj1cjbxle3"]
+
+[ext_resource type="Texture2D" uid="uid://b4ret0tmrhqel" path="res://Resources/Assets/Oggetti/Punta_piccola.png" id="1_5pa3s"]
+[ext_resource type="PackedScene" uid="uid://bu75kel0q2p7r" path="res://Scenes/PlatformerPlayer/DeathComponent/DeathComponent.tscn" id="2_22rcp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8erm"]
+size = Vector2(35, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivluj"]
+size = Vector2(21.875, 23.75)
+
+[node name="Spikes" type="StaticBody2D"]
+texture_filter = 1
+collision_mask = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(17, -19.5)
+texture = ExtResource("1_5pa3s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16.5, -19.5)
+shape = SubResource("RectangleShape2D_e8erm")
+
+[node name="DeathComponent" parent="." instance=ExtResource("2_22rcp")]
+position = Vector2(17, -19.5)
+scale = Vector2(1.6, 1.6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathComponent"]
+position = Vector2(-0.312498, -5.96046e-07)
+shape = SubResource("RectangleShape2D_ivluj")

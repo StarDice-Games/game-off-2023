@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://ch1k62rewst8"]
+
+[ext_resource type="Script" path="res://Scenes/PlatformerPlayer/PressurePlates/PressurePlateComponent.gd" id="1_ayd5l"]
+[ext_resource type="Texture2D" uid="uid://xyl1y5pbo54t" path="res://Resources/Assets/Oggetti/Pressure_blu.png" id="2_jiv1t"]
+[ext_resource type="PackedScene" uid="uid://db2r5vwiirvo8" path="res://Scenes/PlatformerPlayer/TriggerComponent/SenderComponent.tscn" id="3_oof6p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_27fqp"]
+size = Vector2(68, 17)
+
+[node name="PressurePlate2" type="Area2D" node_paths=PackedStringArray("senderComp")]
+collision_layer = 8
+collision_mask = 6
+script = ExtResource("1_ayd5l")
+senderComp = NodePath("SenderComponent")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(34, -8.5)
+texture = ExtResource("2_jiv1t")
+
+[node name="SenderComponent" parent="." instance=ExtResource("3_oof6p")]
+position = Vector2(34, -8.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(34, -9)
+shape = SubResource("RectangleShape2D_27fqp")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

@@ -1,20 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://js3ym6n0f3po"]
+[gd_scene load_steps=9 format=3 uid="uid://js3ym6n0f3po"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Pickable/RigidBodyPickable/PicakbleBall.gd" id="1_k557d"]
-[ext_resource type="Texture2D" uid="uid://cwsn3wyf4u7t4" path="res://Resources/Images/circle.png" id="2_dsvsm"]
+[ext_resource type="Texture2D" uid="uid://b01e0tohfmknw" path="res://Resources/Assets/Oggetti/Palla_piccola.png" id="2_usaw8"]
+[ext_resource type="Texture2D" uid="uid://b52lxuogyxm3f" path="res://Resources/Assets/Oggetti/Palla.png" id="3_6x1e6"]
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Pickable/PickupComponent/pickupComponent.gd" id="3_ufbv2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kgujb"]
 radius = 16.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0d5xh"]
-radius = 32.2025
+radius = 58.4209
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xutdn"]
 radius = 16.0312
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ky8ox"]
-radius = 31.5
+radius = 58.5769
 
 [node name="Ball" type="RigidBody2D" groups=["BreaksWalls", "Pickable"]]
 collision_layer = 4
@@ -22,28 +23,24 @@ collision_mask = 7
 max_contacts_reported = 1
 contact_monitor = true
 script = ExtResource("1_k557d")
-side = 1
-massLeft = null
-massRight = null
 
 [node name="Left" type="Sprite2D" parent="."]
-process_mode = 4
-visible = false
-modulate = Color(1, 0.431373, 0.0862745, 1)
-texture = ExtResource("2_dsvsm")
+texture_filter = 1
+texture = ExtResource("2_usaw8")
 
 [node name="Right" type="Sprite2D" parent="."]
-modulate = Color(1, 0.431373, 0.0862745, 1)
-scale = Vector2(2, 2)
-texture = ExtResource("2_dsvsm")
-
-[node name="LeftCollision" type="CollisionShape2D" parent="."]
 process_mode = 4
 visible = false
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("3_6x1e6")
+
+[node name="LeftCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_kgujb")
-disabled = true
 
 [node name="RightCollision" type="CollisionShape2D" parent="."]
+process_mode = 4
+visible = false
 rotation = 1.5708
 shape = SubResource("CircleShape2D_0d5xh")
 disabled = true
@@ -52,17 +49,17 @@ disabled = true
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("3_ufbv2")
-currentSide = 1
 leftElement = [NodePath("../Left"), NodePath("../LeftCollision"), NodePath("LeftArea")]
 rightElement = [NodePath("../Right"), NodePath("../RightCollision"), NodePath("RightArea")]
 collisionLeft = NodePath("../LeftCollision")
 collisionRight = NodePath("../RightCollision")
 
 [node name="LeftArea" type="CollisionShape2D" parent="PickupComponent"]
-process_mode = 4
-visible = false
 shape = SubResource("CircleShape2D_xutdn")
 
 [node name="RightArea" type="CollisionShape2D" parent="PickupComponent"]
+process_mode = 4
+visible = false
 position = Vector2(-0.5, 0)
 shape = SubResource("CircleShape2D_ky8ox")
+disabled = true

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bty4v2j4opvp8"
-path="res://.godot/imported/Porta.png-5ab2b836cab8cf545cde161a1037f389.ctex"
+uid="uid://t1avdjvvp55r"
+path="res://.godot/imported/buco_nella_carta_piccolo.png-d1c0f10271085dfe8050500c26f47237.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Assets/Porte/Porta.png"
-dest_files=["res://.godot/imported/Porta.png-5ab2b836cab8cf545cde161a1037f389.ctex"]
+source_file="res://Resources/Assets/Elementi_blu/buco_nella_carta_piccolo.png"
+dest_files=["res://.godot/imported/buco_nella_carta_piccolo.png-d1c0f10271085dfe8050500c26f47237.ctex"]
 
 [params]
 

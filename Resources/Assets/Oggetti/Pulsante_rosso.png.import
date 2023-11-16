@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3rt3ggct5xc8"
-path="res://.godot/imported/Tavola da disegno.png-2f3caf4a55a091e16a112d352ad71733.ctex"
+uid="uid://d1l0wdri83xgc"
+path="res://.godot/imported/Pulsante_rosso.png-88ecb7369632807c4a7cd261ceb874c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Assets/Oggetti/Tavola da disegno.png"
-dest_files=["res://.godot/imported/Tavola da disegno.png-2f3caf4a55a091e16a112d352ad71733.ctex"]
+source_file="res://Resources/Assets/Oggetti/Pulsante_rosso.png"
+dest_files=["res://.godot/imported/Pulsante_rosso.png-88ecb7369632807c4a7cd261ceb874c8.ctex"]
 
 [params]
 

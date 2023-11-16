@@ -1,28 +1,29 @@
 [gd_scene load_steps=5 format=3 uid="uid://d4diwwos6tieb"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Platforms/MovingPlatform/MovingComponent.gd" id="1_xslsx"]
-[ext_resource type="Texture2D" uid="uid://e4dsjxwsw52u" path="res://Resources/Assets/Elementi_blu/Blocco_grande_blu.png" id="2_7v1a3"]
+[ext_resource type="Texture2D" uid="uid://b06mo5oddik7i" path="res://Resources/Assets/Elementi_blu/Blocco_blu.png" id="2_6xjrb"]
 [ext_resource type="PackedScene" uid="uid://bhntgodhqptoj" path="res://Scenes/PlatformerPlayer/TriggerComponent/ReceiverComponent.tscn" id="3_0bopd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bwo16"]
-size = Vector2(16, 20.3714)
+size = Vector2(8, 21.0286)
 
 [node name="Platform1" type="CharacterBody2D"]
 script = ExtResource("1_xslsx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(0.56, 0.973)
-texture = ExtResource("2_7v1a3")
+position = Vector2(17, -17)
+texture = ExtResource("2_6xjrb")
 offset = Vector2(0, -4.76837e-06)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -0.5)
+position = Vector2(17, -17)
 scale = Vector2(4, 1.52174)
 shape = SubResource("RectangleShape2D_bwo16")
 
 [node name="ReceiverComponent" parent="." instance=ExtResource("3_0bopd")]
+position = Vector2(17, -17)
 
 [connection signal="disabled" from="ReceiverComponent" to="." method="_on_receiver_component_disabled"]
 [connection signal="enabled" from="ReceiverComponent" to="." method="_on_receiver_component_enabled"]

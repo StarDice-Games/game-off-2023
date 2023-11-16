@@ -1,28 +1,28 @@
 [gd_scene load_steps=5 format=3 uid="uid://phjy1geq4nek"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Platforms/MovingPlatform/MovingComponent.gd" id="1_uljva"]
-[ext_resource type="Texture2D" uid="uid://yh8lfa26fb18" path="res://Resources/Assets/Elementi_rossi/Blocco_grande.png" id="2_ekgwn"]
+[ext_resource type="Texture2D" uid="uid://ckmimdioxubta" path="res://Resources/Assets/Elementi_rossi/Blocco_rosso.png" id="2_61r5a"]
 [ext_resource type="PackedScene" uid="uid://bhntgodhqptoj" path="res://Scenes/PlatformerPlayer/TriggerComponent/ReceiverComponent.tscn" id="3_mqea2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bwo16"]
-size = Vector2(31.25, 38.7714)
+size = Vector2(16.75, 43.3714)
 
 [node name="Platform1" type="CharacterBody2D"]
 script = ExtResource("1_uljva")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, 4.76837e-07)
-scale = Vector2(1.108, 1.993)
-texture = ExtResource("2_ekgwn")
+position = Vector2(34, -33.8415)
+texture = ExtResource("2_61r5a")
 offset = Vector2(-6.88574e-06, -0.158527)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, 0.5)
+position = Vector2(34.5, -33.8415)
 scale = Vector2(4, 1.52174)
 shape = SubResource("RectangleShape2D_bwo16")
 
 [node name="ReceiverComponent" parent="." instance=ExtResource("3_mqea2")]
+position = Vector2(34, -33.8415)
 
 [connection signal="disabled" from="ReceiverComponent" to="." method="_on_receiver_component_disabled"]
 [connection signal="enabled" from="ReceiverComponent" to="." method="_on_receiver_component_enabled"]

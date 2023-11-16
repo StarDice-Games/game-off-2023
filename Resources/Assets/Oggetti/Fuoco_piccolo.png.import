@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bygqv7dle3768"
-path="res://.godot/imported/Fondo.png-487a24de3a5ae8dc524a67b66d430e9d.ctex"
+uid="uid://bwekwmun12njl"
+path="res://.godot/imported/Fuoco_piccolo.png-d085eeed8c60addc7dc083c116ed76c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Assets/Oggetti/Fondo.png"
-dest_files=["res://.godot/imported/Fondo.png-487a24de3a5ae8dc524a67b66d430e9d.ctex"]
+source_file="res://Resources/Assets/Oggetti/Fuoco_piccolo.png"
+dest_files=["res://.godot/imported/Fuoco_piccolo.png-d085eeed8c60addc7dc083c116ed76c1.ctex"]
 
 [params]
 

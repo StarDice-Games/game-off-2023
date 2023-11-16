@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1g3wc2w42brq"
-path="res://.godot/imported/Porta aperta.png-c5211cb796f49abcaf2ffcf6f84cf3a4.ctex"
+uid="uid://ckmimdioxubta"
+path="res://.godot/imported/Blocco_rosso.png-f1e220cbfcedb6e89d875cd4ca21643f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Assets/Porte/Porta aperta.png"
-dest_files=["res://.godot/imported/Porta aperta.png-c5211cb796f49abcaf2ffcf6f84cf3a4.ctex"]
+source_file="res://Resources/Assets/Elementi_rossi/Blocco_rosso.png"
+dest_files=["res://.godot/imported/Blocco_rosso.png-f1e220cbfcedb6e89d875cd4ca21643f.ctex"]
 
 [params]
 
