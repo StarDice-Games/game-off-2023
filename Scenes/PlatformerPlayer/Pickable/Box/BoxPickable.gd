@@ -21,4 +21,5 @@ func _physics_process(delta):
 		if collider != null and collider is WaterFloor:
 			afloat = true
 			remove_from_group("Pickable")
+			$PickupComponent.remove_from_group("Pickable")
 			$AnimationPlayer.play("float")

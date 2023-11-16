@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://dvhrt43a8uu5r"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Pickable/Box/BoxPickable.gd" id="1_1jlfo"]
-[ext_resource type="Texture2D" uid="uid://djfjsy6in62ra" path="res://Resources/Assets/Oggetti/Box.png" id="1_d761n"]
 [ext_resource type="PackedScene" uid="uid://dnuopb0n063hc" path="res://Scenes/PlatformerPlayer/Pickable/PickupComponent/PickupComponent.tscn" id="2_1lxe1"]
+[ext_resource type="Texture2D" uid="uid://djfjsy6in62ra" path="res://Resources/Assets/Oggetti/Box.png" id="2_20prx"]
 [ext_resource type="Material" uid="uid://bdjvh3cymune7" path="res://Resources/Materials/Unshaded.tres" id="3_j1ld0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uo74p"]
@@ -16,6 +16,57 @@ size = Vector2(64, 63)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j0n44"]
 size = Vector2(32, 32)
+
+[sub_resource type="Animation" id="Animation_jrpct"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Left:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LeftCollision:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RightCollision:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_mqetl"]
 resource_name = "float"
@@ -69,57 +120,6 @@ tracks/3/keys = {
 "values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_jrpct"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Left:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Right:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("LeftCollision:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("RightCollision:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rq1vy"]
 _data = {
 "RESET": SubResource("Animation_jrpct"),
@@ -134,15 +134,14 @@ side = 1
 
 [node name="Right" type="Sprite2D" parent="."]
 modulate = Color(1, 0.568627, 0, 1)
-scale = Vector2(2, 2)
-texture = ExtResource("1_boqfp")
+scale = Vector2(0.741176, 0.771084)
+texture = ExtResource("2_20prx")
 
 [node name="Left" type="Sprite2D" parent="."]
 process_mode = 4
 visible = false
 modulate = Color(1, 0.568627, 0, 1)
 material = ExtResource("3_j1ld0")
-texture = ExtResource("1_boqfp")
 
 [node name="RightCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_uo74p")
