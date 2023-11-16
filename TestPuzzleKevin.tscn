@@ -19,7 +19,6 @@ position = Vector2(986, 528)
 scale = Vector2(0.5, 0.5)
 JUMP_VELOCITY = -550.0
 push_force = 50
-player = 1
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(243.753, 366.368)
