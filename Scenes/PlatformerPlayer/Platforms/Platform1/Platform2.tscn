@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://phjy1geq4nek"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Platforms/MovingPlatform/MovingComponent.gd" id="1_uljva"]
-[ext_resource type="Texture2D" uid="uid://dhygrefhjnums" path="res://Resources/Assets/Test/Platform_rossa.png" id="2_s86oi"]
+[ext_resource type="Texture2D" uid="uid://yh8lfa26fb18" path="res://Resources/Assets/Elementi_rossi/Blocco_grande.png" id="2_44by3"]
 [ext_resource type="PackedScene" uid="uid://bhntgodhqptoj" path="res://Scenes/PlatformerPlayer/TriggerComponent/ReceiverComponent.tscn" id="3_mqea2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bwo16"]
@@ -12,14 +12,11 @@ script = ExtResource("1_uljva")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -1)
-scale = Vector2(1.108, 1.993)
-texture = ExtResource("2_s86oi")
-offset = Vector2(-6.88574e-06, 9.37484)
+scale = Vector2(1.088, 2.038)
+texture = ExtResource("2_44by3")
+offset = Vector2(-6.88574e-06, -0.158529)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, -1.5)
 scale = Vector2(4, 1.52174)
 shape = SubResource("RectangleShape2D_bwo16")
 

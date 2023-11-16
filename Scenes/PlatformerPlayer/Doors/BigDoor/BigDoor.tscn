@@ -1,26 +1,27 @@
 [gd_scene load_steps=7 format=3 uid="uid://c8qbn2xe7w0yv"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Doors/BigDoor/BigDoor.gd" id="1_6xypb"]
-[ext_resource type="Texture2D" uid="uid://cg1ymalfuxac" path="res://Resources/Images/New Piskel.png" id="1_k4bpc"]
+[ext_resource type="Texture2D" uid="uid://bty4v2j4opvp8" path="res://Resources/Assets/Porte/Porta.png" id="2_0550h"]
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/TriggerComponent/ReceiverComponent.gd" id="2_j5eds"]
-[ext_resource type="PackedScene" uid="uid://cs8xishx48a2x" path="res://Scenes/PlatformerPlayer/Goal/GoalComponent.tscn" id="4_hsend"]
+[ext_resource type="PackedScene" path="res://Scenes/PlatformerPlayer/Goal/GoalComponent.tscn" id="4_hsend"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vktie"]
-size = Vector2(32, 32)
+size = Vector2(49, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ox0jw"]
-size = Vector2(20, 19)
+size = Vector2(32, 96)
 
 [node name="BigDoor" type="StaticBody2D"]
 collision_mask = 3
 script = ExtResource("1_6xypb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(0, 1, 0, 1)
-texture = ExtResource("1_k4bpc")
+texture_filter = 1
+scale = Vector2(0.64, 0.64)
+texture = ExtResource("2_0550h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_vktie")
 
 [node name="ReceiverComponent" type="Node2D" parent="."]
@@ -30,7 +31,6 @@ script = ExtResource("2_j5eds")
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
-position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_ox0jw")
 debug_color = Color(0.945098, 0, 0.588235, 0.745098)
 

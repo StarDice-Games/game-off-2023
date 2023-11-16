@@ -2,19 +2,19 @@
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Pickable/Spring/Spring.gd" id="1_8qnpb"]
 [ext_resource type="PackedScene" uid="uid://dnuopb0n063hc" path="res://Scenes/PlatformerPlayer/Pickable/PickupComponent/PickupComponent.tscn" id="1_ex5wo"]
-[ext_resource type="Texture2D" uid="uid://b0alpffen5wgy" path="res://Resources/Images/spring.png" id="1_lxsf4"]
+[ext_resource type="Texture2D" uid="uid://bae31o6oaohca" path="res://Resources/Assets/Oggetti/Molla.png" id="2_0a44t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ygvuk"]
 size = Vector2(32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x8dih"]
-size = Vector2(64, 64)
+size = Vector2(50, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cb7wd"]
 size = Vector2(28, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4qcdh"]
-size = Vector2(58, 66)
+size = Vector2(50, 68)
 
 [node name="Spring" type="CharacterBody2D" groups=["Pickable"]]
 collision_layer = 4
@@ -22,13 +22,16 @@ collision_mask = 7
 script = ExtResource("1_8qnpb")
 
 [node name="Left" type="Sprite2D" parent="."]
-texture = ExtResource("1_lxsf4")
+texture_filter = 1
+scale = Vector2(0.465, 0.465)
+texture = ExtResource("2_0a44t")
 
 [node name="Right" type="Sprite2D" parent="."]
 process_mode = 4
 visible = false
-scale = Vector2(2, 2)
-texture = ExtResource("1_lxsf4")
+texture_filter = 1
+scale = Vector2(0.905, 0.905)
+texture = ExtResource("2_0a44t")
 
 [node name="LeftCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ygvuk")
@@ -36,14 +39,11 @@ shape = SubResource("RectangleShape2D_ygvuk")
 [node name="RightCollision" type="CollisionShape2D" parent="."]
 process_mode = 4
 visible = false
+position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_x8dih")
 disabled = true
 
-[node name="PickupComponent" parent="." node_paths=PackedStringArray("leftElement", "rightElement", "collisionLeft", "collisionRight") instance=ExtResource("1_ex5wo")]
-leftElement = [NodePath("../Left"), NodePath("../LeftCollision"), NodePath("AreaLeft")]
-rightElement = [NodePath("../Right"), NodePath("../RightCollision"), NodePath("AreaRight")]
-collisionLeft = NodePath("../LeftCollision")
-collisionRight = NodePath("../RightCollision")
+[node name="PickupComponent" parent="." instance=ExtResource("1_ex5wo")]
 
 [node name="AreaLeft" type="CollisionShape2D" parent="PickupComponent"]
 position = Vector2(0, -1)
@@ -53,7 +53,7 @@ debug_color = Color(0.803922, 0.266667, 0.8, 0.419608)
 [node name="AreaRight" type="CollisionShape2D" parent="PickupComponent"]
 process_mode = 4
 visible = false
-position = Vector2(0, -3)
+position = Vector2(-1, -2)
 shape = SubResource("RectangleShape2D_4qcdh")
 disabled = true
 debug_color = Color(0.866667, 0.345098, 0.207843, 0.419608)

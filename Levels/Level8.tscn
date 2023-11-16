@@ -255,7 +255,6 @@ massRight = 2
 
 [node name="BoxPickable" parent="KeyItems" instance=ExtResource("18_5kma2")]
 position = Vector2(1606.27, 460.051)
-side = 1
 
 [node name="Spring" parent="." instance=ExtResource("19_bxccb")]
 position = Vector2(784.383, 831.607)

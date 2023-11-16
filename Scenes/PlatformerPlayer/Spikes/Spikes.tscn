@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://do88ox8hahe8i"]
 
-[ext_resource type="Texture2D" uid="uid://dosu0prqeefyh" path="res://Resources/Images/spikes.png" id="1_3ehqd"]
+[ext_resource type="Texture2D" uid="uid://c1grraiodsmwh" path="res://Resources/Assets/Oggetti/Punta.png" id="1_kkcfy"]
 [ext_resource type="PackedScene" uid="uid://bu75kel0q2p7r" path="res://Scenes/PlatformerPlayer/DeathComponent/DeathComponent.tscn" id="2_qo210"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e8erm"]
@@ -10,7 +10,10 @@ size = Vector2(32, 32)
 collision_mask = 6
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_3ehqd")
+texture_filter = 1
+position = Vector2(4, 5)
+scale = Vector2(0.761, 0.667)
+texture = ExtResource("1_kkcfy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_e8erm")

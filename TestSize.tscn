@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bjemjnbbp63na"]
+[gd_scene load_steps=16 format=3 uid="uid://bjemjnbbp63na"]
 
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="1_gtsi8"]
 [ext_resource type="PackedScene" uid="uid://duvywv1d1kgyo" path="res://Scenes/PlatformerPlayer/Divider/divider.tscn" id="3_upelc"]
@@ -7,8 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://phjy1geq4nek" path="res://Scenes/PlatformerPlayer/Platforms/Platform1/Platform2.tscn" id="9_8g4qb"]
 [ext_resource type="PackedScene" uid="uid://6a1c38prt1a4" path="res://Scenes/PlatformerPlayer/Buttons/Button1/Button01.tscn" id="10_xuv0k"]
 [ext_resource type="PackedScene" uid="uid://c8qbn2xe7w0yv" path="res://Scenes/PlatformerPlayer/Doors/BigDoor/BigDoor.tscn" id="11_omu61"]
+[ext_resource type="PackedScene" uid="uid://bvbp2v80of60g" path="res://Scenes/PlatformerPlayer/Platforms/Components/DisappearingPlatform/DisappearingPlatformComponent.tscn" id="12_2saiw"]
 [ext_resource type="Script" path="res://LevelUI.gd" id="12_pew3a"]
+[ext_resource type="PackedScene" uid="uid://sn8oy4jcubwe" path="res://Scenes/PlatformerPlayer/Platforms/DisappearPlatform1/DisapperaPlatform1.tscn" id="12_pg26i"]
 [ext_resource type="PackedScene" uid="uid://b8upryncqwmc6" path="res://Scenes/PlatformerPlayer/Doors/SmallDoor/SmallDoor.tscn" id="13_e638a"]
+[ext_resource type="PackedScene" uid="uid://cg5qp6djrjlof" path="res://Scenes/PlatformerPlayer/Platforms/DisappearPlatform2/DisapperaPlatform2.tscn" id="13_x6ypd"]
 [ext_resource type="PackedScene" uid="uid://cxjw8tk4kep1p" path="res://Scenes/PlatformerPlayer/Keys/Key01/Key01.tscn" id="15_tyo11"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orutt"]
@@ -142,3 +145,15 @@ position = Vector2(416, 944)
 
 [node name="Spikes" parent="Spikes2" instance=ExtResource("4_0v7p7")]
 position = Vector2(1520, 992)
+
+[node name="DisapperaPlatform1" parent="." instance=ExtResource("12_pg26i")]
+position = Vector2(1520, 992)
+
+[node name="DisappearingPlatformComponent" parent="." instance=ExtResource("12_2saiw")]
+position = Vector2(592, 848)
+
+[node name="DisapperaPlatform2" parent="." instance=ExtResource("12_pg26i")]
+position = Vector2(1152, 1040)
+
+[node name="DisapperaPlatform3" parent="." instance=ExtResource("13_x6ypd")]
+position = Vector2(736, 1040)
