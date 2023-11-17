@@ -22,4 +22,5 @@ func _physics_process(delta):
 			afloat = true
 			remove_from_group("Pickable")
 			$PickupComponent.remove_from_group("Pickable")
-			$AnimationPlayer.play("float")
+			if $AnimationPlayer != null:
+				$AnimationPlayer.play("float")
