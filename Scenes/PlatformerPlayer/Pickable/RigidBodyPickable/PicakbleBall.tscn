@@ -9,57 +9,65 @@
 radius = 16.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0d5xh"]
-radius = 58.4209
+radius = 32.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xutdn"]
 radius = 16.0312
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ky8ox"]
-radius = 58.5769
+radius = 32.0
 
 [node name="Ball" type="RigidBody2D" groups=["BreaksWalls", "Pickable"]]
 collision_layer = 4
 collision_mask = 7
+mass = 5.0
 max_contacts_reported = 1
 contact_monitor = true
+lock_rotation = true
 script = ExtResource("1_k557d")
+side = 1
 
 [node name="Left" type="Sprite2D" parent="."]
+process_mode = 4
+visible = false
 texture_filter = 1
 texture = ExtResource("2_usaw8")
+offset = Vector2(0, -16)
 
 [node name="Right" type="Sprite2D" parent="."]
-process_mode = 4
-visible = false
 texture_filter = 1
-scale = Vector2(2, 2)
 texture = ExtResource("3_6x1e6")
+offset = Vector2(0, -32)
 
 [node name="LeftCollision" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_kgujb")
-
-[node name="RightCollision" type="CollisionShape2D" parent="."]
 process_mode = 4
 visible = false
+position = Vector2(0, -16)
+shape = SubResource("CircleShape2D_kgujb")
+disabled = true
+
+[node name="RightCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -32)
 rotation = 1.5708
 shape = SubResource("CircleShape2D_0d5xh")
-disabled = true
 
 [node name="PickupComponent" type="Area2D" parent="." node_paths=PackedStringArray("leftElement", "rightElement", "collisionLeft", "collisionRight")]
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("3_ufbv2")
+currentSide = 1
 leftElement = [NodePath("../Left"), NodePath("../LeftCollision"), NodePath("LeftArea")]
 rightElement = [NodePath("../Right"), NodePath("../RightCollision"), NodePath("RightArea")]
 collisionLeft = NodePath("../LeftCollision")
 collisionRight = NodePath("../RightCollision")
 
 [node name="LeftArea" type="CollisionShape2D" parent="PickupComponent"]
-shape = SubResource("CircleShape2D_xutdn")
-
-[node name="RightArea" type="CollisionShape2D" parent="PickupComponent"]
 process_mode = 4
 visible = false
-position = Vector2(-0.5, 0)
-shape = SubResource("CircleShape2D_ky8ox")
+position = Vector2(0, -16)
+shape = SubResource("CircleShape2D_xutdn")
 disabled = true
+
+[node name="RightArea" type="CollisionShape2D" parent="PickupComponent"]
+position = Vector2(0, -32)
+shape = SubResource("CircleShape2D_ky8ox")

@@ -11,6 +11,8 @@ func _ready():
 	#overwrite the value when in game
 	$PickupComponent.setSide(side)
 	
+	angular_velocity
+	
 	pass # Replace with function body.
 
 func setMass(val):
