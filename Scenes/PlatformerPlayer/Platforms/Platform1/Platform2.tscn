@@ -12,17 +12,16 @@ script = ExtResource("1_uljva")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(34, -33.8415)
 texture = ExtResource("2_61r5a")
-offset = Vector2(-6.88574e-06, -0.158527)
+offset = Vector2(0, -34)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(34.5, -33.8415)
+position = Vector2(0, -33)
 scale = Vector2(4, 1.52174)
 shape = SubResource("RectangleShape2D_bwo16")
 
 [node name="ReceiverComponent" parent="." instance=ExtResource("3_mqea2")]
-position = Vector2(34, -33.8415)
+position = Vector2(0, -33)
 
 [connection signal="disabled" from="ReceiverComponent" to="." method="_on_receiver_component_disabled"]
 [connection signal="enabled" from="ReceiverComponent" to="." method="_on_receiver_component_enabled"]

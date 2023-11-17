@@ -10,8 +10,8 @@
 size = Vector2(116, 191)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w3jm4"]
-radius = 46.0
-height = 108.0
+radius = 30.0
+height = 124.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ynrlp"]
 size = Vector2(31.5, 113)
@@ -69,6 +69,7 @@ collisionLeft = NodePath("../LeftCollision")
 collisionRight = NodePath("../RightCollision")
 
 [node name="ShapeCast2D" type="ShapeCast2D" parent="."]
+target_position = Vector2(0, 64)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

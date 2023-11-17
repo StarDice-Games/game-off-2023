@@ -157,10 +157,6 @@ texture = ExtResource("10_2wk6v")
 [node name="BoxPickable" parent="." instance=ExtResource("11_x6x4g")]
 position = Vector2(1113, 1035)
 
-[node name="Spring" parent="." instance=ExtResource("11_eqark")]
-position = Vector2(1171, 1036)
-JUMP_FORCE = -400
-
 [node name="WaterContainer" parent="." instance=ExtResource("12_sn055")]
 position = Vector2(1309, 1035)
 
@@ -208,3 +204,6 @@ active = false
 
 [node name="Node2D2" type="Node2D" parent="."]
 position = Vector2(91, -141)
+
+[node name="Spring" parent="." instance=ExtResource("11_eqark")]
+position = Vector2(1184, 1024)

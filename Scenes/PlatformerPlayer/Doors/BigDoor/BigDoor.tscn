@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Doors/BigDoor/BigDoor.gd" id="1_6xypb"]
 [ext_resource type="Texture2D" uid="uid://g7ukeijsodu0" path="res://Resources/Assets/Porte/Porta_grande.png" id="2_dygy5"]
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/TriggerComponent/ReceiverComponent.gd" id="2_j5eds"]
-[ext_resource type="PackedScene" path="res://Scenes/PlatformerPlayer/Goal/GoalComponent.tscn" id="4_hsend"]
+[ext_resource type="PackedScene" uid="uid://cs8xishx48a2x" path="res://Scenes/PlatformerPlayer/Goal/GoalComponent.tscn" id="4_hsend"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vktie"]
 size = Vector2(34, 202)
@@ -17,23 +17,22 @@ script = ExtResource("1_6xypb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(34, -102)
 texture = ExtResource("2_dygy5")
+offset = Vector2(0, -102)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(37, -103)
+position = Vector2(0, -102)
 shape = SubResource("RectangleShape2D_vktie")
 
 [node name="ReceiverComponent" type="Node2D" parent="."]
-position = Vector2(34, -102)
+position = Vector2(0, -102)
 script = ExtResource("2_j5eds")
 
 [node name="Goal" parent="." instance=ExtResource("4_hsend")]
-position = Vector2(34, -102)
+position = Vector2(0, -102)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
-position = Vector2(3, 10.5)
 shape = SubResource("RectangleShape2D_ox0jw")
 debug_color = Color(0.945098, 0, 0.588235, 0.745098)
 

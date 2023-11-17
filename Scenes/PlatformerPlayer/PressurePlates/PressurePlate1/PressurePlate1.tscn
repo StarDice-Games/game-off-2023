@@ -15,14 +15,14 @@ senderComp = NodePath("SenderComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(68, -17)
 texture = ExtResource("2_1p1em")
+offset = Vector2(0, -17)
 
 [node name="SenderComponent" parent="." instance=ExtResource("2_32blu")]
-position = Vector2(68, -17)
+position = Vector2(0, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(68, -17)
+position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_27fqp")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
