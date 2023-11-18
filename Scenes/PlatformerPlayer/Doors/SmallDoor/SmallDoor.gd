@@ -22,15 +22,15 @@ func _process(delta):
 
 func fullyOpen():
 	print("%s is open" % name)
-	$CollisionShape2D.disabled = true
-	$CollisionShape2D.process_mode = Node.PROCESS_MODE_DISABLED
+#	$CollisionShape2D.disabled = true
+#	$CollisionShape2D.process_mode = Node.PROCESS_MODE_DISABLED
 	
 	$Goal.active = true
 	pass
 
 func fullyClosed():
-	$CollisionShape2D.disabled = false
-	$CollisionShape2D.process_mode = Node.PROCESS_MODE_INHERIT
+#	$CollisionShape2D.disabled = false
+#	$CollisionShape2D.process_mode = Node.PROCESS_MODE_INHERIT
 	$Goal.active = false
 	pass
 
@@ -42,8 +42,9 @@ func _on_receiver_component_triggered():
 
 func _on_goal_body_entered(body):
 	print("Goal enter")
-	if body is PlatPlayer:
-		$Goal.achieved = true
+	if $Goal.active:
+		if body is PlatPlayer:
+			$Goal.achieved = true
 	pass # Replace with function body.
 
 

@@ -1,12 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8qbn2xe7w0yv"]
+[gd_scene load_steps=6 format=3 uid="uid://c8qbn2xe7w0yv"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Doors/BigDoor/BigDoor.gd" id="1_6xypb"]
 [ext_resource type="Texture2D" uid="uid://g7ukeijsodu0" path="res://Resources/Assets/Porte/Porta_grande.png" id="2_dygy5"]
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/TriggerComponent/ReceiverComponent.gd" id="2_j5eds"]
 [ext_resource type="PackedScene" uid="uid://cs8xishx48a2x" path="res://Scenes/PlatformerPlayer/Goal/GoalComponent.tscn" id="4_hsend"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vktie"]
-size = Vector2(34, 202)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ox0jw"]
 size = Vector2(34, 179)
@@ -19,10 +16,6 @@ script = ExtResource("1_6xypb")
 texture_filter = 1
 texture = ExtResource("2_dygy5")
 offset = Vector2(0, -102)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -102)
-shape = SubResource("RectangleShape2D_vktie")
 
 [node name="ReceiverComponent" type="Node2D" parent="."]
 position = Vector2(0, -102)

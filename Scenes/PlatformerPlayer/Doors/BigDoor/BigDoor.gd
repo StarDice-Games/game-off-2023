@@ -22,15 +22,10 @@ func _process(delta):
 
 func fullyOpen():
 	print("Door is open")
-	$CollisionShape2D.disabled = true
-	$CollisionShape2D.process_mode = Node.PROCESS_MODE_DISABLED
-	
 	$Goal.active = true
 	pass
 
 func fullyClosed():
-	$CollisionShape2D.disabled = false
-	$CollisionShape2D.process_mode = Node.PROCESS_MODE_INHERIT
 	$Goal.active = false
 	pass
 
@@ -42,7 +37,7 @@ func _on_receiver_component_triggered():
 
 func _on_goal_body_entered(body):
 	print("Goal enter")
-	if body is PlatPlayer:
+	if body is PlatPlayer and $Goal.active:
 		$Goal.achieved = true
 	pass # Replace with function body.
 
