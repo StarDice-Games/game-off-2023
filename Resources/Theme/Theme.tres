@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b15dltfliv1gb"]
+
+[ext_resource type="FontFile" uid="uid://42j1i2jkr4x3" path="res://Resources/Fonts/KGMidnightMemories.ttf" id="1_n4hy7"]
+
+[resource]
+default_font = ExtResource("1_n4hy7")
+default_font_size = 16
+/font_sizes/fontSize = 16
+/fonts/Font = ExtResource("1_n4hy7")
