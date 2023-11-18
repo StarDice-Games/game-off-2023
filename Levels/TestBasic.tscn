@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://giaagw06k0v"]
+
+[ext_resource type="Texture2D" uid="uid://bo04kloimwmpv" path="res://Resources/Assets/Background/Fondo.png" id="1_782ab"]
+[ext_resource type="PackedScene" uid="uid://duvywv1d1kgyo" path="res://Scenes/PlatformerPlayer/Divider/divider.tscn" id="2_33rm0"]
+[ext_resource type="PackedScene" uid="uid://c6oxlwfitiwcd" path="res://Scenes/PlatformerPlayer/Obstacle/statiWall.tscn" id="3_v2cx5"]
+[ext_resource type="PackedScene" uid="uid://c5xj8w588i6aa" path="res://Scenes/Visual Indicator/visualIndicator.tscn" id="4_1n3ic"]
+[ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="5_lih6r"]
+[ext_resource type="PackedScene" uid="uid://dvhrt43a8uu5r" path="res://Scenes/PlatformerPlayer/Pickable/Box/BoxPickable.tscn" id="6_upoev"]
+
+[node name="TestBasic" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(960, 540)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_782ab")
+metadata/_edit_lock_ = true
+
+[node name="Diveders" type="Node2D" parent="."]
+
+[node name="Divider" parent="Diveders" instance=ExtResource("2_33rm0")]
+position = Vector2(992, 540)
+scale = Vector2(2.96, 35.48)
+
+[node name="Divider2" parent="Diveders" instance=ExtResource("2_33rm0")]
+position = Vector2(-17, 531)
+scale = Vector2(2.96, 35.48)
+
+[node name="Divider3" parent="Diveders" instance=ExtResource("2_33rm0")]
+position = Vector2(1931, 529)
+scale = Vector2(2.96, 35.48)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("3_v2cx5")]
+position = Vector2(992, 1024)
+scale = Vector2(64.68, 2)
+
+[node name="ColorRect" parent="." instance=ExtResource("4_1n3ic")]
+metadata/_edit_lock_ = true
+
+[node name="ColorRect2" parent="." instance=ExtResource("4_1n3ic")]
+offset_left = 1024.0
+offset_right = 1984.0
+Side = 1
+metadata/_edit_lock_ = true
+
+[node name="Player1" parent="." instance=ExtResource("5_lih6r")]
+position = Vector2(480, 704)
+
+[node name="Player2" parent="." instance=ExtResource("5_lih6r")]
+position = Vector2(1438.42, 665.348)
+side = 1
+
+[node name="BoxPickable" parent="." instance=ExtResource("6_upoev")]
+position = Vector2(682.692, 554.251)
