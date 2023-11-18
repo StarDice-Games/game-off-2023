@@ -12,7 +12,7 @@ var held = false
 @export var rightElement : Array[Node2D] = []
 
 #TODO maybe separate the visual with the pickable option
-@export var collisionLeft : CollisionShape2D
+@export var collisionLeft : Node2D
 @export var collisionRight : CollisionShape2D
 
 @export_range(1, 200, 0.5) var flashTime = 1

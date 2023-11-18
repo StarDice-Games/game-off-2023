@@ -1,14 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cqnl53v0iei8b"]
+[gd_scene load_steps=8 format=3 uid="uid://cqnl53v0iei8b"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/PlatPlayer.gd" id="1_go3e0"]
 [ext_resource type="Material" uid="uid://bdjvh3cymune7" path="res://Resources/Materials/Unshaded.tres" id="2_4bwpy"]
 [ext_resource type="PackedScene" uid="uid://dnuopb0n063hc" path="res://Scenes/PlatformerPlayer/Pickable/PickupComponent/PickupComponent.tscn" id="3_0rr4x"]
 [ext_resource type="Texture2D" uid="uid://3q2g1gjl31kx" path="res://Resources/Assets/Elementi_rossi/Omino_rosso.png" id="3_ld05j"]
 [ext_resource type="Texture2D" uid="uid://dgbwbb6pe3see" path="res://Resources/Assets/Elementi_blu/Omino_blu.png" id="4_v002a"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8nqjx"]
-radius = 44.0
-height = 184.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w3jm4"]
 radius = 46.0
@@ -32,9 +28,9 @@ process_mode = 4
 visible = false
 texture = ExtResource("4_v002a")
 
-[node name="LeftCollision" type="CollisionShape2D" parent="."]
-position = Vector2(-20, 8)
-shape = SubResource("CapsuleShape2D_8nqjx")
+[node name="LeftCollision" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, 3.5)
+polygon = PackedVector2Array(-24, -99.5, -79, 24.5, -33, 33.5, -37, 93.5, 8, 96.5, 4, 31.5, 56, 20.5)
 
 [node name="RightCollision" type="CollisionShape2D" parent="."]
 process_mode = 4
@@ -44,7 +40,7 @@ shape = SubResource("CapsuleShape2D_w3jm4")
 disabled = true
 
 [node name="PickupPosition" type="Marker2D" parent="."]
-position = Vector2(0, -88)
+position = Vector2(0, -139)
 scale = Vector2(0.5, 0.5)
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -52,7 +48,7 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-75, -1)
+position = Vector2(-105, -1)
 shape = SubResource("RectangleShape2D_ynrlp")
 
 [node name="ColorRect" type="ColorRect" parent="Area2D/CollisionShape2D"]
