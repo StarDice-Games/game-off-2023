@@ -4,6 +4,7 @@ class_name Spring
 
 @export var side = 0
 @export var JUMP_FORCE = 400
+@export var BALL_JUMP_FORCE = 400
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -44,7 +45,7 @@ func ApplyForceToItems(collider):
 		if group == "Pickable":
 			if $PickupComponent.held == false:
 				if collider is RigidBody2D:
-					collider.apply_impulse(Vector2.UP * JUMP_FORCE)
+					collider.apply_central_impulse(Vector2.UP * BALL_JUMP_FORCE)
 				else:
 					collider.velocity.y = JUMP_FORCE
 		

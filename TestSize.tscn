@@ -183,12 +183,17 @@ position = Vector2(800, 336)
 position = Vector2(420, 668)
 
 [node name="Ball" parent="." instance=ExtResource("19_ftxt6")]
-position = Vector2(1393, 1007)
+position = Vector2(710, 860)
+mass = 1.0
 
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Platform2" parent="Node2D" instance=ExtResource("5_kp2d6")]
 position = Vector2(1472, 864)
+active = false
+
+[node name="Platform3" parent="Node2D" instance=ExtResource("5_kp2d6")]
+position = Vector2(1438, 896)
 active = false
 
 [node name="Platform4" parent="Node2D" instance=ExtResource("5_kp2d6")]
@@ -207,4 +212,7 @@ active = false
 position = Vector2(91, -141)
 
 [node name="Spring" parent="." instance=ExtResource("11_eqark")]
-position = Vector2(1184, 1024)
+position = Vector2(384, 979)
+side = 1
+JUMP_FORCE = -800
+BALL_JUMP_FORCE = 800
