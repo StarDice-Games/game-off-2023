@@ -27,23 +27,20 @@ side = 1
 process_mode = 4
 visible = false
 texture_filter = 1
+position = Vector2(10, -23.5)
 texture = ExtResource("2_8w8gs")
-offset = Vector2(0, -23.5)
 
 [node name="Right" type="Sprite2D" parent="."]
 texture_filter = 1
+position = Vector2(0, -0.646252)
 texture = ExtResource("2_5vik6")
-offset = Vector2(0, -32.6463)
+offset = Vector2(0, -32)
 
 [node name="LeftCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, -23.5)
-shape = SubResource("RectangleShape2D_ygvuk")
-
-[node name="RightCollision" type="CollisionShape2D" parent="."]
 process_mode = 4
 visible = false
-position = Vector2(0, -28)
-shape = SubResource("RectangleShape2D_x8dih")
+position = Vector2(10, -20.5)
+shape = SubResource("RectangleShape2D_ygvuk")
 disabled = true
 
 [node name="RightCollision" type="CollisionShape2D" parent="."]
@@ -63,15 +60,13 @@ collisionRight = NodePath("../RightCollision")
 process_mode = 4
 visible = false
 texture_filter = 1
-position = Vector2(-10, -4)
+position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_cb7wd")
 disabled = true
 debug_color = Color(0.803922, 0.266667, 0.8, 0.419608)
 
 [node name="AreaRight" type="CollisionShape2D" parent="PickupComponent"]
-process_mode = 4
-visible = false
-position = Vector2(-10, -11.5)
+position = Vector2(-10, -9.5)
 shape = SubResource("RectangleShape2D_4qcdh")
 debug_color = Color(0.866667, 0.345098, 0.207843, 0.419608)
 
