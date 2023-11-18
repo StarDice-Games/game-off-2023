@@ -28,24 +28,25 @@ script = ExtResource("1_886g2")
 
 [node name="Left" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(16.5, -19.5)
 texture = ExtResource("2_3ft8s")
+offset = Vector2(0, -20)
 
 [node name="Right" type="Sprite2D" parent="."]
 process_mode = 4
 visible = false
 texture_filter = 1
 texture = ExtResource("3_o222g")
+offset = Vector2(0, -39)
 flip_h = true
 
 [node name="LefiCollision" type="CollisionShape2D" parent="."]
-position = Vector2(18, -18)
+position = Vector2(0, -18)
 shape = SubResource("RectangleShape2D_8pf4b")
 
 [node name="RightCollision" type="CollisionShape2D" parent="."]
 process_mode = 4
 visible = false
-position = Vector2(13, 3)
+position = Vector2(0, -35)
 shape = SubResource("RectangleShape2D_djtta")
 disabled = true
 debug_color = Color(0.741176, 0.282353, 0.917647, 0.419608)
@@ -59,12 +60,13 @@ collisionLeft = NodePath("../LefiCollision")
 collisionRight = NodePath("../RightCollision")
 
 [node name="LeftArea" type="CollisionShape2D" parent="PickupComponent"]
+position = Vector2(-16.5, 1.5)
 shape = SubResource("RectangleShape2D_qr3wd")
 
 [node name="RightArea" type="CollisionShape2D" parent="PickupComponent"]
 process_mode = 4
 visible = false
-position = Vector2(14, 3)
+position = Vector2(-16.5, -15.5)
 shape = SubResource("RectangleShape2D_nsq6e")
 disabled = true
 debug_color = Color(0.831373, 0.180392, 0.843137, 0.419608)
@@ -75,7 +77,7 @@ collision_layer = 4
 collision_mask = 5
 
 [node name="Sprinkle" type="CollisionShape2D" parent="Sprinkle"]
-position = Vector2(-29, 5)
+position = Vector2(-29.5, 5)
 shape = SubResource("RectangleShape2D_7hbax")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Sprinkle/Sprinkle"]

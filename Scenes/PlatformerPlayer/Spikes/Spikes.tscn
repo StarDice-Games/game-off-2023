@@ -1,30 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://do88ox8hahe8i"]
+[gd_scene load_steps=3 format=3 uid="uid://do88ox8hahe8i"]
 
 [ext_resource type="Texture2D" uid="uid://cqnx2qkxrn3jt" path="res://Resources/Assets/Oggetti/Punta.png" id="1_rmi0m"]
 [ext_resource type="PackedScene" uid="uid://bu75kel0q2p7r" path="res://Scenes/PlatformerPlayer/DeathComponent/DeathComponent.tscn" id="2_qo210"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8erm"]
-size = Vector2(68, 68)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivluj"]
-size = Vector2(42.5, 42.5)
 
 [node name="Spikes" type="StaticBody2D"]
 collision_mask = 6
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(34.5, -34.5)
 texture = ExtResource("1_rmi0m")
+offset = Vector2(0, -35)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(35.5, -34.5)
-shape = SubResource("RectangleShape2D_e8erm")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(1, -39)
+rotation = 0.261799
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(-3.64204, -29.0471, -23.7135, 46.7298, 40.0376, 29.6477)
 
 [node name="DeathComponent" parent="." instance=ExtResource("2_qo210")]
-position = Vector2(34.5, -34.5)
+process_mode = 4
+position = Vector2(3.8147e-06, -32)
 scale = Vector2(1.6, 1.6)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathComponent"]
-position = Vector2(0.625002, -5.96046e-07)
-shape = SubResource("RectangleShape2D_ivluj")
