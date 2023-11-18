@@ -1,0 +1,384 @@
+[gd_scene load_steps=22 format=3 uid="uid://uqrjfoi60ci"]
+
+[ext_resource type="Texture2D" uid="uid://bo04kloimwmpv" path="res://Resources/Assets/Background/Fondo.png" id="1_0we0l"]
+[ext_resource type="PackedScene" uid="uid://duvywv1d1kgyo" path="res://Scenes/PlatformerPlayer/Divider/divider.tscn" id="2_xk1du"]
+[ext_resource type="PackedScene" uid="uid://c6oxlwfitiwcd" path="res://Scenes/PlatformerPlayer/Obstacle/statiWall.tscn" id="3_brwve"]
+[ext_resource type="PackedScene" uid="uid://c5xj8w588i6aa" path="res://Scenes/Visual Indicator/visualIndicator.tscn" id="4_73dry"]
+[ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="5_se1d8"]
+[ext_resource type="PackedScene" uid="uid://dvhrt43a8uu5r" path="res://Scenes/PlatformerPlayer/Pickable/Box/BoxPickable.tscn" id="6_ic06w"]
+[ext_resource type="PackedScene" uid="uid://c3eux8dwlxtov" path="res://Scenes/PlatformerPlayer/Platforms/Plants/Vase/Vase.tscn" id="7_3pf5p"]
+[ext_resource type="PackedScene" uid="uid://birka5inve0vm" path="res://Scenes/PlatformerPlayer/Platforms/Plants/LeafPlatform/LeafPlatform.tscn" id="8_qphkd"]
+[ext_resource type="PackedScene" uid="uid://b50r2cbdgb676" path="res://Scenes/PlatformerPlayer/Pickable/WaterContainer/WaterContainer.tscn" id="9_dqg4b"]
+[ext_resource type="PackedScene" uid="uid://d4diwwos6tieb" path="res://Scenes/PlatformerPlayer/Platforms/Platform1/Platform1.tscn" id="10_7kgtv"]
+[ext_resource type="PackedScene" uid="uid://b8upryncqwmc6" path="res://Scenes/PlatformerPlayer/Doors/SmallDoor/SmallDoor.tscn" id="11_m10n6"]
+[ext_resource type="PackedScene" uid="uid://bwwry4wow68b6" path="res://Scenes/PlatformerPlayer/Obstacle/Fire/Fire.tscn" id="12_k3psx"]
+[ext_resource type="PackedScene" uid="uid://cdoatt4q6g2nt" path="res://Scenes/PlatformerPlayer/Walls/BreakableWall/BreakableWall.tscn" id="12_xr7qi"]
+[ext_resource type="PackedScene" uid="uid://js3ym6n0f3po" path="res://Scenes/PlatformerPlayer/Pickable/RigidBodyPickable/PicakbleBall.tscn" id="13_4a50a"]
+[ext_resource type="PackedScene" uid="uid://phjy1geq4nek" path="res://Scenes/PlatformerPlayer/Platforms/Platform1/Platform2.tscn" id="13_hjm6t"]
+[ext_resource type="PackedScene" uid="uid://bc4tsc83nd2al" path="res://Scenes/PlatformerPlayer/PressurePlates/PressurePlate1/PressurePlate1.tscn" id="14_rxq3a"]
+[ext_resource type="PackedScene" uid="uid://c8qbn2xe7w0yv" path="res://Scenes/PlatformerPlayer/Doors/BigDoor/BigDoor.tscn" id="15_slt5f"]
+[ext_resource type="PackedScene" uid="uid://ch1k62rewst8" path="res://Scenes/PlatformerPlayer/PressurePlates/PressurePlate1/PressurePlate2.tscn" id="19_7p8oe"]
+[ext_resource type="PackedScene" uid="uid://b3cbj1cjbxle3" path="res://Scenes/PlatformerPlayer/Spikes/Spikes2.tscn" id="19_w58dq"]
+
+[sub_resource type="Curve2D" id="Curve2D_p2asn"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -48, 272, 0, 0, 0, 0, -48, -80)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_lndfr"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2.13757, 242.236, 0, 0, 0, 0, 0, 0)
+}
+point_count = 2
+
+[node name="TestBasic" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(960, 540)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_0we0l")
+metadata/_edit_lock_ = true
+
+[node name="Diveders" type="Node2D" parent="."]
+
+[node name="Divider" parent="Diveders" instance=ExtResource("2_xk1du")]
+visible = false
+position = Vector2(992, 540)
+scale = Vector2(2.96, 35.48)
+
+[node name="Divider2" parent="Diveders" instance=ExtResource("2_xk1du")]
+visible = false
+position = Vector2(-17, 531)
+scale = Vector2(2.96, 35.48)
+
+[node name="Divider3" parent="Diveders" instance=ExtResource("2_xk1du")]
+visible = false
+position = Vector2(1931, 529)
+scale = Vector2(2.96, 35.48)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("3_brwve")]
+position = Vector2(992, 1024)
+scale = Vector2(64.68, 2)
+
+[node name="ColorRect" parent="." instance=ExtResource("4_73dry")]
+visible = false
+metadata/_edit_lock_ = true
+
+[node name="ColorRect2" parent="." instance=ExtResource("4_73dry")]
+visible = false
+offset_left = 1024.0
+offset_right = 1984.0
+Side = 1
+metadata/_edit_lock_ = true
+
+[node name="Player1" parent="." instance=ExtResource("5_se1d8")]
+position = Vector2(496, 192)
+AIR_SPEED = 180.0
+JUMP_VELOCITY = -430.0
+push_force = 50
+
+[node name="Player2" parent="." instance=ExtResource("5_se1d8")]
+position = Vector2(1312, 576)
+GROUND_SPEED = 230.0
+AIR_SPEED = 180.0
+JUMP_VELOCITY = -350.0
+side = 1
+
+[node name="BoxPickable3" parent="." instance=ExtResource("6_ic06w")]
+position = Vector2(272, 992)
+side = 0
+
+[node name="Platform11" parent="." instance=ExtResource("10_7kgtv")]
+position = Vector2(1216, 336)
+active = false
+
+[node name="Platform12" parent="." instance=ExtResource("10_7kgtv")]
+position = Vector2(1184, 336)
+active = false
+
+[node name="Platform13" parent="." instance=ExtResource("10_7kgtv")]
+position = Vector2(1152, 336)
+active = false
+
+[node name="SmallDoor" parent="." instance=ExtResource("11_m10n6")]
+position = Vector2(1184, 304)
+
+[node name="Fire" parent="." instance=ExtResource("12_k3psx")]
+position = Vector2(176, 992)
+
+[node name="Platform14" parent="." instance=ExtResource("13_hjm6t")]
+position = Vector2(864, 960)
+active = false
+
+[node name="Platform18" parent="." instance=ExtResource("13_hjm6t")]
+position = Vector2(832, 896)
+active = false
+
+[node name="Platform16" parent="." instance=ExtResource("13_hjm6t")]
+position = Vector2(640, 800)
+active = false
+
+[node name="Platform24" parent="." instance=ExtResource("13_hjm6t")]
+position = Vector2(448, 800)
+active = false
+
+[node name="Platform25" parent="." instance=ExtResource("13_hjm6t")]
+position = Vector2(384, 800)
+active = false
+
+[node name="Platform26" parent="." instance=ExtResource("13_hjm6t")]
+position = Vector2(480, 352)
+active = false
+
+[node name="Platform27" parent="." instance=ExtResource("13_hjm6t")]
+position = Vector2(544, 352)
+active = false
+
+[node name="Platform28" parent="." instance=ExtResource("13_hjm6t")]
+position = Vector2(512, 736)
+active = false
+
+[node name="Platform29" parent="." instance=ExtResource("13_hjm6t")]
+position = Vector2(448, 736)
+active = false
+
+[node name="Platform30" parent="." instance=ExtResource("13_hjm6t")]
+position = Vector2(384, 736)
+active = false
+
+[node name="Platform31" parent="." instance=ExtResource("13_hjm6t")]
+position = Vector2(384, 672)
+active = false
+
+[node name="Platform33" parent="." instance=ExtResource("13_hjm6t")]
+position = Vector2(128, 544)
+active = false
+
+[node name="Platform19" parent="." instance=ExtResource("13_hjm6t")]
+position = Vector2(576, 800)
+active = false
+
+[node name="Platform20" parent="." instance=ExtResource("13_hjm6t")]
+position = Vector2(512, 800)
+active = false
+
+[node name="Platform21" parent="." instance=ExtResource("13_hjm6t")]
+position = Vector2(720, 304)
+active = false
+
+[node name="Platform22" parent="." instance=ExtResource("13_hjm6t")]
+position = Vector2(784, 304)
+active = false
+
+[node name="Platform23" parent="." instance=ExtResource("13_hjm6t")]
+position = Vector2(848, 304)
+active = false
+
+[node name="Ball" parent="." instance=ExtResource("13_4a50a")]
+position = Vector2(1824, 768)
+mass = 1.0
+lock_rotation = false
+side = 0
+
+[node name="Ball2" parent="." instance=ExtResource("13_4a50a")]
+position = Vector2(560, 288)
+mass = 1.0
+lock_rotation = false
+
+[node name="BreakableWall" parent="." instance=ExtResource("12_xr7qi")]
+position = Vector2(352, 960)
+scale = Vector2(1, 3)
+
+[node name="Platform15" parent="." instance=ExtResource("13_hjm6t")]
+position = Vector2(800, 960)
+active = false
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(304, 576)
+curve = SubResource("Curve2D_p2asn")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-48, -54.1305)
+rotation = -1.5708
+progress = 326.09
+rotates = false
+loop = false
+
+[node name="Platform17" parent="Path2D/PathFollow2D" node_paths=PackedStringArray("path") instance=ExtResource("13_hjm6t")]
+position = Vector2(-0.00012207, 32)
+speed = 100.0
+path = NodePath("..")
+active = false
+
+[node name="Path2D2" type="Path2D" parent="."]
+position = Vector2(1600, 688)
+curve = SubResource("Curve2D_p2asn")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
+position = Vector2(-48, 0.254154)
+rotation = -1.5708
+progress = 271.74
+rotates = false
+loop = false
+
+[node name="Platform6" parent="Path2D2/PathFollow2D" node_paths=PackedStringArray("path") instance=ExtResource("10_7kgtv")]
+position = Vector2(-16.0059, 0)
+rotation = 1.5708
+speed = 250.0
+path = NodePath("..")
+active = false
+
+[node name="Platform7" parent="Path2D2/PathFollow2D" node_paths=PackedStringArray("path") instance=ExtResource("10_7kgtv")]
+position = Vector2(-16, 32)
+rotation = 1.5708
+speed = 250.0
+path = NodePath("..")
+active = false
+
+[node name="Platform8" parent="Path2D2/PathFollow2D" node_paths=PackedStringArray("path") instance=ExtResource("10_7kgtv")]
+position = Vector2(-16, -32)
+rotation = 1.5708
+speed = 250.0
+path = NodePath("..")
+active = false
+
+[node name="PressurePlate2" parent="." node_paths=PackedStringArray("receivers") instance=ExtResource("14_rxq3a")]
+position = Vector2(496, 992)
+receivers = [NodePath("../Path2D/PathFollow2D/Platform17")]
+
+[node name="PressurePlate4" parent="." node_paths=PackedStringArray("receivers", "senderComp") instance=ExtResource("14_rxq3a")]
+position = Vector2(128, 480)
+receivers = [NodePath("../Path2D3/PathFollow2D_2/Platform32")]
+senderComp = NodePath("../PressurePlate2/SenderComponent")
+
+[node name="BigDoor" parent="." instance=ExtResource("15_slt5f")]
+position = Vector2(80, 992)
+
+[node name="Plant" type="Node2D" parent="."]
+position = Vector2(800, -96)
+
+[node name="Vase" parent="Plant" node_paths=PackedStringArray("receivers") instance=ExtResource("7_3pf5p")]
+position = Vector2(448, 704)
+receivers = [NodePath("../LeafPlatform2"), NodePath("../LeafPlatform3"), NodePath("../LeafPlatform4"), NodePath("../LeafPlatform6")]
+
+[node name="LeafPlatform2" parent="Plant" instance=ExtResource("8_qphkd")]
+position = Vector2(576, 656)
+
+[node name="LeafPlatform3" parent="Plant" instance=ExtResource("8_qphkd")]
+position = Vector2(480, 592)
+
+[node name="LeafPlatform4" parent="Plant" instance=ExtResource("8_qphkd")]
+position = Vector2(592, 528)
+
+[node name="LeafPlatform6" parent="Plant" instance=ExtResource("8_qphkd")]
+position = Vector2(464, 464)
+
+[node name="PressurePlate3" parent="." node_paths=PackedStringArray("receivers") instance=ExtResource("19_7p8oe")]
+position = Vector2(1792, 992)
+receivers = [NodePath("../Path2D2/PathFollow2D/Platform6")]
+
+[node name="Platform1" parent="." instance=ExtResource("10_7kgtv")]
+position = Vector2(1744, 944)
+active = false
+
+[node name="Platform5" parent="." instance=ExtResource("10_7kgtv")]
+position = Vector2(1808, 800)
+active = false
+
+[node name="Platform41" parent="." instance=ExtResource("10_7kgtv")]
+position = Vector2(1840, 800)
+active = false
+
+[node name="Platform42" parent="." instance=ExtResource("10_7kgtv")]
+position = Vector2(1872, 800)
+active = false
+
+[node name="Platform6" parent="." instance=ExtResource("10_7kgtv")]
+position = Vector2(1776, 800)
+active = false
+
+[node name="Platform37" parent="." instance=ExtResource("10_7kgtv")]
+position = Vector2(1744, 800)
+active = false
+
+[node name="Platform38" parent="." instance=ExtResource("10_7kgtv")]
+position = Vector2(1712, 800)
+active = false
+
+[node name="Platform39" parent="." instance=ExtResource("10_7kgtv")]
+position = Vector2(1680, 800)
+active = false
+
+[node name="Platform40" parent="." instance=ExtResource("10_7kgtv")]
+position = Vector2(1648, 800)
+active = false
+
+[node name="Platform8" parent="." instance=ExtResource("10_7kgtv")]
+position = Vector2(1424, 656)
+active = false
+
+[node name="Platform9" parent="." instance=ExtResource("10_7kgtv")]
+position = Vector2(1392, 656)
+active = false
+
+[node name="Platform10" parent="." instance=ExtResource("10_7kgtv")]
+position = Vector2(1360, 656)
+active = false
+
+[node name="Platform17" parent="." instance=ExtResource("10_7kgtv")]
+position = Vector2(1328, 656)
+active = false
+
+[node name="Platform34" parent="." instance=ExtResource("10_7kgtv")]
+position = Vector2(1296, 656)
+active = false
+
+[node name="Platform35" parent="." instance=ExtResource("10_7kgtv")]
+position = Vector2(1264, 656)
+active = false
+
+[node name="Platform36" parent="." instance=ExtResource("10_7kgtv")]
+position = Vector2(1232, 656)
+active = false
+
+[node name="Platform7" parent="." instance=ExtResource("10_7kgtv")]
+position = Vector2(1456, 656)
+active = false
+
+[node name="Platform2" parent="." instance=ExtResource("10_7kgtv")]
+position = Vector2(1776, 944)
+active = false
+
+[node name="Platform3" parent="." instance=ExtResource("10_7kgtv")]
+position = Vector2(1808, 944)
+active = false
+
+[node name="Spikes" parent="." instance=ExtResource("19_w58dq")]
+position = Vector2(1456, 624)
+
+[node name="Spikes2" parent="." instance=ExtResource("19_w58dq")]
+position = Vector2(1424, 624)
+
+[node name="Path2D3" type="Path2D" parent="."]
+position = Vector2(384, 252.979)
+curve = SubResource("Curve2D_lndfr")
+
+[node name="PathFollow2D_2" type="PathFollow2D" parent="Path2D3"]
+position = Vector2(1.17841, 133.541)
+rotation = -1.57962
+progress = 108.7
+rotates = false
+loop = false
+
+[node name="Platform32" parent="Path2D3/PathFollow2D_2" node_paths=PackedStringArray("path") instance=ExtResource("13_hjm6t")]
+position = Vector2(-0.263489, 29.8613)
+speed = 100.0
+path = NodePath("..")
+active = false
+
+[node name="WaterContainer" parent="." instance=ExtResource("9_dqg4b")]
+position = Vector2(1392, 624)
