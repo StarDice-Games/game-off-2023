@@ -96,9 +96,9 @@ func transferPickable(starting, receiver, scaling : Scaling):
 #	var parent = toTransfer.get_parent()
 	if toTransfer != null:
 		if scaling == Scaling.INCREASE: #toRightSide
-			toTransfer.setSide(1)
-		elif scaling == Scaling.DECREASE: #toLeftSide
 			toTransfer.setSide(0)
+		elif scaling == Scaling.DECREASE: #toLeftSide
+			toTransfer.setSide(1)
 		
 		receiver.pickupItem(toTransfer)
 		starting.dropItem()
