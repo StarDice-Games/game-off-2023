@@ -32,7 +32,7 @@ func _physics_process(delta):
 	if pickedItem != null:		
 		pickedItem.setPosition(position + ($PickupPosition.position * scale))
 		pickedItem.setScale(lastDirection > 0)
-		
+				
 	var moveSpeed = GROUND_SPEED
 	
 	if not is_on_floor():
@@ -72,12 +72,17 @@ func _physics_process(delta):
 					return
 				
 				#drop the item
+				var parent = pickedItem.get_parent()
+				if parent is RigidBody2D:
+					parent.linear_velocity = Vector2.ZERO
+					parent.angular_velocity = 0
+				
+				var itemScale = pickedItem.scale
+				var newPos = position + ($Area2D/CollisionShape2D.position * scale)
+				pickedItem.setPosition(newPos)
 				pickedItem.held = false
 				pickedItem.setCollisions(true)
 				
-				var itemScale = pickedItem.scale
-#				pickedItem.position.x = position.x + ((directionOffsetZ * itemScale.x) * lastDirection)
-				pickedItem.setPosition(position + ($Area2D/CollisionShape2D.position * scale))
 				pickedItem = null
 				collindingNode = null
 				
@@ -99,6 +104,12 @@ func pickupItem(item):
 	pickedItem = item
 	pickedItem.held = true
 	pickedItem.setCollisions(false)
+	
+	var parent = item.get_parent()
+	if parent is RigidBody2D:
+		parent.linear_velocity = Vector2.ZERO
+		parent.angular_velocity = 0
+		parent.rotation_degrees = 0
 
 func dropItem(): #TODO change this to transferItem or something
 	pickedItem = null
@@ -113,7 +124,9 @@ func _on_area_2d_area_entered(area):
 			match group:
 				"Pickable":
 					#now the pickable need to get the father
-					collindingNode = area
+					if area is PickupComponent:
+						collindingNode = area
+						collindingNode.highlight()
 					return
 				"Dividers":
 					print("Hitting devider")

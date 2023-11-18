@@ -67,8 +67,7 @@ leftElement = [NodePath("../Left"), NodePath("../LeftCollision")]
 rightElement = [NodePath("../Right"), NodePath("../RightCollision")]
 collisionLeft = NodePath("../LeftCollision")
 collisionRight = NodePath("../RightCollision")
-
-[node name="ShapeCast2D" type="ShapeCast2D" parent="."]
+flashTime = 1
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

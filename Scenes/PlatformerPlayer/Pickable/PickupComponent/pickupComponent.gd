@@ -15,12 +15,19 @@ var held = false
 @export var collisionLeft : CollisionShape2D
 @export var collisionRight : CollisionShape2D
 
+@export_range(1, 200, 0.5) var flashTime = 1
+
 var activeSprite : Sprite2D
+var isFlashing = false
+var timer = 0
 
 func _ready():
 	if father != null:
 		currentSide = father.side
 	pass
+	
+	if flashTime == null:
+		flashTime = 1
 
 func _process(delta):
 	if Engine.is_editor_hint() and father != null:
@@ -28,60 +35,50 @@ func _process(delta):
 	
 	match currentSide:
 		0: #left
-			changeLeft(true)
-			changeRight(false)
+			change(leftElement, true, collisionLeft)
+			change(rightElement, false, collisionRight)
 		1: #right
-			changeLeft(false)
-			changeRight(true)
+			change(leftElement, false, collisionLeft)
+			change(rightElement, true, collisionRight)
 	pass
-
-func changeLeft(state):
-	for node in leftElement:
+	
+	if isFlashing and activeSprite != null:
+		if activeSprite.modulate.a == 1.0:
+			activeSprite.modulate.a = 0.1
+		else:
+			activeSprite.modulate.a += 1 * delta
+		
+		if timer >= flashTime:
+			activeSprite.modulate.a = 1.0
+			isFlashing = false
+			timer = 0
+		else:
+			timer += 1 * delta
+				
+func change(nodeList, isActive, collisionSide):
+	for node in nodeList:
 		if node == null:
 			continue
-		if state:
+		if isActive:
 			if not Engine.is_editor_hint():
-				if not held and collisionLeft != null:
-					collisionLeft.disabled = !state;
+				if not held and collisionSide != null:
+					collisionSide.disabled = !isActive;
+			
 			node.show()
 			node.process_mode = Node.PROCESS_MODE_INHERIT
+			
 			if node is CollisionShape2D and not held:
-				node.disabled = !state
+				node.disabled = !isActive
 			if node is Sprite2D:
 				activeSprite = node
 		else:
 			node.hide()
 			node.process_mode = Node.PROCESS_MODE_DISABLED
-			if collisionLeft != null:
-				collisionLeft.disabled = !state;
+			if collisionSide != null:
+				collisionSide.disabled = !isActive;
 			if node is CollisionShape2D:
-				node.disabled = !state
-			if node is Sprite2D:
-				activeSprite = null
-
-func changeRight(state):
-	for node in rightElement:
-		if node == null:
-			continue
-		if state:
-			node.show()
-			node.process_mode = Node.PROCESS_MODE_INHERIT
-			if not Engine.is_editor_hint():
-				if not held and collisionRight != null:
-					collisionRight.disabled = !state;
-			if node is CollisionShape2D and not held:
-				node.disabled = !state
-			if node is Sprite2D:
-				activeSprite = node
-		else:
-			node.hide()
-			node.process_mode = Node.PROCESS_MODE_DISABLED
-			if collisionRight != null:
-				collisionRight.disabled = !state;
-			if node is CollisionShape2D:
-				node.disabled = !state
-			if node is Sprite2D:
-				activeSprite = null
+				node.disabled = !isActive
+	
 
 func setSide(side):
 	currentSide = side
@@ -98,3 +95,11 @@ func setPosition(position):
 func setScale(scale):
 	if activeSprite != null:
 		activeSprite.flip_h = scale
+
+func highlight():
+	isFlashing = true
+
+
+func _on_flash_timer_timeout():
+	isFlashing = false
+	pass # Replace with function body.

@@ -43,7 +43,10 @@ func ApplyForceToItems(collider):
 	for group in collider.get_groups():
 		if group == "Pickable":
 			if $PickupComponent.held == false:
-				collider.velocity.y = JUMP_FORCE
+				if collider is RigidBody2D:
+					collider.apply_impulse(Vector2.UP * JUMP_FORCE)
+				else:
+					collider.velocity.y = JUMP_FORCE
 		
 
 
