@@ -69,21 +69,21 @@ shape = SubResource("RectangleShape2D_orutt")
 
 [node name="PlatPlayer" parent="Players" groups=["Players"] instance=ExtResource("1_gtsi8")]
 position = Vector2(1248, 997)
-scale = Vector2(0.48, 0.48)
+scale = Vector2(0.75, 0.75)
 GROUND_SPEED = 230.0
 AIR_SPEED = 180.0
 JUMP_VELOCITY = -350.0
+side = 1
 
 [node name="PlatPlayer2" parent="Players" groups=["Players"] instance=ExtResource("1_gtsi8")]
-position = Vector2(538, 958)
-scale = Vector2(0.98, 0.98)
+position = Vector2(535, 944)
+scale = Vector2(0.75, 0.75)
 AIR_SPEED = 180.0
 JUMP_VELOCITY = -430.0
 push_force = 50
-side = 1
 
 [node name="Button01" parent="." node_paths=PackedStringArray("receivers") instance=ExtResource("10_xuv0k")]
-position = Vector2(702, 1035)
+position = Vector2(688, 352)
 receivers = [NodePath("../BigDoor2")]
 
 [node name="Control" type="Control" parent="."]
@@ -123,15 +123,15 @@ position = Vector2(1472, 472)
 receivers = [NodePath("../../SmallDoor")]
 
 [node name="Platform1" parent="." instance=ExtResource("9_8g4qb")]
-position = Vector2(704, 864)
+position = Vector2(688, 1040)
 active = false
 
 [node name="Platform2" parent="." instance=ExtResource("9_8g4qb")]
-position = Vector2(768, 800)
+position = Vector2(752, 1040)
 active = false
 
 [node name="Platform4" parent="." instance=ExtResource("9_8g4qb")]
-position = Vector2(832, 800)
+position = Vector2(752, 976)
 active = false
 
 [node name="Platform5" parent="." instance=ExtResource("9_8g4qb")]
@@ -153,6 +153,7 @@ offset_top = 40.0
 offset_right = 1920.0
 offset_bottom = 1120.0
 texture = ExtResource("10_2wk6v")
+metadata/_edit_lock_ = true
 
 [node name="BoxPickable" parent="." instance=ExtResource("11_x6x4g")]
 position = Vector2(1113, 1035)
@@ -176,7 +177,7 @@ position = Vector2(127, 1035)
 position = Vector2(1695, 1035)
 
 [node name="Fire2" parent="." instance=ExtResource("18_6lbe7")]
-position = Vector2(823, 1035)
+position = Vector2(800, 336)
 
 [node name="BigDoor2" parent="." instance=ExtResource("11_omu61")]
 position = Vector2(420, 668)
