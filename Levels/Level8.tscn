@@ -175,7 +175,6 @@ receivers = [NodePath("../Path2D/PathFollow2D/Platform1")]
 [node name="Ball" parent="." instance=ExtResource("7_o6jj8")]
 position = Vector2(340, 1005)
 side = 0
-massLeft = 1
 massRight = 2
 
 [node name="Pickup01" parent="." instance=ExtResource("8_iknuw")]
@@ -250,12 +249,10 @@ position = Vector2(1277, 759.846)
 
 [node name="Ball2" parent="KeyItems" instance=ExtResource("7_o6jj8")]
 position = Vector2(1081, 724.846)
-massLeft = 1
 massRight = 2
 
 [node name="BoxPickable" parent="KeyItems" instance=ExtResource("18_5kma2")]
 position = Vector2(1606.27, 460.051)
-side = 1
 
 [node name="Spring" parent="." instance=ExtResource("19_bxccb")]
 position = Vector2(784.383, 831.607)
