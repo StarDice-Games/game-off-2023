@@ -69,9 +69,14 @@ position = Vector2(992, 1024)
 scale = Vector2(64.68, 2)
 
 [node name="ColorRect" parent="." instance=ExtResource("4_rvmx6")]
+visible = false
+z_index = 1
+color = Color(0.176471, 0.176471, 0.176471, 0.764706)
 metadata/_edit_lock_ = true
 
 [node name="ColorRect2" parent="." instance=ExtResource("4_rvmx6")]
+visible = false
+z_index = 1
 offset_left = 1024.0
 offset_right = 1984.0
 Side = 1
