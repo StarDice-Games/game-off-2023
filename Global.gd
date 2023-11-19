@@ -13,6 +13,7 @@ var goals : Array[Node2D] = [null, null]
 @export var scaleFactor = Vector2(2, 2)
 @export var useMenu = true
 @export var scenes : Array[LevelResource]
+@export var mainMenuScene : PackedScene
 @export var pauseMenuScene : PackedScene
 @export var mainScene : PackedScene
 @export var selectLevelScene : PackedScene
@@ -42,13 +43,8 @@ func _ready():
 		next_scene %= scenes.size() #adapt the next_scene based on the total scenes
 	print("Global ready")
 	
-	toggleNode($MainMenu, useMenu)
 	if not useMenu:
 		currentGameState = GameState.IN_GAME
-	
-	$MainMenu.connect("exit_pressed", _on_main_menu_exit_pressed)
-	$MainMenu.connect("new_game_pressed", _on_main_menu_new_game_pressed)
-	$MainMenu.connect("select_level_ressed", _on_main_menu_select_level_pressed)
 	
 	#testing not sure if it's ok
 	if pauseMenuScene != null:		
@@ -57,6 +53,23 @@ func _ready():
 		printerr("Error missing pause scene")
 	
 	pass # Replace with function body.
+
+
+func openMainMenu():
+	if mainMenuScene.can_instantiate():
+		var mainMenuInstance = mainMenuScene.instantiate()
+		get_tree().root.add_child(mainMenuInstance)
+		mainMenuInstance.connect("exit_pressed", _on_main_menu_exit_pressed)
+		mainMenuInstance.connect("new_game_pressed", _on_main_menu_new_game_pressed)
+		mainMenuInstance.connect("select_level_ressed", _on_main_menu_select_level_pressed)
+	
+		currentGameState = GameState.MAIN_MENU
+	
+func closeMainMenu():
+	var node = get_tree().root.get_node("MainMenu")
+	if node != null:
+		get_tree().root.remove_child(node)
+
 
 func setPlayer(number, player : CharacterBody2D):
 	players[number] = player
@@ -179,8 +192,8 @@ func processGame(delta):
 	
 
 func processMainMenu(delta):
-	#not sure at the moment	
-	pass
+	if get_tree().root.get_node("MainMenu") == null:
+		openMainMenu()
 
 func processPause(delta):
 	pass
@@ -209,19 +222,19 @@ func _on_main_menu_exit_pressed():
 func _on_main_menu_new_game_pressed():
 	print("Start the game")
 	#hide the menu
-	toggleNode($MainMenu, false)
+	closeMainMenu()
 	#change the status
 	currentGameState = GameState.IN_GAME
 	#load the first scene
 	if scenes.size() > 0:
 		get_tree().change_scene_to_packed(scenes.front().scene)
-	pass # Replace with function body.
+	pass
 
 func _on_main_menu_select_level_pressed():
 	print("Select levels")
 	if scenes.size() > 0:
-		toggleNode($MainMenu, false)
-		currentGameState = GameState.LEVEL_SELECT
+		closeMainMenu()
+		currentGameState = GameState.LEVEL_SELECT		
 		var levelSelectInstance = selectLevelScene.instantiate()
 		get_tree().root.add_child(levelSelectInstance)
 		levelSelectInstance.setItems(scenes)
@@ -258,7 +271,7 @@ func exitGame():
 	if pauseNode != null:
 		get_tree().root.remove_child(pauseNode)
 		
-	toggleNode($MainMenu, true)
+	openMainMenu()
 	
 	#load the main scene ? or add the main menu as before ?
 	if mainScene != null:
@@ -287,7 +300,7 @@ func backToMainMenu():
 	if selectLevelNode != null:
 		get_tree().root.remove_child(selectLevelNode)
 		
-	toggleNode($MainMenu, true)
+	openMainMenu()
 	
 	#load the main scene ? or add the main menu as before ?
 	if mainScene != null:

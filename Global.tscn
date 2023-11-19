@@ -10,10 +10,8 @@
 
 [node name="Global" type="Node2D"]
 script = ExtResource("1_j5qpw")
-useMenu = false
 scenes = Array[Resource("res://Resources/Levels/LevelResource.gd")]([ExtResource("2_l0r8t"), ExtResource("3_i4xgd")])
+mainMenuScene = ExtResource("3_wleec")
 pauseMenuScene = ExtResource("3_kic5l")
 mainScene = ExtResource("4_56l5m")
 selectLevelScene = ExtResource("6_6nmfb")
-
-[node name="MainMenu" parent="." instance=ExtResource("3_wleec")]
