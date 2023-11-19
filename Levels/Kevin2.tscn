@@ -250,10 +250,9 @@ active = false
 position = Vector2(496, 992)
 receivers = [NodePath("../Path2D/PathFollow2D/Platform17")]
 
-[node name="PressurePlate4" parent="." node_paths=PackedStringArray("receivers", "senderComp") instance=ExtResource("14_rxq3a")]
+[node name="PressurePlate4" parent="." node_paths=PackedStringArray("receivers") instance=ExtResource("14_rxq3a")]
 position = Vector2(128, 480)
 receivers = [NodePath("../Path2D3/PathFollow2D_2/Platform32")]
-senderComp = NodePath("../PressurePlate2/SenderComponent")
 
 [node name="BigDoor" parent="." instance=ExtResource("15_slt5f")]
 position = Vector2(80, 992)
