@@ -20,13 +20,14 @@ func _process(delta):
 	if not active:
 		return
 	
-	var progress = path.progress_ratio
-	if progress >= 1:
-		direction *= -1
-	if progress <= 0:
-		direction *= -1
-		
-	path.progress += direction * speed * delta
+	if path != null:
+		var progress = path.progress_ratio
+		if progress >= 1:
+			direction *= -1
+		if progress <= 0:
+			direction *= -1
+			
+		path.progress += direction * speed * delta
 	
 	pass
 
