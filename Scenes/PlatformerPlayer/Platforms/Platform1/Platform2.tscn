@@ -19,6 +19,7 @@ offset = Vector2(0, -34)
 position = Vector2(0, -33)
 scale = Vector2(4, 1.52174)
 shape = SubResource("RectangleShape2D_bwo16")
+one_way_collision = true
 
 [node name="ReceiverComponent" parent="." instance=ExtResource("3_mqea2")]
 position = Vector2(0, -33)

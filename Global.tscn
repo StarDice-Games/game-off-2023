@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://dpki32i41f8ih" path="res://Resources/Levels/Level2.tres" id="3_i4xgd"]
 [ext_resource type="PackedScene" uid="uid://d3w0vp34bfsu4" path="res://Scenes/Menus/PauseMenu/PauseMenu.tscn" id="3_kic5l"]
 [ext_resource type="PackedScene" uid="uid://dqijkmgdh5ulw" path="res://Scenes/Menus/MainMenu/MainMenu.tscn" id="3_wleec"]
-[ext_resource type="PackedScene" uid="uid://c231qmwyovhcq" path="res://main.tscn" id="4_56l5m"]
+[ext_resource type="PackedScene" uid="uid://c231qmwyovhcq" path="res://Main.tscn" id="4_56l5m"]
 [ext_resource type="PackedScene" uid="uid://blauksugtg8ro" path="res://Scenes/Menus/LevelSelect/SelectLevel.tscn" id="6_6nmfb"]
 
 [node name="Global" type="Node2D"]
