@@ -279,11 +279,5 @@ lock_rotation = false
 [node name="ColorRect" parent="." instance=ExtResource("23_jhu8t")]
 metadata/_edit_lock_ = true
 
-[node name="ColorRect2" parent="." instance=ExtResource("23_jhu8t")]
-offset_left = 960.0
-offset_right = 1920.0
-Side = 1
-metadata/_edit_lock_ = true
-
 [node name="WaterContainer" parent="." instance=ExtResource("24_gcuy2")]
 position = Vector2(1406.27, 469.488)
