@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2hpaa3bny6vn"]
+
+[ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Platforms/MovingPlatform/MovingComponent.gd" id="1_hkqj8"]
+[ext_resource type="Texture2D" uid="uid://cek5fabp5q7wi" path="res://Resources/Assets/Elementi_blu/Angolo_blu.png" id="2_dxk03"]
+[ext_resource type="PackedScene" uid="uid://bhntgodhqptoj" path="res://Scenes/PlatformerPlayer/TriggerComponent/ReceiverComponent.tscn" id="3_58o0h"]
+
+[node name="Platform1" type="CharacterBody2D"]
+script = ExtResource("1_hkqj8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(169, -26)
+texture = ExtResource("2_dxk03")
+offset = Vector2(-169, 9)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(1, -39)
+rotation = 0.261799
+polygon = PackedVector2Array(-15.1267, 9.22955, -6.32681, 42.071, 25.5487, 33.53, 24.5135, 29.6663, -13.1948, 8.71191)
+
+[node name="ReceiverComponent" parent="." instance=ExtResource("3_58o0h")]
+position = Vector2(0, -16)
+
+[connection signal="disabled" from="ReceiverComponent" to="." method="_on_receiver_component_disabled"]
+[connection signal="enabled" from="ReceiverComponent" to="." method="_on_receiver_component_enabled"]
+[connection signal="triggered" from="ReceiverComponent" to="." method="_on_receiver_component_triggered"]
