@@ -101,7 +101,7 @@ func _physics_process(delta):
 			1:
 				pickupMarker = $PickupPositionBlue
 		
-		pickedItem.setPosition(position + (pickupMarker.position * scale))
+		pickedItem.setPosition(position + (pickupMarker.position) * scale)
 		pickedItem.setScale(lastDirection < 0)
 		
 	#Animation code
@@ -143,10 +143,12 @@ func _physics_process(delta):
 		
 		match side:
 			0:
-				$Player_rosso.scale.x = scale.x * sign(lastDirection)
+#				scale.x = scale.y * sign(lastDirection)
+				$Player_rosso.scale.x = $Player_rosso.scale.y * sign(lastDirection)
 				$Area2D/Red.position.x = sign(lastDirection) * directionOffsetZ
 			1:
-				$Player_blu.scale.x = scale.x * sign(lastDirection) * -1
+#				scale.x = scale.y * sign(lastDirection) * -1
+				$Player_blu.scale.x = $Player_blu.scale.y * sign(lastDirection) * -1
 				$Area2D/Blue.position.x = sign(lastDirection) * directionOffsetZ
 		
 		for index in get_slide_collision_count():

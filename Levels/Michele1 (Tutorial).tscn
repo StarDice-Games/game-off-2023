@@ -47,10 +47,13 @@ metadata/_edit_lock_ = true
 
 [node name="Player1" parent="." instance=ExtResource("5_lhmm2")]
 position = Vector2(128, 896)
+scale = Vector2(0.75, 0.75)
 
 [node name="Player2" parent="." instance=ExtResource("5_lhmm2")]
 position = Vector2(1744, 944)
+scale = Vector2(0.75, 0.75)
 side = 1
+directionOffsetZ = 50.0
 
 [node name="BoxPickable" parent="." instance=ExtResource("6_xdta1")]
 position = Vector2(544, 896)
