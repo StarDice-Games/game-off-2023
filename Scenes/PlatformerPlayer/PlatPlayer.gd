@@ -148,7 +148,6 @@ func _physics_process(delta):
 			1:
 				$Player_blu.scale.x = scale.x * sign(lastDirection) * -1
 				$Area2D/Blue.position.x = sign(lastDirection) * directionOffsetZ
-				
 		
 		for index in get_slide_collision_count():
 			var collision = get_slide_collision(index)
@@ -173,9 +172,11 @@ func _physics_process(delta):
 				var colliderHand = $Area2D/Red
 				match side:
 					0:
-						$Area2D/Red.position.x = sign(lastDirection) * directionOffsetZ
+						colliderHand = $Area2D/Red
 					1:
-						$Area2D/Blue.position.x = sign(lastDirection) * directionOffsetZ
+						colliderHand = $Area2D/Blue
+				
+				colliderHand.position.x = sign(lastDirection) * directionOffsetZ
 				
 				var newPos = position + (colliderHand.position * scale)
 				pickedItem.setPosition(newPos)

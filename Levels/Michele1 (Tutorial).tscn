@@ -45,11 +45,6 @@ scale = Vector2(64.68, 2)
 [node name="ColorRect" parent="." instance=ExtResource("4_wdoma")]
 metadata/_edit_lock_ = true
 
-[node name="ColorRect2" parent="." instance=ExtResource("4_wdoma")]
-offset_left = 1024.0
-offset_right = 1984.0
-metadata/_edit_lock_ = true
-
 [node name="Player1" parent="." instance=ExtResource("5_lhmm2")]
 position = Vector2(128, 896)
 
