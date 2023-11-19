@@ -14,7 +14,6 @@ offset = Vector2(0, -35)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(1, -39)
 rotation = 0.261799
-scale = Vector2(1, 1)
 polygon = PackedVector2Array(-3.64204, -29.0471, -23.7135, 46.7298, 40.0376, 29.6477)
 
 [node name="DeathComponent" parent="." instance=ExtResource("2_qo210")]

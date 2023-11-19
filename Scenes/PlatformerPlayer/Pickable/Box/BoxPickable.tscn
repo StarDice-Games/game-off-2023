@@ -163,7 +163,6 @@ leftElement = [NodePath("../Left"), NodePath("../LeftCollision"), NodePath("Left
 rightElement = [NodePath("../Right"), NodePath("../RightCollision"), NodePath("RightArea")]
 collisionLeft = NodePath("../LeftCollision")
 collisionRight = NodePath("../RightCollision")
-flashTime = null
 
 [node name="RightArea" type="CollisionShape2D" parent="PickupComponent"]
 position = Vector2(0, -32)
