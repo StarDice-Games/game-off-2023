@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://cqnl53v0iei8b"]
+[gd_scene load_steps=12 format=3 uid="uid://cqnl53v0iei8b"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/PlatPlayer.gd" id="1_go3e0"]
 [ext_resource type="Material" uid="uid://bdjvh3cymune7" path="res://Resources/Materials/Unshaded.tres" id="2_4bwpy"]
 [ext_resource type="PackedScene" uid="uid://dqsmn4tqyn4ca" path="res://Scenes/PlatformerPlayer/Players_animation/player_rosso.tscn" id="2_x7kcr"]
 [ext_resource type="PackedScene" uid="uid://dnuopb0n063hc" path="res://Scenes/PlatformerPlayer/Pickable/PickupComponent/PickupComponent.tscn" id="3_0rr4x"]
 [ext_resource type="Texture2D" uid="uid://3q2g1gjl31kx" path="res://Resources/Assets/Elementi_rossi/Omino_rosso.png" id="3_ld05j"]
+[ext_resource type="PackedScene" uid="uid://dc75c5p24oslr" path="res://Scenes/PlatformerPlayer/Players_animation/player_blu.tscn" id="3_v5sda"]
 [ext_resource type="Texture2D" uid="uid://dgbwbb6pe3see" path="res://Resources/Assets/Elementi_blu/Omino_blu.png" id="4_v002a"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8nqjx"]
@@ -29,6 +30,11 @@ script = ExtResource("1_go3e0")
 [node name="Player_rosso" parent="." instance=ExtResource("2_x7kcr")]
 position = Vector2(4, -31)
 
+[node name="Player_blu" parent="." instance=ExtResource("3_v5sda")]
+process_mode = 4
+visible = false
+position = Vector2(-3, 0)
+
 [node name="Left" type="Sprite2D" parent="."]
 visible = false
 material = ExtResource("2_4bwpy")
@@ -37,7 +43,6 @@ scale = Vector2(-1, 1)
 texture = ExtResource("3_ld05j")
 
 [node name="Right" type="Sprite2D" parent="."]
-process_mode = 4
 visible = false
 texture = ExtResource("4_v002a")
 
@@ -48,13 +53,16 @@ shape = SubResource("CapsuleShape2D_8nqjx")
 [node name="RightCollision" type="CollisionShape2D" parent="."]
 process_mode = 4
 visible = false
-position = Vector2(0, 2)
+position = Vector2(0, 17)
 shape = SubResource("CapsuleShape2D_w3jm4")
 disabled = true
 
 [node name="PickupPosition" type="Marker2D" parent="."]
 position = Vector2(0, -88)
 scale = Vector2(0.5, 0.5)
+
+[node name="PickupPositionBlue" type="Marker2D" parent="."]
+position = Vector2(-1, -49)
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
@@ -74,7 +82,7 @@ color = Color(0.996078, 0, 0, 1)
 [node name="Blue" type="CollisionShape2D" parent="Area2D"]
 process_mode = 4
 visible = false
-position = Vector2(-34, 18.6)
+position = Vector2(-27, 37)
 scale = Vector2(1, 3.28)
 shape = SubResource("RectangleShape2D_26yuy")
 disabled = true
@@ -89,7 +97,7 @@ color = Color(0, 1, 1, 1)
 [node name="PickupComponent" parent="." node_paths=PackedStringArray("father", "leftElement", "rightElement", "collisionLeft", "collisionRight") instance=ExtResource("3_0rr4x")]
 father = NodePath("..")
 leftElement = [NodePath("../Player_rosso"), NodePath("../LeftCollision"), NodePath("../Area2D/Red")]
-rightElement = [NodePath("../Right"), NodePath("../RightCollision"), NodePath("../Area2D/Blue")]
+rightElement = [NodePath("../Player_blu"), NodePath("../RightCollision"), NodePath("../Area2D/Blue")]
 collisionLeft = NodePath("../LeftCollision")
 collisionRight = NodePath("../RightCollision")
 

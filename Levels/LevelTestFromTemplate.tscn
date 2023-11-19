@@ -61,9 +61,14 @@ position = Vector2(160, 832)
 [node name="Player2" parent="." instance=ExtResource("5_igff4")]
 position = Vector2(1760, 896)
 side = 1
+directionOffsetZ = 55.0
 
 [node name="BoxPickable" parent="." instance=ExtResource("6_op14f")]
 position = Vector2(320, 928)
+
+[node name="BoxPickable2" parent="." instance=ExtResource("6_op14f")]
+position = Vector2(1472, 832)
+side = 0
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(513.843, 442.55)

@@ -24,6 +24,12 @@ var jumpAnimationEnd = false
 @onready var handLeft : Sprite2D = $Player_rosso/BracciaRossoSx
 @onready var handRight : Sprite2D = $Player_rosso/BraccioRossoDx
 
+@onready var animationBlue : AnimationPlayer = $Player_blu/AnimationPlayerBlu
+
+@onready var handsWithObjectsBlue : Sprite2D = $Player_blu/BracciaBluSu
+@onready var handLeftBlue : Sprite2D = $Player_blu/BracciaBluSx
+@onready var handRightBlue : Sprite2D = $Player_blu/BracciaBluDx
+
 signal died
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -32,36 +38,77 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _ready():
 	Global.setPlayer(side, self)
 	
-	animationRed.play("Idle")
-	animationRed.connect("animation_finished", _on_anim_finish)
+	animateIdle()
+		
 	jumpAnimationEnd = true
-	handsWithObjects.hide()
-	handLeft.show()
-	handRight.show()
+	
+	holdObjectAnimation(false)
+
+func animateIdle():
+	match side:
+		0:
+			animationRed.play("Idle")
+			animationRed.connect("animation_finished", _on_anim_finish)
+		1:
+			animationBlue.play("Idle")
+			animationBlue.connect("animation_finished", _on_anim_finish)
+
+func holdObjectAnimation(active):
+	var handsUp = handsWithObjects
+	var sx = handLeft
+	var dx = handRight
+	
+	match side:
+		0:
+			handsUp = handsWithObjects
+			sx = handLeft
+			dx = handRight
+		1:
+			handsUp = handsWithObjectsBlue
+			sx = handLeftBlue
+			dx = handRightBlue
+	
+	if active:
+		handsUp.show()
+		sx.hide()
+		dx.hide()
+	else:
+		handsUp.hide()
+		sx.show()
+		dx.show()
 
 func _on_anim_finish(animation):
 	match animation:
 		"Jump":
 			jumpAnimationEnd = true
 
+func getActiveAnimationPlayer():
+	match side:
+		0:
+			return animationRed
+		1:
+			return animationBlue
 
 func _physics_process(delta):
 	if Global.currentGameState != Global.GameState.IN_GAME:
 		return
 		
 	if pickedItem != null:
-		pickedItem.setPosition(position + ($PickupPosition.position * scale))
+		var pickupMarker : Marker2D = $PickupPosition
+		match side:
+			0:
+				pickupMarker = $PickupPosition
+			1:
+				pickupMarker = $PickupPositionBlue
+		
+		pickedItem.setPosition(position + (pickupMarker.position * scale))
 		pickedItem.setScale(lastDirection < 0)
 		
 	#Animation code
 	if pickedItem != null:
-		handsWithObjects.show()
-		handLeft.hide()
-		handRight.hide()
+		holdObjectAnimation(true)
 	else:
-		handsWithObjects.hide()
-		handLeft.show()
-		handRight.show()
+		holdObjectAnimation(false)
 				
 	var moveSpeed = GROUND_SPEED
 	
@@ -75,7 +122,7 @@ func _physics_process(delta):
 #		$PointLight2D.enabled = true
 		# Handle Jump.
 		if Input.is_action_just_pressed("Jump") and is_on_floor():
-			animationRed.play("Jump")
+			getActiveAnimationPlayer().play("Jump")
 			jumpAnimationEnd = false
 			velocity.y = JUMP_VELOCITY
 
@@ -88,21 +135,20 @@ func _physics_process(delta):
 			lastDirection = direction
 			
 			if jumpAnimationEnd == true:
-				animationRed.play("Walk")
+				getActiveAnimationPlayer().play("Walk")
 		else:
 			velocity.x = move_toward(velocity.x, 0, GROUND_FRICTION)
 			if jumpAnimationEnd == true:
-				animationRed.play("Idle")
+				getActiveAnimationPlayer().play("Idle")
 		
 		match side:
 			0:
 				$Player_rosso.scale.x = scale.x * sign(lastDirection)
 				$Area2D/Red.position.x = sign(lastDirection) * directionOffsetZ
 			1:
-				#TODO $Player_blue.scale.x = scale.x * sign(lastDirection)
+				$Player_blu.scale.x = scale.x * sign(lastDirection) * -1
 				$Area2D/Blue.position.x = sign(lastDirection) * directionOffsetZ
 				
-		
 		
 		for index in get_slide_collision_count():
 			var collision = get_slide_collision(index)
@@ -141,9 +187,7 @@ func _physics_process(delta):
 				
 			if collindingNode != null && pickedItem == null:
 				pickupItem(collindingNode)
-		
-		
-	
+			
 				
 	if move_and_slide():
 		var collision = get_last_slide_collision()
