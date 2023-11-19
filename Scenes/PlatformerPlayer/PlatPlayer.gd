@@ -57,7 +57,11 @@ func _physics_process(delta):
 		else:
 			velocity.x = move_toward(velocity.x, 0, GROUND_FRICTION)
 		
-		$Area2D/CollisionShape2D.position.x = sign(lastDirection) * directionOffsetZ
+		match side:
+			0:
+				$Area2D/Red.position.x = sign(lastDirection) * directionOffsetZ
+			1:
+				$Area2D/Blue.position.x = sign(lastDirection) * directionOffsetZ
 		
 		for index in get_slide_collision_count():
 			var collision = get_slide_collision(index)
@@ -78,7 +82,13 @@ func _physics_process(delta):
 					parent.angular_velocity = 0
 				
 				var itemScale = pickedItem.scale
-				var newPos = position + ($Area2D/CollisionShape2D.position * scale)
+				var colliderHand = $Area2D/Red
+				match side:
+					0:
+						colliderHand = $Area2D/Red
+					1:
+						colliderHand = $Area2D/Blue
+				var newPos = position + (colliderHand.position * scale)
 				pickedItem.setPosition(newPos)
 				pickedItem.held = false
 				pickedItem.setCollisions(true)

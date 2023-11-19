@@ -21,7 +21,6 @@ func _process(delta):
 	pass
 
 func fullyOpen():
-	print("Door is open")
 	$Goal.active = true
 	pass
 
