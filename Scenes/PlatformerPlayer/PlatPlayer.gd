@@ -51,7 +51,7 @@ func _physics_process(delta):
 		
 	if pickedItem != null:
 		pickedItem.setPosition(position + ($PickupPosition.position * scale))
-		pickedItem.setScale(lastDirection > 0)
+		pickedItem.setScale(lastDirection < 0)
 		
 	#Animation code
 	if pickedItem != null:

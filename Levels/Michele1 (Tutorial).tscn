@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cir24rvq0p8dd"]
+[gd_scene load_steps=13 format=3 uid="uid://cnc83uiqohiew"]
 
 [ext_resource type="Texture2D" uid="uid://bo04kloimwmpv" path="res://Resources/Assets/Background/Fondo.png" id="1_ysnu4"]
 [ext_resource type="PackedScene" uid="uid://duvywv1d1kgyo" path="res://Scenes/PlatformerPlayer/Divider/divider.tscn" id="2_ac4pg"]
@@ -58,7 +58,7 @@ position = Vector2(1744, 944)
 side = 1
 
 [node name="BoxPickable" parent="." instance=ExtResource("6_xdta1")]
-position = Vector2(544, 928)
+position = Vector2(544, 896)
 
 [node name="BoxPickable2" parent="." instance=ExtResource("6_xdta1")]
 position = Vector2(288, 393)
