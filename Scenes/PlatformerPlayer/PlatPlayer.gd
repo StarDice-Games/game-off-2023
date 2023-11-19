@@ -16,6 +16,13 @@ var pickedItem : PickupComponent = null
 
 var isHittingDivider = false
 var lastDirection = 1
+var jumpAnimationEnd = false
+
+@onready var animationRed : AnimationPlayer = $Player_rosso/AnimationPlayerRosso
+
+@onready var handsWithObjects : Sprite2D = $Player_rosso/BracciaRossoSu
+@onready var handLeft : Sprite2D = $Player_rosso/BracciaRossoSx
+@onready var handRight : Sprite2D = $Player_rosso/BraccioRossoDx
 
 signal died
 
@@ -24,14 +31,37 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	Global.setPlayer(side, self)
+	
+	animationRed.play("Idle")
+	animationRed.connect("animation_finished", _on_anim_finish)
+	jumpAnimationEnd = true
+	handsWithObjects.hide()
+	handLeft.show()
+	handRight.show()
+
+func _on_anim_finish(animation):
+	match animation:
+		"Jump":
+			jumpAnimationEnd = true
+
 
 func _physics_process(delta):
 	if Global.currentGameState != Global.GameState.IN_GAME:
 		return
 		
-	if pickedItem != null:		
+	if pickedItem != null:
 		pickedItem.setPosition(position + ($PickupPosition.position * scale))
 		pickedItem.setScale(lastDirection > 0)
+		
+	#Animation code
+	if pickedItem != null:
+		handsWithObjects.show()
+		handLeft.hide()
+		handRight.hide()
+	else:
+		handsWithObjects.hide()
+		handLeft.show()
+		handRight.show()
 				
 	var moveSpeed = GROUND_SPEED
 	
@@ -45,6 +75,8 @@ func _physics_process(delta):
 #		$PointLight2D.enabled = true
 		# Handle Jump.
 		if Input.is_action_just_pressed("Jump") and is_on_floor():
+			animationRed.play("Jump")
+			jumpAnimationEnd = false
 			velocity.y = JUMP_VELOCITY
 
 		# Get the input direction and handle the movement/deceleration.
@@ -54,10 +86,23 @@ func _physics_process(delta):
 		if direction:
 			velocity.x = direction * moveSpeed
 			lastDirection = direction
+			
+			if jumpAnimationEnd == true:
+				animationRed.play("Walk")
 		else:
 			velocity.x = move_toward(velocity.x, 0, GROUND_FRICTION)
+			if jumpAnimationEnd == true:
+				animationRed.play("Idle")
 		
-		$Area2D/CollisionShape2D.position.x = sign(lastDirection) * directionOffsetZ
+		match side:
+			0:
+				$Player_rosso.scale.x = scale.x * sign(lastDirection)
+				$Area2D/Red.position.x = sign(lastDirection) * directionOffsetZ
+			1:
+				#TODO $Player_blue.scale.x = scale.x * sign(lastDirection)
+				$Area2D/Blue.position.x = sign(lastDirection) * directionOffsetZ
+				
+		
 		
 		for index in get_slide_collision_count():
 			var collision = get_slide_collision(index)
@@ -78,7 +123,15 @@ func _physics_process(delta):
 					parent.angular_velocity = 0
 				
 				var itemScale = pickedItem.scale
-				var newPos = position + ($Area2D/CollisionShape2D.position * scale)
+				
+				var colliderHand = $Area2D/Red
+				match side:
+					0:
+						$Area2D/Red.position.x = sign(lastDirection) * directionOffsetZ
+					1:
+						$Area2D/Blue.position.x = sign(lastDirection) * directionOffsetZ
+				
+				var newPos = position + (colliderHand.position * scale)
 				pickedItem.setPosition(newPos)
 				pickedItem.held = false
 				pickedItem.setCollisions(true)

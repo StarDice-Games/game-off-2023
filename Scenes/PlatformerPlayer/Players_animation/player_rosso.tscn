@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dqsmn4tqyn4ca"]
+[gd_scene load_steps=24 format=3 uid="uid://dqsmn4tqyn4ca"]
 
 [ext_resource type="Texture2D" uid="uid://chepqff6fmcda" path="res://Scenes/PlatformerPlayer/Players_animation/PNG/Braccia_rosso_su.png" id="1_32l8t"]
 [ext_resource type="Texture2D" uid="uid://iegu5jx5kkyk" path="res://Scenes/PlatformerPlayer/Players_animation/PNG/Gamba_rosso_dx.png" id="2_5sxby"]
@@ -10,65 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://c5r3syrvmhtla" path="res://Scenes/PlatformerPlayer/Players_animation/PNG/occhi_rosso.png" id="8_5glp0"]
 [ext_resource type="Texture2D" uid="uid://cr1adqehq0bfr" path="res://Scenes/PlatformerPlayer/Players_animation/PNG/Sopracciglia_rosso.png" id="9_k1t7o"]
 [ext_resource type="Texture2D" uid="uid://byhsdphepm0m4" path="res://Scenes/PlatformerPlayer/Players_animation/PNG/braccia_rosso_sx.png" id="10_2230t"]
-
-[sub_resource type="Animation" id="Animation_jshsn"]
-resource_name = "Walk"
-loop_mode = 1
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GambaRossoSx:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 3, 3, 0),
-"points": PackedFloat32Array(-0.011303, -0.25, 0, 0.1, 0.309765, 0.502625, -0.1, 0.00704011, 0.1, -0.00704011, -0.48299, -0.1, 0, 0.1, 0, -0.00426292, -0.1, -0.320745, 0.1, 0.274564),
-"times": PackedFloat32Array(0, 0.3, 0.7, 1)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("GambaRossoDx:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.1, -0.418506, -0.681806, -0.1, 0, 0.2, 0.00774413, 0.503045, -0.2, -0.0232324, 0.2, -0.00774413, 0, -0.1, 0.301698, 0.25, 0),
-"times": PackedFloat32Array(0, 0.3, 0.7, 1)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("BaseRosso:position:y")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.1, 1.4924, -1.63352, -0.1, 0.156296, 0.1, 0.104197, -0.435252, -0.2, 2.55283, 0.1, -1.19827, -0.122661, -0.1, -1.77135, 0.25, 0),
-"times": PackedFloat32Array(0, 0.3, 0.7, 1)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("BracciaRossoSx:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.1, 0.612468, 1.03406, -0.2, -0.019605, 0.25, 0, -0.75352, -0.25, 0, 0.1, 0.0157157, 0.221346, -0.1, -0.557161, 0.25, 0),
-"times": PackedFloat32Array(0, 0.3, 0.7, 1)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("BraccioRossoDx:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.1, -0.152105, -0.411062, -0.1, 0.0125533, 0.25, 0, 0.513354, -0.25, 0, 0.25, 0, 0, -0.1, 0.263261, 0.25, 0),
-"times": PackedFloat32Array(0, 0.3, 0.7, 1)
-}
 
 [sub_resource type="Animation" id="Animation_cs3gk"]
 resource_name = "Idle"
@@ -266,12 +207,108 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4)
 }
 
+[sub_resource type="Animation" id="Animation_jshsn"]
+resource_name = "Walk"
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GambaRossoSx:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 3, 3, 0),
+"points": PackedFloat32Array(-0.011303, -0.25, 0, 0.1, 0.309765, 0.502625, -0.1, 0.00704011, 0.1, -0.00704011, -0.48299, -0.1, 0, 0.1, 0, -0.00426292, -0.1, -0.320745, 0.1, 0.274564),
+"times": PackedFloat32Array(0, 0.3, 0.7, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GambaRossoDx:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.1, -0.418506, -0.681806, -0.1, 0, 0.2, 0.00774413, 0.503045, -0.2, -0.0232324, 0.2, -0.00774413, 0, -0.1, 0.301698, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 0.7, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BaseRosso:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.1, 1.4924, -1.63352, -0.1, 0.156296, 0.1, 0.104197, -0.435252, -0.2, 2.55283, 0.1, -1.19827, -0.122661, -0.1, -1.77135, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 0.7, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BracciaRossoSx:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.1, 0.612468, 1.03406, -0.2, -0.019605, 0.25, 0, -0.75352, -0.25, 0, 0.1, 0.0157157, 0.221346, -0.1, -0.557161, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 0.7, 1)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BraccioRossoDx:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.1, -0.152105, -0.411062, -0.1, 0.0125533, 0.25, 0, 0.513354, -0.25, 0, 0.25, 0, 0, -0.1, 0.263261, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 0.7, 1)
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5ua3o"]
 _data = {
 "Idle": SubResource("Animation_cs3gk"),
 "Jump": SubResource("Animation_4hj2j"),
 "Walk": SubResource("Animation_jshsn")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fa8sc"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kak7k"]
+animation = &"Jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h7d36"]
+animation = &"Walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kujlf"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7bxf3"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t0yhb"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e71g5"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c5krb"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_axioq"]
+states/Idle/node = SubResource("AnimationNodeAnimation_fa8sc")
+states/Idle/position = Vector2(360, 54)
+states/Jump/node = SubResource("AnimationNodeAnimation_kak7k")
+states/Jump/position = Vector2(392, 185)
+states/Start/position = Vector2(170, 122)
+states/Walk/node = SubResource("AnimationNodeAnimation_h7d36")
+states/Walk/position = Vector2(575, 75)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_kujlf"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_7bxf3"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_t0yhb"), "Jump", "Walk", SubResource("AnimationNodeStateMachineTransition_e71g5"), "Jump", "Idle", SubResource("AnimationNodeStateMachineTransition_c5krb")]
+graph_offset = Vector2(-69, -99)
 
 [node name="Player_rosso" type="Node2D"]
 
@@ -302,7 +339,8 @@ texture = ExtResource("3_db4q7")
 offset = Vector2(-3, 32)
 
 [node name="BaseRosso" type="Sprite2D" parent="."]
-scale = Vector2(1, 0.922535)
+position = Vector2(0, 1.44696)
+scale = Vector2(1, 0.910669)
 texture = ExtResource("5_obvat")
 
 [node name="BoccaRosso2" type="Sprite2D" parent="BaseRosso"]
@@ -325,3 +363,7 @@ texture = ExtResource("9_k1t7o")
 libraries = {
 "": SubResource("AnimationLibrary_5ua3o")
 }
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_axioq")
+anim_player = NodePath("../AnimationPlayerRosso")
