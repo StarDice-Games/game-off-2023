@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://1asqm4mxi7np"]
+[gd_scene load_steps=13 format=3 uid="uid://1asqm4mxi7np"]
 
 [ext_resource type="Texture2D" uid="uid://bo04kloimwmpv" path="res://Resources/Assets/Background/Fondo.png" id="1_0crlf"]
 [ext_resource type="PackedScene" uid="uid://duvywv1d1kgyo" path="res://Scenes/PlatformerPlayer/Divider/divider.tscn" id="2_olb40"]
@@ -6,6 +6,22 @@
 [ext_resource type="PackedScene" uid="uid://c5xj8w588i6aa" path="res://Scenes/Visual Indicator/visualIndicator.tscn" id="4_4am5a"]
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="5_igff4"]
 [ext_resource type="PackedScene" uid="uid://dvhrt43a8uu5r" path="res://Scenes/PlatformerPlayer/Pickable/Box/BoxPickable.tscn" id="6_op14f"]
+[ext_resource type="PackedScene" uid="uid://d4diwwos6tieb" path="res://Scenes/PlatformerPlayer/Platforms/Platform1/Platform1.tscn" id="7_ikilr"]
+[ext_resource type="PackedScene" uid="uid://6a1c38prt1a4" path="res://Scenes/PlatformerPlayer/Buttons/Button1/Button01.tscn" id="9_1vr6e"]
+[ext_resource type="PackedScene" uid="uid://b8upryncqwmc6" path="res://Scenes/PlatformerPlayer/Doors/SmallDoor/SmallDoor.tscn" id="9_iihv8"]
+[ext_resource type="PackedScene" uid="uid://cxjw8tk4kep1p" path="res://Scenes/PlatformerPlayer/Keys/Key01/Key01.tscn" id="10_sqhp1"]
+
+[sub_resource type="Curve2D" id="Curve2D_3ewfr"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -65.8433, 37.4504, 0, 0, 0, 0, 254.157, 325.45, 0, 0, 0, 0, 318.157, 101.45)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_p51vk"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64, 128, 0, 0, 0, 0, -32, 224)
+}
+point_count = 3
 
 [node name="TestBasic" type="Node2D"]
 
@@ -46,11 +62,62 @@ Side = 1
 metadata/_edit_lock_ = true
 
 [node name="Player1" parent="." instance=ExtResource("5_igff4")]
-position = Vector2(480, 704)
+position = Vector2(160, 832)
 
 [node name="Player2" parent="." instance=ExtResource("5_igff4")]
-position = Vector2(1438.42, 665.348)
+position = Vector2(1760, 896)
 side = 1
 
 [node name="BoxPickable" parent="." instance=ExtResource("6_op14f")]
-position = Vector2(682.692, 554.251)
+position = Vector2(320, 928)
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(513.843, 442.55)
+curve = SubResource("Curve2D_3ewfr")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-65.8433, 37.4504)
+rotates = false
+loop = false
+
+[node name="PlatformA" parent="Path2D/PathFollow2D" node_paths=PackedStringArray("path") instance=ExtResource("7_ikilr")]
+speed = 20.0
+path = NodePath("..")
+active = false
+
+[node name="Path2D2" type="Path2D" parent="."]
+position = Vector2(512, 96)
+curve = SubResource("Curve2D_p51vk")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
+rotates = false
+
+[node name="PlatformB" parent="Path2D2/PathFollow2D" node_paths=PackedStringArray("path") instance=ExtResource("7_ikilr")]
+speed = 20.0
+path = NodePath("..")
+active = false
+
+[node name="Button01" parent="." node_paths=PackedStringArray("receivers") instance=ExtResource("9_1vr6e")]
+position = Vector2(480, 960)
+receivers = [NodePath("../Path2D/PathFollow2D/PlatformA")]
+
+[node name="ButtonB" parent="." node_paths=PackedStringArray("receivers") instance=ExtResource("9_1vr6e")]
+position = Vector2(736, 960)
+receivers = [NodePath("../Path2D2/PathFollow2D/PlatformB")]
+
+[node name="SmallDoorA" parent="." instance=ExtResource("9_iihv8")]
+position = Vector2(1248, 960)
+maxKeys = 1
+goalNumber = 1
+
+[node name="SmallDoorB" parent="." instance=ExtResource("9_iihv8")]
+position = Vector2(1376, 960)
+maxKeys = 1
+
+[node name="KeyB" parent="." node_paths=PackedStringArray("receivers") instance=ExtResource("10_sqhp1")]
+position = Vector2(1559, 941)
+receivers = [NodePath("../SmallDoorB")]
+
+[node name="KeyA" parent="." node_paths=PackedStringArray("receivers") instance=ExtResource("10_sqhp1")]
+position = Vector2(1120, 960)
+receivers = [NodePath("../SmallDoorA")]
