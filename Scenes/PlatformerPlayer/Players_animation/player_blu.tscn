@@ -1,0 +1,273 @@
+[gd_scene load_steps=15 format=3 uid="uid://cdlobejixiues"]
+
+[ext_resource type="Texture2D" uid="uid://chugxrdxufaf2" path="res://Scenes/PlatformerPlayer/Players_animation/PNG/Braccia_blu_su.png" id="1_lb8kn"]
+[ext_resource type="Texture2D" uid="uid://ce2qyksyy7ywd" path="res://Scenes/PlatformerPlayer/Players_animation/PNG/Braccia_blu_dx.png" id="2_v7spy"]
+[ext_resource type="Texture2D" uid="uid://dfkm518rtbimv" path="res://Scenes/PlatformerPlayer/Players_animation/PNG/Braccia_blu_sx.png" id="3_w4x2u"]
+[ext_resource type="Texture2D" uid="uid://bysij6ohn6b33" path="res://Scenes/PlatformerPlayer/Players_animation/PNG/Gamba_blu_dx.png" id="4_22kd5"]
+[ext_resource type="Texture2D" uid="uid://d1p3rmakceomc" path="res://Scenes/PlatformerPlayer/Players_animation/PNG/Gamba_blu_sx.png" id="5_rg12t"]
+[ext_resource type="Texture2D" uid="uid://xx23jjp14p1k" path="res://Scenes/PlatformerPlayer/Players_animation/PNG/Base_blu.png" id="6_dmqfs"]
+[ext_resource type="Texture2D" uid="uid://duvkdmlo5dyqf" path="res://Scenes/PlatformerPlayer/Players_animation/PNG/bocca_blu_2.png" id="7_epq10"]
+[ext_resource type="Texture2D" uid="uid://d1ulu5dmg0h2l" path="res://Scenes/PlatformerPlayer/Players_animation/PNG/bocca_blu_1.png" id="8_152a6"]
+[ext_resource type="Texture2D" uid="uid://b7iqvjkiymc6d" path="res://Scenes/PlatformerPlayer/Players_animation/PNG/occhi_blu.png" id="9_e6plp"]
+[ext_resource type="Texture2D" uid="uid://cyxw4l3gk3moh" path="res://Scenes/PlatformerPlayer/Players_animation/PNG/Sopracciglia_blu.png" id="10_56crn"]
+
+[sub_resource type="Animation" id="Animation_o44cq"]
+resource_name = "Walk"
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GambaBluSx:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 3),
+"points": PackedFloat32Array(0, -0.25, 0, 0.1, 0.243485, 0.674335, -0.1, -0.0226763, 0.1, 0.0226763, -0.470818, -0.1, 0.0113381, 0.1, -0.0113381, 0, -0.1, -0.27807, 0.1, 0.27807),
+"times": PackedFloat32Array(0, 0.4, 0.7, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GambaBluDx:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.2, -0.424431, -0.518134, -0.1, 0.0350013, 0.2, 0.025631, 0.540718, -0.2, 0.0140567, 0.1, 0.0046863, 0, -0.1, 0.400162, 0.2, -0.499394),
+"times": PackedFloat32Array(0, 0.4, 0.7, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BracciaBluDx:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.1, -0.183205, -0.715075, -0.25, 0, 0.25, 0, -0.0963485, -0.2, -0.00271427, 0.2, 0.00271427, 0, -0.1, -0.0420633, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4, 0.7, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BracciaBluSx:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.1, 0.147935, 0.706787, -0.25, 0, 0.25, 0, 0.128421, -0.2, 0.00594252, 0.2, -0.00594252, 0, -0.1, 0.07465, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4, 0.7, 1)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BaseBlu:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.102487, -0.842734, -2.1316, -0.0975133, 0.000774384, 0.25, 0, 1.24888, -0.25, 0, 0.102487, 0.0317249, 0, -0.0975133, 1.28811, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4, 0.7, 1)
+}
+
+[sub_resource type="Animation" id="Animation_f1hha"]
+resource_name = "Idle"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BaseBlu:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BaseBlu:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.923729, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0.923729, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0.923729, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BaseBlu:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(2.25, -0.25, 0, 0.25, 0, 5, -0.25, 0, 0.25, 0, 2.25, -0.25, 0, 0.25, 0, 5, -0.25, 0, 0.25, 0, 2.25, -0.25, 0, 0.25, 0, 5, -0.25, 0, 0.25, 0, 2.25, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BaseBlu/OcchiBlu:scale:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0.0626902, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0.0626902, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2, 2.1, 2.2, 4, 4.1, 4.2, 6)
+}
+
+[sub_resource type="Animation" id="Animation_edllg"]
+resource_name = "Jump"
+length = 0.4
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BaseBlu:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(3, 3, 3),
+"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0, 0.879999, -0.05, 0, 0.05, 0, 1, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0, 0.2, 0.4)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BaseBlu:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(3, 3, 3),
+"points": PackedFloat32Array(0.926764, -0.05, 0, 0.05, 0, 1.12676, -0.05, 0, 0.05, 0, 0.926764, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0, 0.2, 0.4)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BaseBlu:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(4.89058, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GambaBluDx:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(3, 3, 3),
+"points": PackedFloat32Array(0, -0.05, 0, 0.05, 0, 1.60472, -0.05, 0, 0.05, 0, 0, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0, 0.2, 0.4)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GambaBluSx:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(3, 3, 3),
+"points": PackedFloat32Array(0, -0.05, 0, 0.05, 0, -1.52667, -0.05, 0, 0.05, 0, 0, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0, 0.2, 0.4)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BracciaBluSx:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(3, 3, 3),
+"points": PackedFloat32Array(0, -0.05, 0, 0.05, 0, -1.30031, -0.05, 0, 0.05, 0, 0, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0, 0.2, 0.4)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BracciaBluDx:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(3, 3, 3),
+"points": PackedFloat32Array(0, -0.05, 0, 0.05, 0, 0.695886, -0.05, 0, 0.05, 0, 0, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0, 0.2, 0.4)
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BaseBlu/BoccaBlu1:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b6yq8"]
+_data = {
+"Idle": SubResource("Animation_f1hha"),
+"Jump": SubResource("Animation_edllg"),
+"Walk": SubResource("Animation_o44cq")
+}
+
+[node name="Player_blu" type="Node2D"]
+
+[node name="BracciaBluSu" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(4, -36)
+texture = ExtResource("1_lb8kn")
+
+[node name="BracciaBluDx" type="Sprite2D" parent="."]
+position = Vector2(-24, 12)
+texture = ExtResource("2_v7spy")
+offset = Vector2(-16, -1)
+
+[node name="BracciaBluSx" type="Sprite2D" parent="."]
+position = Vector2(14, 17)
+texture = ExtResource("3_w4x2u")
+offset = Vector2(10, 15)
+
+[node name="GambaBluDx" type="Sprite2D" parent="."]
+position = Vector2(-12, 20)
+texture = ExtResource("4_22kd5")
+offset = Vector2(-4, 20)
+
+[node name="GambaBluSx" type="Sprite2D" parent="."]
+position = Vector2(3, 23)
+texture = ExtResource("5_rg12t")
+offset = Vector2(-3, 21)
+
+[node name="BaseBlu" type="Sprite2D" parent="."]
+position = Vector2(6, 3.76164)
+scale = Vector2(1, 0.958075)
+texture = ExtResource("6_dmqfs")
+
+[node name="BoccaBlu2" type="Sprite2D" parent="BaseBlu"]
+position = Vector2(-18, 14)
+texture = ExtResource("7_epq10")
+
+[node name="BoccaBlu1" type="Sprite2D" parent="BaseBlu"]
+position = Vector2(-18, 12)
+texture = ExtResource("8_152a6")
+
+[node name="OcchiBlu" type="Sprite2D" parent="BaseBlu"]
+position = Vector2(-13, -4.87421)
+texture = ExtResource("9_e6plp")
+
+[node name="SopraccigliaBlu" type="Sprite2D" parent="BaseBlu"]
+position = Vector2(-10, -16)
+texture = ExtResource("10_56crn")
+
+[node name="AnimationPlayerBlu" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b6yq8")
+}
