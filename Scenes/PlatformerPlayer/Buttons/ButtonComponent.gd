@@ -2,7 +2,7 @@ extends Area2D
 class_name ButtonComponent
 
 @export var receivers : Array[Node2D]
-@export var senderComp : SenderComponent
+@onready var senderComp : SenderComponent = $SenderComponent
 
 var active = false;
 

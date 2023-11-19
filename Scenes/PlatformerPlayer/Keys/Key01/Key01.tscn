@@ -7,11 +7,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xubi1"]
 size = Vector2(11, 34)
 
-[node name="Key01" type="Area2D" node_paths=PackedStringArray("senderComp")]
+[node name="Key01" type="Area2D"]
 collision_layer = 32
 collision_mask = 2
 script = ExtResource("1_agsc3")
-senderComp = NodePath("SenderComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
