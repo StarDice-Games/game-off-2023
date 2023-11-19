@@ -2,12 +2,13 @@ extends Area2D
 class_name PressurePlateComponent
 
 @export var receivers : Array[Node2D]
-@export var senderComp : SenderComponent
+@onready var senderComp : SenderComponent = $SenderComponent
 
 var numOfObject = 0;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	if senderComp != null:
 		for node in receivers:
 			var receiverComp = node.get_node("ReceiverComponent")

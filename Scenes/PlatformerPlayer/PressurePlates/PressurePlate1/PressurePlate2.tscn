@@ -7,11 +7,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27fqp"]
 size = Vector2(68, 17)
 
-[node name="PressurePlate2" type="Area2D" node_paths=PackedStringArray("senderComp")]
+[node name="PressurePlate2" type="Area2D"]
 collision_layer = 8
 collision_mask = 6
 script = ExtResource("1_ayd5l")
-senderComp = NodePath("SenderComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
