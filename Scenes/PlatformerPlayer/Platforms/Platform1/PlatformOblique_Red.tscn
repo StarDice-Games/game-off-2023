@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1ugi0gn224es"]
+
+[ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Platforms/MovingPlatform/MovingComponent.gd" id="1_thsls"]
+[ext_resource type="Texture2D" uid="uid://dnrr183ibwy0d" path="res://Resources/Assets/Elementi_rossi/Angolo rosso.png" id="2_dvjsv"]
+[ext_resource type="PackedScene" uid="uid://bhntgodhqptoj" path="res://Scenes/PlatformerPlayer/TriggerComponent/ReceiverComponent.tscn" id="3_g88kr"]
+
+[node name="Platform1" type="CharacterBody2D"]
+script = ExtResource("1_thsls")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(169, -26)
+texture = ExtResource("2_dvjsv")
+offset = Vector2(-169, 9)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(1, -39)
+rotation = 0.261799
+polygon = PackedVector2Array(-35.9473, -2.79128, -18.6065, 61.9258, 45.1447, 44.8437, 44.627, 42.9119, -34.0155, -3.30891)
+
+[node name="ReceiverComponent" parent="." instance=ExtResource("3_g88kr")]
+position = Vector2(0, -16)
+
+[connection signal="disabled" from="ReceiverComponent" to="." method="_on_receiver_component_disabled"]
+[connection signal="enabled" from="ReceiverComponent" to="." method="_on_receiver_component_enabled"]
+[connection signal="triggered" from="ReceiverComponent" to="." method="_on_receiver_component_triggered"]
