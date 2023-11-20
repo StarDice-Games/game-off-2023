@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://cnc83uiqohiew"]
+[gd_scene load_steps=14 format=3 uid="uid://cnc83uiqohiew"]
 
-[ext_resource type="Texture2D" uid="uid://bo04kloimwmpv" path="res://Resources/Assets/Background/Fondo.png" id="1_ysnu4"]
+[ext_resource type="Texture2D" uid="uid://c27hta5aq0irf" path="res://Resources/Assets/Background/Fondo_bianco.jpg" id="1_5gami"]
 [ext_resource type="PackedScene" uid="uid://duvywv1d1kgyo" path="res://Scenes/PlatformerPlayer/Divider/divider.tscn" id="2_ac4pg"]
+[ext_resource type="Texture2D" uid="uid://dkkvcc7oo70c1" path="res://Resources/Assets/Background/Cornice_frontale.png" id="2_yc0t4"]
 [ext_resource type="PackedScene" uid="uid://c6oxlwfitiwcd" path="res://Scenes/PlatformerPlayer/Obstacle/statiWall.tscn" id="3_d6i32"]
 [ext_resource type="PackedScene" uid="uid://c5xj8w588i6aa" path="res://Scenes/Visual Indicator/visualIndicator.tscn" id="4_wdoma"]
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="5_lhmm2"]
@@ -21,7 +22,14 @@ offset = Vector2(960, 540)
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("1_ysnu4")
+texture = ExtResource("1_5gami")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+z_index = 2
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_yc0t4")
 metadata/_edit_lock_ = true
 
 [node name="Diveders" type="Node2D" parent="."]

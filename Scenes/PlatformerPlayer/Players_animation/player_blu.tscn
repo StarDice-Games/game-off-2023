@@ -273,30 +273,26 @@ texture = ExtResource("1_lb8kn")
 
 [node name="BracciaBluDx" type="Sprite2D" parent="."]
 position = Vector2(-24, 12)
-rotation = -0.70036
 texture = ExtResource("2_v7spy")
 offset = Vector2(-16, -1)
 
 [node name="BracciaBluSx" type="Sprite2D" parent="."]
 position = Vector2(14, 17)
-rotation = 0.702305
 texture = ExtResource("3_w4x2u")
 offset = Vector2(10, 15)
 
 [node name="GambaBluDx" type="Sprite2D" parent="."]
 position = Vector2(-12, 20)
-rotation = -0.548131
 texture = ExtResource("4_22kd5")
 offset = Vector2(-4, 20)
 
 [node name="GambaBluSx" type="Sprite2D" parent="."]
 position = Vector2(3, 21)
-rotation = 0.663688
 texture = ExtResource("5_rg12t")
 offset = Vector2(-3, 21)
 
 [node name="BaseBlu" type="Sprite2D" parent="."]
-position = Vector2(6, -2.10123)
+position = Vector2(6, 0)
 texture = ExtResource("6_dmqfs")
 
 [node name="BoccaBlu2" type="Sprite2D" parent="BaseBlu"]
