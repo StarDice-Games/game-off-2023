@@ -199,6 +199,7 @@ tracks/7/keys = {
 
 [sub_resource type="Animation" id="Animation_o44cq"]
 resource_name = "Walk"
+length = 0.5
 loop_mode = 1
 tracks/0/type = "bezier"
 tracks/0/imported = false
@@ -207,9 +208,9 @@ tracks/0/path = NodePath("GambaBluSx:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 3),
-"points": PackedFloat32Array(0, -0.25, 0, 0.1, 0.243485, 0.674335, -0.1, -0.0226763, 0.1, 0.0226763, -0.470818, -0.1, 0.0113381, 0.1, -0.0113381, 0, -0.1, -0.27807, 0.1, 0.27807),
-"times": PackedFloat32Array(0, 0.4, 0.7, 1)
+"handle_modes": PackedInt32Array(2, 2, 2, 2),
+"points": PackedFloat32Array(0, 0, 0, 0.0333333, 0.112389, 0.674335, -0.0333333, 0.0523131, 0.0166667, -0.0261566, -0.470818, -0.0166667, 0.0374631, 0.0333333, -0.0749261, 0, -0.0333333, -0.0784697, 0, 0),
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.5)
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
@@ -218,9 +219,9 @@ tracks/1/path = NodePath("GambaBluDx:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.2, -0.424431, -0.518134, -0.1, 0.0350013, 0.2, 0.025631, 0.540718, -0.2, 0.0140567, 0.1, 0.0046863, 0, -0.1, 0.400162, 0.2, -0.499394),
-"times": PackedFloat32Array(0, 0.4, 0.7, 1)
+"handle_modes": PackedInt32Array(2, 3, 3, 2),
+"points": PackedFloat32Array(0, 0, 0, 0.1, -0.408859, -0.587244, -0.025, 0, 0.025, 0, 0.540718, -0.025, 0, 0.025, 0, 0, -0.1, 0.524045, 0, 0),
+"times": PackedFloat32Array(0, 0.193219, 0.3, 0.5)
 }
 tracks/2/type = "bezier"
 tracks/2/imported = false
@@ -229,9 +230,9 @@ tracks/2/path = NodePath("BracciaBluDx:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.1, -0.183205, -0.715075, -0.25, 0, 0.25, 0, -0.0963485, -0.2, -0.00271427, 0.2, 0.00271427, 0, -0.1, -0.0420633, 0.25, 0),
-"times": PackedFloat32Array(0, 0.4, 0.7, 1)
+"handle_modes": PackedInt32Array(2, 2, 2, 2),
+"points": PackedFloat32Array(0, 0, 0, 0.0333333, -0.119179, -0.700899, -0.0336201, 0, 0.0433131, 0, -0.241907, -0.0166667, -0.0397264, 0.0333333, 0.0794528, 0, -0.0333333, -0.0160581, 0, 0),
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.5)
 }
 tracks/3/type = "bezier"
 tracks/3/imported = false
@@ -240,9 +241,9 @@ tracks/3/path = NodePath("BracciaBluSx:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.1, 0.147935, 0.706787, -0.25, 0, 0.25, 0, 0.128421, -0.2, 0.00594252, 0.2, -0.00594252, 0, -0.1, 0.07465, 0.25, 0),
-"times": PackedFloat32Array(0, 0.4, 0.7, 1)
+"handle_modes": PackedInt32Array(2, 3, 3, 2),
+"points": PackedFloat32Array(0, 0, 0, 0.0554611, 0.356968, 0.706787, -0.025, 0, 0.025, 0, -0.552273, -0.025, 0, 0.025, 0, 0, -0.0849366, -0.268135, 0, 0),
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.5)
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
@@ -251,9 +252,9 @@ tracks/4/path = NodePath("BaseBlu:position:y")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.102487, -0.842734, -2.1316, -0.0975133, 0.000774384, 0.25, 0, 1.24888, -0.25, 0, 0.102487, 0.0317249, 0, -0.0975133, 1.28811, 0.25, 0),
-"times": PackedFloat32Array(0, 0.4, 0.7, 1)
+"handle_modes": PackedInt32Array(2, 2, 2, 2),
+"points": PackedFloat32Array(0, 0, 0, 0.0333333, -0.355267, -2.1316, -0.0333333, -0.138764, 0.0166667, 0.0693822, 1.24888, -0.0166667, -0.118422, 0.0333333, 0.236844, 0, -0.0333333, 0.208147, 0, 0),
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.5)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b6yq8"]
@@ -272,26 +273,30 @@ texture = ExtResource("1_lb8kn")
 
 [node name="BracciaBluDx" type="Sprite2D" parent="."]
 position = Vector2(-24, 12)
+rotation = -0.70036
 texture = ExtResource("2_v7spy")
 offset = Vector2(-16, -1)
 
 [node name="BracciaBluSx" type="Sprite2D" parent="."]
 position = Vector2(14, 17)
+rotation = 0.702305
 texture = ExtResource("3_w4x2u")
 offset = Vector2(10, 15)
 
 [node name="GambaBluDx" type="Sprite2D" parent="."]
 position = Vector2(-12, 20)
+rotation = -0.548131
 texture = ExtResource("4_22kd5")
 offset = Vector2(-4, 20)
 
 [node name="GambaBluSx" type="Sprite2D" parent="."]
-position = Vector2(3, 23)
+position = Vector2(3, 21)
+rotation = 0.663688
 texture = ExtResource("5_rg12t")
 offset = Vector2(-3, 21)
 
 [node name="BaseBlu" type="Sprite2D" parent="."]
-position = Vector2(6, 2.25)
+position = Vector2(6, -2.10123)
 texture = ExtResource("6_dmqfs")
 
 [node name="BoccaBlu2" type="Sprite2D" parent="BaseBlu"]
