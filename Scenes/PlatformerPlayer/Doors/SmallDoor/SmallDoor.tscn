@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8upryncqwmc6"]
+[gd_scene load_steps=7 format=3 uid="uid://b8upryncqwmc6"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/TriggerComponent/ReceiverComponent.gd" id="1_22d2v"]
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Doors/SmallDoor/SmallDoor.gd" id="1_cg50m"]
+[ext_resource type="PackedScene" uid="uid://d144y04rmu6wx" path="res://Scenes/PlatformerPlayer/Doors/Indicators/SmallDoorIndicator.tscn" id="2_8hpr2"]
 [ext_resource type="Texture2D" uid="uid://dxluo80k0ynie" path="res://Resources/Assets/Porte/Porta_piccola.png" id="2_de7xn"]
 [ext_resource type="PackedScene" uid="uid://cs8xishx48a2x" path="res://Scenes/PlatformerPlayer/Goal/GoalComponent.tscn" id="4_v4atr"]
 
@@ -11,6 +12,7 @@ size = Vector2(20, 78)
 [node name="SmallDoor" type="StaticBody2D"]
 collision_mask = 3
 script = ExtResource("1_cg50m")
+indicatorScene = ExtResource("2_8hpr2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -29,6 +31,9 @@ position = Vector2(0, 1)
 position = Vector2(0, -40)
 shape = SubResource("RectangleShape2D_a46u8")
 debug_color = Color(0.811765, 0.258824, 0.792157, 0.419608)
+
+[node name="IndicatorStart" type="Marker2D" parent="."]
+position = Vector2(-27, -98)
 
 [connection signal="triggered" from="ReceiverComponent" to="." method="_on_receiver_component_triggered"]
 [connection signal="body_entered" from="Goal" to="." method="_on_goal_body_entered"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3snw3pxmp7x8"]
+
+[ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Doors/Indicators/DoorIndicator.gd" id="1_d7lxi"]
+[ext_resource type="Texture2D" uid="uid://c7paogb1q471k" path="res://Resources/Assets/Porte/Lucchetto_aperto.png" id="1_n41kn"]
+[ext_resource type="Texture2D" uid="uid://bqq07voil2fqm" path="res://Resources/Assets/Porte/Lucchetto.png" id="2_6mkku"]
+
+[node name="SmallDoorIndicator" type="Node2D"]
+script = ExtResource("1_d7lxi")
+
+[node name="Open" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_n41kn")
+
+[node name="Closed" type="Sprite2D" parent="."]
+texture = ExtResource("2_6mkku")
