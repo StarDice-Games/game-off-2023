@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://fkdr444mjs4i"]
+
+[ext_resource type="Texture2D" uid="uid://ds0ge1om2wmjo" path="res://Resources/Assets/Nuovi_PNG/Blocco_1_angolo.png" id="1_plgr0"]
+
+[node name="PlatformStaticRed_Oblique" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_plgr0")
+offset = Vector2(0, -32)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(1, -39)
+rotation = 0.261799
+polygon = PackedVector2Array(-35.8965, -14.1929, -20.8157, 45.9533, 39.0717, 29.9066, 36.7423, 21.2132, -30.101, -15.7458)

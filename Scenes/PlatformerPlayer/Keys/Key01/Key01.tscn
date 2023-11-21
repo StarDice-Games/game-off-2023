@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://cxjw8tk4kep1p"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Keys/KeyComponent.gd" id="1_agsc3"]
-[ext_resource type="Texture2D" uid="uid://ugdp1sg7nmxw" path="res://Resources/Assets/Oggetti/Chiave.png" id="2_nmdlf"]
+[ext_resource type="Texture2D" uid="uid://cxkk2kgo6optb" path="res://Resources/Assets/Nuovi_PNG/Chiave_piccola.png" id="2_iu8xh"]
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/TriggerComponent/SenderComponent.gd" id="3_yqoax"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xubi1"]
-size = Vector2(11, 34)
+size = Vector2(11, 24)
 
 [node name="Key01" type="Area2D"]
 collision_layer = 32
@@ -15,11 +15,11 @@ script = ExtResource("1_agsc3")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_nmdlf")
-offset = Vector2(1, -34)
+texture = ExtResource("2_iu8xh")
+offset = Vector2(1, -24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -17)
+position = Vector2(0.5, -12)
 shape = SubResource("RectangleShape2D_xubi1")
 
 [node name="SenderComponent" type="Node2D" parent="."]

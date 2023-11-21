@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bc4tsc83nd2al"]
+[gd_scene load_steps=6 format=3 uid="uid://bc4tsc83nd2al"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/PressurePlates/PressurePlateComponent.gd" id="1_h5jo8"]
-[ext_resource type="Texture2D" uid="uid://dxne3e1tlfapq" path="res://Resources/Assets/Oggetti/Pressure_rossa.png" id="2_1p1em"]
+[ext_resource type="Texture2D" uid="uid://omcrunitdqv6" path="res://Resources/Assets/Nuovi_PNG/Pressure_rossa_base.png" id="2_3v3w2"]
 [ext_resource type="PackedScene" uid="uid://db2r5vwiirvo8" path="res://Scenes/PlatformerPlayer/TriggerComponent/SenderComponent.tscn" id="2_32blu"]
+[ext_resource type="Texture2D" uid="uid://lh48062fuf5b" path="res://Resources/Assets/Nuovi_PNG/Pressure_rossa_sopra.png" id="3_dryiq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27fqp"]
-size = Vector2(136, 32)
+size = Vector2(136, 34)
 
 [node name="PressurePlate3" type="Area2D"]
 collision_layer = 8
@@ -14,14 +15,20 @@ script = ExtResource("1_h5jo8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_1p1em")
-offset = Vector2(0, -17)
+texture = ExtResource("2_3v3w2")
+offset = Vector2(0, -4)
+
+[node name="Sprite2D_2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -17)
+texture = ExtResource("3_dryiq")
+offset = Vector2(0, -4)
 
 [node name="SenderComponent" parent="." instance=ExtResource("2_32blu")]
 position = Vector2(0, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -16)
+position = Vector2(0, -17)
 shape = SubResource("RectangleShape2D_27fqp")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0yejb6v7hqpy"]
+
+[ext_resource type="Texture2D" uid="uid://dv0miqfbnacbd" path="res://Resources/Assets/Nuovi_PNG/Blocco_2_rosso.png" id="1_j4uwo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ih7s"]
+size = Vector2(125, 63)
+
+[node name="PlatformStaticRed_x2" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_j4uwo")
+offset = Vector2(0, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -31.5)
+shape = SubResource("RectangleShape2D_1ih7s")

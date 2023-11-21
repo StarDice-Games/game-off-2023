@@ -23,7 +23,9 @@ func _on_area_2d_body_entered(body):
 #		get_tree().queue_delete(self)
 	for group in body.get_groups():
 		if group == "BreaksWalls":
-			get_tree().queue_delete(self)
+			$AnimatedSprite2D.play("default")
+			$AnimationPlayer.play("DisableCollider")
+			#get_tree().queue_delete(self)
 	pass # Replace with function body.
 
 

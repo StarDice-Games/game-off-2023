@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://cg5qp6djrjlof"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Platforms/DisappearPlatform2/DisapperaPlatform2.gd" id="1_5oeus"]
-[ext_resource type="Texture2D" uid="uid://dhygrefhjnums" path="res://Resources/Assets/Test/Platform_rossa.png" id="2_6v32p"]
+[ext_resource type="Texture2D" uid="uid://sso25bqdvm74" path="res://Resources/Assets/Nuovi_PNG/Blocco_time_rosso.png" id="2_s7ail"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kois8"]
-size = Vector2(115, 31)
+size = Vector2(124, 63)
 
 [sub_resource type="Animation" id="Animation_g2qbi"]
 length = 0.001
@@ -145,17 +145,18 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1i07h"]
-size = Vector2(115, 32)
+size = Vector2(124, 84)
 
 [node name="DisapperaPlatform2" type="StaticBody2D"]
 collision_mask = 7
 script = ExtResource("1_5oeus")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_6v32p")
+texture = ExtResource("2_s7ail")
+offset = Vector2(0, -32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -8.5)
+position = Vector2(-1, -31.5)
 shape = SubResource("RectangleShape2D_kois8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -167,7 +168,7 @@ libraries = {
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0.5, -9)
+position = Vector2(-1, -42)
 shape = SubResource("RectangleShape2D_1i07h")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

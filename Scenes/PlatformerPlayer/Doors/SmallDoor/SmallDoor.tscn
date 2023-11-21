@@ -1,24 +1,32 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8upryncqwmc6"]
+[gd_scene load_steps=8 format=3 uid="uid://b8upryncqwmc6"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/TriggerComponent/ReceiverComponent.gd" id="1_22d2v"]
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Doors/SmallDoor/SmallDoor.gd" id="1_cg50m"]
 [ext_resource type="PackedScene" uid="uid://d144y04rmu6wx" path="res://Scenes/PlatformerPlayer/Doors/Indicators/SmallDoorIndicator.tscn" id="2_8hpr2"]
-[ext_resource type="Texture2D" uid="uid://dxluo80k0ynie" path="res://Resources/Assets/Porte/Porta_piccola.png" id="2_de7xn"]
+[ext_resource type="Texture2D" uid="uid://ckdfq6j28cvti" path="res://Resources/Assets/Nuovi_PNG/Porta_piccola_chiusa.png" id="3_7a103"]
+[ext_resource type="Texture2D" uid="uid://cv422swovafhb" path="res://Resources/Assets/Nuovi_PNG/Porta_piccola_aperta.png" id="4_27kjk"]
 [ext_resource type="PackedScene" uid="uid://cs8xishx48a2x" path="res://Scenes/PlatformerPlayer/Goal/GoalComponent.tscn" id="4_v4atr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a46u8"]
-size = Vector2(20, 78)
+size = Vector2(20, 64)
 
 [node name="SmallDoor" type="StaticBody2D"]
 collision_mask = 3
 script = ExtResource("1_cg50m")
 indicatorScene = ExtResource("2_8hpr2")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite_Porta_Chiusa" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
 scale = Vector2(0.625, 0.65625)
-texture = ExtResource("2_de7xn")
-offset = Vector2(-1.6, -68)
+texture = ExtResource("3_7a103")
+offset = Vector2(0, -51)
+
+[node name="Sprite_Porta_Aperta" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.625, 0.65625)
+texture = ExtResource("4_27kjk")
+offset = Vector2(0, -51)
 
 [node name="ReceiverComponent" type="Node2D" parent="."]
 position = Vector2(0, 1)
@@ -28,7 +36,7 @@ script = ExtResource("1_22d2v")
 position = Vector2(0, 1)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Goal"]
-position = Vector2(0, -40)
+position = Vector2(0, -33)
 shape = SubResource("RectangleShape2D_a46u8")
 debug_color = Color(0.811765, 0.258824, 0.792157, 0.419608)
 

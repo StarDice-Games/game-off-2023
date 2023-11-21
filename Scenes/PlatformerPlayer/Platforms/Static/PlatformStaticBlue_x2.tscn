@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn8ylngmbs0mt"]
+
+[ext_resource type="Texture2D" uid="uid://ddnkyjrkcktfp" path="res://Resources/Assets/Nuovi_PNG/Blocco_2_blu.png" id="1_embxh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ih7s"]
+size = Vector2(63, 32)
+
+[node name="PlatformStaticBlue_x2" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_embxh")
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 1
+position = Vector2(-0.5, -16)
+shape = SubResource("RectangleShape2D_1ih7s")

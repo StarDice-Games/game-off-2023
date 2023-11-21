@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2hpaa3bny6vn"]
+[gd_scene load_steps=4 format=3 uid="uid://7xtnelw50ocr"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Platforms/MovingPlatform/MovingComponent.gd" id="1_hkqj8"]
-[ext_resource type="Texture2D" uid="uid://cek5fabp5q7wi" path="res://Resources/Assets/Elementi_blu/Angolo_blu.png" id="2_dxk03"]
+[ext_resource type="Texture2D" uid="uid://cleiyrdstfp2w" path="res://Resources/Assets/Nuovi_PNG/Blocco_1_blu.png" id="2_kprh6"]
 [ext_resource type="PackedScene" uid="uid://bhntgodhqptoj" path="res://Scenes/PlatformerPlayer/TriggerComponent/ReceiverComponent.tscn" id="3_58o0h"]
 
 [node name="Platform1" type="CharacterBody2D"]
@@ -10,7 +10,7 @@ script = ExtResource("1_hkqj8")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(169, -26)
-texture = ExtResource("2_dxk03")
+texture = ExtResource("2_kprh6")
 offset = Vector2(-169, 9)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

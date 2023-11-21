@@ -1,28 +1,29 @@
 [gd_scene load_steps=7 format=3 uid="uid://dejvvmbnpvblp"]
 
-[ext_resource type="Texture2D" uid="uid://cg1ymalfuxac" path="res://Resources/Images/New Piskel.png" id="1_6ogab"]
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Obstacle/Water/WaterFloor.gd" id="1_wmnvp"]
 [ext_resource type="PackedScene" uid="uid://bu75kel0q2p7r" path="res://Scenes/PlatformerPlayer/DeathComponent/DeathComponent.tscn" id="2_7oql1"]
+[ext_resource type="Texture2D" uid="uid://bnl6uu5lvfndx" path="res://Resources/Assets/Nuovi_PNG/Livello_acqua.png" id="2_ntxe1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o47hv"]
-size = Vector2(32, 16)
+size = Vector2(1921, 86)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r3fju"]
-size = Vector2(32, 16)
+size = Vector2(1923, 86)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11aq3"]
-size = Vector2(32, 20)
+size = Vector2(1920.75, 107.5)
 
 [node name="WaterFloor" type="StaticBody2D"]
 scale = Vector2(4, 1)
 script = ExtResource("1_wmnvp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.133333, 0.454902, 1, 1)
-texture = ExtResource("1_6ogab")
+texture_filter = 1
+texture = ExtResource("2_ntxe1")
+offset = Vector2(0, -54)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 8)
+position = Vector2(0.5, -43)
 shape = SubResource("RectangleShape2D_o47hv")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -30,7 +31,7 @@ collision_layer = 64
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 8)
+position = Vector2(0.25, -43)
 shape = SubResource("RectangleShape2D_r3fju")
 
 [node name="DeathComponent" parent="." instance=ExtResource("2_7oql1")]
@@ -38,4 +39,5 @@ position = Vector2(0, 8)
 scale = Vector2(1, 0.8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathComponent"]
+position = Vector2(0.625, -63.75)
 shape = SubResource("RectangleShape2D_11aq3")

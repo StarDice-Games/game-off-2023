@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b7mn5x5w28ccf"]
 
-[ext_resource type="Texture2D" uid="uid://b06mo5oddik7i" path="res://Resources/Assets/Elementi_blu/Blocco_blu.png" id="1_ofyl2"]
+[ext_resource type="Texture2D" uid="uid://dj7yr4mmxolyn" path="res://Resources/Assets/Nuovi_PNG/Blocco_1_blu-1.png" id="1_0yiao"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ih7s"]
 size = Vector2(32, 32)
@@ -8,9 +8,11 @@ size = Vector2(32, 32)
 [node name="PlatformStaticBlue" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_ofyl2")
-offset = Vector2(0, -17)
+texture_filter = 1
+texture = ExtResource("1_0yiao")
+offset = Vector2(0, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -17)
+texture_filter = 1
+position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_1ih7s")
