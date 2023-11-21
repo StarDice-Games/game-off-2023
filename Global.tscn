@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxeb2iva4yrgw"]
+[gd_scene load_steps=9 format=3 uid="uid://bxeb2iva4yrgw"]
 
 [ext_resource type="Script" path="res://Global.gd" id="1_j5qpw"]
 [ext_resource type="Resource" uid="uid://cpy6dd3hx5r8m" path="res://Resources/Levels/Level1.tres" id="2_l0r8t"]
 [ext_resource type="Resource" uid="uid://dpki32i41f8ih" path="res://Resources/Levels/Level2.tres" id="3_i4xgd"]
 [ext_resource type="PackedScene" uid="uid://d3w0vp34bfsu4" path="res://Scenes/Menus/PauseMenu/PauseMenu.tscn" id="3_kic5l"]
 [ext_resource type="PackedScene" uid="uid://dqijkmgdh5ulw" path="res://Scenes/Menus/MainMenu/MainMenu.tscn" id="3_wleec"]
-[ext_resource type="PackedScene" uid="uid://c231qmwyovhcq" path="res://Main.tscn" id="4_56l5m"]
+[ext_resource type="PackedScene" uid="uid://c231qmwyovhcq" path="res://main.tscn" id="4_56l5m"]
 [ext_resource type="PackedScene" uid="uid://blauksugtg8ro" path="res://Scenes/Menus/LevelSelect/SelectLevel.tscn" id="6_6nmfb"]
+[ext_resource type="AudioStream" uid="uid://dfd45avut5cm0" path="res://Resources/Sounds/sfx_lvl_start.ogg" id="8_3xu02"]
 
 [node name="Global" type="Node2D"]
 script = ExtResource("1_j5qpw")
@@ -16,3 +17,6 @@ mainMenuScene = ExtResource("3_wleec")
 pauseMenuScene = ExtResource("3_kic5l")
 mainScene = ExtResource("4_56l5m")
 selectLevelScene = ExtResource("6_6nmfb")
+levelStartSound = ExtResource("8_3xu02")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

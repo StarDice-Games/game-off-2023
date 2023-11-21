@@ -18,6 +18,8 @@ var goals : Array[Node2D] = [null, null]
 @export var mainScene : PackedScene
 @export var selectLevelScene : PackedScene
 
+@export var levelStartSound : AudioStream
+
 #var pauseMenuScene = load(pauseMenuPath.get_concatenated_names())
 
 var nodeInstance = null
@@ -51,6 +53,9 @@ func _ready():
 		nodeInstance = pauseMenuScene.instantiate()
 	else:
 		printerr("Error missing pause scene")
+		
+	$AudioStreamPlayer.stream = levelStartSound	
+#	$AudioStreamPlayer.play()
 	
 	pass # Replace with function body.
 
