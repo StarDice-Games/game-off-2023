@@ -6,33 +6,34 @@
 [ext_resource type="Texture2D" uid="uid://b7k8cjmoypoet" path="res://Resources/Assets/Oggetti/Acqua.png" id="4_a5nnv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o47hv"]
-size = Vector2(912, 42)
+size = Vector2(962, 81)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r3fju"]
-size = Vector2(912, 42)
+size = Vector2(962, 81)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11aq3"]
-size = Vector2(912, 51.25)
+size = Vector2(961, 101.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vmdcj"]
-size = Vector2(158, 122)
+size = Vector2(158, 165)
 
 [node name="WaterFloor" type="StaticBody2D"]
 script = ExtResource("1_wmnvp")
 
 [node name="Acqua" type="Sprite2D" parent="."]
-position = Vector2(-367, -112.95)
+z_index = 1
+position = Vector2(-367, -156.91)
 texture = ExtResource("4_a5nnv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(1.49608e-05, 0)
-scale = Vector2(0.475, 0.5)
+scale = Vector2(0.5, 1)
 texture = ExtResource("2_ntxe1")
 offset = Vector2(0, -54)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -21)
+position = Vector2(0, -40.5)
 shape = SubResource("RectangleShape2D_o47hv")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -40,7 +41,7 @@ collision_layer = 64
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -21)
+position = Vector2(0, -40.5)
 shape = SubResource("RectangleShape2D_r3fju")
 
 [node name="DeathComponent" parent="." instance=ExtResource("2_7oql1")]
@@ -48,9 +49,9 @@ position = Vector2(0, 8)
 scale = Vector2(1, 0.8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathComponent"]
-position = Vector2(0, -35.625)
+position = Vector2(-0.5, -60.625)
 shape = SubResource("RectangleShape2D_11aq3")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-376, -120)
+position = Vector2(-376, -141.5)
 shape = SubResource("RectangleShape2D_vmdcj")
