@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://birka5inve0vm"]
+[gd_scene load_steps=8 format=3 uid="uid://birka5inve0vm"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Platforms/Plants/LeafPlatform/LeafPlatform.gd" id="1_2qy4g"]
 [ext_resource type="Texture2D" uid="uid://0rsa3wun1tsh" path="res://Resources/Assets/Nuovi_PNG/Foglie.png" id="2_7whyx"]
 [ext_resource type="PackedScene" uid="uid://bhntgodhqptoj" path="res://Scenes/PlatformerPlayer/TriggerComponent/ReceiverComponent.tscn" id="3_ogg7f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uy35h"]
+size = Vector2(63, 9)
 
 [sub_resource type="Animation" id="Animation_vxtmu"]
 length = 0.001
@@ -79,14 +82,22 @@ _data = {
 }
 
 [node name="LeafPlatform" type="StaticBody2D"]
+z_index = -1
 collision_mask = 7
 script = ExtResource("1_2qy4g")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-build_mode = 1
-polygon = PackedVector2Array(-44, 5, -37, -5, -26, -13, -13, -18, 12, -18, 35, -20, 47, -22, 43, -16, 37, -12, 22, -6, 5, -2, -20, -1, -33, 0)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4.5, -7.5)
+shape = SubResource("RectangleShape2D_uy35h")
 one_way_collision = true
-one_way_collision_margin = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+build_mode = 1
+polygon = PackedVector2Array(-44, 5, -37, -5, -27, -13, -22, -16, -13, -18, 12, -18, 35, -20, 47, -22, 43, -16, 37, -12, 22, -6, 5, -2, -23, -1, -33, 1)
+disabled = true
+one_way_collision = true
+one_way_collision_margin = 10.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

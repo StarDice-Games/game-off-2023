@@ -12,9 +12,9 @@ func _ready():
 func _process(delta):
 	match active:
 		true:
-			$CollisionPolygon2D.disabled = false
+			$CollisionShape2D.disabled = false
 		false:
-			$CollisionPolygon2D.disabled = true
+			$CollisionShape2D.disabled = true
 	pass
 
 func finishedGrowing():

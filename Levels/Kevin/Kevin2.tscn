@@ -81,13 +81,14 @@ mass = 1.0
 lock_rotation = false
 
 [node name="Ball2" parent="." instance=ExtResource("11_ed5n2")]
-position = Vector2(512, 288)
+position = Vector2(720, 976)
 mass = 1.0
 lock_rotation = false
 side = 1
 
 [node name="BreakableWall" parent="." instance=ExtResource("12_4lfmm")]
-position = Vector2(352, 992)
+z_index = -1
+position = Vector2(352, 1008)
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(304, 576)
@@ -228,3 +229,4 @@ position = Vector2(1696, 800)
 position = Vector2(1808, 960)
 
 [node name="Background" parent="." instance=ExtResource("21_qt0xv")]
+metadata/_edit_lock_ = true

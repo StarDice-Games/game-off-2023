@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bx2cylhqb7luc"]
+[gd_scene load_steps=29 format=3 uid="uid://bx2cylhqb7luc"]
 
 [ext_resource type="PackedScene" uid="uid://c6oxlwfitiwcd" path="res://Scenes/PlatformerPlayer/Obstacle/statiWall.tscn" id="3_ewxr2"]
 [ext_resource type="PackedScene" uid="uid://c5xj8w588i6aa" path="res://Scenes/Visual Indicator/visualIndicator.tscn" id="4_rvmx6"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://dn8ylngmbs0mt" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x2.tscn" id="23_ldy1h"]
 [ext_resource type="PackedScene" uid="uid://din1h8ql506vb" path="res://Scenes/Background.tscn" id="23_vt3n6"]
 [ext_resource type="PackedScene" uid="uid://dc601pwyjee1" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x5.tscn" id="24_bjv2b"]
+[ext_resource type="Texture2D" uid="uid://dxqjxjs8f8jta" path="res://Resources/Assets/Nuovi_PNG/Gambo.png" id="25_50eys"]
 
 [sub_resource type="Curve2D" id="Curve2D_kcsms"]
 _data = {
@@ -59,19 +60,19 @@ offset_right = 1984.0
 metadata/_edit_lock_ = true
 
 [node name="Player1" parent="." instance=ExtResource("5_dwfel")]
-position = Vector2(832, 928)
+position = Vector2(800, 928)
 scale = Vector2(0.75, 0.75)
 AIR_SPEED = 180.0
 JUMP_VELOCITY = -430.0
 push_force = 50
+side = 0
 
 [node name="Player2" parent="." instance=ExtResource("5_dwfel")]
-position = Vector2(1408, 928)
+position = Vector2(1424, 928)
 scale = Vector2(0.75, 0.75)
 GROUND_SPEED = 230.0
 AIR_SPEED = 180.0
 JUMP_VELOCITY = -350.0
-side = 1
 
 [node name="BoxPickable3" parent="." instance=ExtResource("6_otahl")]
 position = Vector2(1520, 976)
@@ -84,10 +85,10 @@ position = Vector2(1472, 672)
 
 [node name="WaterContainer" parent="." instance=ExtResource("7_v2vud")]
 position = Vector2(880, 992)
-side = 1
 
 [node name="SmallDoor" parent="." instance=ExtResource("9_q0q2r")]
 position = Vector2(1424, 352)
+scale = Vector2(2, 2)
 
 [node name="Path2D2" type="Path2D" parent="."]
 position = Vector2(1504, 768)
@@ -118,12 +119,12 @@ rotates = false
 loop = false
 
 [node name="Fire" parent="Path2D/PathFollow2D" instance=ExtResource("11_vvhhb")]
-position = Vector2(64, 0.000244141)
+position = Vector2(64, 0.00012207)
 rotation = 1.5708
 
 [node name="Platform17" parent="Path2D/PathFollow2D" node_paths=PackedStringArray("path") instance=ExtResource("10_uprwk")]
 rotation = 1.5708
-speed = 250.0
+speed = 200.0
 path = NodePath("..")
 active = false
 
@@ -147,20 +148,22 @@ position = Vector2(1136, 1424)
 receivers = [NodePath("../LeafPlatform2"), NodePath("../LeafPlatform3"), NodePath("../LeafPlatform4")]
 
 [node name="LeafPlatform2" parent="Plant" instance=ExtResource("15_7fygb")]
-position = Vector2(1312, 1376)
+position = Vector2(1184, 1360)
 
 [node name="LeafPlatform3" parent="Plant" instance=ExtResource("15_7fygb")]
-position = Vector2(1216, 1312)
+position = Vector2(1088, 1312)
+scale = Vector2(-1, 1)
 
 [node name="LeafPlatform4" parent="Plant" instance=ExtResource("15_7fygb")]
-position = Vector2(1328, 1248)
+position = Vector2(1184, 1264)
 
 [node name="PressurePlate3" parent="." node_paths=PackedStringArray("receivers") instance=ExtResource("16_1l158")]
 position = Vector2(1584, 976)
 receivers = [NodePath("../Path2D2/PathFollow2D/Platform6")]
 
 [node name="Spring" parent="." instance=ExtResource("17_2ojhy")]
-position = Vector2(144, 528)
+position = Vector2(176, 528)
+side = 1
 JUMP_FORCE = -650
 
 [node name="Spring2" parent="." instance=ExtResource("17_2ojhy")]
@@ -188,13 +191,11 @@ rotation = 3.14159
 position = Vector2(368, 528)
 
 [node name="Spikes5" parent="." instance=ExtResource("20_duw4t")]
-position = Vector2(304, 528)
-
-[node name="Spikes6" parent="." instance=ExtResource("20_duw4t")]
-position = Vector2(240, 528)
+position = Vector2(288, 528)
 
 [node name="BoxPickable2" parent="." instance=ExtResource("6_otahl")]
-position = Vector2(144, 656)
+position = Vector2(176, 656)
+side = 1
 
 [node name="PathButt" type="Path2D" parent="."]
 position = Vector2(176, 656)
@@ -261,3 +262,9 @@ position = Vector2(1392, 1008)
 position = Vector2(-80, 1024)
 scale = Vector2(64.68, 2)
 metadata/_edit_lock_ = true
+
+[node name="Gambo" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1168, 768)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("25_50eys")

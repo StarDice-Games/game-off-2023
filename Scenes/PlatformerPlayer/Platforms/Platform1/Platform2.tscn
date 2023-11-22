@@ -8,6 +8,7 @@
 size = Vector2(31.75, 42.0571)
 
 [node name="Platform1" type="CharacterBody2D"]
+platform_on_leave = 2
 script = ExtResource("1_uljva")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -19,6 +20,7 @@ offset = Vector2(0, -32)
 position = Vector2(-0.5, -32)
 scale = Vector2(4, 1.52174)
 shape = SubResource("RectangleShape2D_bwo16")
+one_way_collision = true
 
 [node name="ReceiverComponent" parent="." instance=ExtResource("3_mqea2")]
 position = Vector2(0, -33)

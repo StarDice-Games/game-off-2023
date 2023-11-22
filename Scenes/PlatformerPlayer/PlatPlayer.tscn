@@ -13,7 +13,7 @@ radius = 44.0
 height = 172.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w3jm4"]
-radius = 16.0
+radius = 7.0
 height = 78.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ynrlp"]
@@ -26,14 +26,15 @@ size = Vector2(20, 17.1951)
 collision_layer = 2
 collision_mask = 61
 script = ExtResource("1_go3e0")
+side = 1
 
 [node name="Player_rosso" parent="." instance=ExtResource("2_x7kcr")]
+process_mode = 4
+visible = false
 position = Vector2(4, -31)
 
 [node name="Player_blu" parent="." instance=ExtResource("3_v5sda")]
-process_mode = 4
-visible = false
-position = Vector2(-3, 0)
+position = Vector2(4, -2)
 
 [node name="Left" type="Sprite2D" parent="."]
 visible = false
@@ -47,15 +48,15 @@ visible = false
 texture = ExtResource("4_v002a")
 
 [node name="LeftCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
-shape = SubResource("CapsuleShape2D_8nqjx")
-
-[node name="RightCollision" type="CollisionShape2D" parent="."]
 process_mode = 4
 visible = false
-position = Vector2(0, 17)
-shape = SubResource("CapsuleShape2D_w3jm4")
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_8nqjx")
 disabled = true
+
+[node name="RightCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 18)
+shape = SubResource("CapsuleShape2D_w3jm4")
 
 [node name="PickupPosition" type="Marker2D" parent="."]
 position = Vector2(0, -88)
@@ -69,8 +70,11 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="Red" type="CollisionShape2D" parent="Area2D"]
+process_mode = 4
+visible = false
 position = Vector2(73, 30)
 shape = SubResource("RectangleShape2D_ynrlp")
+disabled = true
 
 [node name="ColorRect" type="ColorRect" parent="Area2D/Red"]
 offset_left = -20.0
@@ -81,12 +85,9 @@ color = Color(0.996078, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Blue" type="CollisionShape2D" parent="Area2D"]
-process_mode = 4
-visible = false
 position = Vector2(-39, 25.8)
 scale = Vector2(1, 3.28)
 shape = SubResource("RectangleShape2D_26yuy")
-disabled = true
 
 [node name="ColorRect" type="ColorRect" parent="Area2D/Blue"]
 offset_left = -14.0
@@ -96,6 +97,7 @@ offset_bottom = 4.46341
 color = Color(0, 1, 1, 1)
 
 [node name="PickupComponent" parent="." node_paths=PackedStringArray("father", "leftElement", "rightElement", "collisionLeft", "collisionRight") instance=ExtResource("3_0rr4x")]
+currentSide = 1
 father = NodePath("..")
 leftElement = [NodePath("../Player_rosso"), NodePath("../LeftCollision"), NodePath("../Area2D/Red")]
 rightElement = [NodePath("../Player_blu"), NodePath("../RightCollision"), NodePath("../Area2D/Blue")]

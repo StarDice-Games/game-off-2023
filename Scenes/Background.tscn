@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://din1h8ql506vb"]
+[gd_scene load_steps=5 format=3 uid="uid://din1h8ql506vb"]
 
 [ext_resource type="Texture2D" uid="uid://dkkvcc7oo70c1" path="res://Resources/Assets/Background/Cornice_frontale.png" id="1_pj1no"]
 [ext_resource type="Texture2D" uid="uid://c27hta5aq0irf" path="res://Resources/Assets/Background/Fondo_bianco.jpg" id="2_the6a"]
 [ext_resource type="PackedScene" uid="uid://duvywv1d1kgyo" path="res://Scenes/PlatformerPlayer/Divider/divider.tscn" id="3_w8hgk"]
+[ext_resource type="PackedScene" uid="uid://c5xj8w588i6aa" path="res://Scenes/Visual Indicator/visualIndicator.tscn" id="4_yydo2"]
 
 [node name="Background" type="Node2D"]
 
@@ -33,3 +34,6 @@ scale = Vector2(2.96, 35.48)
 [node name="Divider3" parent="Diveders" instance=ExtResource("3_w8hgk")]
 position = Vector2(1931, 529)
 scale = Vector2(2.96, 35.48)
+
+[node name="ColorRect" parent="." instance=ExtResource("4_yydo2")]
+metadata/_edit_lock_ = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dejvvmbnpvblp"]
+[gd_scene load_steps=8 format=3 uid="uid://dejvvmbnpvblp"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Obstacle/Water/WaterFloor.gd" id="1_wmnvp"]
 [ext_resource type="PackedScene" uid="uid://bu75kel0q2p7r" path="res://Scenes/PlatformerPlayer/DeathComponent/DeathComponent.tscn" id="2_7oql1"]
@@ -14,15 +14,12 @@ size = Vector2(962, 81)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11aq3"]
 size = Vector2(961, 101.25)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vmdcj"]
-size = Vector2(158, 165)
-
 [node name="WaterFloor" type="StaticBody2D"]
 script = ExtResource("1_wmnvp")
 
 [node name="Acqua" type="Sprite2D" parent="."]
 z_index = -2
-position = Vector2(-367, -156.91)
+position = Vector2(-392, -156)
 texture = ExtResource("4_a5nnv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -52,8 +49,3 @@ scale = Vector2(1, 0.8)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathComponent"]
 position = Vector2(-0.5, -60.625)
 shape = SubResource("RectangleShape2D_11aq3")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-z_index = -1
-position = Vector2(-376, -141.5)
-shape = SubResource("RectangleShape2D_vmdcj")
