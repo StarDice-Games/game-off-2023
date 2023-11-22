@@ -28,7 +28,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_kcsms"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 48, -80, 0, 0, 0, 0, -48, -80)
+"points": PackedVector2Array(0, 0, 0, 0, 48, -80, 0, 0, 0, 0, -224, -80)
 }
 point_count = 2
 
@@ -81,7 +81,7 @@ position = Vector2(1520, 976)
 position = Vector2(1376, 976)
 
 [node name="BoxPickable5" parent="." instance=ExtResource("6_otahl")]
-position = Vector2(1472, 672)
+position = Vector2(1568, 672)
 
 [node name="WaterContainer" parent="." instance=ExtResource("7_v2vud")]
 position = Vector2(880, 992)
@@ -95,9 +95,8 @@ position = Vector2(1504, 768)
 curve = SubResource("Curve2D_kcsms")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
-position = Vector2(-48, -80)
+position = Vector2(48, -80)
 rotation = -1.5708
-progress = 96.0
 rotates = false
 loop = false
 

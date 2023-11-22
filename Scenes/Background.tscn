@@ -8,7 +8,7 @@
 [node name="Background" type="Node2D"]
 
 [node name="Cornice" type="TextureRect" parent="."]
-z_index = -1
+z_index = 1
 texture_filter = 1
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -22,6 +22,7 @@ offset_bottom = 1080.0
 texture = ExtResource("2_the6a")
 
 [node name="Diveders" type="Node2D" parent="."]
+visible = false
 
 [node name="Divider" parent="Diveders" instance=ExtResource("3_w8hgk")]
 position = Vector2(992, 540)
@@ -36,4 +37,5 @@ position = Vector2(1931, 529)
 scale = Vector2(2.96, 35.48)
 
 [node name="ColorRect" parent="." instance=ExtResource("4_yydo2")]
+z_index = 0
 metadata/_edit_lock_ = true
