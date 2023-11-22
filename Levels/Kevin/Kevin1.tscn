@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dcd8ry7ksui4v"]
+[gd_scene load_steps=21 format=3 uid="uid://dcd8ry7ksui4v"]
 
 [ext_resource type="Texture2D" uid="uid://bo04kloimwmpv" path="res://Resources/Assets/Background/Fondo.png" id="1_x4mlo"]
 [ext_resource type="PackedScene" uid="uid://duvywv1d1kgyo" path="res://Scenes/PlatformerPlayer/Divider/divider.tscn" id="2_qajc0"]
@@ -9,12 +9,16 @@
 [ext_resource type="PackedScene" uid="uid://c3eux8dwlxtov" path="res://Scenes/PlatformerPlayer/Platforms/Plants/Vase/Vase.tscn" id="7_1eped"]
 [ext_resource type="PackedScene" uid="uid://birka5inve0vm" path="res://Scenes/PlatformerPlayer/Platforms/Plants/LeafPlatform/LeafPlatform.tscn" id="8_p5xca"]
 [ext_resource type="PackedScene" uid="uid://b50r2cbdgb676" path="res://Scenes/PlatformerPlayer/Pickable/WaterContainer/WaterContainer.tscn" id="9_rmdhr"]
-[ext_resource type="PackedScene" uid="uid://d4diwwos6tieb" path="res://Scenes/PlatformerPlayer/Platforms/Platform1/Platform1.tscn" id="10_h6kyc"]
 [ext_resource type="PackedScene" uid="uid://b8upryncqwmc6" path="res://Scenes/PlatformerPlayer/Doors/SmallDoor/SmallDoor.tscn" id="11_sth3h"]
 [ext_resource type="PackedScene" uid="uid://bwwry4wow68b6" path="res://Scenes/PlatformerPlayer/Obstacle/Fire/Fire.tscn" id="12_sqht7"]
 [ext_resource type="PackedScene" uid="uid://phjy1geq4nek" path="res://Scenes/PlatformerPlayer/Platforms/Platform1/Platform2.tscn" id="13_7i2k0"]
 [ext_resource type="PackedScene" uid="uid://bc4tsc83nd2al" path="res://Scenes/PlatformerPlayer/PressurePlates/PressurePlate1/PressurePlate1.tscn" id="14_sp555"]
+[ext_resource type="PackedScene" uid="uid://dys77aiydaakp" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed.tscn" id="15_3rjit"]
 [ext_resource type="PackedScene" uid="uid://c8qbn2xe7w0yv" path="res://Scenes/PlatformerPlayer/Doors/BigDoor/BigDoor.tscn" id="15_qjrpe"]
+[ext_resource type="PackedScene" uid="uid://ddfaeavjffgx6" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x5.tscn" id="16_pm71b"]
+[ext_resource type="PackedScene" uid="uid://c0yejb6v7hqpy" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x2.tscn" id="17_7gvvk"]
+[ext_resource type="PackedScene" uid="uid://dn8ylngmbs0mt" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x2.tscn" id="18_qp5cu"]
+[ext_resource type="PackedScene" uid="uid://dc601pwyjee1" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x5.tscn" id="19_wc13e"]
 
 [sub_resource type="Curve2D" id="Curve2D_p2asn"]
 _data = {
@@ -62,7 +66,6 @@ metadata/_edit_lock_ = true
 visible = false
 offset_left = 1024.0
 offset_right = 1984.0
-Side = 1
 metadata/_edit_lock_ = true
 
 [node name="Player1" parent="." instance=ExtResource("5_5k7vc")]
@@ -93,11 +96,11 @@ position = Vector2(1696, 992)
 side = 0
 
 [node name="Vase" parent="." node_paths=PackedStringArray("receivers") instance=ExtResource("7_1eped")]
-position = Vector2(1632, 976)
+position = Vector2(1632, 992)
 receivers = [NodePath("../LeafPlatform2"), NodePath("../LeafPlatform3"), NodePath("../LeafPlatform4"), NodePath("../LeafPlatform6")]
 
 [node name="Vase2" parent="." node_paths=PackedStringArray("receivers") instance=ExtResource("7_1eped")]
-position = Vector2(1312, 608)
+position = Vector2(1312, 624)
 receivers = [NodePath("../LeafPlatform5"), NodePath("../LeafPlatform7"), NodePath("../LeafPlatform8"), NodePath("../LeafPlatform9"), NodePath("../LeafPlatform10")]
 
 [node name="LeafPlatform2" parent="." instance=ExtResource("8_p5xca")]
@@ -130,58 +133,6 @@ position = Vector2(1280, 368)
 [node name="WaterContainer" parent="." instance=ExtResource("9_rmdhr")]
 position = Vector2(1216, 992)
 
-[node name="Platform1" parent="." instance=ExtResource("10_h6kyc")]
-position = Vector2(1584, 704)
-active = false
-
-[node name="Platform2" parent="." instance=ExtResource("10_h6kyc")]
-position = Vector2(1552, 704)
-active = false
-
-[node name="Platform3" parent="." instance=ExtResource("10_h6kyc")]
-position = Vector2(1520, 704)
-active = false
-
-[node name="Platform4" parent="." instance=ExtResource("10_h6kyc")]
-position = Vector2(1520, 704)
-active = false
-
-[node name="Platform5" parent="." instance=ExtResource("10_h6kyc")]
-position = Vector2(1488, 704)
-active = false
-
-[node name="Platform6" parent="." instance=ExtResource("10_h6kyc")]
-position = Vector2(1456, 704)
-active = false
-
-[node name="Platform7" parent="." instance=ExtResource("10_h6kyc")]
-position = Vector2(1376, 656)
-active = false
-
-[node name="Platform8" parent="." instance=ExtResource("10_h6kyc")]
-position = Vector2(1344, 656)
-active = false
-
-[node name="Platform9" parent="." instance=ExtResource("10_h6kyc")]
-position = Vector2(1312, 656)
-active = false
-
-[node name="Platform10" parent="." instance=ExtResource("10_h6kyc")]
-position = Vector2(1280, 656)
-active = false
-
-[node name="Platform11" parent="." instance=ExtResource("10_h6kyc")]
-position = Vector2(1456, 384)
-active = false
-
-[node name="Platform12" parent="." instance=ExtResource("10_h6kyc")]
-position = Vector2(1424, 384)
-active = false
-
-[node name="Platform13" parent="." instance=ExtResource("10_h6kyc")]
-position = Vector2(1392, 384)
-active = false
-
 [node name="SmallDoor" parent="." instance=ExtResource("11_sth3h")]
 position = Vector2(1424, 352)
 
@@ -190,42 +141,6 @@ position = Vector2(304, 992)
 
 [node name="Fire2" parent="." instance=ExtResource("12_sqht7")]
 position = Vector2(544, 464)
-
-[node name="Platform14" parent="." instance=ExtResource("13_7i2k0")]
-position = Vector2(160, 848)
-active = false
-
-[node name="Platform17" parent="." instance=ExtResource("13_7i2k0")]
-position = Vector2(352, 528)
-active = false
-
-[node name="Platform18" parent="." instance=ExtResource("13_7i2k0")]
-position = Vector2(416, 528)
-active = false
-
-[node name="Platform19" parent="." instance=ExtResource("13_7i2k0")]
-position = Vector2(480, 528)
-active = false
-
-[node name="Platform21" parent="." instance=ExtResource("13_7i2k0")]
-position = Vector2(672, 432)
-active = false
-
-[node name="Platform22" parent="." instance=ExtResource("13_7i2k0")]
-position = Vector2(736, 432)
-active = false
-
-[node name="Platform23" parent="." instance=ExtResource("13_7i2k0")]
-position = Vector2(800, 432)
-active = false
-
-[node name="Platform20" parent="." instance=ExtResource("13_7i2k0")]
-position = Vector2(544, 528)
-active = false
-
-[node name="Platform15" parent="." instance=ExtResource("13_7i2k0")]
-position = Vector2(96, 848)
-active = false
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(304, 576)
@@ -239,7 +154,7 @@ rotates = false
 loop = false
 
 [node name="Platform17" parent="Path2D/PathFollow2D" node_paths=PackedStringArray("path") instance=ExtResource("13_7i2k0")]
-position = Vector2(0, 32)
+rotation = 1.5708
 speed = 250.0
 path = NodePath("..")
 active = false
@@ -250,3 +165,21 @@ receivers = [NodePath("../Path2D/PathFollow2D/Platform17")]
 
 [node name="BigDoor" parent="." instance=ExtResource("15_qjrpe")]
 position = Vector2(736, 368)
+
+[node name="PlatformStaticRed" parent="." instance=ExtResource("15_3rjit")]
+position = Vector2(736, 432)
+
+[node name="PlatformStaticRed_x5" parent="." instance=ExtResource("16_pm71b")]
+position = Vector2(480, 528)
+
+[node name="PlatformStaticRed_x2" parent="." instance=ExtResource("17_7gvvk")]
+position = Vector2(128, 848)
+
+[node name="PlatformStaticBlue_x2" parent="." instance=ExtResource("18_qp5cu")]
+position = Vector2(1424, 384)
+
+[node name="PlatformStaticBlue_x5" parent="." instance=ExtResource("19_wc13e")]
+position = Vector2(1312, 656)
+
+[node name="PlatformStaticBlue_x6" parent="." instance=ExtResource("19_wc13e")]
+position = Vector2(1488, 720)

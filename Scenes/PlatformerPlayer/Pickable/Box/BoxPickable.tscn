@@ -9,13 +9,13 @@
 size = Vector2(64, 63)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i51mx"]
-size = Vector2(33, 34)
+size = Vector2(33, 33)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cdgs6"]
 size = Vector2(64, 63)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j0n44"]
-size = Vector2(33, 34)
+size = Vector2(33, 33)
 
 [sub_resource type="Animation" id="Animation_lewg4"]
 length = 0.001
@@ -129,35 +129,33 @@ _data = {
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_1jlfo")
-side = 1
 
 [node name="Right" type="Sprite2D" parent="."]
+process_mode = 4
+visible = false
 texture_filter = 1
 texture = ExtResource("2_kpup0")
 offset = Vector2(0, -32)
 
 [node name="Left" type="Sprite2D" parent="."]
-process_mode = 4
-visible = false
 texture_filter = 1
 texture = ExtResource("3_8rudv")
-offset = Vector2(0, -17)
+offset = Vector2(0, -16)
 
 [node name="RightCollision" type="CollisionShape2D" parent="."]
+process_mode = 4
+visible = false
 position = Vector2(0, -32)
 shape = SubResource("RectangleShape2D_uo74p")
+disabled = true
 debug_color = Color(0.882353, 0.231373, 0.619608, 0.419608)
 
 [node name="LeftCollision" type="CollisionShape2D" parent="."]
-process_mode = 4
-visible = false
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_i51mx")
-disabled = true
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="PickupComponent" parent="." node_paths=PackedStringArray("father", "leftElement", "rightElement", "collisionLeft", "collisionRight") instance=ExtResource("2_1lxe1")]
-currentSide = 1
 father = NodePath("..")
 leftElement = [NodePath("../Left"), NodePath("../LeftCollision"), NodePath("LeftArea")]
 rightElement = [NodePath("../Right"), NodePath("../RightCollision"), NodePath("RightArea")]
@@ -165,16 +163,16 @@ collisionLeft = NodePath("../LeftCollision")
 collisionRight = NodePath("../RightCollision")
 
 [node name="RightArea" type="CollisionShape2D" parent="PickupComponent"]
+process_mode = 4
+visible = false
 position = Vector2(0, -32)
 shape = SubResource("RectangleShape2D_cdgs6")
+disabled = true
 debug_color = Color(0.815686, 0.329412, 0.615686, 0.419608)
 
 [node name="LeftArea" type="CollisionShape2D" parent="PickupComponent"]
-process_mode = 4
-visible = false
-position = Vector2(-0.5, -17)
+position = Vector2(0, -16.5)
 shape = SubResource("RectangleShape2D_j0n44")
-disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
