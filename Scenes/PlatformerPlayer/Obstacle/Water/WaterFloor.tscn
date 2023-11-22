@@ -21,11 +21,12 @@ size = Vector2(158, 165)
 script = ExtResource("1_wmnvp")
 
 [node name="Acqua" type="Sprite2D" parent="."]
-z_index = 1
+z_index = -2
 position = Vector2(-367, -156.91)
 texture = ExtResource("4_a5nnv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
 texture_filter = 1
 position = Vector2(1.49608e-05, 0)
 scale = Vector2(0.5, 1)
@@ -53,5 +54,6 @@ position = Vector2(-0.5, -60.625)
 shape = SubResource("RectangleShape2D_11aq3")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+z_index = -1
 position = Vector2(-376, -141.5)
 shape = SubResource("RectangleShape2D_vmdcj")

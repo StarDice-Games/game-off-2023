@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bx2cylhqb7luc"]
+[gd_scene load_steps=28 format=3 uid="uid://bx2cylhqb7luc"]
 
 [ext_resource type="PackedScene" uid="uid://c6oxlwfitiwcd" path="res://Scenes/PlatformerPlayer/Obstacle/statiWall.tscn" id="3_ewxr2"]
 [ext_resource type="PackedScene" uid="uid://c5xj8w588i6aa" path="res://Scenes/Visual Indicator/visualIndicator.tscn" id="4_rvmx6"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://do88ox8hahe8i" path="res://Scenes/PlatformerPlayer/Spikes/Spikes.tscn" id="20_duw4t"]
 [ext_resource type="PackedScene" uid="uid://c0yejb6v7hqpy" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x2.tscn" id="21_no3ns"]
 [ext_resource type="PackedScene" uid="uid://ddfaeavjffgx6" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x5.tscn" id="22_vbdvr"]
+[ext_resource type="PackedScene" uid="uid://c7lc1cagba60g" path="res://Scenes/PlatformerPlayer/Obstacle/Water/WaterFloor_piccola.tscn" id="23_7e4xn"]
 [ext_resource type="PackedScene" uid="uid://dn8ylngmbs0mt" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x2.tscn" id="23_ldy1h"]
 [ext_resource type="PackedScene" uid="uid://din1h8ql506vb" path="res://Scenes/Background.tscn" id="23_vt3n6"]
 [ext_resource type="PackedScene" uid="uid://dc601pwyjee1" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x5.tscn" id="24_bjv2b"]
@@ -47,10 +48,6 @@ point_count = 2
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(960, 540)
 
-[node name="StaticBody2D" parent="." instance=ExtResource("3_ewxr2")]
-position = Vector2(992, 1024)
-scale = Vector2(64.68, 2)
-
 [node name="ColorRect" parent="." instance=ExtResource("4_rvmx6")]
 visible = false
 metadata/_edit_lock_ = true
@@ -69,7 +66,7 @@ JUMP_VELOCITY = -430.0
 push_force = 50
 
 [node name="Player2" parent="." instance=ExtResource("5_dwfel")]
-position = Vector2(1408, 944)
+position = Vector2(1408, 848)
 scale = Vector2(0.75, 0.75)
 GROUND_SPEED = 230.0
 AIR_SPEED = 180.0
@@ -77,7 +74,7 @@ JUMP_VELOCITY = -350.0
 side = 1
 
 [node name="BoxPickable3" parent="." instance=ExtResource("6_otahl")]
-position = Vector2(1520, 992)
+position = Vector2(1520, 976)
 
 [node name="BoxPickable4" parent="." instance=ExtResource("6_otahl")]
 position = Vector2(1232, 880)
@@ -159,7 +156,7 @@ position = Vector2(1216, 1312)
 position = Vector2(1328, 1248)
 
 [node name="PressurePlate3" parent="." node_paths=PackedStringArray("receivers") instance=ExtResource("16_1l158")]
-position = Vector2(1584, 992)
+position = Vector2(1584, 976)
 receivers = [NodePath("../Path2D2/PathFollow2D/Platform6")]
 
 [node name="Spring" parent="." instance=ExtResource("17_2ojhy")]
@@ -167,21 +164,21 @@ position = Vector2(144, 528)
 JUMP_FORCE = -650
 
 [node name="Spring2" parent="." instance=ExtResource("17_2ojhy")]
-position = Vector2(1808, 992)
+position = Vector2(1808, 976)
 JUMP_FORCE = -500
 
 [node name="Spring3" parent="." instance=ExtResource("17_2ojhy")]
-position = Vector2(1712, 992)
+position = Vector2(1712, 976)
 JUMP_FORCE = -500
 
 [node name="Spikes2" parent="." instance=ExtResource("18_e78wl")]
-position = Vector2(1664, 992)
+position = Vector2(1664, 976)
 
 [node name="Spikes3" parent="." instance=ExtResource("18_e78wl")]
-position = Vector2(1696, 992)
+position = Vector2(1696, 976)
 
 [node name="Spikes4" parent="." instance=ExtResource("18_e78wl")]
-position = Vector2(1632, 992)
+position = Vector2(1632, 976)
 
 [node name="Button01" parent="." instance=ExtResource("19_t4xh0")]
 position = Vector2(736, 352)
@@ -238,4 +235,29 @@ position = Vector2(1600, 592)
 [node name="PlatformStaticBlue_x5" parent="." instance=ExtResource("24_bjv2b")]
 position = Vector2(1216, 912)
 
+[node name="PlatformStaticBlue_x6" parent="." instance=ExtResource("24_bjv2b")]
+z_index = -2
+position = Vector2(1568, 1008)
+
+[node name="PlatformStaticBlue_x7" parent="." instance=ExtResource("24_bjv2b")]
+z_index = -2
+position = Vector2(1712, 1008)
+
+[node name="PlatformStaticBlue_x8" parent="." instance=ExtResource("24_bjv2b")]
+z_index = -2
+position = Vector2(1776, 1008)
+
 [node name="Background" parent="." instance=ExtResource("23_vt3n6")]
+metadata/_edit_lock_ = true
+
+[node name="WaterFloor" parent="." instance=ExtResource("23_7e4xn")]
+position = Vector2(1456, 1056)
+
+[node name="PlatformStaticBlue_x4" parent="." instance=ExtResource("23_ldy1h")]
+z_index = -3
+position = Vector2(1392, 1008)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("3_ewxr2")]
+position = Vector2(-80, 1024)
+scale = Vector2(64.68, 2)
+metadata/_edit_lock_ = true
