@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dn2pjld0irp66" path="res://Resources/Assets/Nuovi_PNG/Vaso.png" id="2_sdpvn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_paksl"]
-size = Vector2(63, 68)
+size = Vector2(31, 34)
 
 [node name="Vase" type="Area2D"]
 modulate = Color(0.364706, 0.12549, 0, 1)
@@ -14,11 +14,12 @@ collision_mask = 4
 script = ExtResource("1_fpijm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_sdpvn")
 offset = Vector2(0, -34)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -34)
+position = Vector2(0.5, -17)
 shape = SubResource("RectangleShape2D_paksl")
 
 [node name="SenderComponent" type="Node2D" parent="." node_paths=PackedStringArray("father")]
