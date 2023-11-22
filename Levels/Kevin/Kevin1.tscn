@@ -1,7 +1,5 @@
-[gd_scene load_steps=21 format=3 uid="uid://dcd8ry7ksui4v"]
+[gd_scene load_steps=20 format=3 uid="uid://dcd8ry7ksui4v"]
 
-[ext_resource type="Texture2D" uid="uid://bo04kloimwmpv" path="res://Resources/Assets/Background/Fondo.png" id="1_x4mlo"]
-[ext_resource type="PackedScene" uid="uid://duvywv1d1kgyo" path="res://Scenes/PlatformerPlayer/Divider/divider.tscn" id="2_qajc0"]
 [ext_resource type="PackedScene" uid="uid://c6oxlwfitiwcd" path="res://Scenes/PlatformerPlayer/Obstacle/statiWall.tscn" id="3_4in1n"]
 [ext_resource type="PackedScene" uid="uid://c5xj8w588i6aa" path="res://Scenes/Visual Indicator/visualIndicator.tscn" id="4_68r8a"]
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="5_5k7vc"]
@@ -17,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://c8qbn2xe7w0yv" path="res://Scenes/PlatformerPlayer/Doors/BigDoor/BigDoor.tscn" id="15_qjrpe"]
 [ext_resource type="PackedScene" uid="uid://ddfaeavjffgx6" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x5.tscn" id="16_pm71b"]
 [ext_resource type="PackedScene" uid="uid://c0yejb6v7hqpy" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x2.tscn" id="17_7gvvk"]
+[ext_resource type="PackedScene" uid="uid://din1h8ql506vb" path="res://Scenes/Background.tscn" id="18_5ij66"]
 [ext_resource type="PackedScene" uid="uid://dn8ylngmbs0mt" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x2.tscn" id="18_qp5cu"]
 [ext_resource type="PackedScene" uid="uid://dc601pwyjee1" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x5.tscn" id="19_wc13e"]
 
@@ -30,29 +29,6 @@ point_count = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(960, 540)
-
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("1_x4mlo")
-metadata/_edit_lock_ = true
-
-[node name="Diveders" type="Node2D" parent="."]
-
-[node name="Divider" parent="Diveders" instance=ExtResource("2_qajc0")]
-visible = false
-position = Vector2(992, 540)
-scale = Vector2(2.96, 35.48)
-
-[node name="Divider2" parent="Diveders" instance=ExtResource("2_qajc0")]
-visible = false
-position = Vector2(-17, 531)
-scale = Vector2(2.96, 35.48)
-
-[node name="Divider3" parent="Diveders" instance=ExtResource("2_qajc0")]
-visible = false
-position = Vector2(1931, 529)
-scale = Vector2(2.96, 35.48)
 
 [node name="StaticBody2D" parent="." instance=ExtResource("3_4in1n")]
 position = Vector2(992, 1024)
@@ -89,11 +65,9 @@ position = Vector2(416, 464)
 
 [node name="BoxPickable2" parent="." instance=ExtResource("6_pet4a")]
 position = Vector2(1536, 992)
-side = 0
 
 [node name="BoxPickable3" parent="." instance=ExtResource("6_pet4a")]
 position = Vector2(1696, 992)
-side = 0
 
 [node name="Vase" parent="." node_paths=PackedStringArray("receivers") instance=ExtResource("7_1eped")]
 position = Vector2(1632, 992)
@@ -183,3 +157,5 @@ position = Vector2(1312, 656)
 
 [node name="PlatformStaticBlue_x6" parent="." instance=ExtResource("19_wc13e")]
 position = Vector2(1488, 720)
+
+[node name="Background" parent="." instance=ExtResource("18_5ij66")]

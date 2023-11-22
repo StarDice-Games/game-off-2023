@@ -1,7 +1,5 @@
-[gd_scene load_steps=28 format=3 uid="uid://bx2cylhqb7luc"]
+[gd_scene load_steps=27 format=3 uid="uid://bx2cylhqb7luc"]
 
-[ext_resource type="Texture2D" uid="uid://bo04kloimwmpv" path="res://Resources/Assets/Background/Fondo.png" id="1_1eoto"]
-[ext_resource type="PackedScene" uid="uid://duvywv1d1kgyo" path="res://Scenes/PlatformerPlayer/Divider/divider.tscn" id="2_0l0tx"]
 [ext_resource type="PackedScene" uid="uid://c6oxlwfitiwcd" path="res://Scenes/PlatformerPlayer/Obstacle/statiWall.tscn" id="3_ewxr2"]
 [ext_resource type="PackedScene" uid="uid://c5xj8w588i6aa" path="res://Scenes/Visual Indicator/visualIndicator.tscn" id="4_rvmx6"]
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="5_dwfel"]
@@ -23,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://c0yejb6v7hqpy" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x2.tscn" id="21_no3ns"]
 [ext_resource type="PackedScene" uid="uid://ddfaeavjffgx6" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x5.tscn" id="22_vbdvr"]
 [ext_resource type="PackedScene" uid="uid://dn8ylngmbs0mt" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x2.tscn" id="23_ldy1h"]
+[ext_resource type="PackedScene" uid="uid://din1h8ql506vb" path="res://Scenes/Background.tscn" id="23_vt3n6"]
 [ext_resource type="PackedScene" uid="uid://dc601pwyjee1" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x5.tscn" id="24_bjv2b"]
 
 [sub_resource type="Curve2D" id="Curve2D_kcsms"]
@@ -47,26 +46,6 @@ point_count = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(960, 540)
-
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("1_1eoto")
-metadata/_edit_lock_ = true
-
-[node name="Diveders" type="Node2D" parent="."]
-
-[node name="Divider" parent="Diveders" instance=ExtResource("2_0l0tx")]
-position = Vector2(992, 540)
-scale = Vector2(2.96, 35.48)
-
-[node name="Divider2" parent="Diveders" instance=ExtResource("2_0l0tx")]
-position = Vector2(-17, 531)
-scale = Vector2(2.96, 35.48)
-
-[node name="Divider3" parent="Diveders" instance=ExtResource("2_0l0tx")]
-position = Vector2(1931, 529)
-scale = Vector2(2.96, 35.48)
 
 [node name="StaticBody2D" parent="." instance=ExtResource("3_ewxr2")]
 position = Vector2(992, 1024)
@@ -258,3 +237,5 @@ position = Vector2(1600, 592)
 
 [node name="PlatformStaticBlue_x5" parent="." instance=ExtResource("24_bjv2b")]
 position = Vector2(1216, 912)
+
+[node name="Background" parent="." instance=ExtResource("23_vt3n6")]
