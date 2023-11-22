@@ -1,8 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7k42v3k5b0un"]
+[gd_scene load_steps=11 format=3 uid="uid://c7k42v3k5b0un"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Obstacle/Fire/Fire.gd" id="1_145o1"]
-[ext_resource type="Texture2D" uid="uid://bwekwmun12njl" path="res://Resources/Assets/Oggetti/Fuoco_piccolo.png" id="2_ddq5q"]
+[ext_resource type="Texture2D" uid="uid://c1jxdabgctddy" path="res://Resources/Assets/Upd_Assets/Fuoco1_piccolo.png" id="2_hdw1c"]
+[ext_resource type="Texture2D" uid="uid://dixw6bbjrdxox" path="res://Resources/Assets/Upd_Assets/Fuoco2_piccolo.png" id="3_o0525"]
 [ext_resource type="Texture2D" uid="uid://dn1qd8etg2lr2" path="res://Resources/Images/light.png" id="3_uk600"]
+[ext_resource type="Texture2D" uid="uid://gt183s2e3hit" path="res://Resources/Assets/Upd_Assets/Fuoco3_piccolo.png" id="4_qhfpo"]
+[ext_resource type="PackedScene" uid="uid://bu75kel0q2p7r" path="res://Scenes/PlatformerPlayer/DeathComponent/DeathComponent.tscn" id="6_qk2cy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h8mih"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hdw1c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_o0525")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qhfpo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4p6bi"]
 size = Vector2(37, 56)
@@ -10,14 +30,18 @@ size = Vector2(37, 56)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ctwcy"]
 size = Vector2(37, 56)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5d3kl"]
+
 [node name="Fire" type="StaticBody2D" groups=["Fire"]]
 collision_mask = 2
 script = ExtResource("1_145o1")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -1
 texture_filter = 1
-texture = ExtResource("2_ddq5q")
-offset = Vector2(0, -28)
+sprite_frames = SubResource("SpriteFrames_h8mih")
+frame_progress = 0.486021
+offset = Vector2(0, -29.04)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -28)
@@ -44,6 +68,13 @@ gravity = Vector2(0, -39)
 scale_amount_min = 0.01
 scale_amount_max = 0.08
 color = Color(0.141176, 0.141176, 0.141176, 1)
+
+[node name="DeathComponent" parent="." instance=ExtResource("6_qk2cy")]
+visible = false
+position = Vector2(-329.821, -138.26)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathComponent"]
+shape = SubResource("RectangleShape2D_5d3kl")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,23 +1,23 @@
 [gd_scene load_steps=11 format=3 uid="uid://bwwry4wow68b6"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Obstacle/Fire/Fire.gd" id="1_j2lhw"]
-[ext_resource type="Texture2D" uid="uid://o4gfn48evbc1" path="res://Resources/Assets/Nuovi_PNG/Fuoco2.png" id="2_dsqpm"]
+[ext_resource type="Texture2D" uid="uid://bjwmdw7kiglsf" path="res://Resources/Assets/Upd_Assets/Fuoco1.png" id="2_7f6u6"]
 [ext_resource type="Texture2D" uid="uid://dn1qd8etg2lr2" path="res://Resources/Images/light.png" id="3_lvtd7"]
-[ext_resource type="Texture2D" uid="uid://b0jvbv6d2a44b" path="res://Resources/Assets/Nuovi_PNG/Fuoco1.png" id="3_mpwp7"]
-[ext_resource type="Texture2D" uid="uid://bnoary1t6b5rt" path="res://Resources/Assets/Nuovi_PNG/Fuoco3.png" id="4_2v6x8"]
+[ext_resource type="Texture2D" uid="uid://xrhj3dqefjf3" path="res://Resources/Assets/Upd_Assets/Fuoco2.png" id="3_m6ht4"]
+[ext_resource type="Texture2D" uid="uid://kw1dbscnl8rr" path="res://Resources/Assets/Upd_Assets/Fuoco3.png" id="4_p6yrd"]
 [ext_resource type="PackedScene" uid="uid://bu75kel0q2p7r" path="res://Scenes/PlatformerPlayer/DeathComponent/DeathComponent.tscn" id="6_enogs"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j8yap"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_mpwp7")
+"texture": ExtResource("2_7f6u6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_dsqpm")
+"texture": ExtResource("3_m6ht4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_2v6x8")
+"texture": ExtResource("4_p6yrd")
 }],
 "loop": true,
 "name": &"default",
@@ -38,9 +38,8 @@ collision_mask = 2
 script = ExtResource("1_j2lhw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-modulate = Color(0.596078, 0.333333, 0, 1)
 sprite_frames = SubResource("SpriteFrames_j8yap")
-frame_progress = 0.694963
+frame_progress = 0.893323
 offset = Vector2(0, -59)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
