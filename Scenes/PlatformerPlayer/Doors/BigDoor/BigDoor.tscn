@@ -10,6 +10,7 @@
 size = Vector2(34, 179)
 
 [node name="BigDoor" type="StaticBody2D"]
+z_index = -1
 collision_mask = 3
 script = ExtResource("1_6xypb")
 

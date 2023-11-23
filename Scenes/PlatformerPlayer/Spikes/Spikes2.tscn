@@ -16,7 +16,7 @@ offset = Vector2(0, -21)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, -19)
-polygon = PackedVector2Array(-17, 19, 1, -15, 15, 19)
+polygon = PackedVector2Array(-11, 18, 1, -15, 10, 18)
 
 [node name="DeathComponent" parent="." instance=ExtResource("2_22rcp")]
 process_mode = 4

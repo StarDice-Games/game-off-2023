@@ -11,6 +11,7 @@
 size = Vector2(20, 64)
 
 [node name="SmallDoor" type="StaticBody2D"]
+z_index = -1
 collision_mask = 3
 script = ExtResource("1_cg50m")
 indicatorScene = ExtResource("2_8hpr2")
