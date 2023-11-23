@@ -1,19 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3eux8dwlxtov"]
+[gd_scene load_steps=6 format=3 uid="uid://c3eux8dwlxtov"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Platforms/Plants/Vase/Vase.gd" id="1_fpijm"]
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/TriggerComponent/SenderComponent.gd" id="2_lqxn7"]
 [ext_resource type="Texture2D" uid="uid://dn2pjld0irp66" path="res://Resources/Assets/Nuovi_PNG/Vaso.png" id="2_sdpvn"]
+[ext_resource type="Texture2D" uid="uid://dxqjxjs8f8jta" path="res://Resources/Assets/Nuovi_PNG/Gambo.png" id="4_ogitm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_paksl"]
 size = Vector2(31, 34)
 
 [node name="Vase" type="Area2D"]
-modulate = Color(0.364706, 0.12549, 0, 1)
 visibility_layer = 3
 collision_mask = 4
 script = ExtResource("1_fpijm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_sdpvn")
 offset = Vector2(0, -34)
@@ -26,5 +27,11 @@ shape = SubResource("RectangleShape2D_paksl")
 [node name="SenderComponent" type="Node2D" parent="." node_paths=PackedStringArray("father")]
 script = ExtResource("2_lqxn7")
 father = NodePath("..")
+
+[node name="Gambo" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -109)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_ogitm")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

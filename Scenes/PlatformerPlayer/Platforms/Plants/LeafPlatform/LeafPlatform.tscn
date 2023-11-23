@@ -91,14 +91,6 @@ position = Vector2(4.5, -7.5)
 shape = SubResource("RectangleShape2D_uy35h")
 one_way_collision = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
-build_mode = 1
-polygon = PackedVector2Array(-44, 5, -37, -5, -27, -13, -22, -16, -13, -18, 12, -18, 35, -20, 47, -22, 43, -16, 37, -12, 22, -6, 5, -2, -23, -1, -33, 1)
-disabled = true
-one_way_collision = true
-one_way_collision_margin = 10.0
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(0.5, 0.5)

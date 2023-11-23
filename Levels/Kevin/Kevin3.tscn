@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bx2cylhqb7luc"]
+[gd_scene load_steps=28 format=3 uid="uid://bx2cylhqb7luc"]
 
 [ext_resource type="PackedScene" uid="uid://c6oxlwfitiwcd" path="res://Scenes/PlatformerPlayer/Obstacle/statiWall.tscn" id="3_ewxr2"]
 [ext_resource type="PackedScene" uid="uid://c5xj8w588i6aa" path="res://Scenes/Visual Indicator/visualIndicator.tscn" id="4_rvmx6"]
@@ -24,7 +24,6 @@
 [ext_resource type="PackedScene" uid="uid://dn8ylngmbs0mt" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x2.tscn" id="23_ldy1h"]
 [ext_resource type="PackedScene" uid="uid://din1h8ql506vb" path="res://Scenes/Background.tscn" id="23_vt3n6"]
 [ext_resource type="PackedScene" uid="uid://dc601pwyjee1" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x5.tscn" id="24_bjv2b"]
-[ext_resource type="PackedScene" uid="uid://c7k42v3k5b0un" path="res://Scenes/PlatformerPlayer/Obstacle/Fire/Fire2.tscn" id="26_qljda"]
 
 [sub_resource type="Curve2D" id="Curve2D_kcsms"]
 _data = {
@@ -34,7 +33,7 @@ point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_p2asn"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -48, 384, 0, 0, 0, 0, -48, -80)
+"points": PackedVector2Array(0, 0, 0, 0, -48, 384, 0, 0, 0, 0, -48, -112)
 }
 point_count = 2
 
@@ -62,7 +61,7 @@ metadata/_edit_lock_ = true
 [node name="Player1" parent="." instance=ExtResource("5_dwfel")]
 position = Vector2(800, 928)
 scale = Vector2(0.75, 0.75)
-AIR_SPEED = 180.0
+AIR_SPEED = 150.0
 JUMP_VELOCITY = -430.0
 push_force = 50
 side = 0
@@ -71,17 +70,14 @@ side = 0
 position = Vector2(1424, 928)
 scale = Vector2(0.75, 0.75)
 GROUND_SPEED = 230.0
-AIR_SPEED = 180.0
+AIR_SPEED = 150.0
 JUMP_VELOCITY = -350.0
 
 [node name="BoxPickable3" parent="." instance=ExtResource("6_otahl")]
-position = Vector2(1520, 976)
+position = Vector2(1312, 672)
 
 [node name="BoxPickable4" parent="." instance=ExtResource("6_otahl")]
-position = Vector2(1376, 976)
-
-[node name="BoxPickable5" parent="." instance=ExtResource("6_otahl")]
-position = Vector2(1568, 672)
+position = Vector2(1536, 976)
 
 [node name="WaterContainer" parent="." instance=ExtResource("7_v2vud")]
 position = Vector2(608, 992)
@@ -96,8 +92,9 @@ position = Vector2(1504, 768)
 curve = SubResource("Curve2D_kcsms")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
-position = Vector2(48, -80)
+position = Vector2(-224, -80)
 rotation = -1.5708
+progress = 272.0
 rotates = false
 loop = false
 
@@ -119,10 +116,11 @@ rotates = false
 loop = false
 
 [node name="Fire" parent="Path2D/PathFollow2D" instance=ExtResource("11_vvhhb")]
-position = Vector2(64, 0.00012207)
+position = Vector2(48, 0.000183105)
 rotation = 1.5708
 
 [node name="Platform17" parent="Path2D/PathFollow2D" node_paths=PackedStringArray("path") instance=ExtResource("10_uprwk")]
+position = Vector2(-16, -6.10352e-05)
 rotation = 1.5708
 speed = 200.0
 path = NodePath("..")
@@ -167,18 +165,18 @@ side = 1
 JUMP_FORCE = -650
 
 [node name="Spring2" parent="." instance=ExtResource("17_2ojhy")]
-position = Vector2(1808, 976)
+position = Vector2(1835, 979)
 JUMP_FORCE = -500
 
 [node name="Spring3" parent="." instance=ExtResource("17_2ojhy")]
-position = Vector2(1712, 976)
+position = Vector2(1744, 976)
 JUMP_FORCE = -500
 
 [node name="Spikes2" parent="." instance=ExtResource("18_e78wl")]
-position = Vector2(1664, 976)
+position = Vector2(1680, 976)
 
 [node name="Spikes3" parent="." instance=ExtResource("18_e78wl")]
-position = Vector2(1696, 976)
+position = Vector2(1728, 976)
 
 [node name="Spikes4" parent="." instance=ExtResource("18_e78wl")]
 position = Vector2(1632, 976)
@@ -262,6 +260,3 @@ position = Vector2(1392, 1008)
 position = Vector2(-80, 1024)
 scale = Vector2(64.68, 2)
 metadata/_edit_lock_ = true
-
-[node name="Fire" parent="." instance=ExtResource("26_qljda")]
-position = Vector2(1520, 944)
