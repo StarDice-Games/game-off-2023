@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bx2cylhqb7luc"]
+[gd_scene load_steps=29 format=3 uid="uid://bx2cylhqb7luc"]
 
 [ext_resource type="PackedScene" uid="uid://c6oxlwfitiwcd" path="res://Scenes/PlatformerPlayer/Obstacle/statiWall.tscn" id="3_ewxr2"]
 [ext_resource type="PackedScene" uid="uid://c5xj8w588i6aa" path="res://Scenes/Visual Indicator/visualIndicator.tscn" id="4_rvmx6"]
@@ -24,7 +24,6 @@
 [ext_resource type="PackedScene" uid="uid://dn8ylngmbs0mt" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x2.tscn" id="23_ldy1h"]
 [ext_resource type="PackedScene" uid="uid://din1h8ql506vb" path="res://Scenes/Background.tscn" id="23_vt3n6"]
 [ext_resource type="PackedScene" uid="uid://dc601pwyjee1" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x5.tscn" id="24_bjv2b"]
-[ext_resource type="Texture2D" uid="uid://dxqjxjs8f8jta" path="res://Resources/Assets/Nuovi_PNG/Gambo.png" id="25_50eys"]
 [ext_resource type="PackedScene" uid="uid://c7k42v3k5b0un" path="res://Scenes/PlatformerPlayer/Obstacle/Fire/Fire2.tscn" id="26_qljda"]
 
 [sub_resource type="Curve2D" id="Curve2D_kcsms"]
@@ -85,7 +84,8 @@ position = Vector2(1376, 976)
 position = Vector2(1568, 672)
 
 [node name="WaterContainer" parent="." instance=ExtResource("7_v2vud")]
-position = Vector2(880, 992)
+position = Vector2(608, 992)
+side = 1
 
 [node name="SmallDoor" parent="." instance=ExtResource("9_q0q2r")]
 position = Vector2(1424, 352)
@@ -262,12 +262,6 @@ position = Vector2(1392, 1008)
 position = Vector2(-80, 1024)
 scale = Vector2(64.68, 2)
 metadata/_edit_lock_ = true
-
-[node name="Gambo" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(1168, 768)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("25_50eys")
 
 [node name="Fire" parent="." instance=ExtResource("26_qljda")]
 position = Vector2(1520, 944)

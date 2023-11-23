@@ -6,6 +6,8 @@ class_name WaterContainer
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+var animStarted = false
+
 func _ready():
 #	$Sprinkle.disabled = true
 	$Sprinkle.hide()
@@ -28,8 +30,15 @@ func _physics_process(delta):
 	
 	if $PickupComponent.held:
 		spreadWater()
+	#TEST KEVIN ANIMAZIONE 	
+	#	if animStarted==false:
+	#		$AnimationPlayer.play("rotate");
+	#		animStarted = true
 	else:
 		stopWater()
+	#TEST KEVIN ANIMAZIONE 	
+	#	$AnimationPlayer.play("RESET");
+	#	animStarted = false
 		
 	# Add the gravity.
 	if not is_on_floor() and not $PickupComponent.held:

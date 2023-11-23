@@ -27,7 +27,6 @@ position = Vector2(433, 848)
 
 [node name="Player2" parent="." instance=ExtResource("5_lih6r")]
 position = Vector2(1438.42, 665.348)
-side = 1
 
 [node name="BoxPickable" parent="." instance=ExtResource("6_upoev")]
 position = Vector2(512, 928)
