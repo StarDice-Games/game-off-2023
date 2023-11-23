@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/sfx_lvl_start.ogg-9f00145cab8b200b3f1b5e3f633
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

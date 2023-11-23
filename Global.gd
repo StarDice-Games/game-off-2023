@@ -19,6 +19,13 @@ var goals : Array[Node2D] = [null, null]
 @export var selectLevelScene : PackedScene
 
 @export var levelStartSound : AudioStream
+#@export var secondSound : AudioStream
+
+@export var menuMusic : AudioStream
+@export var inGameMusic : AudioStream
+
+@onready var bgMenuMusic : AudioStreamPlayer = $BackgroundMusic1
+@onready var bgInGameMusic : AudioStreamPlayer = $BackgroundMusic2
 
 #var pauseMenuScene = load(pauseMenuPath.get_concatenated_names())
 
@@ -54,8 +61,9 @@ func _ready():
 	else:
 		printerr("Error missing pause scene")
 		
-	$AudioStreamPlayer.stream = levelStartSound	
-#	$AudioStreamPlayer.play()
+	bgMenuMusic.stream = menuMusic
+	bgMenuMusic.play()
+	bgInGameMusic.stream = inGameMusic
 	
 	pass # Replace with function body.
 
@@ -69,6 +77,8 @@ func openMainMenu():
 		mainMenuInstance.connect("select_level_ressed", _on_main_menu_select_level_pressed)
 	
 		currentGameState = GameState.MAIN_MENU
+#		bgMenuMusic.play()
+#		bgInGameMusic.stop()
 	
 func closeMainMenu():
 	var node = get_tree().root.get_node("MainMenu")
@@ -194,6 +204,7 @@ func processGame(delta):
 		nodeInstance.connect("on_resume_pressed", resumeGame)
 		nodeInstance.connect("on_restart_pressed", restartLevel)
 		nodeInstance.connect("on_exit_pressed", exitGame)
+		bgInGameMusic.stream_paused = true
 	
 
 func processMainMenu(delta):
@@ -201,6 +212,8 @@ func processMainMenu(delta):
 		openMainMenu()
 
 func processPause(delta):
+#	bgMenuMusic.stop()
+#	bgInGameMusic.stop()
 	pass
 
 func processLevelSelect(delta):
@@ -230,6 +243,11 @@ func _on_main_menu_new_game_pressed():
 	closeMainMenu()
 	#change the status
 	currentGameState = GameState.IN_GAME
+	bgMenuMusic.stop()
+	bgInGameMusic.play()
+	
+	AudioManager.play(levelStartSound)
+	
 	#load the first scene
 	if scenes.size() > 0:
 		get_tree().change_scene_to_packed(scenes.front().scene)
@@ -250,6 +268,7 @@ func _on_main_menu_select_level_pressed():
 func resumeGame():
 	print("Resume the current game")
 	currentGameState = GameState.IN_GAME
+	bgInGameMusic.stream_paused = false
 	
 	var pauseNode = get_tree().root.get_node("PauseMenu")
 	if pauseNode != null:
@@ -271,6 +290,8 @@ func restartLevel():
 func exitGame():
 	print("back to the main menu")
 	currentGameState = GameState.MAIN_MENU
+	bgMenuMusic.play()
+	bgInGameMusic.stop()
 	
 	var pauseNode = get_tree().root.get_node("PauseMenu")
 	if pauseNode != null:
@@ -289,6 +310,8 @@ func loadSelectedLevel(index):
 	if index < scenes.size():
 		var sceneToLoad = scenes[index].scene
 		currentGameState = GameState.IN_GAME
+		bgMenuMusic.stop()
+		bgInGameMusic.play()
 		
 		var selectLevelNode = get_tree().root.get_node("SelectLevel")
 		if selectLevelNode != null:

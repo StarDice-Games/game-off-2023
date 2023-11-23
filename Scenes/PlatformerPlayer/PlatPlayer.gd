@@ -11,6 +11,10 @@ class_name PlatPlayer
 @export var side = 0
 @export var directionOffsetZ = 75.0
 
+@export_category("Audio")
+@export var deathSound : AudioStream
+@export var jumpSound : AudioStream
+
 var collindingNode : Node2D = null
 var pickedItem : PickupComponent = null
 
@@ -29,6 +33,8 @@ var jumpAnimationEnd = false
 @onready var handsWithObjectsBlue : Sprite2D = $Player_blu/BracciaBluSu
 @onready var handLeftBlue : Sprite2D = $Player_blu/BracciaBluSx
 @onready var handRightBlue : Sprite2D = $Player_blu/BracciaBluDx
+
+@onready var audioPlayer : AudioStreamPlayer = $Sounds/Death
 
 signal died
 
@@ -197,8 +203,15 @@ func _physics_process(delta):
 		var collider = collision.get_collider()
 		if collider.has_node("DeathComponent"):
 			print("Death ", collision.get_collider().name)
+			AudioManager.play(deathSound)
 			died.emit()
-		
+
+func playDeathAudio():
+#	if deathSound != null:
+#		audioPlayer.stream = deathSound
+	
+	if audioPlayer.playing == false:
+		audioPlayer.play()
 
 func pickupItem(item):
 	pickedItem = item
@@ -254,4 +267,9 @@ func _on_area_2d_area_exited(area):
 
 func _on_area_2d_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	print("PatPLayer _on_area_2d_body_shape_entered %s" % body.name)
+	pass # Replace with function body.
+
+
+func _on_death_finished():
+	
 	pass # Replace with function body.

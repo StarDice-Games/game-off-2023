@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://6b18g7uyq5wj" path="res://Builds/web/debug_20231105.icon.png" id="1_3633j"]
 [ext_resource type="Script" path="res://Resources/Levels/LevelResource.gd" id="1_keull"]
-[ext_resource type="PackedScene" uid="uid://hokdakf8x4lx" path="res://platformer.tscn" id="2_nrkkg"]
+[ext_resource type="PackedScene" uid="uid://1asqm4mxi7np" path="res://Levels/LevelTestFromTemplate.tscn" id="2_f74y2"]
 
 [resource]
 script = ExtResource("1_keull")
 name = "First level"
 icon = ExtResource("1_3633j")
-scene = ExtResource("2_nrkkg")
+scene = ExtResource("2_f74y2")

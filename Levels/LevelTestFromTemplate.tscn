@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://1asqm4mxi7np"]
+[gd_scene load_steps=17 format=3 uid="uid://1asqm4mxi7np"]
 
 [ext_resource type="Texture2D" uid="uid://bo04kloimwmpv" path="res://Resources/Assets/Background/Fondo.png" id="1_0crlf"]
 [ext_resource type="PackedScene" uid="uid://duvywv1d1kgyo" path="res://Scenes/PlatformerPlayer/Divider/divider.tscn" id="2_olb40"]
 [ext_resource type="PackedScene" uid="uid://c6oxlwfitiwcd" path="res://Scenes/PlatformerPlayer/Obstacle/statiWall.tscn" id="3_00ba3"]
 [ext_resource type="PackedScene" uid="uid://c5xj8w588i6aa" path="res://Scenes/Visual Indicator/visualIndicator.tscn" id="4_4am5a"]
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="5_igff4"]
+[ext_resource type="AudioStream" uid="uid://bcndcx2ykmoru" path="res://Resources/Sounds/sfx_death.ogg" id="6_fw4xf"]
 [ext_resource type="PackedScene" uid="uid://dvhrt43a8uu5r" path="res://Scenes/PlatformerPlayer/Pickable/Box/BoxPickable.tscn" id="6_op14f"]
 [ext_resource type="PackedScene" uid="uid://c8qbn2xe7w0yv" path="res://Scenes/PlatformerPlayer/Doors/BigDoor/BigDoor.tscn" id="6_tdhf2"]
 [ext_resource type="PackedScene" uid="uid://c3snw3pxmp7x8" path="res://Scenes/PlatformerPlayer/Doors/Indicators/BigDoorIndicator.tscn" id="7_078ix"]
@@ -12,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://6a1c38prt1a4" path="res://Scenes/PlatformerPlayer/Buttons/Button1/Button01.tscn" id="9_1vr6e"]
 [ext_resource type="PackedScene" uid="uid://b8upryncqwmc6" path="res://Scenes/PlatformerPlayer/Doors/SmallDoor/SmallDoor.tscn" id="9_iihv8"]
 [ext_resource type="PackedScene" uid="uid://cxjw8tk4kep1p" path="res://Scenes/PlatformerPlayer/Keys/Key01/Key01.tscn" id="10_sqhp1"]
+[ext_resource type="PackedScene" uid="uid://do88ox8hahe8i" path="res://Scenes/PlatformerPlayer/Spikes/Spikes.tscn" id="14_eq23v"]
 
 [sub_resource type="Curve2D" id="Curve2D_3ewfr"]
 _data = {
@@ -59,6 +61,7 @@ metadata/_edit_lock_ = true
 
 [node name="Player1" parent="." instance=ExtResource("5_igff4")]
 position = Vector2(160, 832)
+deathSound = ExtResource("6_fw4xf")
 
 [node name="Player2" parent="." instance=ExtResource("5_igff4")]
 position = Vector2(1760, 896)
@@ -70,7 +73,6 @@ position = Vector2(320, 928)
 
 [node name="BoxPickable2" parent="." instance=ExtResource("6_op14f")]
 position = Vector2(1472, 832)
-side = 0
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(513.843, 442.55)
@@ -103,27 +105,45 @@ position = Vector2(480, 960)
 receivers = [NodePath("../Path2D/PathFollow2D/PlatformA"), NodePath("../BigDoor")]
 
 [node name="ButtonB" parent="." node_paths=PackedStringArray("receivers") instance=ExtResource("9_1vr6e")]
-position = Vector2(736, 960)
-receivers = [NodePath("../Path2D2/PathFollow2D/PlatformB")]
+position = Vector2(592, 960)
+receivers = [NodePath("../Path2D2/PathFollow2D/PlatformB"), NodePath("../BigDoor")]
 
 [node name="SmallDoorA" parent="." instance=ExtResource("9_iihv8")]
+z_index = 1
 position = Vector2(1248, 960)
-maxKeys = 1
+maxKeys = 3
 goalNumber = 1
 
 [node name="SmallDoorB" parent="." instance=ExtResource("9_iihv8")]
-position = Vector2(1376, 960)
+z_index = 3
+position = Vector2(1264, 784)
 maxKeys = 1
 
 [node name="KeyB" parent="." node_paths=PackedStringArray("receivers") instance=ExtResource("10_sqhp1")]
+z_index = 1
 position = Vector2(1559, 941)
 receivers = [NodePath("../SmallDoorB")]
 
 [node name="BigDoor" parent="." instance=ExtResource("6_tdhf2")]
+z_index = 1
 position = Vector2(533.353, 677.013)
-maxButton = 1
+maxButton = 2
 indicatorScene = ExtResource("7_078ix")
 
 [node name="KeyA" parent="." node_paths=PackedStringArray("receivers") instance=ExtResource("10_sqhp1")]
+z_index = 1
 position = Vector2(1120, 960)
 receivers = [NodePath("../SmallDoorA")]
+
+[node name="KeyA2" parent="." node_paths=PackedStringArray("receivers") instance=ExtResource("10_sqhp1")]
+z_index = 1
+position = Vector2(1312, 960)
+receivers = [NodePath("../SmallDoorA")]
+
+[node name="KeyA3" parent="." node_paths=PackedStringArray("receivers") instance=ExtResource("10_sqhp1")]
+z_index = 1
+position = Vector2(1424, 960)
+receivers = [NodePath("../SmallDoorA")]
+
+[node name="Spikes" parent="." instance=ExtResource("14_eq23v")]
+position = Vector2(832, 976)

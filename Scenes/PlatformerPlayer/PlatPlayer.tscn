@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cqnl53v0iei8b"]
+[gd_scene load_steps=13 format=3 uid="uid://cqnl53v0iei8b"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/PlatPlayer.gd" id="1_go3e0"]
 [ext_resource type="Material" uid="uid://bdjvh3cymune7" path="res://Resources/Materials/Unshaded.tres" id="2_4bwpy"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://3q2g1gjl31kx" path="res://Resources/Assets/Elementi_rossi/Omino_rosso.png" id="3_ld05j"]
 [ext_resource type="PackedScene" uid="uid://dc75c5p24oslr" path="res://Scenes/PlatformerPlayer/Players_animation/player_blu.tscn" id="3_v5sda"]
 [ext_resource type="Texture2D" uid="uid://dgbwbb6pe3see" path="res://Resources/Assets/Elementi_blu/Omino_blu.png" id="4_v002a"]
+[ext_resource type="AudioStream" uid="uid://bcndcx2ykmoru" path="res://Resources/Sounds/sfx_death.ogg" id="8_nhu7l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8nqjx"]
 radius = 44.0
@@ -26,14 +27,13 @@ size = Vector2(20, 17.1951)
 collision_layer = 2
 collision_mask = 61
 script = ExtResource("1_go3e0")
-side = 1
 
 [node name="Player_rosso" parent="." instance=ExtResource("2_x7kcr")]
-process_mode = 4
-visible = false
 position = Vector2(4, -31)
 
 [node name="Player_blu" parent="." instance=ExtResource("3_v5sda")]
+process_mode = 4
+visible = false
 position = Vector2(4, -2)
 
 [node name="Left" type="Sprite2D" parent="."]
@@ -48,15 +48,15 @@ visible = false
 texture = ExtResource("4_v002a")
 
 [node name="LeftCollision" type="CollisionShape2D" parent="."]
-process_mode = 4
-visible = false
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_8nqjx")
-disabled = true
 
 [node name="RightCollision" type="CollisionShape2D" parent="."]
+process_mode = 4
+visible = false
 position = Vector2(0, 18)
 shape = SubResource("CapsuleShape2D_w3jm4")
+disabled = true
 
 [node name="PickupPosition" type="Marker2D" parent="."]
 position = Vector2(0, -88)
@@ -70,11 +70,8 @@ collision_layer = 2
 collision_mask = 5
 
 [node name="Red" type="CollisionShape2D" parent="Area2D"]
-process_mode = 4
-visible = false
 position = Vector2(73, 30)
 shape = SubResource("RectangleShape2D_ynrlp")
-disabled = true
 
 [node name="ColorRect" type="ColorRect" parent="Area2D/Red"]
 offset_left = -20.0
@@ -85,9 +82,12 @@ color = Color(0.996078, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Blue" type="CollisionShape2D" parent="Area2D"]
+process_mode = 4
+visible = false
 position = Vector2(-39, 25.8)
 scale = Vector2(1, 3.28)
 shape = SubResource("RectangleShape2D_26yuy")
+disabled = true
 
 [node name="ColorRect" type="ColorRect" parent="Area2D/Blue"]
 offset_left = -14.0
@@ -97,13 +97,19 @@ offset_bottom = 4.46341
 color = Color(0, 1, 1, 1)
 
 [node name="PickupComponent" parent="." node_paths=PackedStringArray("father", "leftElement", "rightElement", "collisionLeft", "collisionRight") instance=ExtResource("3_0rr4x")]
-currentSide = 1
 father = NodePath("..")
 leftElement = [NodePath("../Player_rosso"), NodePath("../LeftCollision"), NodePath("../Area2D/Red")]
 rightElement = [NodePath("../Player_blu"), NodePath("../RightCollision"), NodePath("../Area2D/Blue")]
 collisionLeft = NodePath("../LeftCollision")
 collisionRight = NodePath("../RightCollision")
 
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="Death" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("8_nhu7l")
+bus = &"Sfx"
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]
+[connection signal="finished" from="Sounds/Death" to="." method="_on_death_finished"]
