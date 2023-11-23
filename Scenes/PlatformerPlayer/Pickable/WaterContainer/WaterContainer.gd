@@ -31,14 +31,14 @@ func _physics_process(delta):
 	if $PickupComponent.held:
 		spreadWater()
 	#TEST KEVIN ANIMAZIONE 	
-	#	if animStarted==false:
-	#		$AnimationPlayer.play("rotate");
-	#		animStarted = true
+		if animStarted==false:
+			$AnimationPlayer.play("rotate");
+			animStarted = true
 	else:
 		stopWater()
 	#TEST KEVIN ANIMAZIONE 	
-	#	$AnimationPlayer.play("RESET");
-	#	animStarted = false
+		$AnimationPlayer.play("RESET");
+		animStarted = false
 		
 	# Add the gravity.
 	if not is_on_floor() and not $PickupComponent.held:

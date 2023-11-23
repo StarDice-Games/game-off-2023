@@ -86,7 +86,6 @@ position = Vector2(1484, 977)
 
 [node name="WaterContainer" parent="." instance=ExtResource("7_v2vud")]
 position = Vector2(608, 992)
-side = 1
 
 [node name="SmallDoor" parent="." instance=ExtResource("9_q0q2r")]
 position = Vector2(1424, 352)
