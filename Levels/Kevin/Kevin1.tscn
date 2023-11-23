@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dcd8ry7ksui4v"]
+[gd_scene load_steps=22 format=3 uid="uid://dcd8ry7ksui4v"]
 
 [ext_resource type="PackedScene" uid="uid://c6oxlwfitiwcd" path="res://Scenes/PlatformerPlayer/Obstacle/statiWall.tscn" id="3_4in1n"]
 [ext_resource type="PackedScene" uid="uid://c5xj8w588i6aa" path="res://Scenes/Visual Indicator/visualIndicator.tscn" id="4_68r8a"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://bwwry4wow68b6" path="res://Scenes/PlatformerPlayer/Obstacle/Fire/Fire.tscn" id="12_sqht7"]
 [ext_resource type="PackedScene" uid="uid://phjy1geq4nek" path="res://Scenes/PlatformerPlayer/Platforms/Platform1/Platform2.tscn" id="13_7i2k0"]
 [ext_resource type="PackedScene" uid="uid://bc4tsc83nd2al" path="res://Scenes/PlatformerPlayer/PressurePlates/PressurePlate1/PressurePlate1.tscn" id="14_sp555"]
-[ext_resource type="PackedScene" uid="uid://dys77aiydaakp" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed.tscn" id="15_3rjit"]
 [ext_resource type="PackedScene" uid="uid://c8qbn2xe7w0yv" path="res://Scenes/PlatformerPlayer/Doors/BigDoor/BigDoor.tscn" id="15_qjrpe"]
 [ext_resource type="PackedScene" uid="uid://ddfaeavjffgx6" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x5.tscn" id="16_pm71b"]
 [ext_resource type="PackedScene" uid="uid://c0yejb6v7hqpy" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x2.tscn" id="17_7gvvk"]
@@ -132,14 +131,14 @@ receivers = [NodePath("../Path2D/PathFollow2D/Platform17")]
 [node name="BigDoor" parent="." instance=ExtResource("15_qjrpe")]
 position = Vector2(736, 368)
 
-[node name="PlatformStaticRed" parent="." instance=ExtResource("15_3rjit")]
-position = Vector2(736, 432)
-
 [node name="PlatformStaticRed_x5" parent="." instance=ExtResource("16_pm71b")]
 position = Vector2(480, 528)
 
 [node name="PlatformStaticRed_x2" parent="." instance=ExtResource("17_7gvvk")]
 position = Vector2(128, 852)
+
+[node name="PlatformStaticRed_x3" parent="." instance=ExtResource("17_7gvvk")]
+position = Vector2(736, 432)
 
 [node name="PlatformStaticBlue_x2" parent="." instance=ExtResource("18_qp5cu")]
 position = Vector2(1467, 432)
@@ -154,9 +153,11 @@ position = Vector2(1444, 788)
 metadata/_edit_lock_ = true
 
 [node name="DisapperaPlatform1" parent="." instance=ExtResource("19_ve8ur")]
+z_index = -1
 position = Vector2(1600, 732)
 
 [node name="DisapperaPlatform2" parent="." instance=ExtResource("19_ve8ur")]
+z_index = -1
 position = Vector2(1470, 672)
 
 [node name="Player1" parent="." instance=ExtResource("5_5k7vc")]
@@ -167,7 +168,6 @@ AIR_SPEED = 150.0
 JUMP_VELOCITY = -430.0
 push_force = 50
 side = 0
-directionOffsetZ = 50.0
 
 [node name="Player2" parent="." instance=ExtResource("5_5k7vc")]
 z_index = -1
@@ -182,4 +182,5 @@ directionOffsetZ = 50.0
 position = Vector2(1600, 656)
 
 [node name="Button01" parent="." instance=ExtResource("21_s6k26")]
+z_index = -1
 position = Vector2(96, 992)

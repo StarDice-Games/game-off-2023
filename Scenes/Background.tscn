@@ -9,7 +9,7 @@
 [node name="Background" type="Node2D"]
 
 [node name="Cornice" type="TextureRect" parent="."]
-z_index = 1
+z_index = 2
 texture_filter = 1
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -17,14 +17,14 @@ texture = ExtResource("1_pj1no")
 
 [node name="Fondo" type="TextureRect" parent="."]
 modulate = Color(1, 1, 0.921569, 0.615686)
-z_index = -3
+z_index = -4
 texture_filter = 1
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("2_the6a")
 
 [node name="FondoQuadri" type="TextureRect" parent="."]
-z_index = -4
+z_index = -5
 texture_filter = 1
 offset_right = 1920.0
 offset_bottom = 1080.0

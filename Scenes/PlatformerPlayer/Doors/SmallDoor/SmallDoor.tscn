@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/TriggerComponent/ReceiverComponent.gd" id="1_22d2v"]
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Doors/SmallDoor/SmallDoor.gd" id="1_cg50m"]
 [ext_resource type="PackedScene" uid="uid://d144y04rmu6wx" path="res://Scenes/PlatformerPlayer/Doors/Indicators/SmallDoorIndicator.tscn" id="2_8hpr2"]
-[ext_resource type="Texture2D" uid="uid://ckdfq6j28cvti" path="res://Resources/Assets/Nuovi_PNG/Porta_piccola_chiusa.png" id="3_7a103"]
-[ext_resource type="Texture2D" uid="uid://cv422swovafhb" path="res://Resources/Assets/Nuovi_PNG/Porta_piccola_aperta.png" id="4_27kjk"]
+[ext_resource type="Texture2D" uid="uid://bgfc8m50tu0pr" path="res://Resources/Assets/Upd_Assets/Porta_piccola_chiusa.png" id="3_gqb36"]
 [ext_resource type="PackedScene" uid="uid://cs8xishx48a2x" path="res://Scenes/PlatformerPlayer/Goal/GoalComponent.tscn" id="4_v4atr"]
+[ext_resource type="Texture2D" uid="uid://bowonq6ytmfml" path="res://Resources/Assets/Upd_Assets/Porta_piccola_aperta.png" id="4_yt3ei"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a46u8"]
 size = Vector2(20, 64)
@@ -17,16 +17,20 @@ script = ExtResource("1_cg50m")
 indicatorScene = ExtResource("2_8hpr2")
 
 [node name="Sprite_Porta_Chiusa" type="Sprite2D" parent="."]
+z_index = -1
 texture_filter = 1
+position = Vector2(123, -23)
 scale = Vector2(0.625, 0.65625)
-texture = ExtResource("3_7a103")
-offset = Vector2(0, -51)
+texture = ExtResource("3_gqb36")
+offset = Vector2(-196.8, -38.9524)
 
 [node name="Sprite_Porta_Aperta" type="Sprite2D" parent="."]
+z_index = -2
 texture_filter = 1
+position = Vector2(49, -47)
 scale = Vector2(0.625, 0.65625)
-texture = ExtResource("4_27kjk")
-offset = Vector2(0, -51)
+texture = ExtResource("4_yt3ei")
+offset = Vector2(-78.4, -2.38095)
 
 [node name="ReceiverComponent" type="Node2D" parent="."]
 position = Vector2(0, 1)

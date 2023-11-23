@@ -67,7 +67,6 @@ AIR_SPEED = 150.0
 JUMP_VELOCITY = -430.0
 push_force = 50
 side = 0
-directionOffsetZ = 50.0
 
 [node name="Player2" parent="." instance=ExtResource("5_dwfel")]
 position = Vector2(1419, 934)
