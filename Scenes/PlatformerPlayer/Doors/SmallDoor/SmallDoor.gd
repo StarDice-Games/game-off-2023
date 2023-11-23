@@ -3,6 +3,7 @@ extends StaticBody2D
 @export var maxKeys : int
 @export var goalNumber : int
 @export var indicatorScene : PackedScene
+@export var indicatorOffset = 32
 
 var keyCollected = 0
 var isOpen = false
@@ -18,7 +19,8 @@ func _ready():
 	if maxKeys > 0 and indicatorScene != null:
 		for i in range(0, maxKeys):
 			var indicator = indicatorScene.instantiate()
-			indicator.position.x = $IndicatorStart.position.x + (i*32)
+			indicator.position = $IndicatorStart.position
+			indicator.position.y += i*indicatorOffset
 			indicator.unlock(true)
 			indicators.append(indicator) 
 			add_child(indicator)
@@ -38,11 +40,17 @@ func _process(delta):
 			indicators[i].unlock(false)
 		for i in range(0, keyCollected):
 			indicators[i].unlock(true)
-			
+	
+	if $Goal.active:
+		$Sprite_Porta_Chiusa.hide()
+		$Sprite_Porta_Aperta.show()
+	else:
+		$Sprite_Porta_Chiusa.show()
+		$Sprite_Porta_Aperta.hide()
 	pass
 
 func fullyOpen():
-	print("%s is open" % name)
+#	print("%s is open" % name)
 #	$CollisionShape2D.disabled = true
 #	$CollisionShape2D.process_mode = Node.PROCESS_MODE_DISABLED
 	

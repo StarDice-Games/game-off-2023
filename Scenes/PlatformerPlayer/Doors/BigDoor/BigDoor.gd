@@ -3,6 +3,7 @@ extends StaticBody2D
 @export var maxButton : int
 @export var goalNumber : int
 @export var indicatorScene : PackedScene
+@export var indicatorOffset = 32
 
 var buttonActivated = 0
 var isOpen = false
@@ -17,7 +18,8 @@ func _ready():
 	if maxButton > 0 and indicatorScene != null:
 		for i in range(0, maxButton):
 			var indicator = indicatorScene.instantiate()
-			indicator.position.x = $IndicatorStart.position.x + (i*32)
+			indicator.position = $IndicatorStart.position
+			indicator.position.y += i*indicatorOffset
 			indicator.unlock(true)
 			indicators.append(indicator) 
 			add_child(indicator)
@@ -36,6 +38,14 @@ func _process(delta):
 			indicators[i].unlock(false)
 		for i in range(0, buttonActivated):
 			indicators[i].unlock(true)
+			
+	if $Goal.active:
+		$Sprite_Porta_Chiusa.hide()
+		$Sprite_Porta_Aperta.show()
+	else:
+		$Sprite_Porta_Chiusa.show()
+		$Sprite_Porta_Aperta.hide()
+	pass
 	
 	pass
 

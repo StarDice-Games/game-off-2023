@@ -9,7 +9,9 @@ script = ExtResource("1_gjhv2")
 
 [node name="Open" type="Sprite2D" parent="."]
 visible = false
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_syc7a")
 
 [node name="Closed" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_3mni2")

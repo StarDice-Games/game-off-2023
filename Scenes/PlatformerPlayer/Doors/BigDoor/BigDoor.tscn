@@ -38,7 +38,7 @@ shape = SubResource("RectangleShape2D_ox0jw")
 debug_color = Color(0.945098, 0, 0.588235, 0.745098)
 
 [node name="IndicatorStart" type="Marker2D" parent="."]
-position = Vector2(-63, -228)
+position = Vector2(-49, -185)
 
 [connection signal="triggered" from="ReceiverComponent" to="." method="_on_receiver_component_triggered"]
 [connection signal="body_entered" from="Goal" to="." method="_on_goal_body_entered"]
