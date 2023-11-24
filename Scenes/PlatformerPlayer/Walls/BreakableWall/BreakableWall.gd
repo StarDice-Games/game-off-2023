@@ -1,5 +1,9 @@
 extends StaticBody2D
 
+@export var breakSpeed : float = 10 
+@export_category("Audio")
+@export var breakSound : AudioStream
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,8 +27,12 @@ func _on_area_2d_body_entered(body):
 #		get_tree().queue_delete(self)
 	for group in body.get_groups():
 		if group == "BreaksWalls":
-			$AnimatedSprite2D.play("default")
-			$AnimationPlayer.play("DisableCollider")
+			if body is RigidBody2D: 
+				var velLenght = body.linear_velocity.length()
+				if velLenght > breakSpeed:
+					$AnimatedSprite2D.play("default")
+					$AnimationPlayer.play("DisableCollider")
+					AudioManager.play(breakSound)
 			#get_tree().queue_delete(self)
 	pass # Replace with function body.
 
