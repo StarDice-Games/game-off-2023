@@ -33,8 +33,8 @@ layout_mode = 0
 offset_left = 210.0
 offset_top = 76.0
 offset_right = 250.0
-offset_bottom = 116.0
-scale = Vector2(2.70692, 4.32182)
+offset_bottom = 109.0
+scale = Vector2(2.70692, 7.28182)
 color = Color(0.212305, 0.212305, 0.212305, 1)
 
 [node name="Resume" type="Button" parent="Control"]
@@ -58,13 +58,32 @@ text = "Restart"
 [node name="Exit" type="Button" parent="Control"]
 material = ExtResource("2_2qwo7")
 layout_mode = 0
-offset_left = 228.0
-offset_top = 206.0
-offset_right = 298.0
-offset_bottom = 237.0
+offset_left = 226.0
+offset_top = 197.0
+offset_right = 296.0
+offset_bottom = 228.0
 text = "Exit"
+
+[node name="Music" type="CheckButton" parent="Control"]
+layout_mode = 0
+offset_left = 217.0
+offset_top = 242.0
+offset_right = 311.0
+offset_bottom = 273.0
+text = "Music"
+
+[node name="Sounds" type="CheckButton" parent="Control"]
+layout_mode = 0
+offset_left = 211.0
+offset_top = 281.0
+offset_right = 316.0
+offset_bottom = 312.0
+text = "Sounds
+"
 
 [connection signal="draw" from="Control" to="." method="_on_control_draw"]
 [connection signal="pressed" from="Control/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Control/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="Control/Exit" to="." method="_on_exit_pressed"]
+[connection signal="toggled" from="Control/Music" to="." method="_on_music_toggled"]
+[connection signal="toggled" from="Control/Sounds" to="." method="_on_sounds_toggled"]

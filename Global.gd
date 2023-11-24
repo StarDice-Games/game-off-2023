@@ -31,10 +31,12 @@ var goals : Array[Node2D] = [null, null]
 @onready var bgInGameMusic : AudioStreamPlayer = $BackgroundMusic2
 @onready var bgInGameMusic2 : AudioStreamPlayer = $BGInGameMusic
 
-#var pauseMenuScene = load(pauseMenuPath.get_concatenated_names())
-
+var timerCallback : Callable
 var nodeInstance = null
 var next_scene = 1
+
+var musicMuted = false
+var sfxMuted = false
 
 enum GameState {
 	MAIN_MENU,
@@ -156,7 +158,20 @@ func _process(delta):
 		GameState.IN_GAME:
 			processGame(delta)
 			pass
-#	
+	if musicMuted:
+		bgMenuMusic.volume_db = -80
+		bgInGameMusic.volume_db = -80
+		bgInGameMusic2.volume_db = -80
+	else:
+		bgMenuMusic.volume_db = 0
+		match activePlayer:
+			0 : 
+				bgInGameMusic2.volume_db = -80
+				bgInGameMusic.volume_db = 0
+			1 : 
+				bgInGameMusic2.volume_db = 0
+				bgInGameMusic.volume_db = -80
+
 
 func processGame(delta):
 #	if Input.is_action_just_pressed("ChangePlayer") :
@@ -253,20 +268,26 @@ func _on_main_menu_exit_pressed():
 
 func _on_main_menu_new_game_pressed():
 	print("Start the game")
+	if not sfxMuted:
+		AudioManager.play(levelStartSound)
+		$Timer.start(levelStartSound.get_length())
+		timerCallback = startGame
+	else:
+		startGame()
+	pass
+
+func startGame():
 	#hide the menu
 	closeMainMenu()
 	#change the status
 	currentGameState = GameState.IN_GAME
+	activePlayer = 0
 	bgMenuMusic.stop()
 	bgInGameMusic.play()
 	bgInGameMusic2.play()
 	
-	AudioManager.play(levelStartSound)
-	
-	#load the first scene
 	if scenes.size() > 0:
 		get_tree().change_scene_to_packed(scenes.front().scene)
-	pass
 
 func _on_main_menu_select_level_pressed():
 	print("Select levels")
@@ -353,3 +374,11 @@ func backToMainMenu():
 		get_tree().change_scene_to_packed(mainScene)
 	else:
 		push_error("Main scene missing in Global")
+
+func nop():
+	pass
+
+func _on_timer_timeout():
+	timerCallback.call()
+	timerCallback = nop
+	pass # Replace with function body.

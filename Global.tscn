@@ -36,3 +36,8 @@ bus = &"Music"
 
 [node name="BGInGameMusic" type="AudioStreamPlayer" parent="."]
 volume_db = -80.0
+bus = &"Music"
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

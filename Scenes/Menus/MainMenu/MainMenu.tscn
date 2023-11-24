@@ -74,12 +74,45 @@ text = "Level Select
 
 [node name="Exit" type="Button" parent="."]
 layout_mode = 0
-offset_left = 890.0
-offset_top = 683.0
-offset_right = 989.0
-offset_bottom = 714.0
+offset_left = 888.0
+offset_top = 687.0
+offset_right = 987.0
+offset_bottom = 718.0
 scale = Vector2(1.7161, 1.81114)
 text = "Exit
+"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 799.0
+offset_right = 922.0
+offset_bottom = 839.0
+color = Color(0.247059, 0.247059, 0.247059, 1)
+
+[node name="Music" type="CheckButton" parent="ColorRect"]
+layout_mode = 0
+offset_right = 94.0
+offset_bottom = 31.0
+scale = Vector2(1, 1.332)
+button_pressed = true
+text = "Music"
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 1000.0
+offset_top = 799.0
+offset_right = 1100.0
+offset_bottom = 839.0
+color = Color(0.247059, 0.247059, 0.247059, 1)
+
+[node name="Sounds" type="CheckButton" parent="ColorRect2"]
+layout_mode = 0
+offset_right = 94.0
+offset_bottom = 31.0
+scale = Vector2(1, 1.332)
+button_pressed = true
+text = "Sounds
 "
 
 [connection signal="draw" from="." to="." method="_on_draw"]
@@ -87,3 +120,5 @@ text = "Exit
 [connection signal="pressed" from="NewGame" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="LevelSelect" to="." method="_on_level_select_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[connection signal="toggled" from="ColorRect/Music" to="." method="_on_music_toggled"]
+[connection signal="toggled" from="ColorRect2/Sounds" to="." method="_on_sounds_toggled"]

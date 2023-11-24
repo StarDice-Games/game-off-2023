@@ -1,7 +1,7 @@
 extends Node
 
 @export var num_players = 8
-@export var bus = "sfx"
+@export var bus = "Sfx"
 @export var mute = false
 
 var available = []  # The available players.
@@ -39,6 +39,10 @@ func _process(delta):
 		if not notPlaying.is_empty():
 			var player = notPlaying.pop_front()
 			player.stream = queue.pop_front()
+			if Global.sfxMuted:
+				player.volume_db = -80
+			else:
+				player.volume_db = 0
 			player.play()
 
 func isStreamStopped(player):
