@@ -30,3 +30,5 @@ volume_db = -20.0
 
 [node name="BackgroundMusic2" type="AudioStreamPlayer" parent="."]
 volume_db = -5.0
+
+[node name="BGInGameMusic" type="AudioStreamPlayer2D" parent="."]

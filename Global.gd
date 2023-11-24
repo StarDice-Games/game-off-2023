@@ -21,12 +21,14 @@ var goals : Array[Node2D] = [null, null]
 @export_category("Audio")
 @export var levelStartSound : AudioStream
 @export var tranferSound : AudioStream
+@export var levelCompleteSound : AudioStream
 
 @export var menuMusic : AudioStream
 @export var inGameMusic : AudioStream
 
 @onready var bgMenuMusic : AudioStreamPlayer = $BackgroundMusic1
 @onready var bgInGameMusic : AudioStreamPlayer = $BackgroundMusic2
+@onready var bgInGameMusic2 : AudioStreamPlayer = $BGInGameMusic
 
 #var pauseMenuScene = load(pauseMenuPath.get_concatenated_names())
 
@@ -177,7 +179,8 @@ func processGame(delta):
 					var receivingPlayer = players[0]
 					
 					transferPickable(startingPlayer, receivingPlayer, Scaling.DECREASE)
-		players[activePlayer].velocity = Vector2.ZERO
+		if players[activePlayer] != null:
+			players[activePlayer].velocity = Vector2.ZERO
 		changeActivePlayer()
 	
 	#Check if the level is complete
@@ -185,7 +188,8 @@ func processGame(delta):
 	
 	if levelComplete:
 		print("Level is complete !!!", scenes.size())
-#		if next_scene + 1 < scenes.size() :
+		AudioManager.play(levelCompleteSound)
+#		#TODO animation
 		if scenes[next_scene] != null:
 			get_tree().change_scene_to_packed(scenes[next_scene].scene)
 			next_scene += 1
