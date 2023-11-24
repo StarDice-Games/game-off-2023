@@ -61,6 +61,7 @@ metadata/_edit_lock_ = true
 
 [node name="Player1" parent="." instance=ExtResource("5_igff4")]
 position = Vector2(160, 832)
+AIR_SPEED = 200.0
 deathSound = ExtResource("6_fw4xf")
 
 [node name="Player2" parent="." instance=ExtResource("5_igff4")]
