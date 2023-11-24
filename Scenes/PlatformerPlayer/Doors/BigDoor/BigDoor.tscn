@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8qbn2xe7w0yv"]
+[gd_scene load_steps=8 format=3 uid="uid://c8qbn2xe7w0yv"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Doors/BigDoor/BigDoor.gd" id="1_6xypb"]
+[ext_resource type="AudioStream" uid="uid://dcjg43o43tw5e" path="res://Resources/Sounds/blip.wav" id="2_72sby"]
 [ext_resource type="Texture2D" uid="uid://ce62k0poit4xv" path="res://Resources/Assets/Nuovi_PNG/Porta_grande_chiusa.png" id="2_g5t1c"]
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/TriggerComponent/ReceiverComponent.gd" id="2_j5eds"]
 [ext_resource type="Texture2D" uid="uid://b215k7ue8kah1" path="res://Resources/Assets/Nuovi_PNG/Porta_grande_aperta.png" id="3_etw0b"]
@@ -13,6 +14,7 @@ size = Vector2(34, 179)
 z_index = -1
 collision_mask = 3
 script = ExtResource("1_6xypb")
+doorOpen = ExtResource("2_72sby")
 
 [node name="Sprite_Porta_Chiusa" type="Sprite2D" parent="."]
 texture_filter = 1

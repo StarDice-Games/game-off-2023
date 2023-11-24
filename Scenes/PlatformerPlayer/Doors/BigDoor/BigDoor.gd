@@ -5,6 +5,9 @@ extends StaticBody2D
 @export var indicatorScene : PackedScene
 @export var indicatorOffset = 32
 
+@export_category("Audio")
+@export var doorOpen : AudioStream
+
 var buttonActivated = 0
 var isOpen = false
 var indicators : Array[Node2D]
@@ -51,7 +54,9 @@ func _process(delta):
 
 func fullyOpen():
 	print("Door is open")
+	isOpen = true
 	$Goal.active = true
+	AudioManager.play(doorOpen)
 	pass
 
 func fullyClosed():

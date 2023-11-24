@@ -5,6 +5,9 @@ extends StaticBody2D
 @export var indicatorScene : PackedScene
 @export var indicatorOffset = 32
 
+@export_category("Audio")
+@export var doorOpen : AudioStream
+
 var keyCollected = 0
 var isOpen = false
 
@@ -50,11 +53,9 @@ func _process(delta):
 	pass
 
 func fullyOpen():
-#	print("%s is open" % name)
-#	$CollisionShape2D.disabled = true
-#	$CollisionShape2D.process_mode = Node.PROCESS_MODE_DISABLED
-	
+	isOpen = true
 	$Goal.active = true
+	AudioManager.play(doorOpen)
 	pass
 
 func fullyClosed():
