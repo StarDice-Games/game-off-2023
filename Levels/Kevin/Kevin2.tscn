@@ -95,7 +95,7 @@ mass = 1.0
 lock_rotation = false
 
 [node name="Ball2" parent="." instance=ExtResource("11_ed5n2")]
-position = Vector2(608, 896)
+position = Vector2(464, 576)
 mass = 1.0
 lock_rotation = false
 side = 1
@@ -232,12 +232,11 @@ metadata/_edit_lock_ = true
 
 [node name="Player1" parent="." instance=ExtResource("5_11chb")]
 z_index = -1
-position = Vector2(848, 816)
+position = Vector2(384, 496)
 scale = Vector2(0.75, 0.75)
 AIR_SPEED = 150.0
 JUMP_VELOCITY = -430.0
 push_force = 50
-side = 0
 
 [node name="Player2" parent="." instance=ExtResource("5_11chb")]
 z_index = -1
