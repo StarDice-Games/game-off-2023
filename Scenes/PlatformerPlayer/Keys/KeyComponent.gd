@@ -2,7 +2,11 @@ extends Area2D
 class_name KeyComponent
 
 @export var receivers : Array[Node2D]
+@export_category("Audio")
+@export var pickupSound : AudioStream
+
 @onready var senderComp : SenderComponent = $SenderComponent
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,5 +31,6 @@ func _on_area_entered(area):
 func _on_body_entered(body):
 	print("%s _on_body_entered:%s" % name, body.name)
 	senderComp.activate()
+	AudioManager.play(pickupSound)
 	get_tree().queue_delete(self)
 	pass # Replace with function body.
