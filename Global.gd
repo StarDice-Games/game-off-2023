@@ -24,7 +24,8 @@ var goals : Array[Node2D] = [null, null]
 @export var levelCompleteSound : AudioStream
 
 @export var menuMusic : AudioStream
-@export var inGameMusic : AudioStream
+@export var inGameMusicBig : AudioStream
+@export var inGameMusicSmall : AudioStream
 
 @onready var bgMenuMusic : AudioStreamPlayer = $BackgroundMusic1
 @onready var bgInGameMusic : AudioStreamPlayer = $BackgroundMusic2
@@ -66,7 +67,8 @@ func _ready():
 		
 	bgMenuMusic.stream = menuMusic
 	bgMenuMusic.play()
-	bgInGameMusic.stream = inGameMusic
+	bgInGameMusic.stream = inGameMusicBig
+	bgInGameMusic2.stream = inGameMusicSmall
 	
 	pass # Replace with function body.
 
@@ -104,8 +106,13 @@ func changeActivePlayer():
 	match activePlayer:
 			0 : 
 				activePlayer = 1
+				bgInGameMusic.volume_db = -80
+				bgInGameMusic2.volume_db = 0
+				
 			1 : 
 				activePlayer = 0
+				bgInGameMusic.volume_db = 0
+				bgInGameMusic2.volume_db = -80
 				
 func setActivePlayer(number):
 	activePlayer = number
@@ -211,6 +218,7 @@ func processGame(delta):
 		nodeInstance.connect("on_restart_pressed", restartLevel)
 		nodeInstance.connect("on_exit_pressed", exitGame)
 		bgInGameMusic.stream_paused = true
+		bgInGameMusic2.stream_paused = true
 	
 
 func processMainMenu(delta):
@@ -251,6 +259,7 @@ func _on_main_menu_new_game_pressed():
 	currentGameState = GameState.IN_GAME
 	bgMenuMusic.stop()
 	bgInGameMusic.play()
+	bgInGameMusic2.play()
 	
 	AudioManager.play(levelStartSound)
 	
@@ -275,6 +284,7 @@ func resumeGame():
 	print("Resume the current game")
 	currentGameState = GameState.IN_GAME
 	bgInGameMusic.stream_paused = false
+	bgInGameMusic2.stream_paused = false
 	
 	var pauseNode = get_tree().root.get_node("PauseMenu")
 	if pauseNode != null:
@@ -298,6 +308,7 @@ func exitGame():
 	currentGameState = GameState.MAIN_MENU
 	bgMenuMusic.play()
 	bgInGameMusic.stop()
+	bgInGameMusic2.stop()
 	
 	var pauseNode = get_tree().root.get_node("PauseMenu")
 	if pauseNode != null:
@@ -318,6 +329,7 @@ func loadSelectedLevel(index):
 		currentGameState = GameState.IN_GAME
 		bgMenuMusic.stop()
 		bgInGameMusic.play()
+		bgInGameMusic2.play()
 		
 		var selectLevelNode = get_tree().root.get_node("SelectLevel")
 		if selectLevelNode != null:

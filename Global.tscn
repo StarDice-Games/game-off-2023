@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bxeb2iva4yrgw"]
+[gd_scene load_steps=13 format=3 uid="uid://bxeb2iva4yrgw"]
 
 [ext_resource type="Script" path="res://Global.gd" id="1_j5qpw"]
 [ext_resource type="Resource" uid="uid://cpy6dd3hx5r8m" path="res://Resources/Levels/Level1.tres" id="2_l0r8t"]
@@ -11,10 +11,10 @@
 [ext_resource type="AudioStream" uid="uid://dcjg43o43tw5e" path="res://Resources/Sounds/blip.wav" id="9_2u2u1"]
 [ext_resource type="AudioStream" uid="uid://d0vc5sf2bjecv" path="res://Resources/Sounds/bgm_title.ogg" id="9_pvhhq"]
 [ext_resource type="AudioStream" uid="uid://b05mtllph2ded" path="res://Resources/Sounds/bgm_level1A.ogg" id="10_gkp78"]
+[ext_resource type="AudioStream" uid="uid://b7s0qg07ggtmc" path="res://Resources/Sounds/bgm_level1B.ogg" id="12_1yry6"]
 
 [node name="Global" type="Node2D"]
 script = ExtResource("1_j5qpw")
-useMenu = false
 scenes = Array[Resource("res://Resources/Levels/LevelResource.gd")]([ExtResource("2_l0r8t"), ExtResource("3_i4xgd")])
 mainMenuScene = ExtResource("3_wleec")
 pauseMenuScene = ExtResource("3_kic5l")
@@ -23,12 +23,16 @@ selectLevelScene = ExtResource("6_6nmfb")
 levelStartSound = ExtResource("8_3xu02")
 tranferSound = ExtResource("9_2u2u1")
 menuMusic = ExtResource("9_pvhhq")
-inGameMusic = ExtResource("10_gkp78")
+inGameMusicBig = ExtResource("10_gkp78")
+inGameMusicSmall = ExtResource("12_1yry6")
 
 [node name="BackgroundMusic1" type="AudioStreamPlayer" parent="."]
 volume_db = -20.0
+bus = &"Music"
 
 [node name="BackgroundMusic2" type="AudioStreamPlayer" parent="."]
-volume_db = -5.0
+volume_db = -20.0
+bus = &"Music"
 
-[node name="BGInGameMusic" type="AudioStreamPlayer2D" parent="."]
+[node name="BGInGameMusic" type="AudioStreamPlayer" parent="."]
+volume_db = -80.0
