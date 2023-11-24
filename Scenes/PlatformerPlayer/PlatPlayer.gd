@@ -14,6 +14,9 @@ class_name PlatPlayer
 @export_category("Audio")
 @export var deathSound : AudioStream
 @export var jumpSound : AudioStream
+@export var steps : AudioStream
+@export var grabObject : AudioStream
+@export var releaseObject : AudioStream
 
 var collindingNode : Node2D = null
 var pickedItem : PickupComponent = null
@@ -129,6 +132,7 @@ func _physics_process(delta):
 		# Handle Jump.
 		if Input.is_action_just_pressed("Jump") and is_on_floor():
 			getActiveAnimationPlayer().play("Jump")
+			AudioManager.play(jumpSound)
 			jumpAnimationEnd = false
 			velocity.y = JUMP_VELOCITY
 
@@ -142,6 +146,7 @@ func _physics_process(delta):
 			
 			if jumpAnimationEnd == true:
 				getActiveAnimationPlayer().play("Walk")
+				AudioManager.play(steps)
 		else:
 			velocity.x = move_toward(velocity.x, 0, GROUND_FRICTION)
 			if jumpAnimationEnd == true:
@@ -193,9 +198,11 @@ func _physics_process(delta):
 				
 				pickedItem = null
 				collindingNode = null
+				AudioManager.play(releaseObject)
 				
 			if collindingNode != null && pickedItem == null:
 				pickupItem(collindingNode)
+				AudioManager.play(grabObject)
 			
 				
 	if move_and_slide():

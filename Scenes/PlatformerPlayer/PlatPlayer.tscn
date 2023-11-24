@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cqnl53v0iei8b"]
+[gd_scene load_steps=12 format=3 uid="uid://cqnl53v0iei8b"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/PlatPlayer.gd" id="1_go3e0"]
 [ext_resource type="Material" uid="uid://bdjvh3cymune7" path="res://Resources/Materials/Unshaded.tres" id="2_4bwpy"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://3q2g1gjl31kx" path="res://Resources/Assets/Elementi_rossi/Omino_rosso.png" id="3_ld05j"]
 [ext_resource type="PackedScene" uid="uid://dc75c5p24oslr" path="res://Scenes/PlatformerPlayer/Players_animation/player_blu.tscn" id="3_v5sda"]
 [ext_resource type="Texture2D" uid="uid://dgbwbb6pe3see" path="res://Resources/Assets/Elementi_blu/Omino_blu.png" id="4_v002a"]
-[ext_resource type="AudioStream" uid="uid://bcndcx2ykmoru" path="res://Resources/Sounds/sfx_death.ogg" id="8_nhu7l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8nqjx"]
 radius = 44.0
@@ -103,13 +102,6 @@ rightElement = [NodePath("../Player_blu"), NodePath("../RightCollision"), NodePa
 collisionLeft = NodePath("../LeftCollision")
 collisionRight = NodePath("../RightCollision")
 
-[node name="Sounds" type="Node2D" parent="."]
-
-[node name="Death" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("8_nhu7l")
-bus = &"Sfx"
-
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]
-[connection signal="finished" from="Sounds/Death" to="." method="_on_death_finished"]
