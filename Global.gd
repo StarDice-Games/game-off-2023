@@ -18,8 +18,9 @@ var goals : Array[Node2D] = [null, null]
 @export var mainScene : PackedScene
 @export var selectLevelScene : PackedScene
 
+@export_category("Audio")
 @export var levelStartSound : AudioStream
-#@export var secondSound : AudioStream
+@export var tranferSound : AudioStream
 
 @export var menuMusic : AudioStream
 @export var inGameMusic : AudioStream
@@ -118,6 +119,7 @@ func transferPickable(starting, receiver, scaling : Scaling):
 	if receiver.pickedItem != null:
 		return
 	
+	AudioManager.play(tranferSound)
 #	the picket item is changed and transfered
 #	now the picked item need to call this on the parent node
 	var toTransfer : Node2D = starting.pickedItem
