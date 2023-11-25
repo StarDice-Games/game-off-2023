@@ -1,0 +1,157 @@
+[gd_scene load_steps=15 format=3 uid="uid://n08gswe6qeoa"]
+
+[ext_resource type="PackedScene" uid="uid://c6oxlwfitiwcd" path="res://Scenes/PlatformerPlayer/Obstacle/statiWall.tscn" id="1_0k40l"]
+[ext_resource type="PackedScene" uid="uid://c5xj8w588i6aa" path="res://Scenes/Visual Indicator/visualIndicator.tscn" id="2_o00de"]
+[ext_resource type="PackedScene" uid="uid://dvhrt43a8uu5r" path="res://Scenes/PlatformerPlayer/Pickable/Box/BoxPickable.tscn" id="3_fb0xc"]
+[ext_resource type="PackedScene" uid="uid://b8upryncqwmc6" path="res://Scenes/PlatformerPlayer/Doors/SmallDoor/SmallDoor.tscn" id="7_y463y"]
+[ext_resource type="PackedScene" uid="uid://c8qbn2xe7w0yv" path="res://Scenes/PlatformerPlayer/Doors/BigDoor/BigDoor.tscn" id="11_54sgv"]
+[ext_resource type="PackedScene" uid="uid://ddfaeavjffgx6" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x5.tscn" id="12_p3l3w"]
+[ext_resource type="PackedScene" uid="uid://dys77aiydaakp" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed.tscn" id="12_pxffw"]
+[ext_resource type="PackedScene" uid="uid://c0yejb6v7hqpy" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x2.tscn" id="13_qhjde"]
+[ext_resource type="PackedScene" uid="uid://dn8ylngmbs0mt" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x2.tscn" id="14_5dgnf"]
+[ext_resource type="PackedScene" uid="uid://dc601pwyjee1" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x5.tscn" id="15_4oelk"]
+[ext_resource type="PackedScene" uid="uid://din1h8ql506vb" path="res://Scenes/Background.tscn" id="16_58n5x"]
+[ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="18_nyfm7"]
+[ext_resource type="PackedScene" uid="uid://cxjw8tk4kep1p" path="res://Scenes/PlatformerPlayer/Keys/Key01/Key01.tscn" id="19_f4ke7"]
+[ext_resource type="PackedScene" uid="uid://6a1c38prt1a4" path="res://Scenes/PlatformerPlayer/Buttons/Button1/Button01.tscn" id="20_dexti"]
+
+[node name="TestBasic" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(960, 540)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("1_0k40l")]
+position = Vector2(992, 1024)
+scale = Vector2(64.68, 2)
+
+[node name="ColorRect" parent="." instance=ExtResource("2_o00de")]
+visible = false
+metadata/_edit_lock_ = true
+
+[node name="ColorRect2" parent="." instance=ExtResource("2_o00de")]
+visible = false
+offset_left = 1024.0
+offset_right = 1984.0
+metadata/_edit_lock_ = true
+
+[node name="SmallDoor" parent="." instance=ExtResource("7_y463y")]
+position = Vector2(1552, 320)
+maxKeys = 1
+goalNumber = 1
+
+[node name="BigDoor" parent="." instance=ExtResource("11_54sgv")]
+position = Vector2(816, 272)
+maxButton = 1
+
+[node name="Background" parent="." instance=ExtResource("16_58n5x")]
+metadata/_edit_lock_ = true
+
+[node name="Player1" parent="." instance=ExtResource("18_nyfm7")]
+z_index = -1
+position = Vector2(96, 925)
+scale = Vector2(0.75, 0.75)
+AIR_SPEED = 150.0
+JUMP_VELOCITY = -430.0
+push_force = 50
+
+[node name="Player2" parent="." instance=ExtResource("18_nyfm7")]
+z_index = -1
+position = Vector2(1766, 948)
+scale = Vector2(0.75, 0.75)
+GROUND_SPEED = 230.0
+AIR_SPEED = 150.0
+JUMP_VELOCITY = -350.0
+side = 1
+directionOffsetZ = 50.0
+
+[node name="Key01" parent="." node_paths=PackedStringArray("receivers") instance=ExtResource("19_f4ke7")]
+position = Vector2(1136, 432)
+receivers = [NodePath("../SmallDoor")]
+
+[node name="Button01" parent="." node_paths=PackedStringArray("receivers") instance=ExtResource("20_dexti")]
+z_index = -1
+position = Vector2(464, 336)
+receivers = [NodePath("../BigDoor")]
+
+[node name="PlatformStaticRed_x5" parent="." instance=ExtResource("12_p3l3w")]
+position = Vector2(784, 800)
+
+[node name="PlatformStaticRed_x2" parent="." instance=ExtResource("13_qhjde")]
+position = Vector2(576, 880)
+
+[node name="BoxPickable" parent="." instance=ExtResource("3_fb0xc")]
+position = Vector2(1120, 848)
+
+[node name="BoxPickable2" parent="." instance=ExtResource("3_fb0xc")]
+position = Vector2(848, 736)
+side = 1
+
+[node name="BoxPickable3" parent="." instance=ExtResource("3_fb0xc")]
+position = Vector2(672, 272)
+side = 1
+
+[node name="PlatformStaticRed_x3" parent="." instance=ExtResource("13_qhjde")]
+position = Vector2(448, 960)
+
+[node name="PlatformStaticRed_x6" parent="." instance=ExtResource("12_p3l3w")]
+position = Vector2(208, 544)
+
+[node name="PlatformStaticRed_x7" parent="." instance=ExtResource("13_qhjde")]
+position = Vector2(496, 672)
+
+[node name="PlatformStaticRed" parent="." instance=ExtResource("12_pxffw")]
+position = Vector2(400, 608)
+
+[node name="PlatformStaticRed_x4" parent="." instance=ExtResource("13_qhjde")]
+position = Vector2(464, 400)
+
+[node name="PlatformStaticRed_x8" parent="." instance=ExtResource("12_p3l3w")]
+position = Vector2(736, 336)
+
+[node name="PlatformStaticBlue_x5" parent="." instance=ExtResource("15_4oelk")]
+position = Vector2(1440, 976)
+
+[node name="PlatformStaticBlue_x11" parent="." instance=ExtResource("15_4oelk")]
+position = Vector2(1728, 736)
+
+[node name="PlatformStaticBlue_x13" parent="." instance=ExtResource("15_4oelk")]
+position = Vector2(1600, 608)
+
+[node name="PlatformStaticBlue_x12" parent="." instance=ExtResource("15_4oelk")]
+position = Vector2(1536, 768)
+
+[node name="PlatformStaticBlue_x6" parent="." instance=ExtResource("15_4oelk")]
+position = Vector2(1280, 928)
+
+[node name="PlatformStaticBlue_x7" parent="." instance=ExtResource("15_4oelk")]
+position = Vector2(1120, 880)
+
+[node name="PlatformStaticBlue_x2" parent="." instance=ExtResource("14_5dgnf")]
+position = Vector2(1280, 832)
+
+[node name="PlatformStaticBlue_x3" parent="." instance=ExtResource("14_5dgnf")]
+position = Vector2(1376, 800)
+
+[node name="PlatformStaticBlue_x14" parent="." instance=ExtResource("15_4oelk")]
+position = Vector2(1552, 352)
+
+[node name="PlatformStaticBlue_x8" parent="." instance=ExtResource("15_4oelk")]
+position = Vector2(1296, 512)
+
+[node name="PlatformStaticBlue_x9" parent="." instance=ExtResource("15_4oelk")]
+position = Vector2(1136, 464)
+
+[node name="PlatformStaticBlue_x4" parent="." instance=ExtResource("14_5dgnf")]
+position = Vector2(1296, 416)
+
+[node name="PlatformStaticBlue_x15" parent="." instance=ExtResource("14_5dgnf")]
+position = Vector2(1392, 384)
+
+[node name="PlatformStaticBlue_x10" parent="." instance=ExtResource("14_5dgnf")]
+position = Vector2(1840, 688)
+
+[node name="PlatformStaticBlue_x18" parent="." instance=ExtResource("14_5dgnf")]
+position = Vector2(1728, 640)
+
+[node name="PlatformStaticBlue_x16" parent="." instance=ExtResource("14_5dgnf")]
+position = Vector2(1440, 544)

@@ -9,10 +9,12 @@ script = ExtResource("1_d7lxi")
 
 [node name="Open" type="Sprite2D" parent="."]
 visible = false
+texture_filter = 1
 rotation = 4.71239
 texture = ExtResource("2_ldvrd")
 
 [node name="Closed" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(1, 6)
 rotation = 4.71239
 texture = ExtResource("3_cagg7")
