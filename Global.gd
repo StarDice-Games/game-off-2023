@@ -24,6 +24,7 @@ var goals : Array[Node2D] = [null, null]
 @export var levelStartSound : AudioStream
 @export var tranferSound : AudioStream
 @export var levelCompleteSound : AudioStream
+@export var levelSelectionSound : AudioStream
 
 @export var menuMusic : AudioStream
 @export var inGameMusicBig : AudioStream
@@ -31,6 +32,7 @@ var goals : Array[Node2D] = [null, null]
 
 @export var menuButtonPress : AudioStream
 @export var menuButtonSelect : AudioStream
+@export var resumeSound : AudioStream
 
 @onready var bgMenuMusic : AudioStreamPlayer = $BackgroundMusic1
 @onready var bgInGameMusic : AudioStreamPlayer = $BackgroundMusic2
@@ -77,7 +79,9 @@ func _ready():
 		printerr("Error missing pause scene")
 		
 	bgMenuMusic.stream = menuMusic
-	bgMenuMusic.play()
+	if !musicMuted:
+		bgMenuMusic.play()
+	
 	bgInGameMusic.stream = inGameMusicBig
 	bgInGameMusic2.stream = inGameMusicSmall
 	
@@ -329,7 +333,7 @@ func _on_main_menu_select_level_pressed():
 
 func resumeGame():
 	print("Resume the current game")
-	AudioManager.play(menuButtonPress)
+	AudioManager.play(resumeSound)
 	currentGameState = GameState.IN_GAME
 	bgInGameMusic.stream_paused = false
 	bgInGameMusic2.stream_paused = false
@@ -375,8 +379,10 @@ func exitGame():
 func loadSelectedLevel(index):
 	print("Load level index")
 	if index < scenes.size():
+		AudioManager.play(levelSelectionSound)
 		var sceneToLoad = scenes[index].scene
-		currentGameState = GameState.IN_GAME
+		currentGameState = GameState.START_LEVEL
+		activePlayer = 0
 		bgMenuMusic.stop()
 		bgInGameMusic.play()
 		bgInGameMusic2.play()
@@ -386,7 +392,14 @@ func loadSelectedLevel(index):
 			get_tree().root.remove_child(selectLevelNode)
 		
 		get_tree().change_scene_to_packed(sceneToLoad)
-		
+		#play the start level sound, reset the statecurrentGameState = GameState.START_LEVEL
+			
+		if not sfxMuted:
+			AudioManager.play(levelStartSound)
+			$Timer.start(levelStartSound.get_length())
+			timerCallback = startLevelAfterJingle
+		else:
+			startLevelAfterJingle()
 
 func backToMainMenu():
 	print("back to the main menu")

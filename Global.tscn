@@ -32,6 +32,7 @@ inGameMusicBig = ExtResource("10_gkp78")
 inGameMusicSmall = ExtResource("12_1yry6")
 menuButtonPress = ExtResource("14_aqt12")
 menuButtonSelect = ExtResource("9_2u2u1")
+resumeSound = ExtResource("9_2u2u1")
 
 [node name="BackgroundMusic1" type="AudioStreamPlayer" parent="."]
 volume_db = -20.0
