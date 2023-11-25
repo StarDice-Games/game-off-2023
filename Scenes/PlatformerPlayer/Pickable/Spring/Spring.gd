@@ -5,8 +5,14 @@ class_name Spring
 @export var side = 0
 @export var JUMP_FORCE = 400
 
+@export_category("Audio")
+@export var jumpSoundBig : AudioStream
+@export var jumpSoundSmall : AudioStream
+#@export var timeBetweenLoops = 1
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var canPlaySound = true
 
 func _ready():
 	$PickupComponent.setSide(side)
@@ -33,6 +39,7 @@ func ApplyForceToPlayer(collider, size):
 		
 		if $PickupComponent.held == false:
 			collider.velocity.y = JUMP_FORCE
+			playSound(jumpSoundBig)
 
 func ApplyForceToItems(collider):
 	if collider is PlatPlayer:
@@ -47,6 +54,7 @@ func ApplyForceToItems(collider):
 					collider.apply_impulse(Vector2.UP * JUMP_FORCE)
 				else:
 					collider.velocity.y = JUMP_FORCE
+				playSound(jumpSoundSmall)
 		
 
 
@@ -55,24 +63,18 @@ func _on_pickup_component_body_entered(body):
 		match $PickupComponent.currentSide:
 			0:
 				ApplyForceToPlayer(body, null)
+				
 			1:
 				ApplyForceToItems(body)
 	pass # Replace with function body.
 
+func playSound(sound):
+	if sound != null and canPlaySound:
+		canPlaySound = false
+		AudioManager.play(sound)
+		$stopMusic.start(sound.get_length())
 
-#func _on_pickup_component_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-#	if body != null:
-#
-#		var collision = body.get_child(local_shape_index);
-#		var rect = null
-#		if collision is CollisionShape2D:
-#			print("Collision rect:", collision.shape.get_rect())
-#			rect = collision.shape.get_rect()
-#
-#		if rect != null:
-#			match side:
-#				0:
-#					ApplyForceToPlayer(body, rect)
-#				1:
-#					ApplyForceToItems(body)
-#	pass # Replace with function body.
+
+func _on_stop_music_timeout():
+	canPlaySound = true
+	pass # Replace with function body.
