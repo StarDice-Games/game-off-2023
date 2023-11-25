@@ -2,6 +2,8 @@ extends Area2D
 class_name PlantVase
 
 @export var receivers : Array[Node2D]
+@export_category("Audio")
+@export var growSound : AudioStream
 var active = false
 
 # Called when the node enters the scene tree for the first time.
@@ -21,4 +23,5 @@ func _on_area_entered(area):
 				if active == false:
 					$SenderComponent.activate()
 					active = true
+					AudioManager.play(growSound)
 	pass # Replace with function body.
