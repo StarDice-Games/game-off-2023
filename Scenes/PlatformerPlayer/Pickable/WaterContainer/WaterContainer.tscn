@@ -1,8 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://b50r2cbdgb676"]
+[gd_scene load_steps=16 format=3 uid="uid://b50r2cbdgb676"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Pickable/WaterContainer/WaterContainer.gd" id="1_886g2"]
 [ext_resource type="PackedScene" uid="uid://dnuopb0n063hc" path="res://Scenes/PlatformerPlayer/Pickable/PickupComponent/PickupComponent.tscn" id="1_b3ec7"]
 [ext_resource type="Texture2D" uid="uid://dmklscn3rq4av" path="res://Resources/Assets/Oggetti/Annaffiatoio_piccolo.png" id="2_3ft8s"]
+[ext_resource type="AudioStream" uid="uid://dcjg43o43tw5e" path="res://Resources/Sounds/blip.wav" id="2_48vtd"]
+[ext_resource type="AudioStream" uid="uid://udnk4t0e8ueh" path="res://Resources/Sounds/menusel.wav" id="3_7b2w6"]
 [ext_resource type="Texture2D" uid="uid://0wwso3gtjpid" path="res://Resources/Assets/Nuovi_PNG/Annaffiatoio_grande.png" id="3_ebwan"]
 [ext_resource type="Texture2D" uid="uid://b210fk8xybtqq" path="res://Resources/Assets/Nuovi_PNG/Goccia.png" id="5_dn3ek"]
 
@@ -111,6 +113,8 @@ collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_886g2")
 side = 1
+wateringSmall = ExtResource("2_48vtd")
+wateringBig = ExtResource("3_7b2w6")
 
 [node name="Left" type="Sprite2D" parent="."]
 process_mode = 4
@@ -188,3 +192,7 @@ color = Color(0, 0.690196, 0.803922, 1)
 libraries = {
 "": SubResource("AnimationLibrary_bdl37")
 }
+
+[node name="stopMusic" type="Timer" parent="."]
+
+[connection signal="timeout" from="stopMusic" to="." method="_on_stop_music_timeout"]

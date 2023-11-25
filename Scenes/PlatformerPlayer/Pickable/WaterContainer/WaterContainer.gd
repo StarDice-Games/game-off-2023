@@ -3,9 +3,14 @@ class_name WaterContainer
 
 @export var side = 0
 
+@export_category("Audio")
+@export var wateringSmall : AudioStream
+@export var wateringBig : AudioStream
+@export var timeBeforeLoop : float = -1
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
+var canPlaySound = true
 var animStarted = false
 
 func _ready():
@@ -21,6 +26,11 @@ func spreadWater():
 				$Sprinkle.scale.x = -1
 			false:
 				$Sprinkle.scale.x = 1
+		match $PickupComponent.currentSide:
+			1:
+				playSound(wateringSmall)
+			0:
+				playSound(wateringBig)
 
 func stopWater():
 #	$Sprinkle.disabled = true
@@ -45,3 +55,16 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 	move_and_slide()
 
+func playSound(sound):
+	if sound != null and canPlaySound:
+		var timerTime = sound.get_length()
+		if timeBeforeLoop > 0:
+			timerTime = timeBeforeLoop
+		canPlaySound = false
+		AudioManager.play(sound)
+		$stopMusic.start(timerTime)
+
+
+func _on_stop_music_timeout():
+	canPlaySound = true
+	pass # Replace with function body.
