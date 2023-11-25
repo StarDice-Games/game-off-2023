@@ -3,9 +3,8 @@
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/TriggerComponent/ReceiverComponent.gd" id="1_22d2v"]
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Doors/SmallDoor/SmallDoor.gd" id="1_cg50m"]
 [ext_resource type="PackedScene" uid="uid://d144y04rmu6wx" path="res://Scenes/PlatformerPlayer/Doors/Indicators/SmallDoorIndicator.tscn" id="2_8hpr2"]
-[ext_resource type="Texture2D" uid="uid://bgfc8m50tu0pr" path="res://Resources/Assets/Upd_Assets/Porta_piccola_chiusa.png" id="3_gqb36"]
 [ext_resource type="AudioStream" uid="uid://cv6hw23lpprg2" path="res://Resources/Sounds/place_piece.wav" id="3_3q010"]
-[ext_resource type="Texture2D" uid="uid://cv422swovafhb" path="res://Resources/Assets/Nuovi_PNG/Porta_piccola_aperta.png" id="4_27kjk"]
+[ext_resource type="Texture2D" uid="uid://bgfc8m50tu0pr" path="res://Resources/Assets/Upd_Assets/Porta_piccola_chiusa.png" id="3_gqb36"]
 [ext_resource type="PackedScene" uid="uid://cs8xishx48a2x" path="res://Scenes/PlatformerPlayer/Goal/GoalComponent.tscn" id="4_v4atr"]
 [ext_resource type="Texture2D" uid="uid://bowonq6ytmfml" path="res://Resources/Assets/Upd_Assets/Porta_piccola_aperta.png" id="4_yt3ei"]
 
