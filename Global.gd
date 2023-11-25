@@ -19,6 +19,8 @@ var goals : Array[Node2D] = [null, null]
 @export var selectLevelScene : PackedScene
 
 @export_category("Audio")
+@export var musicMuted = false
+@export var sfxMuted = false
 @export var levelStartSound : AudioStream
 @export var tranferSound : AudioStream
 @export var levelCompleteSound : AudioStream
@@ -35,8 +37,7 @@ var timerCallback : Callable
 var nodeInstance = null
 var next_scene = 1
 
-var musicMuted = false
-var sfxMuted = false
+
 
 enum GameState {
 	MAIN_MENU,
