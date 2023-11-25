@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3snw3pxmp7x8"]
+[gd_scene load_steps=5 format=3 uid="uid://c3snw3pxmp7x8"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Doors/Indicators/DoorIndicator.gd" id="1_d7lxi"]
+[ext_resource type="AudioStream" uid="uid://cv6hw23lpprg2" path="res://Resources/Sounds/place_piece.wav" id="2_2dkx4"]
 [ext_resource type="Texture2D" uid="uid://drv6wi5agih0a" path="res://Resources/Assets/Nuovi_PNG/Lucchetto_digitale_acceso.png" id="2_ldvrd"]
 [ext_resource type="Texture2D" uid="uid://cpoihdfoxqxk8" path="res://Resources/Assets/Nuovi_PNG/Lucchetto_digitale_spento.png" id="3_cagg7"]
 
 [node name="SmallDoorIndicator" type="Node2D"]
 script = ExtResource("1_d7lxi")
+sound = ExtResource("2_2dkx4")
 
 [node name="Open" type="Sprite2D" parent="."]
 visible = false

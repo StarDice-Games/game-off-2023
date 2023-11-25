@@ -23,8 +23,8 @@ func _ready():
 			var indicator = indicatorScene.instantiate()
 			indicator.position = $IndicatorStart.position
 			indicator.position.y += i*indicatorOffset
-			indicator.unlock(true)
-			indicators.append(indicator) 
+#			indicator.unlock(true)
+			indicators.append(indicator)
 			add_child(indicator)
 	
 	pass # Replace with function body.
@@ -35,8 +35,9 @@ func _process(delta):
 	if buttonActivated >= maxButton and not isOpen:
 		fullyOpen()
 	
-	#all indicator to false
-	if indicators.size() > 0:
+	
+	if indicators.size() > 0 and Global.currentGameState == Global.GameState.IN_GAME:
+		#all indicator to false
 		for i in range(0, maxButton):
 			indicators[i].unlock(false)
 		for i in range(0, buttonActivated):

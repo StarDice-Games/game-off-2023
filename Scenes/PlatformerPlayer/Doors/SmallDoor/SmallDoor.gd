@@ -24,7 +24,6 @@ func _ready():
 			var indicator = indicatorScene.instantiate()
 			indicator.position = $IndicatorStart.position
 			indicator.position.y += i*indicatorOffset
-			indicator.unlock(true)
 			indicators.append(indicator) 
 			add_child(indicator)
 			
@@ -38,7 +37,7 @@ func _process(delta):
 		fullyOpen()
 		
 	#all indicator to false
-	if indicators.size() > 0:
+	if indicators.size() > 0 and Global.currentGameState == Global.GameState.IN_GAME:
 		for i in range(0, maxKeys):
 			indicators[i].unlock(false)
 		for i in range(0, keyCollected):
