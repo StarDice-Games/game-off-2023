@@ -1,5 +1,7 @@
 extends StaticBody2D
 
+@export_category("Audio")
+@export var disappearSound : AudioStream
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,6 +21,7 @@ func _on_area_2d_body_entered(body):
 
 func disappearEnd():
 	$AnimationPlayer.play("respawn")
+	AudioManager.play(disappearSound)
 	pass
 
 func _on_area_2d_body_exited(body):
