@@ -5,11 +5,15 @@ signal new_game_pressed
 signal select_level_ressed
 signal exit_pressed
 
+@onready var buttonToFocus = $Control2/NewGame
+@onready var musicToggle = $Control2/ColorRect/Music
+@onready var sfxToggle = $Control2/ColorRect2/Sounds
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$NewGame.grab_focus()
-	$ColorRect/Music.button_pressed = !Global.musicMuted
-	$ColorRect2/Sounds.button_pressed = !Global.sfxMuted
+	buttonToFocus.grab_focus()
+	musicToggle.button_pressed = !Global.musicMuted
+	sfxToggle.button_pressed = !Global.sfxMuted
 	pass # Replace with function body.
 
 
@@ -37,9 +41,9 @@ func _on_exit_pressed():
 
 func _on_draw():
 	print("main menu Become visible")
-	$NewGame.grab_focus()
-	$ColorRect/Music.button_pressed = !Global.musicMuted
-	$ColorRect2/Sounds.button_pressed = !Global.sfxMuted
+	buttonToFocus.grab_focus()
+	musicToggle.button_pressed = !Global.musicMuted
+	sfxToggle.button_pressed = !Global.sfxMuted
 	pass # Replace with function body.
 
 
