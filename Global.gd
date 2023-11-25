@@ -42,7 +42,8 @@ enum GameState {
 	MAIN_MENU,
 	PAUSE,
 	LEVEL_SELECT,
-	IN_GAME
+	IN_GAME,
+	LEVEL_COMPLETE
 }
 
 enum Scaling {
@@ -127,7 +128,7 @@ func goalIsAchieved(goal):
 
 func transferPickable(starting, receiver, scaling : Scaling):
 	#do not transfer if the other player has an item
-	if receiver.pickedItem != null:
+	if receiver == null or receiver.pickedItem != null:
 		return
 	
 	AudioManager.play(tranferSound)
@@ -210,13 +211,12 @@ func processGame(delta):
 	
 	if levelComplete:
 		print("Level is complete !!!", scenes.size())
+		currentGameState = GameState.LEVEL_COMPLETE
 		AudioManager.play(levelCompleteSound)
+		$Timer.start(levelCompleteSound.get_length())
+		timerCallback = loadNextLevel
 #		#TODO animation
-		if scenes[next_scene] != null:
-			get_tree().change_scene_to_packed(scenes[next_scene].scene)
-			next_scene += 1
-			next_scene %= scenes.size()
-			
+
 	#TODO remove this
 	if Input.is_action_just_pressed("ChangeLevelDebug"):
 		get_tree().change_scene_to_packed(scenes[next_scene].scene)
@@ -234,7 +234,14 @@ func processGame(delta):
 		nodeInstance.connect("on_exit_pressed", exitGame)
 		bgInGameMusic.stream_paused = true
 		bgInGameMusic2.stream_paused = true
-	
+
+func loadNextLevel():
+	currentGameState = GameState.IN_GAME
+	if scenes[next_scene] != null:
+			get_tree().change_scene_to_packed(scenes[next_scene].scene)
+			next_scene += 1
+			next_scene %= scenes.size()
+			AudioManager.play(levelStartSound)
 
 func processMainMenu(delta):
 	if get_tree().root.get_node("MainMenu") == null:
