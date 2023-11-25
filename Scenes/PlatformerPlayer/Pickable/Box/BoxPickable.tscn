@@ -127,7 +127,7 @@ _data = {
 
 [node name="BoxPickable" type="CharacterBody2D" groups=["Pickable"]]
 collision_layer = 4
-collision_mask = 7
+collision_mask = 71
 script = ExtResource("1_1jlfo")
 
 [node name="Right" type="Sprite2D" parent="."]

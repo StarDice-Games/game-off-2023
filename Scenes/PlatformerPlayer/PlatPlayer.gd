@@ -194,13 +194,13 @@ func _physics_process(delta):
 				var newPos = position + (colliderHand.position * scale)
 				pickedItem.setPosition(newPos)
 				pickedItem.held = false
-				pickedItem.setCollisions(true)
+#				pickedItem.setCollisions(true)
 				
 				pickedItem = null
 				collindingNode = null
 				AudioManager.play(releaseObject)
 				
-			if collindingNode != null && pickedItem == null:
+			elif collindingNode != null && pickedItem == null:
 				pickupItem(collindingNode)
 				AudioManager.play(grabObject)
 			
@@ -221,11 +221,15 @@ func playDeathAudio():
 		audioPlayer.play()
 
 func pickupItem(item):
+	var parent = item.get_parent()
+	if parent is BoxPickup:
+		if parent.afloat:
+			return
+	
 	pickedItem = item
 	pickedItem.held = true
 	pickedItem.setCollisions(false)
-	
-	var parent = item.get_parent()
+		
 	if parent is RigidBody2D:
 		parent.linear_velocity = Vector2.ZERO
 		parent.angular_velocity = 0

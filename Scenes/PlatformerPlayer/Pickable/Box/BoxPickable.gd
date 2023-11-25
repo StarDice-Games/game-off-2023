@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name BoxPickup
 @export var side = 0
 
 const SPEED = 300.0
@@ -15,12 +15,14 @@ func _physics_process(delta):
 	if not is_on_floor() and $PickupComponent.held == false and not afloat:
 		velocity.y += gravity * delta
 	move_and_slide()
-	var collision = get_last_slide_collision()
-	if collision != null:
-		var collider = collision.get_collider()
-		if collider != null and collider is WaterFloor:
-			afloat = true
-			remove_from_group("Pickable")
-			$PickupComponent.remove_from_group("Pickable")
-			if $AnimationPlayer != null:
-				$AnimationPlayer.play("float")
+	
+	for i in range(0,get_slide_collision_count()):
+		var collision = get_slide_collision(i)
+		if collision != null:
+			var collider = collision.get_collider()
+			if collider != null and collider is WaterFloor:
+				afloat = true
+				remove_from_group("Pickable")
+				$PickupComponent.remove_from_group("Pickable")
+				if $AnimationPlayer != null:
+					$AnimationPlayer.play("float")
