@@ -46,7 +46,8 @@ enum GameState {
 	PAUSE,
 	LEVEL_SELECT,
 	IN_GAME,
-	LEVEL_COMPLETE
+	LEVEL_COMPLETE,
+	START_LEVEL
 }
 
 enum Scaling {
@@ -239,12 +240,13 @@ func processGame(delta):
 		bgInGameMusic2.stream_paused = true
 
 func loadNextLevel():
-	currentGameState = GameState.IN_GAME
 	if scenes[next_scene] != null:
 			get_tree().change_scene_to_packed(scenes[next_scene].scene)
 			next_scene += 1
 			next_scene %= scenes.size()
 			AudioManager.play(levelStartSound)
+			currentGameState = GameState.IN_GAME
+			setActivePlayer(0)
 
 func processMainMenu(delta):
 	if get_tree().root.get_node("MainMenu") == null:
@@ -278,26 +280,31 @@ func _on_main_menu_exit_pressed():
 
 func _on_main_menu_new_game_pressed():
 	print("Start the game")
-	if not sfxMuted:
-		AudioManager.play(levelStartSound)
-		$Timer.start(levelStartSound.get_length())
-		timerCallback = startGame
-	else:
-		startGame()
+	startGame()
 	pass
 
 func startGame():
-	#hide the menu
-	closeMainMenu()
+	
 	#change the status
-	currentGameState = GameState.IN_GAME
 	activePlayer = 0
 	bgMenuMusic.stop()
 	bgInGameMusic.play()
 	bgInGameMusic2.play()
 	
+	currentGameState = GameState.START_LEVEL
+	closeMainMenu()
+	
 	if scenes.size() > 0:
 		get_tree().change_scene_to_packed(scenes.front().scene)
+		if not sfxMuted:
+			AudioManager.play(levelStartSound)
+			$Timer.start(levelStartSound.get_length())
+			timerCallback = startLevelAfterJingle
+		else:
+			startLevelAfterJingle()
+
+func startLevelAfterJingle():
+	currentGameState = GameState.IN_GAME
 
 func _on_main_menu_select_level_pressed():
 	print("Select levels")
