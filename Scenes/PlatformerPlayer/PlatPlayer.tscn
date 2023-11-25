@@ -10,18 +10,18 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8nqjx"]
 radius = 11.0
-height = 56.0
+height = 164.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_32an5"]
-radius = 7.0
-height = 14.0
+radius = 11.0
+height = 46.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w3jm4"]
-radius = 7.0
-height = 24.0
+radius = 9.0
+height = 84.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4s05q"]
-size = Vector2(10, 5)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6u44k"]
+radius = 4.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ynrlp"]
 size = Vector2(31.5, 113)
@@ -54,25 +54,27 @@ visible = false
 texture = ExtResource("4_v002a")
 
 [node name="LeftCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 62)
+position = Vector2(-4, 2)
 shape = SubResource("CapsuleShape2D_8nqjx")
 
 [node name="LeftCollision2" type="CollisionShape2D" parent="."]
-position = Vector2(-3, -71)
+position = Vector2(0, 80)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_32an5")
 
 [node name="RightCollision" type="CollisionShape2D" parent="."]
 process_mode = 4
 visible = false
-position = Vector2(-1, 47)
+position = Vector2(0, 17)
 shape = SubResource("CapsuleShape2D_w3jm4")
 disabled = true
 
 [node name="RightCollision2" type="CollisionShape2D" parent="."]
 process_mode = 4
 visible = false
-position = Vector2(0, -20)
-shape = SubResource("RectangleShape2D_4s05q")
+position = Vector2(-4.5, 54)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_6u44k")
 disabled = true
 
 [node name="PickupPosition" type="Marker2D" parent="."]
