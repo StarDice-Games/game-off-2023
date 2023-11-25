@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://js3ym6n0f3po"]
+[gd_scene load_steps=11 format=3 uid="uid://js3ym6n0f3po"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Pickable/RigidBodyPickable/PicakbleBall.gd" id="1_k557d"]
 [ext_resource type="Texture2D" uid="uid://cch3l4gt7li5v" path="res://Resources/Assets/Nuovi_PNG/Palla_piccola.png" id="2_0engy"]
+[ext_resource type="AudioStream" uid="uid://cv6hw23lpprg2" path="res://Resources/Sounds/place_piece.wav" id="2_0wcfk"]
+[ext_resource type="AudioStream" uid="uid://udnk4t0e8ueh" path="res://Resources/Sounds/menusel.wav" id="2_8t6ue"]
 [ext_resource type="Texture2D" uid="uid://l3r842awinrx" path="res://Resources/Assets/Nuovi_PNG/Palla_grande.png" id="3_ssxj5"]
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Pickable/PickupComponent/pickupComponent.gd" id="3_ufbv2"]
 
@@ -25,6 +27,9 @@ max_contacts_reported = 1
 contact_monitor = true
 lock_rotation = true
 script = ExtResource("1_k557d")
+speedBeforePlayingSound = 30
+rollingSoundBig = ExtResource("2_8t6ue")
+rollingSoundSmall = ExtResource("2_0wcfk")
 
 [node name="Left" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -69,3 +74,7 @@ visible = false
 position = Vector2(0, -32)
 shape = SubResource("CircleShape2D_ky8ox")
 disabled = true
+
+[node name="WaitForSoundToStop" type="Timer" parent="."]
+
+[connection signal="timeout" from="WaitForSoundToStop" to="." method="_on_wait_for_sound_to_stop_timeout"]
