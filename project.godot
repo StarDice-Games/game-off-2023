@@ -126,4 +126,5 @@ Pause={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 environment/defaults/default_clear_color=Color(0.243137, 0.219608, 0.231373, 1)
