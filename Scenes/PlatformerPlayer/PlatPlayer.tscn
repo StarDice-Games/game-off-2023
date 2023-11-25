@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cqnl53v0iei8b"]
+[gd_scene load_steps=14 format=3 uid="uid://cqnl53v0iei8b"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/PlatPlayer.gd" id="1_go3e0"]
 [ext_resource type="Material" uid="uid://bdjvh3cymune7" path="res://Resources/Materials/Unshaded.tres" id="2_4bwpy"]
@@ -32,6 +32,7 @@ size = Vector2(20, 17.1951)
 [node name="PlatPlayer" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 61
+platform_on_leave = 2
 script = ExtResource("1_go3e0")
 
 [node name="Player_rosso" parent="." instance=ExtResource("2_x7kcr")]

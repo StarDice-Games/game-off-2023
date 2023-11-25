@@ -140,7 +140,7 @@ func _physics_process(delta):
 			getActiveAnimationPlayer().play("Jump")
 			AudioManager.play(jumpSound)
 			jumpAnimationEnd = false
-			velocity.y = JUMP_VELOCITY
+			velocity.y = (JUMP_VELOCITY - velocity.y)
 
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
