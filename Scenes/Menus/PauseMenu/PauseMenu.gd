@@ -38,6 +38,8 @@ func _on_exit_pressed():
 
 func _on_control_draw():
 	$Control/Resume.grab_focus()
+	$Control/Music.button_pressed = !Global.musicMuted
+	$Control/Sounds.button_pressed = !Global.sfxMuted
 	pass # Replace with function body.
 
 
