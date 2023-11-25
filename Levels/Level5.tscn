@@ -131,7 +131,7 @@ loop = false
 [node name="M_Platform" parent="LEFT/Platforms/Path2D/PathFollow2D" node_paths=PackedStringArray("path") instance=ExtResource("10_lytko")]
 position = Vector2(-32, -0.00012207)
 rotation = 1.5708
-speed = 200.0
+speed = 100.0
 path = NodePath("..")
 active = false
 
@@ -179,7 +179,6 @@ scale = Vector2(0.75, 0.75)
 AIR_SPEED = 150.0
 JUMP_VELOCITY = -430.0
 push_force = 50
-side = 0
 
 [node name="RIGHT" type="Node2D" parent="."]
 
@@ -287,7 +286,7 @@ loop = false
 [node name="M_Platform2" parent="RIGHT/Platforms/Path2D2/PathFollow2D" node_paths=PackedStringArray("path") instance=ExtResource("22_2efe3")]
 position = Vector2(-16.0059, 0)
 rotation = 1.5708
-speed = 200.0
+speed = 100.0
 path = NodePath("..")
 active = false
 
@@ -349,4 +348,5 @@ scale = Vector2(0.75, 0.75)
 GROUND_SPEED = 230.0
 AIR_SPEED = 150.0
 JUMP_VELOCITY = -350.0
+side = 1
 directionOffsetZ = 50.0
