@@ -183,7 +183,7 @@ func _physics_process(delta):
 				var newPos = position + (colliderHand.position * scale)
 				pickedItem.setPosition(newPos)
 				pickedItem.held = false
-				pickedItem.setCollisions(true)
+				#pickedItem.setCollisions(true)
 				
 				pickedItem = null
 				collindingNode = null
