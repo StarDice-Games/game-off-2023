@@ -29,6 +29,8 @@ var goals : Array[Node2D] = [null, null]
 @export var inGameMusicBig : AudioStream
 @export var inGameMusicSmall : AudioStream
 
+@export var menuButtonPress : AudioStream
+
 @onready var bgMenuMusic : AudioStreamPlayer = $BackgroundMusic1
 @onready var bgInGameMusic : AudioStreamPlayer = $BackgroundMusic2
 @onready var bgInGameMusic2 : AudioStreamPlayer = $BGInGameMusic
@@ -299,6 +301,7 @@ func startGame():
 
 func _on_main_menu_select_level_pressed():
 	print("Select levels")
+	AudioManager.play(menuButtonPress)
 	if scenes.size() > 0:
 		closeMainMenu()
 		currentGameState = GameState.LEVEL_SELECT		
@@ -311,6 +314,7 @@ func _on_main_menu_select_level_pressed():
 
 func resumeGame():
 	print("Resume the current game")
+	AudioManager.play(menuButtonPress)
 	currentGameState = GameState.IN_GAME
 	bgInGameMusic.stream_paused = false
 	bgInGameMusic2.stream_paused = false
@@ -321,6 +325,7 @@ func resumeGame():
 
 func restartLevel():
 	print("restart the current game")
+	AudioManager.play(menuButtonPress)
 	currentGameState = GameState.IN_GAME
 	
 	#TODO reset the status of the player
@@ -334,6 +339,7 @@ func restartLevel():
 
 func exitGame():
 	print("back to the main menu")
+	AudioManager.play(menuButtonPress)
 	currentGameState = GameState.MAIN_MENU
 	bgMenuMusic.play()
 	bgInGameMusic.stop()
@@ -369,6 +375,7 @@ func loadSelectedLevel(index):
 
 func backToMainMenu():
 	print("back to the main menu")
+	AudioManager.play(menuButtonPress)
 	currentGameState = GameState.MAIN_MENU
 	
 	var selectLevelNode = get_tree().root.get_node("SelectLevel")
@@ -390,3 +397,6 @@ func _on_timer_timeout():
 	timerCallback.call()
 	timerCallback = nop
 	pass # Replace with function body.
+
+func onMenuButtonPress():
+	AudioManager.play(menuButtonPress)

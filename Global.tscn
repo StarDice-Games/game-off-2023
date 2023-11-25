@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bxeb2iva4yrgw"]
+[gd_scene load_steps=15 format=3 uid="uid://bxeb2iva4yrgw"]
 
 [ext_resource type="Script" path="res://Global.gd" id="1_j5qpw"]
 [ext_resource type="Resource" uid="uid://cpy6dd3hx5r8m" path="res://Resources/Levels/Level1.tres" id="2_l0r8t"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://bcqmvyqoq1bs6" path="res://Resources/Sounds/sfx_victory.ogg" id="10_3yqsn"]
 [ext_resource type="AudioStream" uid="uid://b05mtllph2ded" path="res://Resources/Sounds/bgm_level1A.ogg" id="10_gkp78"]
 [ext_resource type="AudioStream" uid="uid://b7s0qg07ggtmc" path="res://Resources/Sounds/bgm_level1B.ogg" id="12_1yry6"]
+[ext_resource type="AudioStream" uid="uid://cv6hw23lpprg2" path="res://Resources/Sounds/place_piece.wav" id="14_aqt12"]
 
 [node name="Global" type="Node2D"]
 script = ExtResource("1_j5qpw")
@@ -29,6 +30,7 @@ levelCompleteSound = ExtResource("10_3yqsn")
 menuMusic = ExtResource("9_pvhhq")
 inGameMusicBig = ExtResource("10_gkp78")
 inGameMusicSmall = ExtResource("12_1yry6")
+menuButtonPress = ExtResource("14_aqt12")
 
 [node name="BackgroundMusic1" type="AudioStreamPlayer" parent="."]
 volume_db = -20.0

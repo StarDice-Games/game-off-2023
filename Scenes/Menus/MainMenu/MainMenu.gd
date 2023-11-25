@@ -25,7 +25,7 @@ func _on_new_game_pressed():
 
 
 func _on_level_select_pressed():
-	print("Open select level TBD")
+	print("Open select level TBD")	
 	select_level_ressed.emit()
 	pass # Replace with function body.
 
@@ -38,10 +38,8 @@ func _on_exit_pressed():
 func _on_draw():
 	print("main menu Become visible")
 	$NewGame.grab_focus()
-	pass # Replace with function body.
-
-
-func _on_sounds_pressed():
+	$ColorRect/Music.button_pressed = !Global.musicMuted
+	$ColorRect2/Sounds.button_pressed = !Global.sfxMuted
 	pass # Replace with function body.
 
 
