@@ -216,9 +216,13 @@ func processGame(delta):
 	if levelComplete:
 		print("Level is complete !!!", scenes.size())
 		currentGameState = GameState.LEVEL_COMPLETE
-		AudioManager.play(levelCompleteSound)
-		$Timer.start(levelCompleteSound.get_length())
-		timerCallback = loadNextLevel
+		
+		if sfxMuted:
+			loadNextLevel()
+		else:
+			AudioManager.play(levelCompleteSound)
+			$Timer.start(levelCompleteSound.get_length())
+			timerCallback = loadNextLevel
 #		#TODO animation
 
 	#TODO remove this
