@@ -117,8 +117,13 @@ text = "Sounds
 
 [connection signal="draw" from="." to="." method="_on_draw"]
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="focus_entered" from="NewGame" to="." method="_on_button_focus"]
 [connection signal="pressed" from="NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="focus_entered" from="LevelSelect" to="." method="_on_button_focus"]
 [connection signal="pressed" from="LevelSelect" to="." method="_on_level_select_pressed"]
+[connection signal="focus_entered" from="Exit" to="." method="_on_button_focus"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[connection signal="focus_entered" from="ColorRect/Music" to="." method="_on_button_focus"]
 [connection signal="toggled" from="ColorRect/Music" to="." method="_on_music_toggled"]
+[connection signal="focus_entered" from="ColorRect2/Sounds" to="." method="_on_button_focus"]
 [connection signal="toggled" from="ColorRect2/Sounds" to="." method="_on_sounds_toggled"]

@@ -82,8 +82,13 @@ text = "Sounds
 "
 
 [connection signal="draw" from="Control" to="." method="_on_control_draw"]
+[connection signal="focus_entered" from="Control/Resume" to="." method="_on_button_focus"]
 [connection signal="pressed" from="Control/Resume" to="." method="_on_resume_pressed"]
+[connection signal="focus_entered" from="Control/Restart" to="." method="_on_button_focus"]
 [connection signal="pressed" from="Control/Restart" to="." method="_on_restart_pressed"]
+[connection signal="focus_entered" from="Control/Exit" to="." method="_on_button_focus"]
 [connection signal="pressed" from="Control/Exit" to="." method="_on_exit_pressed"]
+[connection signal="focus_entered" from="Control/Music" to="." method="_on_button_focus"]
 [connection signal="toggled" from="Control/Music" to="." method="_on_music_toggled"]
+[connection signal="focus_entered" from="Control/Sounds" to="." method="_on_button_focus"]
 [connection signal="toggled" from="Control/Sounds" to="." method="_on_sounds_toggled"]

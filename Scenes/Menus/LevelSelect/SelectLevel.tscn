@@ -42,4 +42,5 @@ text = "BACK"
 [connection signal="item_activated" from="ItemList" to="." method="_on_item_list_item_activated"]
 [connection signal="item_clicked" from="ItemList" to="." method="_on_item_list_item_clicked"]
 [connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]
+[connection signal="focus_entered" from="Back" to="." method="_on_button_focus"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

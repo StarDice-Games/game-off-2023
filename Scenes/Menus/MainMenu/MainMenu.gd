@@ -51,3 +51,8 @@ func _on_music_toggled(button_pressed):
 func _on_sounds_toggled(button_pressed):
 	Global.sfxMuted = !button_pressed
 	pass # Replace with function body.
+
+
+func _on_button_focus():
+	Global.playSelectButton()
+	pass # Replace with function body.

@@ -32,7 +32,7 @@ func _on_item_list_item_clicked(index, at_position, mouse_button_index):
 
 func _on_item_list_item_selected(index):
 	print("Item selected:", index, "-", levelList[index].name)
-	
+	Global.playSelectButton()
 	pass # Replace with function body.
 
 
@@ -44,4 +44,8 @@ func _on_back_pressed():
 func _on_item_list_item_activated(index):
 	print("Item activated:", index, "-", levelList[index].name)	
 	on_level_selected.emit(index)
+	pass # Replace with function body.
+
+func _on_button_focus():
+	Global.playSelectButton()
 	pass # Replace with function body.

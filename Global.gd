@@ -30,6 +30,7 @@ var goals : Array[Node2D] = [null, null]
 @export var inGameMusicSmall : AudioStream
 
 @export var menuButtonPress : AudioStream
+@export var menuButtonSelect : AudioStream
 
 @onready var bgMenuMusic : AudioStreamPlayer = $BackgroundMusic1
 @onready var bgInGameMusic : AudioStreamPlayer = $BackgroundMusic2
@@ -56,6 +57,9 @@ enum Scaling {
 }
 
 var currentGameState = GameState.MAIN_MENU
+
+func playSelectButton():
+	AudioManager.play(menuButtonSelect)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():	
