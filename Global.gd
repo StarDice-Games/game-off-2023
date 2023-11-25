@@ -120,11 +120,13 @@ func getPlayer(index):
 func changeActivePlayer():
 	match activePlayer:
 			0 : 
+				players[0].stopAnimation()
 				activePlayer = 1
 				bgInGameMusic.volume_db = -80
 				bgInGameMusic2.volume_db = 0
 				
 			1 : 
+				players[1].stopAnimation()
 				activePlayer = 0
 				bgInGameMusic.volume_db = 0
 				bgInGameMusic2.volume_db = -80

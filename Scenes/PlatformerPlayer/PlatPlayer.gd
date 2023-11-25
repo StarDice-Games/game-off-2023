@@ -97,6 +97,12 @@ func getActiveAnimationPlayer():
 			return animationRed
 		1:
 			return animationBlue
+			
+func stopAnimation():
+	animationBlue.stop()
+	animationRed.stop()
+	animationBlue.play("Idle")
+	animationRed.play("Idle")
 
 func _physics_process(delta):
 	if Global.currentGameState != Global.GameState.IN_GAME:
