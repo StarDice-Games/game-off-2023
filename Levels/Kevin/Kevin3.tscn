@@ -66,8 +66,6 @@ scale = Vector2(0.75, 0.75)
 AIR_SPEED = 150.0
 JUMP_VELOCITY = -430.0
 push_force = 50
-side = 0
-directionOffsetZ = 50.0
 
 [node name="Player2" parent="." instance=ExtResource("5_dwfel")]
 position = Vector2(1419, 934)
@@ -75,13 +73,14 @@ scale = Vector2(0.75, 0.75)
 GROUND_SPEED = 230.0
 AIR_SPEED = 150.0
 JUMP_VELOCITY = -350.0
+side = 1
 directionOffsetZ = 50.0
 
 [node name="BoxPickable3" parent="." instance=ExtResource("6_otahl")]
 position = Vector2(1312, 672)
 
 [node name="BoxPickable5" parent="." instance=ExtResource("6_otahl")]
-position = Vector2(1824, 976)
+position = Vector2(1824, 977)
 
 [node name="BoxPickable4" parent="." instance=ExtResource("6_otahl")]
 position = Vector2(1484, 977)
@@ -171,14 +170,17 @@ side = 1
 JUMP_FORCE = -750
 
 [node name="Spring3" parent="." instance=ExtResource("17_2ojhy")]
-position = Vector2(1744, 976)
+position = Vector2(1750, 975)
 JUMP_FORCE = -750
 
 [node name="Spikes2" parent="." instance=ExtResource("18_e78wl")]
-position = Vector2(1677, 976)
+position = Vector2(1670, 976)
 
 [node name="Spikes3" parent="." instance=ExtResource("18_e78wl")]
-position = Vector2(1718, 976)
+position = Vector2(1703, 976)
+
+[node name="Spikes6" parent="." instance=ExtResource("18_e78wl")]
+position = Vector2(1734, 975)
 
 [node name="Spikes4" parent="." instance=ExtResource("18_e78wl")]
 position = Vector2(1637, 976)

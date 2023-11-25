@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dcd8ry7ksui4v"]
+[gd_scene load_steps=22 format=3 uid="uid://dcd8ry7ksui4v"]
 
 [ext_resource type="PackedScene" uid="uid://c6oxlwfitiwcd" path="res://Scenes/PlatformerPlayer/Obstacle/statiWall.tscn" id="3_4in1n"]
 [ext_resource type="PackedScene" uid="uid://c5xj8w588i6aa" path="res://Scenes/Visual Indicator/visualIndicator.tscn" id="4_68r8a"]
@@ -11,17 +11,19 @@
 [ext_resource type="PackedScene" uid="uid://bwwry4wow68b6" path="res://Scenes/PlatformerPlayer/Obstacle/Fire/Fire.tscn" id="12_sqht7"]
 [ext_resource type="PackedScene" uid="uid://phjy1geq4nek" path="res://Scenes/PlatformerPlayer/Platforms/Platform1/Platform2.tscn" id="13_7i2k0"]
 [ext_resource type="PackedScene" uid="uid://bc4tsc83nd2al" path="res://Scenes/PlatformerPlayer/PressurePlates/PressurePlate1/PressurePlate1.tscn" id="14_sp555"]
-[ext_resource type="PackedScene" uid="uid://dys77aiydaakp" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed.tscn" id="15_3rjit"]
 [ext_resource type="PackedScene" uid="uid://c8qbn2xe7w0yv" path="res://Scenes/PlatformerPlayer/Doors/BigDoor/BigDoor.tscn" id="15_qjrpe"]
 [ext_resource type="PackedScene" uid="uid://ddfaeavjffgx6" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x5.tscn" id="16_pm71b"]
 [ext_resource type="PackedScene" uid="uid://c0yejb6v7hqpy" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x2.tscn" id="17_7gvvk"]
 [ext_resource type="PackedScene" uid="uid://din1h8ql506vb" path="res://Scenes/Background.tscn" id="18_5ij66"]
 [ext_resource type="PackedScene" uid="uid://dn8ylngmbs0mt" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x2.tscn" id="18_qp5cu"]
+[ext_resource type="PackedScene" uid="uid://sn8oy4jcubwe" path="res://Scenes/PlatformerPlayer/Platforms/DisappearPlatform1/DisapperaPlatform1.tscn" id="19_ve8ur"]
 [ext_resource type="PackedScene" uid="uid://dc601pwyjee1" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x5.tscn" id="19_wc13e"]
+[ext_resource type="PackedScene" uid="uid://cxjw8tk4kep1p" path="res://Scenes/PlatformerPlayer/Keys/Key01/Key01.tscn" id="20_cuqwu"]
+[ext_resource type="PackedScene" uid="uid://6a1c38prt1a4" path="res://Scenes/PlatformerPlayer/Buttons/Button1/Button01.tscn" id="21_s6k26"]
 
 [sub_resource type="Curve2D" id="Curve2D_p2asn"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -48, 208, 0, 0, 0, 0, -48, -80)
+"points": PackedVector2Array(0, 0, 0, 0, -48, 208, 0, 0, 0, 0, -48, -48)
 }
 point_count = 2
 
@@ -44,27 +46,12 @@ offset_left = 1024.0
 offset_right = 1984.0
 metadata/_edit_lock_ = true
 
-[node name="Player1" parent="." instance=ExtResource("5_5k7vc")]
-position = Vector2(544, 896)
-AIR_SPEED = 180.0
-JUMP_VELOCITY = -430.0
-push_force = 50
-
-[node name="Player2" parent="." instance=ExtResource("5_5k7vc")]
-position = Vector2(1424, 944)
-GROUND_SPEED = 230.0
-AIR_SPEED = 180.0
-JUMP_VELOCITY = -350.0
-side = 1
-
 [node name="BoxPickable" parent="." instance=ExtResource("6_pet4a")]
 position = Vector2(176, 992)
-
-[node name="BoxPickable4" parent="." instance=ExtResource("6_pet4a")]
-position = Vector2(416, 464)
+side = 1
 
 [node name="BoxPickable2" parent="." instance=ExtResource("6_pet4a")]
-position = Vector2(1536, 992)
+position = Vector2(1403, 756)
 
 [node name="BoxPickable3" parent="." instance=ExtResource("6_pet4a")]
 position = Vector2(1696, 992)
@@ -78,37 +65,41 @@ position = Vector2(1312, 624)
 receivers = [NodePath("../LeafPlatform5"), NodePath("../LeafPlatform7"), NodePath("../LeafPlatform8"), NodePath("../LeafPlatform9"), NodePath("../LeafPlatform10")]
 
 [node name="LeafPlatform2" parent="." instance=ExtResource("8_p5xca")]
-position = Vector2(1760, 928)
+position = Vector2(1592, 913)
+scale = Vector2(-1, 1)
 
 [node name="LeafPlatform3" parent="." instance=ExtResource("8_p5xca")]
-position = Vector2(1664, 864)
+position = Vector2(1680, 944)
 
 [node name="LeafPlatform4" parent="." instance=ExtResource("8_p5xca")]
-position = Vector2(1776, 800)
+position = Vector2(1672, 869)
 
 [node name="LeafPlatform6" parent="." instance=ExtResource("8_p5xca")]
-position = Vector2(1648, 736)
+position = Vector2(1590, 827)
+scale = Vector2(-1, 1)
 
 [node name="LeafPlatform5" parent="." instance=ExtResource("8_p5xca")]
-position = Vector2(1248, 608)
+position = Vector2(1360, 576)
 
 [node name="LeafPlatform7" parent="." instance=ExtResource("8_p5xca")]
-position = Vector2(1152, 544)
+position = Vector2(1272, 553)
+scale = Vector2(-1, 1)
 
 [node name="LeafPlatform8" parent="." instance=ExtResource("8_p5xca")]
-position = Vector2(1264, 480)
+position = Vector2(1352, 519)
 
 [node name="LeafPlatform9" parent="." instance=ExtResource("8_p5xca")]
-position = Vector2(1136, 416)
+position = Vector2(1265, 484)
+scale = Vector2(-1, 1)
 
 [node name="LeafPlatform10" parent="." instance=ExtResource("8_p5xca")]
-position = Vector2(1280, 368)
+position = Vector2(1357, 443)
 
 [node name="WaterContainer" parent="." instance=ExtResource("9_rmdhr")]
 position = Vector2(1216, 992)
 
 [node name="SmallDoor" parent="." instance=ExtResource("11_sth3h")]
-position = Vector2(1424, 352)
+position = Vector2(1467, 399)
 
 [node name="Fire" parent="." instance=ExtResource("12_sqht7")]
 position = Vector2(304, 992)
@@ -121,7 +112,7 @@ position = Vector2(304, 576)
 curve = SubResource("Curve2D_p2asn")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(-48, -80)
+position = Vector2(-48, -48)
 rotation = -1.5708
 progress = 288.0
 rotates = false
@@ -129,33 +120,67 @@ loop = false
 
 [node name="Platform17" parent="Path2D/PathFollow2D" node_paths=PackedStringArray("path") instance=ExtResource("13_7i2k0")]
 rotation = 1.5708
-speed = 250.0
+speed = 200.0
 path = NodePath("..")
 active = false
 
 [node name="PressurePlate2" parent="." node_paths=PackedStringArray("receivers") instance=ExtResource("14_sp555")]
-position = Vector2(128, 784)
+position = Vector2(128, 788)
 receivers = [NodePath("../Path2D/PathFollow2D/Platform17")]
 
 [node name="BigDoor" parent="." instance=ExtResource("15_qjrpe")]
 position = Vector2(736, 368)
 
-[node name="PlatformStaticRed" parent="." instance=ExtResource("15_3rjit")]
-position = Vector2(736, 432)
-
 [node name="PlatformStaticRed_x5" parent="." instance=ExtResource("16_pm71b")]
 position = Vector2(480, 528)
 
 [node name="PlatformStaticRed_x2" parent="." instance=ExtResource("17_7gvvk")]
-position = Vector2(128, 848)
+position = Vector2(128, 852)
+
+[node name="PlatformStaticRed_x3" parent="." instance=ExtResource("17_7gvvk")]
+position = Vector2(736, 432)
 
 [node name="PlatformStaticBlue_x2" parent="." instance=ExtResource("18_qp5cu")]
-position = Vector2(1424, 384)
+position = Vector2(1467, 432)
 
 [node name="PlatformStaticBlue_x5" parent="." instance=ExtResource("19_wc13e")]
 position = Vector2(1312, 656)
 
 [node name="PlatformStaticBlue_x6" parent="." instance=ExtResource("19_wc13e")]
-position = Vector2(1488, 720)
+position = Vector2(1444, 788)
 
 [node name="Background" parent="." instance=ExtResource("18_5ij66")]
+metadata/_edit_lock_ = true
+
+[node name="DisapperaPlatform1" parent="." instance=ExtResource("19_ve8ur")]
+z_index = -1
+position = Vector2(1600, 732)
+
+[node name="DisapperaPlatform2" parent="." instance=ExtResource("19_ve8ur")]
+z_index = -1
+position = Vector2(1470, 672)
+
+[node name="Player1" parent="." instance=ExtResource("5_5k7vc")]
+z_index = -1
+position = Vector2(864, 925)
+scale = Vector2(0.75, 0.75)
+AIR_SPEED = 150.0
+JUMP_VELOCITY = -430.0
+push_force = 50
+side = 0
+
+[node name="Player2" parent="." instance=ExtResource("5_5k7vc")]
+z_index = -1
+position = Vector2(1405, 948)
+scale = Vector2(0.75, 0.75)
+GROUND_SPEED = 230.0
+AIR_SPEED = 150.0
+JUMP_VELOCITY = -350.0
+directionOffsetZ = 50.0
+
+[node name="Key01" parent="." instance=ExtResource("20_cuqwu")]
+position = Vector2(1600, 656)
+
+[node name="Button01" parent="." instance=ExtResource("21_s6k26")]
+z_index = -1
+position = Vector2(96, 992)

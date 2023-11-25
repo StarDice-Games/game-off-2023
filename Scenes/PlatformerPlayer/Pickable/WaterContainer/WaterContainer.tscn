@@ -9,16 +9,16 @@
 [ext_resource type="Texture2D" uid="uid://b210fk8xybtqq" path="res://Resources/Assets/Nuovi_PNG/Goccia.png" id="5_dn3ek"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8pf4b"]
-size = Vector2(23, 35)
+size = Vector2(48.5, 35)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_djtta"]
 size = Vector2(62, 70)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qr3wd"]
-size = Vector2(32, 32)
+size = Vector2(49, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nsq6e"]
-size = Vector2(61, 70)
+size = Vector2(54, 127)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7hbax"]
 size = Vector2(53.5, 190.75)
@@ -117,33 +117,32 @@ wateringSmall = ExtResource("2_48vtd")
 wateringBig = ExtResource("3_7b2w6")
 
 [node name="Left" type="Sprite2D" parent="."]
-process_mode = 4
-visible = false
 texture_filter = 1
 texture = ExtResource("2_3ft8s")
 offset = Vector2(0, -20)
 
 [node name="Right" type="Sprite2D" parent="."]
+process_mode = 4
+visible = false
 texture_filter = 1
 texture = ExtResource("3_ebwan")
 offset = Vector2(0, -39)
 flip_h = true
 
 [node name="LefiCollision" type="CollisionShape2D" parent="."]
-process_mode = 4
-visible = false
-position = Vector2(0, -18)
+position = Vector2(-12.75, -18)
 shape = SubResource("RectangleShape2D_8pf4b")
-disabled = true
 
 [node name="RightCollision" type="CollisionShape2D" parent="."]
+process_mode = 4
+visible = false
 position = Vector2(0, -35)
 shape = SubResource("RectangleShape2D_djtta")
+disabled = true
 debug_color = Color(0.741176, 0.282353, 0.917647, 0.419608)
 
 [node name="PickupComponent" parent="." node_paths=PackedStringArray("father", "leftElement", "rightElement", "collisionLeft", "collisionRight") groups=["Water"] instance=ExtResource("1_b3ec7")]
 position = Vector2(16.5, -19.5)
-currentSide = 1
 father = NodePath("..")
 leftElement = [NodePath("../Left"), NodePath("../LefiCollision"), NodePath("LeftArea")]
 rightElement = [NodePath("../Right"), NodePath("../RightCollision"), NodePath("RightArea")]
@@ -151,15 +150,15 @@ collisionLeft = NodePath("../LefiCollision")
 collisionRight = NodePath("../RightCollision")
 
 [node name="LeftArea" type="CollisionShape2D" parent="PickupComponent"]
-process_mode = 4
-visible = false
-position = Vector2(-16.5, 1.5)
+position = Vector2(-29, 2.5)
 shape = SubResource("RectangleShape2D_qr3wd")
-disabled = true
 
 [node name="RightArea" type="CollisionShape2D" parent="PickupComponent"]
-position = Vector2(-16, -15.5)
+process_mode = 4
+visible = false
+position = Vector2(22.5, 77)
 shape = SubResource("RectangleShape2D_nsq6e")
+disabled = true
 debug_color = Color(0.831373, 0.180392, 0.843137, 0.419608)
 
 [node name="Sprinkle" type="Area2D" parent="." groups=["Water"]]
