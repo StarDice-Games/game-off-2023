@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://n08gswe6qeoa"]
+[gd_scene load_steps=19 format=3 uid="uid://n08gswe6qeoa"]
 
 [ext_resource type="PackedScene" uid="uid://c6oxlwfitiwcd" path="res://Scenes/PlatformerPlayer/Obstacle/statiWall.tscn" id="1_0k40l"]
 [ext_resource type="PackedScene" uid="uid://c5xj8w588i6aa" path="res://Scenes/Visual Indicator/visualIndicator.tscn" id="2_o00de"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dq0h835quph3q" path="res://Resources/Assets/Tutorial/JumpTutorial.png" id="7_3jxg8"]
 [ext_resource type="PackedScene" uid="uid://b8upryncqwmc6" path="res://Scenes/PlatformerPlayer/Doors/SmallDoor/SmallDoor.tscn" id="7_y463y"]
 [ext_resource type="Texture2D" uid="uid://h6qssg0ui8c4" path="res://Resources/Assets/Tutorial/PickTutorial.png" id="8_l7miv"]
+[ext_resource type="Texture2D" uid="uid://0tpowf6acjur" path="res://Resources/Assets/Tutorial/SideTutorial.png" id="9_ypilc"]
 [ext_resource type="PackedScene" uid="uid://c8qbn2xe7w0yv" path="res://Scenes/PlatformerPlayer/Doors/BigDoor/BigDoor.tscn" id="11_54sgv"]
 [ext_resource type="PackedScene" uid="uid://ddfaeavjffgx6" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x5.tscn" id="12_p3l3w"]
 [ext_resource type="PackedScene" uid="uid://dys77aiydaakp" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed.tscn" id="12_pxffw"]
@@ -52,21 +53,27 @@ metadata/_edit_lock_ = true
 
 [node name="MoveTutorial" type="Sprite2D" parent="Background"]
 texture_filter = 1
-position = Vector2(154, 709)
-scale = Vector2(0.135, 0.135)
+position = Vector2(192, 720)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("6_u8m4p")
 
 [node name="JumpTutorial" type="Sprite2D" parent="Background"]
 texture_filter = 1
-position = Vector2(778, 503)
-scale = Vector2(0.135, 0.135)
+position = Vector2(778, 896)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("7_3jxg8")
 
 [node name="PickTutorial" type="Sprite2D" parent="Background"]
 texture_filter = 1
-position = Vector2(180, 231)
-scale = Vector2(0.135, 0.135)
+position = Vector2(800, 560)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("8_l7miv")
+
+[node name="SideTutorial" type="Sprite2D" parent="Background"]
+texture_filter = 1
+position = Vector2(192, 352)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_ypilc")
 
 [node name="Player1" parent="." instance=ExtResource("18_nyfm7")]
 z_index = -1
