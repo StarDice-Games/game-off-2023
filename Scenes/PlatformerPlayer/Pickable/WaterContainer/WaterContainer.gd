@@ -13,6 +13,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var canPlaySound = true
 var animStarted = false
 
+var lastAnimation = ""
+
 func _ready():
 #	$Sprinkle.disabled = true
 	$Sprinkle.hide()
@@ -35,15 +37,30 @@ func spreadWater():
 func stopWater():
 #	$Sprinkle.disabled = true
 	$Sprinkle.hide()
+	
+func getAnimation():
+	if $PickupComponent.currentSide == 0: #small side
+		if $PickupComponent.activeSprite.flip_h:
+			return "rotate_flip"
+		else:
+			return "rotate"
+	else:
+		if $PickupComponent.activeSprite.flip_h:
+			return "rotate"
+		else:
+			return "rotate_flip"
 
 func _physics_process(delta):
 	
 	if $PickupComponent.held:
 		spreadWater()
-	#TEST KEVIN ANIMAZIONE 	
-		if animStarted==false:
-			$AnimationPlayer.play("rotate");
-			animStarted = true
+		#TEST KEVIN ANIMAZIONE 	
+		var anim = getAnimation()
+		if anim != lastAnimation:
+			$AnimationPlayer.play(anim);
+			lastAnimation = anim
+#			animStarted = true
+			
 	else:
 		stopWater()
 	#TEST KEVIN ANIMAZIONE 	

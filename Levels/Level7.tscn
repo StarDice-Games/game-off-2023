@@ -1,0 +1,326 @@
+[gd_scene load_steps=32 format=3 uid="uid://bbe0qllt3ore1"]
+
+[ext_resource type="Texture2D" uid="uid://c27hta5aq0irf" path="res://Resources/Assets/Background/Fondo_bianco.jpg" id="1_67bn1"]
+[ext_resource type="Texture2D" uid="uid://dkkvcc7oo70c1" path="res://Resources/Assets/Background/Cornice_frontale.png" id="2_dcubp"]
+[ext_resource type="PackedScene" uid="uid://duvywv1d1kgyo" path="res://Scenes/PlatformerPlayer/Divider/divider.tscn" id="3_87gtw"]
+[ext_resource type="PackedScene" uid="uid://c7lc1cagba60g" path="res://Scenes/PlatformerPlayer/Obstacle/Water/WaterFloor_piccola.tscn" id="4_t55n8"]
+[ext_resource type="PackedScene" uid="uid://dejvvmbnpvblp" path="res://Scenes/PlatformerPlayer/Obstacle/Water/WaterFloor.tscn" id="5_xay8h"]
+[ext_resource type="PackedScene" uid="uid://c5xj8w588i6aa" path="res://Scenes/Visual Indicator/visualIndicator.tscn" id="6_laqll"]
+[ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="7_hle3n"]
+[ext_resource type="PackedScene" uid="uid://c8qbn2xe7w0yv" path="res://Scenes/PlatformerPlayer/Doors/BigDoor/BigDoor.tscn" id="8_2mltp"]
+[ext_resource type="PackedScene" uid="uid://ddfaeavjffgx6" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x5.tscn" id="9_m4vnp"]
+[ext_resource type="PackedScene" uid="uid://phjy1geq4nek" path="res://Scenes/PlatformerPlayer/Platforms/Platform1/Platform2.tscn" id="10_jqhcp"]
+[ext_resource type="PackedScene" uid="uid://do88ox8hahe8i" path="res://Scenes/PlatformerPlayer/Spikes/Spikes.tscn" id="11_fisk6"]
+[ext_resource type="PackedScene" uid="uid://cg5qp6djrjlof" path="res://Scenes/PlatformerPlayer/Platforms/DisappearPlatform2/DisapperaPlatform2.tscn" id="12_wnhos"]
+[ext_resource type="PackedScene" uid="uid://dc601pwyjee1" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x5.tscn" id="13_g0mog"]
+[ext_resource type="PackedScene" uid="uid://dvhrt43a8uu5r" path="res://Scenes/PlatformerPlayer/Pickable/Box/BoxPickable.tscn" id="14_txo8w"]
+[ext_resource type="PackedScene" uid="uid://c0yejb6v7hqpy" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x2.tscn" id="15_4ni5j"]
+[ext_resource type="PackedScene" uid="uid://dys77aiydaakp" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed.tscn" id="16_r2jtp"]
+[ext_resource type="PackedScene" uid="uid://6a1c38prt1a4" path="res://Scenes/PlatformerPlayer/Buttons/Button1/Button01.tscn" id="17_k1eik"]
+[ext_resource type="PackedScene" uid="uid://cdoatt4q6g2nt" path="res://Scenes/PlatformerPlayer/Walls/BreakableWall/BreakableWall.tscn" id="18_mfrcn"]
+[ext_resource type="PackedScene" uid="uid://b8upryncqwmc6" path="res://Scenes/PlatformerPlayer/Doors/SmallDoor/SmallDoor.tscn" id="19_4hkkt"]
+[ext_resource type="PackedScene" uid="uid://bc4tsc83nd2al" path="res://Scenes/PlatformerPlayer/PressurePlates/PressurePlate1.tscn" id="20_jwvkg"]
+[ext_resource type="PackedScene" uid="uid://js3ym6n0f3po" path="res://Scenes/PlatformerPlayer/Pickable/RigidBodyPickable/PicakbleBall.tscn" id="21_s87oj"]
+[ext_resource type="PackedScene" uid="uid://sn8oy4jcubwe" path="res://Scenes/PlatformerPlayer/Platforms/DisappearPlatform1/DisapperaPlatform1.tscn" id="22_hgfcl"]
+[ext_resource type="PackedScene" uid="uid://dn8ylngmbs0mt" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x2.tscn" id="23_7by25"]
+[ext_resource type="PackedScene" uid="uid://dnpelmrygcwdv" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_Oblique.tscn" id="24_sjih7"]
+[ext_resource type="PackedScene" uid="uid://b7mn5x5w28ccf" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue.tscn" id="25_7k1js"]
+[ext_resource type="PackedScene" uid="uid://ch1k62rewst8" path="res://Scenes/PlatformerPlayer/PressurePlates/PressurePlate2.tscn" id="26_16uye"]
+[ext_resource type="PackedScene" uid="uid://d4diwwos6tieb" path="res://Scenes/PlatformerPlayer/Platforms/Platform1/Platform1.tscn" id="27_oqqgw"]
+[ext_resource type="PackedScene" uid="uid://cxjw8tk4kep1p" path="res://Scenes/PlatformerPlayer/Keys/Key01/Key01.tscn" id="28_u42di"]
+[ext_resource type="PackedScene" uid="uid://pd5e2y2wk2ql" path="res://Scenes/PlatformerPlayer/Pickable/Spring/Spring.tscn" id="29_765x1"]
+
+[sub_resource type="Curve2D" id="Curve2D_wosg4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -48, 720, 0, 0, 0, 0, -48, 32)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_c6i8q"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -16, -16, 0, 0, 0, 0, -336, -16, 0, 0, 0, 0, -336, -384, 0, 0, 0, 0, -608, -384, 0, 0, 0, 0, -608, -560)
+}
+point_count = 5
+
+[node name="Level 7" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(960, 540)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -2
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_67bn1")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+z_index = 2
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_dcubp")
+metadata/_edit_lock_ = true
+
+[node name="Diveders" type="Node2D" parent="."]
+
+[node name="Divider" parent="Diveders" instance=ExtResource("3_87gtw")]
+position = Vector2(992, 540)
+scale = Vector2(2.96, 35.48)
+
+[node name="Divider2" parent="Diveders" instance=ExtResource("3_87gtw")]
+position = Vector2(-17, 531)
+scale = Vector2(2.96, 35.48)
+
+[node name="Divider3" parent="Diveders" instance=ExtResource("3_87gtw")]
+position = Vector2(1931, 529)
+scale = Vector2(2.96, 35.48)
+
+[node name="WaterFloor_Piccola" parent="." instance=ExtResource("4_t55n8")]
+z_index = 3
+position = Vector2(1472, 1056)
+
+[node name="WaterFloor" parent="." instance=ExtResource("5_xay8h")]
+z_index = 3
+position = Vector2(480, 1072)
+
+[node name="ColorRect" parent="." instance=ExtResource("6_laqll")]
+metadata/_edit_lock_ = true
+
+[node name="LEFT" type="Node2D" parent="."]
+
+[node name="Platforms" type="Node2D" parent="LEFT"]
+
+[node name="PlatformStaticRed_x5" parent="LEFT/Platforms" instance=ExtResource("9_m4vnp")]
+position = Vector2(768, 320)
+
+[node name="PlatformStaticRed_x6" parent="LEFT/Platforms" instance=ExtResource("9_m4vnp")]
+position = Vector2(784, 976)
+
+[node name="PlatformStaticRed_x7" parent="LEFT/Platforms" instance=ExtResource("9_m4vnp")]
+position = Vector2(848, 752)
+
+[node name="PlatformStaticRed_x2" parent="LEFT/Platforms" instance=ExtResource("15_4ni5j")]
+position = Vector2(224, 896)
+
+[node name="PlatformStaticRed_x3" parent="LEFT/Platforms" instance=ExtResource("15_4ni5j")]
+position = Vector2(416, 320)
+
+[node name="PlatformStaticRed" parent="LEFT/Platforms" instance=ExtResource("16_r2jtp")]
+position = Vector2(592, 976)
+
+[node name="PlatformStaticRed2" parent="LEFT/Platforms" instance=ExtResource("16_r2jtp")]
+position = Vector2(640, 544)
+
+[node name="PlatformStaticRed3" parent="LEFT/Platforms" instance=ExtResource("16_r2jtp")]
+position = Vector2(640, 432)
+
+[node name="PlatformStaticRed4" parent="LEFT/Platforms" instance=ExtResource("16_r2jtp")]
+position = Vector2(960, 320)
+
+[node name="DisapperaPlatform3" parent="LEFT/Platforms" instance=ExtResource("12_wnhos")]
+position = Vector2(208, 320)
+
+[node name="DisapperaPlatform4" parent="LEFT/Platforms" instance=ExtResource("12_wnhos")]
+position = Vector2(368, 976)
+
+[node name="DisapperaPlatform6" parent="LEFT/Platforms" instance=ExtResource("12_wnhos")]
+position = Vector2(496, 976)
+
+[node name="Path2D" type="Path2D" parent="LEFT/Platforms"]
+position = Vector2(592, 256)
+curve = SubResource("Curve2D_wosg4")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="LEFT/Platforms/Path2D"]
+position = Vector2(-48, 94.9927)
+rotation = -1.5708
+progress = 625.0
+rotates = false
+loop = false
+
+[node name="M_Platform" parent="LEFT/Platforms/Path2D/PathFollow2D" node_paths=PackedStringArray("path") instance=ExtResource("10_jqhcp")]
+position = Vector2(-32, -0.00012207)
+rotation = 1.5708
+speed = 100.0
+path = NodePath("..")
+active = false
+
+[node name="Spikes" parent="LEFT/Platforms/Path2D/PathFollow2D/M_Platform" instance=ExtResource("11_fisk6")]
+position = Vector2(0, -64)
+
+[node name="Spikes4" parent="LEFT/Platforms/Path2D/PathFollow2D/M_Platform" instance=ExtResource("11_fisk6")]
+rotation = 3.14159
+
+[node name="Objectives" type="Node2D" parent="LEFT"]
+
+[node name="BigDoor" parent="LEFT/Objectives" instance=ExtResource("8_2mltp")]
+position = Vector2(832, 256)
+maxButton = 3
+
+[node name="Button01" parent="LEFT/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("17_k1eik")]
+position = Vector2(864, 912)
+receivers = [NodePath("../BigDoor")]
+
+[node name="Button02" parent="LEFT/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("17_k1eik")]
+position = Vector2(848, 320)
+rotation = 3.14159
+receivers = [NodePath("../BigDoor")]
+
+[node name="Button03" parent="LEFT/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("17_k1eik")]
+position = Vector2(176, 48)
+rotation = 3.14159
+receivers = [NodePath("../BigDoor")]
+
+[node name="PressurePlate3" parent="LEFT/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("20_jwvkg")]
+position = Vector2(224, 832)
+receivers = [NodePath("../../Platforms/Path2D/PathFollow2D/M_Platform")]
+
+[node name="Obstacles" type="Node2D" parent="LEFT"]
+
+[node name="BreakableWall" parent="LEFT/Obstacles" instance=ExtResource("18_mfrcn")]
+position = Vector2(720, 912)
+
+[node name="Pickables" type="Node2D" parent="LEFT"]
+
+[node name="BoxPickable" parent="LEFT/Pickables" instance=ExtResource("14_txo8w")]
+position = Vector2(704, 688)
+side = 1
+
+[node name="Spring" parent="LEFT/Pickables" instance=ExtResource("29_765x1")]
+position = Vector2(400, 256)
+side = 1
+JUMP_FORCE = -750
+
+[node name="Player1" parent="LEFT" instance=ExtResource("7_hle3n")]
+position = Vector2(672, 192)
+scale = Vector2(0.75, 0.75)
+AIR_SPEED = 150.0
+JUMP_VELOCITY = -430.0
+push_force = 50
+
+[node name="RIGHT" type="Node2D" parent="."]
+
+[node name="Platforms" type="Node2D" parent="RIGHT"]
+
+[node name="PlatformStaticBlue_x2" parent="RIGHT/Platforms" instance=ExtResource("23_7by25")]
+position = Vector2(1248, 544)
+
+[node name="PlatformStaticBlue_x4" parent="RIGHT/Platforms" instance=ExtResource("23_7by25")]
+position = Vector2(1856, 256)
+
+[node name="PlatformStaticBlue_x5" parent="RIGHT/Platforms" instance=ExtResource("23_7by25")]
+position = Vector2(1536, 256)
+
+[node name="PlatformStaticBlue_x3" parent="RIGHT/Platforms" instance=ExtResource("23_7by25")]
+position = Vector2(1680, 544)
+
+[node name="PlatformStaticBlue" parent="RIGHT/Platforms" instance=ExtResource("24_sjih7")]
+position = Vector2(1808, 256)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="PlatformStaticBlue2" parent="RIGHT/Platforms" instance=ExtResource("24_sjih7")]
+position = Vector2(1840, 224)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="PlatformStaticBlue3" parent="RIGHT/Platforms" instance=ExtResource("25_7k1js")]
+position = Vector2(1872, 224)
+
+[node name="PlatformStaticBlue4" parent="RIGHT/Platforms" instance=ExtResource("25_7k1js")]
+position = Vector2(1552, 288)
+
+[node name="PlatformStaticBlue_x16" parent="RIGHT/Platforms" instance=ExtResource("13_g0mog")]
+position = Vector2(1792, 544)
+
+[node name="PlatformStaticBlue_x17" parent="RIGHT/Platforms" instance=ExtResource("13_g0mog")]
+position = Vector2(1136, 544)
+
+[node name="PlatformStaticBlue_x19" parent="RIGHT/Platforms" instance=ExtResource("13_g0mog")]
+position = Vector2(1520, 224)
+
+[node name="PlatformStaticBlue_x20" parent="RIGHT/Platforms" instance=ExtResource("13_g0mog")]
+position = Vector2(1680, 224)
+
+[node name="PlatformStaticBlue_x21" parent="RIGHT/Platforms" instance=ExtResource("13_g0mog")]
+position = Vector2(1648, 288)
+
+[node name="PlatformStaticBlue_x22" parent="RIGHT/Platforms" instance=ExtResource("13_g0mog")]
+position = Vector2(1808, 288)
+
+[node name="PlatformStaticBlue_x18" parent="RIGHT/Platforms" instance=ExtResource("13_g0mog")]
+position = Vector2(1120, 976)
+
+[node name="PlatformStaticBlue_x23" parent="RIGHT/Platforms" instance=ExtResource("13_g0mog")]
+position = Vector2(1408, 976)
+
+[node name="DisapperaPlatform1" parent="RIGHT/Platforms" instance=ExtResource("22_hgfcl")]
+position = Vector2(1536, 544)
+
+[node name="DisapperaPlatform2" parent="RIGHT/Platforms" instance=ExtResource("22_hgfcl")]
+position = Vector2(1392, 544)
+
+[node name="DisapperaPlatform5" parent="RIGHT/Platforms" instance=ExtResource("22_hgfcl")]
+position = Vector2(1328, 224)
+
+[node name="Path2D2" type="Path2D" parent="RIGHT/Platforms"]
+position = Vector2(1808, 768)
+curve = SubResource("Curve2D_c6i8q")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="RIGHT/Platforms/Path2D2"]
+position = Vector2(-608, -560)
+rotation = -1.5708
+progress = 1168.0
+rotates = false
+loop = false
+
+[node name="M_Platform2" parent="RIGHT/Platforms/Path2D2/PathFollow2D" node_paths=PackedStringArray("path") instance=ExtResource("27_oqqgw")]
+position = Vector2(-16.0059, 0)
+rotation = 1.5708
+speed = 100.0
+path = NodePath("..")
+active = false
+
+[node name="Objectives" type="Node2D" parent="RIGHT"]
+
+[node name="SmallDoor" parent="RIGHT/Objectives" instance=ExtResource("19_4hkkt")]
+position = Vector2(1792, 512)
+maxKeys = 3
+
+[node name="Key01" parent="RIGHT/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("28_u42di")]
+position = Vector2(1104, 640)
+receivers = [NodePath("../SmallDoor")]
+
+[node name="Key02" parent="RIGHT/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("28_u42di")]
+position = Vector2(1792, 704)
+receivers = [NodePath("../SmallDoor")]
+
+[node name="Key03" parent="RIGHT/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("28_u42di")]
+position = Vector2(1200, 160)
+receivers = [NodePath("../SmallDoor")]
+
+[node name="PressurePlate2" parent="RIGHT/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("26_16uye")]
+position = Vector2(1600, 256)
+receivers = [NodePath("../../Platforms/Path2D2/PathFollow2D/M_Platform2")]
+
+[node name="Obstacles" type="Node2D" parent="RIGHT"]
+
+[node name="Pickables" type="Node2D" parent="RIGHT"]
+
+[node name="BoxPickable3" parent="RIGHT/Pickables" instance=ExtResource("14_txo8w")]
+position = Vector2(1600, 192)
+
+[node name="BoxPickable5" parent="RIGHT/Pickables" instance=ExtResource("14_txo8w")]
+position = Vector2(1392, 944)
+
+[node name="Ball" parent="RIGHT/Pickables" instance=ExtResource("21_s87oj")]
+position = Vector2(1120, 512)
+lock_rotation = false
+
+[node name="Player2" parent="RIGHT" instance=ExtResource("7_hle3n")]
+position = Vector2(1712, 464)
+scale = Vector2(0.75, 0.75)
+GROUND_SPEED = 230.0
+AIR_SPEED = 150.0
+JUMP_VELOCITY = -350.0
+side = 1
+directionOffsetZ = 50.0
