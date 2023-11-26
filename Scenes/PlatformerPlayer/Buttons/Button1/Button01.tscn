@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://6a1c38prt1a4"]
+[gd_scene load_steps=8 format=3 uid="uid://6a1c38prt1a4"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Buttons/ButtonComponent.gd" id="1_ijfxw"]
 [ext_resource type="Texture2D" uid="uid://b0fa7kqvjlu44" path="res://Resources/Assets/Nuovi_PNG/Pulsante_giallo.png" id="2_dgvb5"]
@@ -7,6 +7,37 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mimy8"]
 size = Vector2(68, 68)
+
+[sub_resource type="Animation" id="Animation_148mu"]
+resource_name = "push"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 3, 0),
+"points": PackedFloat32Array(-34, -0.25, 0, 0.1, -4.5, -17.5, -0.05, 0, 0.05, 0, -34, -0.2, -8.5, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 0.5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wd2r1"]
+_data = {
+"push": SubResource("Animation_148mu")
+}
 
 [node name="Button01" type="Area2D"]
 collision_layer = 16
@@ -27,8 +58,14 @@ offset = Vector2(0, -17)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -34)
 shape = SubResource("RectangleShape2D_mimy8")
+metadata/_edit_lock_ = true
 
 [node name="SenderComponent" parent="." instance=ExtResource("2_xaxxl")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wd2r1")
+}
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

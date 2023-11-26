@@ -1,18 +1,17 @@
-[gd_scene load_steps=19 format=3 uid="uid://n08gswe6qeoa"]
+[gd_scene load_steps=18 format=3 uid="uid://n08gswe6qeoa"]
 
-[ext_resource type="PackedScene" uid="uid://c6oxlwfitiwcd" path="res://Scenes/PlatformerPlayer/Obstacle/statiWall.tscn" id="1_0k40l"]
-[ext_resource type="PackedScene" uid="uid://c5xj8w588i6aa" path="res://Scenes/Visual Indicator/visualIndicator.tscn" id="2_o00de"]
 [ext_resource type="PackedScene" uid="uid://dvhrt43a8uu5r" path="res://Scenes/PlatformerPlayer/Pickable/Box/BoxPickable.tscn" id="3_fb0xc"]
-[ext_resource type="Texture2D" uid="uid://c27tjou20w0xe" path="res://Resources/Assets/Tutorial/MoveTutorial.png" id="6_u8m4p"]
-[ext_resource type="Texture2D" uid="uid://dq0h835quph3q" path="res://Resources/Assets/Tutorial/JumpTutorial.png" id="7_3jxg8"]
+[ext_resource type="Texture2D" uid="uid://ce6wqv6fwfmsg" path="res://Resources/Assets/Tutorial/Move_direction_tutorial.png" id="4_pff5u"]
+[ext_resource type="Texture2D" uid="uid://crplo56dodxf3" path="res://Resources/Assets/Tutorial/Jump_tutorial.png" id="5_7a2iu"]
+[ext_resource type="Texture2D" uid="uid://cb1gx470i1xq1" path="res://Resources/Assets/Tutorial/Pick_up_tutorial.png" id="6_xc672"]
+[ext_resource type="Texture2D" uid="uid://o68x6r7ntc5m" path="res://Resources/Assets/Tutorial/Move_side_tutorial.png" id="7_h2oi1"]
 [ext_resource type="PackedScene" uid="uid://b8upryncqwmc6" path="res://Scenes/PlatformerPlayer/Doors/SmallDoor/SmallDoor.tscn" id="7_y463y"]
-[ext_resource type="Texture2D" uid="uid://h6qssg0ui8c4" path="res://Resources/Assets/Tutorial/PickTutorial.png" id="8_l7miv"]
-[ext_resource type="Texture2D" uid="uid://0tpowf6acjur" path="res://Resources/Assets/Tutorial/SideTutorial.png" id="9_ypilc"]
 [ext_resource type="PackedScene" uid="uid://c8qbn2xe7w0yv" path="res://Scenes/PlatformerPlayer/Doors/BigDoor/BigDoor.tscn" id="11_54sgv"]
 [ext_resource type="PackedScene" uid="uid://ddfaeavjffgx6" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x5.tscn" id="12_p3l3w"]
 [ext_resource type="PackedScene" uid="uid://dys77aiydaakp" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed.tscn" id="12_pxffw"]
 [ext_resource type="PackedScene" uid="uid://c0yejb6v7hqpy" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x2.tscn" id="13_qhjde"]
 [ext_resource type="PackedScene" uid="uid://dn8ylngmbs0mt" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x2.tscn" id="14_5dgnf"]
+[ext_resource type="PackedScene" uid="uid://c3snw3pxmp7x8" path="res://Scenes/PlatformerPlayer/Doors/Indicators/BigDoorIndicator.tscn" id="14_36t53"]
 [ext_resource type="PackedScene" uid="uid://dc601pwyjee1" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x5.tscn" id="15_4oelk"]
 [ext_resource type="PackedScene" uid="uid://din1h8ql506vb" path="res://Scenes/Background.tscn" id="16_58n5x"]
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="18_nyfm7"]
@@ -25,65 +24,183 @@
 texture_filter = 1
 offset = Vector2(960, 540)
 
-[node name="StaticBody2D" parent="." instance=ExtResource("1_0k40l")]
-position = Vector2(992, 1024)
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(231.998, 1125.49)
 scale = Vector2(64.68, 2)
+disable_mode = 1
+collision_mask = 7
 
-[node name="ColorRect" parent="." instance=ExtResource("2_o00de")]
-visible = false
-metadata/_edit_lock_ = true
-
-[node name="ColorRect2" parent="." instance=ExtResource("2_o00de")]
-visible = false
-offset_left = 1024.0
-offset_right = 1984.0
-metadata/_edit_lock_ = true
-
-[node name="SmallDoor" parent="." instance=ExtResource("7_y463y")]
-position = Vector2(1552, 320)
-maxKeys = 1
-goalNumber = 1
-
-[node name="BigDoor" parent="." instance=ExtResource("11_54sgv")]
-position = Vector2(816, 272)
-maxButton = 1
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground"]
+position = Vector2(-2.96842, -69.2442)
+polygon = PackedVector2Array(10.436, 2.5, 18.3828, 3.99999, 29.7001, 4.5, 29.6382, 23, -1.74706, 23.5, -1.62338, -0.5)
 
 [node name="Background" parent="." instance=ExtResource("16_58n5x")]
 metadata/_edit_lock_ = true
 
 [node name="MoveTutorial" type="Sprite2D" parent="Background"]
+z_index = -1
 texture_filter = 1
-position = Vector2(192, 720)
+position = Vector2(153, 778)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("6_u8m4p")
+texture = ExtResource("4_pff5u")
 
 [node name="JumpTutorial" type="Sprite2D" parent="Background"]
+z_index = -1
 texture_filter = 1
-position = Vector2(778, 896)
+position = Vector2(403, 789)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("7_3jxg8")
+texture = ExtResource("5_7a2iu")
 
 [node name="PickTutorial" type="Sprite2D" parent="Background"]
+z_index = -1
 texture_filter = 1
-position = Vector2(800, 560)
+position = Vector2(823, 608)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("8_l7miv")
+texture = ExtResource("6_xc672")
 
 [node name="SideTutorial" type="Sprite2D" parent="Background"]
-texture_filter = 1
-position = Vector2(192, 352)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("9_ypilc")
-
-[node name="Player1" parent="." instance=ExtResource("18_nyfm7")]
 z_index = -1
-position = Vector2(96, 925)
+texture_filter = 1
+position = Vector2(192, 361)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_h2oi1")
+
+[node name="LevelDesign_Red" type="Node2D" parent="."]
+z_index = -2
+
+[node name="Platforms" type="Node2D" parent="LevelDesign_Red"]
+
+[node name="PlatformStaticRed_x3" parent="LevelDesign_Red/Platforms" instance=ExtResource("13_qhjde")]
+position = Vector2(448, 960)
+
+[node name="PlatformStaticRed_x6" parent="LevelDesign_Red/Platforms" instance=ExtResource("12_p3l3w")]
+position = Vector2(208, 544)
+
+[node name="PlatformStaticRed_x7" parent="LevelDesign_Red/Platforms" instance=ExtResource("13_qhjde")]
+position = Vector2(496, 672)
+
+[node name="PlatformStaticRed" parent="LevelDesign_Red/Platforms" instance=ExtResource("12_pxffw")]
+position = Vector2(400, 608)
+
+[node name="PlatformStaticRed_x4" parent="LevelDesign_Red/Platforms" instance=ExtResource("13_qhjde")]
+position = Vector2(464, 400)
+
+[node name="PlatformStaticRed_x8" parent="LevelDesign_Red/Platforms" instance=ExtResource("12_p3l3w")]
+position = Vector2(736, 336)
+
+[node name="PlatformStaticRed_x5" parent="LevelDesign_Red/Platforms" instance=ExtResource("12_p3l3w")]
+position = Vector2(784, 800)
+
+[node name="PlatformStaticRed_x2" parent="LevelDesign_Red/Platforms" instance=ExtResource("13_qhjde")]
+position = Vector2(576, 880)
+
+[node name="Objectives" type="Node2D" parent="LevelDesign_Red"]
+
+[node name="BigDoor" parent="LevelDesign_Red/Objectives" instance=ExtResource("11_54sgv")]
+z_index = 0
+position = Vector2(816, 276)
+maxButton = 1
+goalNumber = 1
+indicatorScene = ExtResource("14_36t53")
+indicatorOffset = 40
+
+[node name="Button01" parent="LevelDesign_Red/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("20_dexti")]
+z_index = -1
+position = Vector2(464, 339)
+receivers = [NodePath("../BigDoor")]
+
+[node name="Pickable" type="Node2D" parent="LevelDesign_Red"]
+
+[node name="BoxPickable2" parent="LevelDesign_Red/Pickable" instance=ExtResource("3_fb0xc")]
+z_index = 1
+position = Vector2(692, 738)
+side = 1
+
+[node name="BoxPickable3" parent="LevelDesign_Red/Pickable" instance=ExtResource("3_fb0xc")]
+position = Vector2(672, 275)
+side = 1
+
+[node name="Player1" parent="LevelDesign_Red" instance=ExtResource("18_nyfm7")]
+z_index = 1
+position = Vector2(155, 843)
 scale = Vector2(0.75, 0.75)
 AIR_SPEED = 150.0
 JUMP_VELOCITY = -430.0
 push_force = 50
 
-[node name="Player2" parent="." instance=ExtResource("18_nyfm7")]
+[node name="LevelDesign_Blue" type="Node2D" parent="."]
+z_index = -2
+
+[node name="Platforms" type="Node2D" parent="LevelDesign_Blue"]
+
+[node name="PlatformStaticBlue_x5" parent="LevelDesign_Blue/Platforms" instance=ExtResource("15_4oelk")]
+position = Vector2(1440, 976)
+
+[node name="PlatformStaticBlue_x11" parent="LevelDesign_Blue/Platforms" instance=ExtResource("15_4oelk")]
+position = Vector2(1728, 736)
+
+[node name="PlatformStaticBlue_x13" parent="LevelDesign_Blue/Platforms" instance=ExtResource("15_4oelk")]
+position = Vector2(1600, 608)
+
+[node name="PlatformStaticBlue_x12" parent="LevelDesign_Blue/Platforms" instance=ExtResource("15_4oelk")]
+position = Vector2(1536, 768)
+
+[node name="PlatformStaticBlue_x6" parent="LevelDesign_Blue/Platforms" instance=ExtResource("15_4oelk")]
+position = Vector2(1280, 928)
+
+[node name="PlatformStaticBlue_x7" parent="LevelDesign_Blue/Platforms" instance=ExtResource("15_4oelk")]
+position = Vector2(1120, 880)
+
+[node name="PlatformStaticBlue_x2" parent="LevelDesign_Blue/Platforms" instance=ExtResource("14_5dgnf")]
+position = Vector2(1280, 832)
+
+[node name="PlatformStaticBlue_x3" parent="LevelDesign_Blue/Platforms" instance=ExtResource("14_5dgnf")]
+position = Vector2(1376, 800)
+
+[node name="PlatformStaticBlue_x14" parent="LevelDesign_Blue/Platforms" instance=ExtResource("15_4oelk")]
+position = Vector2(1552, 352)
+
+[node name="PlatformStaticBlue_x8" parent="LevelDesign_Blue/Platforms" instance=ExtResource("15_4oelk")]
+position = Vector2(1296, 512)
+
+[node name="PlatformStaticBlue_x9" parent="LevelDesign_Blue/Platforms" instance=ExtResource("15_4oelk")]
+position = Vector2(1136, 464)
+
+[node name="PlatformStaticBlue_x4" parent="LevelDesign_Blue/Platforms" instance=ExtResource("14_5dgnf")]
+position = Vector2(1296, 416)
+
+[node name="PlatformStaticBlue_x15" parent="LevelDesign_Blue/Platforms" instance=ExtResource("14_5dgnf")]
+position = Vector2(1392, 384)
+
+[node name="PlatformStaticBlue_x10" parent="LevelDesign_Blue/Platforms" instance=ExtResource("14_5dgnf")]
+position = Vector2(1840, 688)
+
+[node name="PlatformStaticBlue_x18" parent="LevelDesign_Blue/Platforms" instance=ExtResource("14_5dgnf")]
+position = Vector2(1728, 640)
+
+[node name="PlatformStaticBlue_x16" parent="LevelDesign_Blue/Platforms" instance=ExtResource("14_5dgnf")]
+position = Vector2(1440, 544)
+
+[node name="Pickables" type="Node2D" parent="LevelDesign_Blue"]
+
+[node name="BoxPickable" parent="LevelDesign_Blue/Pickables" instance=ExtResource("3_fb0xc")]
+z_index = 1
+position = Vector2(1120, 849)
+
+[node name="Objectives" type="Node2D" parent="LevelDesign_Blue"]
+
+[node name="SmallDoor" parent="LevelDesign_Blue/Objectives" instance=ExtResource("7_y463y")]
+z_index = 0
+position = Vector2(1552, 323)
+maxKeys = 1
+goalNumber = 1
+indicatorOffset = 44
+
+[node name="Key01" parent="LevelDesign_Blue/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("19_f4ke7")]
+position = Vector2(1136, 432)
+receivers = [NodePath("../SmallDoor")]
+
+[node name="Player2" parent="LevelDesign_Blue" instance=ExtResource("18_nyfm7")]
 z_index = -1
 position = Vector2(1766, 948)
 scale = Vector2(0.75, 0.75)
@@ -92,98 +209,3 @@ AIR_SPEED = 150.0
 JUMP_VELOCITY = -350.0
 side = 1
 directionOffsetZ = 50.0
-
-[node name="Key01" parent="." node_paths=PackedStringArray("receivers") instance=ExtResource("19_f4ke7")]
-position = Vector2(1136, 432)
-receivers = [NodePath("../SmallDoor")]
-
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(-270.695, 484.675)
-
-[node name="Button01" parent="." node_paths=PackedStringArray("receivers") instance=ExtResource("20_dexti")]
-z_index = -1
-position = Vector2(464, 336)
-receivers = [NodePath("../BigDoor")]
-
-[node name="PlatformStaticRed_x5" parent="." instance=ExtResource("12_p3l3w")]
-position = Vector2(784, 800)
-
-[node name="PlatformStaticRed_x2" parent="." instance=ExtResource("13_qhjde")]
-position = Vector2(576, 880)
-
-[node name="BoxPickable" parent="." instance=ExtResource("3_fb0xc")]
-position = Vector2(1120, 848)
-
-[node name="BoxPickable2" parent="." instance=ExtResource("3_fb0xc")]
-position = Vector2(692, 737)
-side = 1
-
-[node name="BoxPickable3" parent="." instance=ExtResource("3_fb0xc")]
-position = Vector2(672, 272)
-side = 1
-
-[node name="PlatformStaticRed_x3" parent="." instance=ExtResource("13_qhjde")]
-position = Vector2(448, 960)
-
-[node name="PlatformStaticRed_x6" parent="." instance=ExtResource("12_p3l3w")]
-position = Vector2(208, 544)
-
-[node name="PlatformStaticRed_x7" parent="." instance=ExtResource("13_qhjde")]
-position = Vector2(496, 672)
-
-[node name="PlatformStaticRed" parent="." instance=ExtResource("12_pxffw")]
-position = Vector2(400, 608)
-
-[node name="PlatformStaticRed_x4" parent="." instance=ExtResource("13_qhjde")]
-position = Vector2(464, 400)
-
-[node name="PlatformStaticRed_x8" parent="." instance=ExtResource("12_p3l3w")]
-position = Vector2(736, 336)
-
-[node name="PlatformStaticBlue_x5" parent="." instance=ExtResource("15_4oelk")]
-position = Vector2(1440, 976)
-
-[node name="PlatformStaticBlue_x11" parent="." instance=ExtResource("15_4oelk")]
-position = Vector2(1728, 736)
-
-[node name="PlatformStaticBlue_x13" parent="." instance=ExtResource("15_4oelk")]
-position = Vector2(1600, 608)
-
-[node name="PlatformStaticBlue_x12" parent="." instance=ExtResource("15_4oelk")]
-position = Vector2(1536, 768)
-
-[node name="PlatformStaticBlue_x6" parent="." instance=ExtResource("15_4oelk")]
-position = Vector2(1280, 928)
-
-[node name="PlatformStaticBlue_x7" parent="." instance=ExtResource("15_4oelk")]
-position = Vector2(1120, 880)
-
-[node name="PlatformStaticBlue_x2" parent="." instance=ExtResource("14_5dgnf")]
-position = Vector2(1280, 832)
-
-[node name="PlatformStaticBlue_x3" parent="." instance=ExtResource("14_5dgnf")]
-position = Vector2(1376, 800)
-
-[node name="PlatformStaticBlue_x14" parent="." instance=ExtResource("15_4oelk")]
-position = Vector2(1552, 352)
-
-[node name="PlatformStaticBlue_x8" parent="." instance=ExtResource("15_4oelk")]
-position = Vector2(1296, 512)
-
-[node name="PlatformStaticBlue_x9" parent="." instance=ExtResource("15_4oelk")]
-position = Vector2(1136, 464)
-
-[node name="PlatformStaticBlue_x4" parent="." instance=ExtResource("14_5dgnf")]
-position = Vector2(1296, 416)
-
-[node name="PlatformStaticBlue_x15" parent="." instance=ExtResource("14_5dgnf")]
-position = Vector2(1392, 384)
-
-[node name="PlatformStaticBlue_x10" parent="." instance=ExtResource("14_5dgnf")]
-position = Vector2(1840, 688)
-
-[node name="PlatformStaticBlue_x18" parent="." instance=ExtResource("14_5dgnf")]
-position = Vector2(1728, 640)
-
-[node name="PlatformStaticBlue_x16" parent="." instance=ExtResource("14_5dgnf")]
-position = Vector2(1440, 544)

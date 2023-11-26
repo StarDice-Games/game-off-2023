@@ -30,6 +30,7 @@ size = Vector2(31.5, 113)
 size = Vector2(20, 17.1951)
 
 [node name="PlatPlayer" type="CharacterBody2D"]
+z_index = 1
 collision_layer = 2
 collision_mask = 61
 platform_on_leave = 2

@@ -8,10 +8,10 @@
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Pickable/PickupComponent/pickupComponent.gd" id="3_ufbv2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kgujb"]
-radius = 16.0
+radius = 15.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0d5xh"]
-radius = 32.0
+radius = 31.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xutdn"]
 radius = 16.0312
