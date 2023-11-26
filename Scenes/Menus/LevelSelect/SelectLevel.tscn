@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://blauksugtg8ro"]
+[gd_scene load_steps=5 format=3 uid="uid://blauksugtg8ro"]
 
 [ext_resource type="Script" path="res://Scenes/Menus/LevelSelect/SelectLevel.gd" id="1_8sxpd"]
-[ext_resource type="Texture2D" uid="uid://gb0kvlkeqvp1" path="res://Resources/Images/testBack.png" id="2_sk47v"]
+[ext_resource type="Texture2D" uid="uid://b2h0wguux7sp6" path="res://Resources/Assets/UI_e_tutorial/Background_levels.png" id="2_41glp"]
+[ext_resource type="Texture2D" uid="uid://dqp2oqc6hol8j" path="res://Resources/Assets/UI_e_tutorial/home.png" id="3_12au3"]
+[ext_resource type="Texture2D" uid="uid://b50gej6qh68u3" path="res://Resources/Assets/UI_e_tutorial/home_hover.png" id="4_lqbku"]
 
 [node name="SelectLevel" type="Control"]
+z_index = 10
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,31 +16,37 @@ grow_vertical = 2
 script = ExtResource("1_8sxpd")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color(1, 1, 1, 0.490196)
 layout_mode = 0
 offset_right = 1154.0
 offset_bottom = 651.0
-texture = ExtResource("2_sk47v")
-expand_mode = 1
+texture = ExtResource("2_41glp")
 
 [node name="ItemList" type="ItemList" parent="."]
 modulate = Color(0.568627, 1, 1, 1)
 layout_mode = 0
-offset_left = 422.0
-offset_top = 86.0
-offset_right = 739.0
-offset_bottom = 443.0
+offset_left = 806.0
+offset_top = 329.0
+offset_right = 1123.0
+offset_bottom = 686.0
+focus_neighbor_left = NodePath("../Back")
+focus_neighbor_top = NodePath("../Back")
 max_columns = 2
 same_column_width = true
 
-[node name="Back" type="Button" parent="."]
+[node name="Back" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 523.0
-offset_top = 485.0
-offset_right = 573.0
-offset_bottom = 516.0
+offset_left = 521.0
+offset_top = 129.0
+offset_right = 570.0
+offset_bottom = 179.0
 scale = Vector2(2.23602, 2.00834)
-text = "BACK"
+focus_neighbor_right = NodePath("../ItemList")
+focus_neighbor_bottom = NodePath("../ItemList")
+texture_normal = ExtResource("3_12au3")
+texture_hover = ExtResource("4_lqbku")
+texture_focused = ExtResource("4_lqbku")
+ignore_texture_size = true
+stretch_mode = 0
 
 [connection signal="item_activated" from="ItemList" to="." method="_on_item_list_item_activated"]
 [connection signal="item_clicked" from="ItemList" to="." method="_on_item_list_item_clicked"]

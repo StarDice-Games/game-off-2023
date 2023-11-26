@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cylhgxe6wocod"]
+
+[ext_resource type="Texture2D" uid="uid://bjn1m5qtjaiff" path="res://Icons/icon.svg" id="1_4t0a8"]
+[ext_resource type="Texture2D" uid="uid://cs8kfsrnmd72i" path="res://Resources/Assets/UI_e_tutorial/levels_square.png" id="1_yqhs5"]
+
+[node name="LevelSquare" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="icon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 6.0
+offset_right = 78.0
+offset_bottom = 79.0
+texture = ExtResource("1_4t0a8")
+expand_mode = 1
+
+[node name="border" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_yqhs5")
