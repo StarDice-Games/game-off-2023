@@ -14,6 +14,8 @@ class_name Spring
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var canPlaySound = true
 
+@onready var animator : AnimationPlayer = $AnimationPlayer
+
 func _ready():
 	$PickupComponent.setSide(side)
 
@@ -40,6 +42,7 @@ func ApplyForceToPlayer(collider, size):
 		if $PickupComponent.held == false:
 			collider.velocity.y = JUMP_FORCE
 			playSound(jumpSoundBig)
+			animator.play("push")
 
 func ApplyForceToItems(collider):
 	if collider is PlatPlayer:
@@ -55,6 +58,7 @@ func ApplyForceToItems(collider):
 				else:
 					collider.velocity.y = JUMP_FORCE
 				playSound(jumpSoundSmall)
+				animator.play("push")
 		
 
 
