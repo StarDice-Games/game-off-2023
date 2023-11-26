@@ -85,9 +85,13 @@ offset_top = 143.0
 offset_right = 591.0
 offset_bottom = 187.0
 scale = Vector2(1.7161, 1.81114)
-focus_neighbor_right = NodePath("../NewGame")
+focus_neighbor_left = NodePath("../TextureSounds")
+focus_neighbor_top = NodePath("../TextureCredits")
+focus_neighbor_right = NodePath("../TextureMusic")
+focus_neighbor_bottom = NodePath("../NewGame")
 texture_normal = ExtResource("3_ncqee")
 texture_hover = ExtResource("8_7kb3s")
+texture_focused = ExtResource("8_7kb3s")
 ignore_texture_size = true
 stretch_mode = 0
 
