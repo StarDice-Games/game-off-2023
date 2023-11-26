@@ -175,6 +175,7 @@ scale = Vector2(0.75, 0.75)
 GROUND_SPEED = 230.0
 AIR_SPEED = 150.0
 JUMP_VELOCITY = -350.0
+side = 1
 directionOffsetZ = 50.0
 
 [node name="Key01" parent="." instance=ExtResource("20_cuqwu")]
