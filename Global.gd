@@ -10,9 +10,11 @@ var activePlayer = 0; #Change with an enum to be player left = 0 or right=0
 var players : Array[CharacterBody2D] = [null, null]
 var goals : Array[Node2D] = [null, null]
 
-@export var scaleFactor = Vector2(2, 2)
+@export_category("Menus")
 @export var useMenu = true
+@export var showSplash = true
 @export var scenes : Array[LevelResource]
+@export var splashScreen : PackedScene
 @export var mainMenuScene : PackedScene
 @export var pauseMenuScene : PackedScene
 @export var mainScene : PackedScene
@@ -42,15 +44,14 @@ var timerCallback : Callable
 var nodeInstance = null
 var next_scene = 1
 
-
-
 enum GameState {
 	MAIN_MENU,
 	PAUSE,
 	LEVEL_SELECT,
 	IN_GAME,
 	LEVEL_COMPLETE,
-	START_LEVEL
+	START_LEVEL,
+	SPLASH_SCREEN,
 }
 
 enum Scaling {
@@ -58,7 +59,7 @@ enum Scaling {
 	DECREASE
 }
 
-var currentGameState = GameState.MAIN_MENU
+var currentGameState = GameState.SPLASH_SCREEN
 
 func playSelectButton():
 	AudioManager.play(menuButtonSelect)
@@ -68,9 +69,6 @@ func _ready():
 	if scenes.size() > 0:
 		next_scene %= scenes.size() #adapt the next_scene based on the total scenes
 	print("Global ready")
-	
-	if not useMenu:
-		currentGameState = GameState.IN_GAME
 	
 	#testing not sure if it's ok
 	if pauseMenuScene != null:		
@@ -97,14 +95,29 @@ func openMainMenu():
 		mainMenuInstance.connect("select_level_ressed", _on_main_menu_select_level_pressed)
 	
 		currentGameState = GameState.MAIN_MENU
-#		bgMenuMusic.play()
-#		bgInGameMusic.stop()
 	
 func closeMainMenu():
 	var node = get_tree().root.get_node("MainMenu")
 	if node != null:
 		get_tree().root.remove_child(node)
 
+func openSplash():
+	if splashScreen.can_instantiate():
+		var splashInstance = splashScreen.instantiate()
+		get_tree().root.add_child(splashInstance)
+		splashInstance.connect("end_splash", _on_splash_end)
+		
+func closeSplash():
+	var node = get_tree().root.get_node("SplashScreen")
+	if node != null:
+		get_tree().root.remove_child(node)
+	
+func _on_splash_end():
+	closeSplash()
+	if useMenu:
+		openMainMenu()
+	else:
+		currentGameState = GameState.IN_GAME
 
 func setPlayer(number, player : CharacterBody2D):
 	players[number] = player
@@ -173,6 +186,10 @@ func _process(delta):
 		GameState.IN_GAME:
 			processGame(delta)
 			pass
+		GameState.SPLASH_SCREEN:
+			processSplash()
+			pass
+	
 	if musicMuted:
 		bgMenuMusic.volume_db = -80
 		bgInGameMusic.volume_db = -80
@@ -187,6 +204,15 @@ func _process(delta):
 				bgInGameMusic2.volume_db = 0
 				bgInGameMusic.volume_db = -80
 
+func processSplash():
+	if get_tree().root.get_node("SplashScreen") == null:
+		if showSplash:
+			openSplash()
+		else :
+			if useMenu:
+				openMainMenu()
+			else:
+				currentGameState = GameState.IN_GAME
 
 func processGame(delta):
 #	if Input.is_action_just_pressed("ChangePlayer") :
