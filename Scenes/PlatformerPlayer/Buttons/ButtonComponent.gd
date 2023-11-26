@@ -2,6 +2,9 @@ extends Area2D
 class_name ButtonComponent
 
 @export var receivers : Array[Node2D]
+@export_category("Audio")
+@export var pressSound : AudioStream
+
 @onready var senderComp : SenderComponent = $SenderComponent
 @onready var animation : AnimationPlayer = $AnimationPlayer
 
@@ -35,6 +38,7 @@ func _on_body_entered(body):
 		active = true
 		senderComp.activate()
 		animation.play("push")
+		AudioManager.play(pressSound)
 	pass # Replace with function body.
 
 #func _on_body_exited(body):
