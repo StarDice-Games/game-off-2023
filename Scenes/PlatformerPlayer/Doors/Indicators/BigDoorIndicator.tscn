@@ -11,11 +11,13 @@ sound = ExtResource("2_2dkx4")
 
 [node name="Open" type="Sprite2D" parent="."]
 visible = false
+z_index = 1
 texture_filter = 1
 rotation = 4.71239
 texture = ExtResource("2_ldvrd")
 
 [node name="Closed" type="Sprite2D" parent="."]
+z_index = 1
 texture_filter = 1
 position = Vector2(1, 6)
 rotation = 4.71239
