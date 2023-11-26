@@ -48,14 +48,13 @@ script = ExtResource("1_6xypb")
 doorOpen = ExtResource("2_72sby")
 
 [node name="Sprite_Porta_Chiusa" type="Sprite2D" parent="."]
-z_index = -1
+z_index = 1
 texture_filter = 1
 position = Vector2(46, -99)
 texture = ExtResource("2_vm08e")
 offset = Vector2(-46, -3)
 
 [node name="Sprite_Porta_Aperta" type="Sprite2D" parent="."]
-z_index = -2
 texture_filter = 1
 texture = ExtResource("3_xweti")
 offset = Vector2(0, -102)
