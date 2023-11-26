@@ -32,7 +32,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("Control/Onde_2:position:x")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -71,14 +71,14 @@ offset_right = 490.0
 modulate = Color(0.662745, 0.862745, 1, 1)
 z_index = -2
 texture_filter = 1
-position = Vector2(473.476, 273)
+position = Vector2(488, 273)
 texture = ExtResource("2_ntxe1")
 offset = Vector2(0, -54)
 
 [node name="Onde_2" type="Sprite2D" parent="Control"]
 z_index = -2
 texture_filter = 1
-position = Vector2(821.588, 273)
+position = Vector2(801, 273)
 texture = ExtResource("2_ntxe1")
 offset = Vector2(0, -54)
 
