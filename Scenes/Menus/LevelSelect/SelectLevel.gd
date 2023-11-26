@@ -2,7 +2,7 @@ extends Control
 class_name SelectLevel
 #@onready var itemListNode
 
-var levelList : Array[LevelResource]
+var levelList : Array[LevelResourceBase]
 
 signal on_level_selected(index)
 signal on_back
@@ -15,7 +15,7 @@ func _ready():
 func _process(delta):
 	pass
 
-func setItems(itemList : Array[LevelResource]):	
+func setItems(itemList : Array[LevelResourceBase]):	
 	for item in itemList:
 		$ItemList.add_item(item.name, item.icon)
 		levelList.append(item)

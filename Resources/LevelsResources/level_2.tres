@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="LevelResourceBase" load_steps=3 format=3 uid="uid://dbk2gg4au1m6o"]
+[gd_resource type="Resource" script_class="LevelResourceBase" load_steps=3 format=3 uid="uid://ijv66m5ac5i5"]
 
-[ext_resource type="PackedScene" uid="uid://n08gswe6qeoa" path="res://Levels/level_1.tscn" id="1_7s3v4"]
+[ext_resource type="PackedScene" uid="uid://bsny7i5npeg2v" path="res://Levels/level_2.tscn" id="1_dkmwb"]
 [ext_resource type="Script" path="res://Resources/LevelsResources/LevelResourceBase.gd" id="2_17ov6"]
 
 [resource]
 script = ExtResource("2_17ov6")
-name = "Level 1"
-scene = ExtResource("1_7s3v4")
+name = "Level "
+scene = ExtResource("1_dkmwb")
