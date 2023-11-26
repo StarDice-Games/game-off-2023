@@ -3,6 +3,21 @@
 [ext_resource type="Texture2D" uid="uid://cj0twb386lafo" path="res://Resources/Images/STAR dice white.png" id="1_boj70"]
 [ext_resource type="Script" path="res://Scenes/Menus/SplashScreen/SplashScreen.gd" id="1_w5xu7"]
 
+[sub_resource type="Animation" id="Animation_ypau4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_ki6xd"]
 resource_name = "Splash"
 length = 2.0
@@ -31,21 +46,6 @@ tracks/1/keys = {
 "args": [],
 "method": &"endSpashScreen"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_ypau4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p7stl"]
