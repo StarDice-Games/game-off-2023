@@ -11,9 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://dys77aiydaakp" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed.tscn" id="12_pxffw"]
 [ext_resource type="PackedScene" uid="uid://c0yejb6v7hqpy" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x2.tscn" id="13_qhjde"]
 [ext_resource type="PackedScene" uid="uid://dn8ylngmbs0mt" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x2.tscn" id="14_5dgnf"]
-[ext_resource type="PackedScene" uid="uid://c3snw3pxmp7x8" path="res://Scenes/PlatformerPlayer/Doors/Indicators/BigDoorIndicator.tscn" id="14_36t53"]
 [ext_resource type="PackedScene" uid="uid://dc601pwyjee1" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x5.tscn" id="15_4oelk"]
 [ext_resource type="PackedScene" uid="uid://din1h8ql506vb" path="res://Scenes/Background.tscn" id="16_58n5x"]
+[ext_resource type="Texture2D" uid="uid://dkncjjtpcesun" path="res://Resources/Assets/Upd_Assets/Exit_right.png" id="17_hvh5o"]
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="18_nyfm7"]
 [ext_resource type="PackedScene" uid="uid://cxjw8tk4kep1p" path="res://Scenes/PlatformerPlayer/Keys/Key01/Key01.tscn" id="19_f4ke7"]
 [ext_resource type="PackedScene" uid="uid://6a1c38prt1a4" path="res://Scenes/PlatformerPlayer/Buttons/Button1/Button01.tscn" id="20_dexti"]
@@ -100,7 +100,6 @@ position = Vector2(576, 880)
 z_index = 0
 position = Vector2(816, 276)
 maxButton = 1
-indicatorScene = ExtResource("14_36t53")
 indicatorOffset = 40
 
 [node name="Button01" parent="LevelDesign_Red/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("20_dexti")]
@@ -207,3 +206,16 @@ AIR_SPEED = 150.0
 JUMP_VELOCITY = -350.0
 side = 1
 directionOffsetZ = 50.0
+
+[node name="ExitRight" type="Sprite2D" parent="."]
+z_index = -3
+texture_filter = 1
+position = Vector2(611, 224)
+texture = ExtResource("17_hvh5o")
+
+[node name="ExitRight2" type="Sprite2D" parent="."]
+z_index = -3
+texture_filter = 1
+position = Vector2(1495, 296)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("17_hvh5o")

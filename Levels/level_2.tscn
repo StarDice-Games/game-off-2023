@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bsny7i5npeg2v"]
+[gd_scene load_steps=25 format=3 uid="uid://bsny7i5npeg2v"]
 
 [ext_resource type="PackedScene" uid="uid://c6oxlwfitiwcd" path="res://Scenes/PlatformerPlayer/Obstacle/statiWall.tscn" id="1_lvxdt"]
 [ext_resource type="PackedScene" uid="uid://din1h8ql506vb" path="res://Scenes/Background.tscn" id="2_8qhv3"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://phjy1geq4nek" path="res://Scenes/PlatformerPlayer/Platforms/Platform1/Platform2.tscn" id="7_kdkdx"]
 [ext_resource type="PackedScene" uid="uid://6a1c38prt1a4" path="res://Scenes/PlatformerPlayer/Buttons/Button1/Button01.tscn" id="8_4u5rs"]
 [ext_resource type="PackedScene" uid="uid://c8qbn2xe7w0yv" path="res://Scenes/PlatformerPlayer/Doors/BigDoor/BigDoor.tscn" id="9_yqc1v"]
-[ext_resource type="PackedScene" uid="uid://c3snw3pxmp7x8" path="res://Scenes/PlatformerPlayer/Doors/Indicators/BigDoorIndicator.tscn" id="10_cygq0"]
 [ext_resource type="PackedScene" uid="uid://dvhrt43a8uu5r" path="res://Scenes/PlatformerPlayer/Pickable/Box/BoxPickable.tscn" id="11_axvy4"]
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="12_hw85n"]
 [ext_resource type="PackedScene" uid="uid://dc601pwyjee1" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x5.tscn" id="13_4klaa"]
@@ -19,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://ch1k62rewst8" path="res://Scenes/PlatformerPlayer/PressurePlates/PressurePlate2.tscn" id="17_waclq"]
 [ext_resource type="PackedScene" uid="uid://cxjw8tk4kep1p" path="res://Scenes/PlatformerPlayer/Keys/Key01/Key01.tscn" id="18_a7a05"]
 [ext_resource type="PackedScene" uid="uid://b8upryncqwmc6" path="res://Scenes/PlatformerPlayer/Doors/SmallDoor/SmallDoor.tscn" id="19_esm71"]
+[ext_resource type="Texture2D" uid="uid://ngs3muq8vnat" path="res://Resources/Assets/Upd_Assets/Exit_letf.png" id="19_g73iw"]
+[ext_resource type="Texture2D" uid="uid://dkncjjtpcesun" path="res://Resources/Assets/Upd_Assets/Exit_right.png" id="20_f27kv"]
 
 [sub_resource type="Curve2D" id="Curve2D_mrtmm"]
 _data = {
@@ -145,7 +146,6 @@ receivers = [NodePath("../BigDoor")]
 z_index = 0
 position = Vector2(192, 292)
 maxButton = 1
-indicatorScene = ExtResource("10_cygq0")
 
 [node name="Pickables" type="Node2D" parent="LevelDesign_Red"]
 
@@ -300,3 +300,16 @@ AIR_SPEED = 150.0
 JUMP_VELOCITY = -350.0
 side = 1
 directionOffsetZ = 50.0
+
+[node name="ExitLetf" type="Sprite2D" parent="."]
+z_index = -3
+texture_filter = 1
+position = Vector2(324, 242)
+texture = ExtResource("19_g73iw")
+
+[node name="ExitRight2" type="Sprite2D" parent="."]
+z_index = -3
+texture_filter = 1
+position = Vector2(1574, 248)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("20_f27kv")

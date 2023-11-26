@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://6a1c38prt1a4" path="res://Scenes/PlatformerPlayer/Buttons/Button1/Button01.tscn" id="11_p1leb"]
 [ext_resource type="PackedScene" uid="uid://ddfaeavjffgx6" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x5.tscn" id="12_djuxu"]
 [ext_resource type="PackedScene" uid="uid://c0yejb6v7hqpy" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x2.tscn" id="13_0mt6o"]
-[ext_resource type="PackedScene" uid="uid://c3snw3pxmp7x8" path="res://Scenes/PlatformerPlayer/Doors/Indicators/BigDoorIndicator.tscn" id="13_ek1y8"]
 [ext_resource type="PackedScene" uid="uid://dvhrt43a8uu5r" path="res://Scenes/PlatformerPlayer/Pickable/Box/BoxPickable.tscn" id="14_yadbb"]
 [ext_resource type="PackedScene" uid="uid://dys77aiydaakp" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed.tscn" id="15_n1d1x"]
 [ext_resource type="PackedScene" uid="uid://dc601pwyjee1" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x5.tscn" id="16_015o1"]
@@ -19,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://do88ox8hahe8i" path="res://Scenes/PlatformerPlayer/Spikes/Spikes.tscn" id="20_3dd61"]
 [ext_resource type="PackedScene" uid="uid://b7mn5x5w28ccf" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue.tscn" id="20_arep3"]
 [ext_resource type="PackedScene" uid="uid://phjy1geq4nek" path="res://Scenes/PlatformerPlayer/Platforms/Platform1/Platform2.tscn" id="21_prl5m"]
+[ext_resource type="Texture2D" uid="uid://dkncjjtpcesun" path="res://Resources/Assets/Upd_Assets/Exit_right.png" id="21_vts2o"]
 [ext_resource type="PackedScene" uid="uid://b3cbj1cjbxle3" path="res://Scenes/PlatformerPlayer/Spikes/Spikes2.tscn" id="21_x6o34"]
 [ext_resource type="PackedScene" uid="uid://d4diwwos6tieb" path="res://Scenes/PlatformerPlayer/Platforms/Platform1/Platform1.tscn" id="22_rideo"]
 
@@ -88,7 +88,7 @@ position = Vector2(592, 989.961)
 receivers = [NodePath("../Path2D/PathFollow2D/Platform1")]
 
 [node name="PressurePlate4" parent="LevelDesign_Red/Platforms" node_paths=PackedStringArray("receivers") instance=ExtResource("18_3t1ld")]
-position = Vector2(768, 657)
+position = Vector2(781, 657)
 receivers = [NodePath("../Path2D2/PathFollow2D/Platform2")]
 
 [node name="Path2D2" type="Path2D" parent="LevelDesign_Red/Platforms"]
@@ -133,7 +133,6 @@ active = false
 z_index = -1
 
 [node name="Button01" parent="LevelDesign_Red/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("11_p1leb")]
-z_index = -1
 position = Vector2(720, 276)
 receivers = [NodePath("../BigDoor")]
 
@@ -141,8 +140,6 @@ receivers = [NodePath("../BigDoor")]
 z_index = 0
 position = Vector2(864, 276)
 maxButton = 1
-goalNumber = 1
-indicatorScene = ExtResource("13_ek1y8")
 
 [node name="Pickables" type="Node2D" parent="LevelDesign_Red"]
 
@@ -159,19 +156,19 @@ side = 1
 [node name="Obstacles" type="Node2D" parent="LevelDesign_Red"]
 
 [node name="Spikes" parent="LevelDesign_Red/Obstacles" instance=ExtResource("20_3dd61")]
-position = Vector2(912, 656)
+position = Vector2(904, 658)
 
 [node name="Spikes2" parent="LevelDesign_Red/Obstacles" instance=ExtResource("20_3dd61")]
-position = Vector2(656, 656)
+position = Vector2(662, 659)
 
 [node name="Spikes3" parent="LevelDesign_Red/Obstacles" instance=ExtResource("20_3dd61")]
-position = Vector2(736, 992)
+position = Vector2(736, 994)
 
 [node name="Spikes4" parent="LevelDesign_Red/Obstacles" instance=ExtResource("20_3dd61")]
-position = Vector2(448, 992)
+position = Vector2(448, 991)
 
 [node name="Player1" parent="LevelDesign_Red" instance=ExtResource("9_u5uib")]
-position = Vector2(160, 160)
+position = Vector2(161, 160)
 scale = Vector2(0.75, 0.75)
 AIR_SPEED = 150.0
 JUMP_VELOCITY = -430.0
@@ -281,7 +278,7 @@ position = Vector2(1232, 288)
 receivers = [NodePath("../SmallDoor")]
 
 [node name="SmallDoor" parent="LevelDesign_Blue/Objectives" instance=ExtResource("3_g076e")]
-z_index = 0
+z_index = 1
 position = Vector2(1456, 241)
 maxKeys = 1
 goalNumber = 1
@@ -298,13 +295,13 @@ position = Vector2(1088, 672)
 [node name="Obstacles" type="Node2D" parent="LevelDesign_Blue"]
 
 [node name="Spikes5" parent="LevelDesign_Blue/Obstacles" instance=ExtResource("21_x6o34")]
-position = Vector2(1328, 290)
+position = Vector2(1326, 290)
 
 [node name="Spikes8" parent="LevelDesign_Blue/Obstacles" instance=ExtResource("21_x6o34")]
-position = Vector2(1360, 290)
+position = Vector2(1356, 290)
 
 [node name="Spikes6" parent="LevelDesign_Blue/Obstacles" instance=ExtResource("21_x6o34")]
-position = Vector2(1296, 290)
+position = Vector2(1295, 290)
 
 [node name="Spikes7" parent="LevelDesign_Blue/Obstacles" instance=ExtResource("21_x6o34")]
 position = Vector2(1264, 290)
@@ -358,25 +355,25 @@ position = Vector2(1456, 996)
 position = Vector2(1424, 996)
 
 [node name="Spikes25" parent="LevelDesign_Blue/Obstacles" instance=ExtResource("21_x6o34")]
-position = Vector2(1616, 996)
+position = Vector2(1616, 997)
 
 [node name="Spikes26" parent="LevelDesign_Blue/Obstacles" instance=ExtResource("21_x6o34")]
-position = Vector2(1648, 996)
+position = Vector2(1648, 997)
 
 [node name="Spikes27" parent="LevelDesign_Blue/Obstacles" instance=ExtResource("21_x6o34")]
-position = Vector2(1584, 996)
+position = Vector2(1584, 997)
 
 [node name="Spikes28" parent="LevelDesign_Blue/Obstacles" instance=ExtResource("21_x6o34")]
-position = Vector2(1552, 996)
+position = Vector2(1552, 997)
 
 [node name="Spikes29" parent="LevelDesign_Blue/Obstacles" instance=ExtResource("21_x6o34")]
-position = Vector2(1744, 996)
+position = Vector2(1744, 997)
 
 [node name="Spikes30" parent="LevelDesign_Blue/Obstacles" instance=ExtResource("21_x6o34")]
-position = Vector2(1776, 996)
+position = Vector2(1776, 997)
 
 [node name="Spikes31" parent="LevelDesign_Blue/Obstacles" instance=ExtResource("21_x6o34")]
-position = Vector2(1712, 996)
+position = Vector2(1712, 997)
 
 [node name="Spikes33" parent="LevelDesign_Blue/Obstacles" instance=ExtResource("21_x6o34")]
 position = Vector2(1840, 996)
@@ -385,10 +382,10 @@ position = Vector2(1840, 996)
 position = Vector2(1872, 996)
 
 [node name="Spikes35" parent="LevelDesign_Blue/Obstacles" instance=ExtResource("21_x6o34")]
-position = Vector2(1808, 992)
+position = Vector2(1808, 996)
 
 [node name="Spikes32" parent="LevelDesign_Blue/Obstacles" instance=ExtResource("21_x6o34")]
-position = Vector2(1680, 996)
+position = Vector2(1680, 997)
 
 [node name="Player2" parent="LevelDesign_Blue" instance=ExtResource("9_u5uib")]
 position = Vector2(1824, 597)
@@ -398,3 +395,16 @@ AIR_SPEED = 150.0
 JUMP_VELOCITY = -350.0
 side = 1
 directionOffsetZ = 50.0
+
+[node name="ExitRight" type="Sprite2D" parent="."]
+z_index = -4
+texture_filter = 1
+position = Vector2(666, 225)
+texture = ExtResource("21_vts2o")
+
+[node name="ExitRight2" type="Sprite2D" parent="."]
+z_index = -3
+texture_filter = 1
+position = Vector2(1399, 213)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("21_vts2o")
