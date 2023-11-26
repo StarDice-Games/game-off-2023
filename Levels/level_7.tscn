@@ -56,6 +56,7 @@ position = Vector2(768, 320)
 position = Vector2(784, 976)
 
 [node name="PlatformStaticRed_x7" parent="Platform_Red/Platforms" instance=ExtResource("9_m4vnp")]
+z_index = 1
 position = Vector2(848, 752)
 
 [node name="PlatformStaticRed_x2" parent="Platform_Red/Platforms" instance=ExtResource("15_4ni5j")]
@@ -138,7 +139,7 @@ receivers = [NodePath("../../Platforms/Path2D/PathFollow2D/M_Platform")]
 [node name="Obstacles" type="Node2D" parent="Platform_Red"]
 
 [node name="BreakableWall" parent="Platform_Red/Obstacles" instance=ExtResource("18_mfrcn")]
-position = Vector2(720, 912)
+position = Vector2(720, 928)
 
 [node name="WaterFloor" parent="Platform_Red/Obstacles" instance=ExtResource("5_xay8h")]
 z_index = 3

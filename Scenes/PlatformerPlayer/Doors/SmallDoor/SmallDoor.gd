@@ -45,10 +45,10 @@ func _process(delta):
 	
 	if $Goal.active:
 		$Sprite_Porta_Chiusa.hide()
-		$Sprite_Porta_Aperta.show()
+		#$Sprite_Porta_Aperta.show()
 	else:
 		$Sprite_Porta_Chiusa.show()
-		$Sprite_Porta_Aperta.hide()
+		#$Sprite_Porta_Aperta.hide()
 	pass
 
 func fullyOpen():
