@@ -10,8 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://nwlqkq8th72o" path="res://Resources/Assets/UI_e_tutorial/sound.png" id="5_v4mkc"]
 [ext_resource type="Texture2D" uid="uid://o4x6muexmdn7" path="res://Resources/Assets/UI_e_tutorial/levels_hover.png" id="6_kntwn"]
 [ext_resource type="Texture2D" uid="uid://ckl6r43cb4uoc" path="res://Resources/Assets/UI_e_tutorial/exit_hover.png" id="8_7kb3s"]
-[ext_resource type="Texture2D" uid="uid://00gr3ceos83k" path="res://Resources/Assets/UI_e_tutorial/sound_hover.png" id="9_5edbt"]
-[ext_resource type="Texture2D" uid="uid://cr0sn8u34jjow" path="res://Resources/Assets/UI_e_tutorial/effect_sound_hover.png" id="9_6b8cp"]
+[ext_resource type="Texture2D" uid="uid://b8jlmdwctrsc1" path="res://Resources/Assets/UI_e_tutorial/effect_sound_off.png" id="10_slpo8"]
+[ext_resource type="Texture2D" uid="uid://e832etribt31" path="res://Resources/Assets/UI_e_tutorial/sound_off.png" id="12_rhahs"]
 [ext_resource type="Texture2D" uid="uid://dbfqx3kxallsy" path="res://Resources/Assets/UI_e_tutorial/credits.png" id="13_51kdt"]
 [ext_resource type="Texture2D" uid="uid://bj46y44y38hld" path="res://Resources/Assets/UI_e_tutorial/credits_hover.png" id="14_hsski"]
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="15_jotjt"]
@@ -104,7 +104,7 @@ offset_bottom = 231.0
 toggle_mode = true
 button_pressed = true
 texture_normal = ExtResource("4_76x7w")
-texture_pressed = ExtResource("9_6b8cp")
+texture_pressed = ExtResource("10_slpo8")
 
 [node name="TextureSounds" type="TextureButton" parent="Control2"]
 layout_mode = 0
@@ -118,7 +118,7 @@ focus_neighbor_bottom = NodePath("../NewGame")
 toggle_mode = true
 button_pressed = true
 texture_normal = ExtResource("5_v4mkc")
-texture_pressed = ExtResource("9_5edbt")
+texture_pressed = ExtResource("12_rhahs")
 
 [node name="TextureCredits" type="TextureButton" parent="Control2"]
 layout_mode = 0
