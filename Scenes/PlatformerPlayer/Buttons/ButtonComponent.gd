@@ -3,6 +3,7 @@ class_name ButtonComponent
 
 @export var receivers : Array[Node2D]
 @onready var senderComp : SenderComponent = $SenderComponent
+@onready var animation : AnimationPlayer = $AnimationPlayer
 
 var active = false;
 
@@ -20,7 +21,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if active:
-		$Sprite2D.modulate = Color.GREEN_YELLOW
+		animation.play("pressed")
 	pass
 
 func _on_area_entered(area):
@@ -33,6 +34,7 @@ func _on_body_entered(body):
 	if active == false:
 		active = true
 		senderComp.activate()
+		animation.play("push")
 	pass # Replace with function body.
 
 #func _on_body_exited(body):
