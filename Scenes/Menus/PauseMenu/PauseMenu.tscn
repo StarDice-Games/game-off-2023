@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://Scenes/Menus/PauseMenu/PauseMenu.gd" id="1_0vhar"]
 [ext_resource type="Material" uid="uid://bdjvh3cymune7" path="res://Resources/Materials/Unshaded.tres" id="2_2qwo7"]
 [ext_resource type="Texture2D" uid="uid://6hcesrhf7o8e" path="res://Resources/Assets/UI_e_tutorial/popup_ingame.png" id="2_r33si"]
-[ext_resource type="Texture2D" uid="uid://cqqo6a8blq0qy" path="res://Resources/Assets/UI_e_tutorial/exit.png" id="4_lphuj"]
 [ext_resource type="Texture2D" uid="uid://sag6xrkcl1lb" path="res://Resources/Assets/UI_e_tutorial/restart.png" id="4_sa2jo"]
 [ext_resource type="Texture2D" uid="uid://c3ikaexiywa3k" path="res://Resources/Assets/UI_e_tutorial/continue.png" id="4_wu3wi"]
-[ext_resource type="Texture2D" uid="uid://ckl6r43cb4uoc" path="res://Resources/Assets/UI_e_tutorial/exit_hover.png" id="5_4joch"]
 [ext_resource type="Texture2D" uid="uid://b3fp1apq870f" path="res://Resources/Assets/UI_e_tutorial/restart_hover.png" id="5_fl6qr"]
 [ext_resource type="Texture2D" uid="uid://b8okpbmo7oe8n" path="res://Resources/Assets/UI_e_tutorial/continue_hover.png" id="5_pwmaa"]
+[ext_resource type="Texture2D" uid="uid://dqp2oqc6hol8j" path="res://Resources/Assets/UI_e_tutorial/home.png" id="8_qb5nd"]
+[ext_resource type="Texture2D" uid="uid://b50gej6qh68u3" path="res://Resources/Assets/UI_e_tutorial/home_hover.png" id="9_vnv38"]
 [ext_resource type="Texture2D" uid="uid://c3dbn7f08tcnw" path="res://Resources/Assets/UI_e_tutorial/effect_sound.png" id="10_2waei"]
 [ext_resource type="Texture2D" uid="uid://cr0sn8u34jjow" path="res://Resources/Assets/UI_e_tutorial/effect_sound_hover.png" id="11_wnf7r"]
 [ext_resource type="Texture2D" uid="uid://nwlqkq8th72o" path="res://Resources/Assets/UI_e_tutorial/sound.png" id="12_51qku"]
@@ -89,9 +89,9 @@ offset_left = 562.0
 offset_top = 123.0
 offset_right = 632.0
 offset_bottom = 154.0
-texture_normal = ExtResource("4_lphuj")
-texture_hover = ExtResource("5_4joch")
-texture_focused = ExtResource("5_4joch")
+texture_normal = ExtResource("8_qb5nd")
+texture_hover = ExtResource("9_vnv38")
+texture_focused = ExtResource("9_vnv38")
 ignore_texture_size = true
 
 [node name="Music" type="TextureButton" parent="Control"]
