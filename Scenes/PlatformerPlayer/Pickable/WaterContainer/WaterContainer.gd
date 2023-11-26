@@ -15,6 +15,9 @@ var animStarted = false
 
 var lastAnimation = ""
 
+@export var sprinkleOffset_big = 10
+@export var sprinkleOffset_small = 10
+
 func _ready():
 #	$Sprinkle.disabled = true
 	$Sprinkle.hide()
@@ -30,8 +33,10 @@ func spreadWater():
 				$Sprinkle.scale.x = 1
 		match $PickupComponent.currentSide:
 			1:
+				#$Sprinkle/Sprinkle_left.position.x = $Sprinkle/Sprinkle_left.position.x + (sprinkleOffset_big*$Sprinkle.scale.x)
 				playSound(wateringSmall)
 			0:
+				#$Sprinkle/Sprinkle_right.position.x = $Sprinkle/Sprinkle_right.position.x + (sprinkleOffset_small*$Sprinkle.scale.x)
 				playSound(wateringBig)
 
 func stopWater():
@@ -43,6 +48,7 @@ func getAnimation():
 		if $PickupComponent.activeSprite.flip_h:
 			return "rotate_flip"
 		else:
+			#$Sprinkle.position.x = 1
 			return "rotate"
 	else:
 		if $PickupComponent.activeSprite.flip_h:
