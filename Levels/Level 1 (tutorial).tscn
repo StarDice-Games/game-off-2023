@@ -1,6 +1,5 @@
-[gd_scene load_steps=19 format=3 uid="uid://n08gswe6qeoa"]
+[gd_scene load_steps=18 format=3 uid="uid://n08gswe6qeoa"]
 
-[ext_resource type="PackedScene" uid="uid://c6oxlwfitiwcd" path="res://Scenes/PlatformerPlayer/Obstacle/statiWall.tscn" id="1_0k40l"]
 [ext_resource type="PackedScene" uid="uid://dvhrt43a8uu5r" path="res://Scenes/PlatformerPlayer/Pickable/Box/BoxPickable.tscn" id="3_fb0xc"]
 [ext_resource type="Texture2D" uid="uid://ce6wqv6fwfmsg" path="res://Resources/Assets/Tutorial/Move_direction_tutorial.png" id="4_pff5u"]
 [ext_resource type="Texture2D" uid="uid://crplo56dodxf3" path="res://Resources/Assets/Tutorial/Jump_tutorial.png" id="5_7a2iu"]
@@ -25,9 +24,15 @@
 texture_filter = 1
 offset = Vector2(960, 540)
 
-[node name="GROUND" parent="." instance=ExtResource("1_0k40l")]
-position = Vector2(992, 1024)
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(231.998, 1125.49)
 scale = Vector2(64.68, 2)
+disable_mode = 1
+collision_mask = 7
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground"]
+position = Vector2(-2.96842, -69.2442)
+polygon = PackedVector2Array(10.436, 2.5, 18.3828, 3.99999, 29.7001, 4.5, 29.6382, 23, -1.74706, 23.5, -1.62338, -0.5)
 
 [node name="Background" parent="." instance=ExtResource("16_58n5x")]
 metadata/_edit_lock_ = true
@@ -97,6 +102,7 @@ position = Vector2(816, 276)
 maxButton = 1
 goalNumber = 1
 indicatorScene = ExtResource("14_36t53")
+indicatorOffset = 40
 
 [node name="Button01" parent="LevelDesign_Red/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("20_dexti")]
 z_index = -1
@@ -188,6 +194,7 @@ z_index = 0
 position = Vector2(1552, 323)
 maxKeys = 1
 goalNumber = 1
+indicatorOffset = 44
 
 [node name="Key01" parent="LevelDesign_Blue/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("19_f4ke7")]
 position = Vector2(1136, 432)

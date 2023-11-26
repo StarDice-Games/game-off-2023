@@ -1,6 +1,5 @@
-[gd_scene load_steps=27 format=3 uid="uid://daasegoi4tyo3"]
+[gd_scene load_steps=26 format=3 uid="uid://daasegoi4tyo3"]
 
-[ext_resource type="PackedScene" uid="uid://c6oxlwfitiwcd" path="res://Scenes/PlatformerPlayer/Obstacle/statiWall.tscn" id="4_e2tbp"]
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="6_bgo1k"]
 [ext_resource type="PackedScene" uid="uid://ddfaeavjffgx6" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x5.tscn" id="6_u4jqa"]
 [ext_resource type="PackedScene" uid="uid://b8upryncqwmc6" path="res://Scenes/PlatformerPlayer/Doors/SmallDoor/SmallDoor.tscn" id="7_28e4i"]
@@ -47,10 +46,6 @@ point_count = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(960, 540)
-
-[node name="Ground" parent="." instance=ExtResource("4_e2tbp")]
-position = Vector2(992, 1024)
-scale = Vector2(64.68, 2)
 
 [node name="LevelDesign_Red" type="Node2D" parent="."]
 z_index = -1
@@ -122,7 +117,7 @@ z_index = 0
 position = Vector2(416, 261)
 maxButton = 2
 indicatorScene = ExtResource("13_wbv1v")
-indicatorOffset = 39
+indicatorOffset = 40
 
 [node name="Button01" parent="LevelDesign_Red/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("17_l1jrp")]
 position = Vector2(624, 707)
@@ -279,11 +274,11 @@ path = NodePath("..")
 active = false
 
 [node name="PressurePlate2" parent="LevelDesign_Blue/Platforms" node_paths=PackedStringArray("receivers") instance=ExtResource("23_lyloj")]
-position = Vector2(1744, 992)
+position = Vector2(1744, 995)
 receivers = [NodePath("../Path2D2/PathFollow2D/M_Platform2")]
 
 [node name="PressurePlate3" parent="LevelDesign_Blue/Platforms" node_paths=PackedStringArray("receivers") instance=ExtResource("23_lyloj")]
-position = Vector2(1344, 736)
+position = Vector2(1344, 737)
 receivers = [NodePath("../Path2D/PathFollow2D/M_Platform2")]
 
 [node name="Obstacles" type="Node2D" parent="LevelDesign_Blue"]
@@ -293,7 +288,7 @@ receivers = [NodePath("../Path2D/PathFollow2D/M_Platform2")]
 [node name="SmallDoor" parent="LevelDesign_Blue/Objectives" instance=ExtResource("7_28e4i")]
 position = Vector2(1504, 289)
 maxKeys = 2
-indicatorOffset = 42
+indicatorOffset = 44
 
 [node name="Key01" parent="LevelDesign_Blue/Objectives" instance=ExtResource("25_jlwkn")]
 position = Vector2(1664, 656)
@@ -326,3 +321,13 @@ directionOffsetZ = 50.0
 
 [node name="Background" parent="." instance=ExtResource("23_buiqh")]
 metadata/_edit_lock_ = true
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(231.998, 1125.49)
+scale = Vector2(64.68, 2)
+disable_mode = 1
+collision_mask = 7
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground"]
+position = Vector2(-2.96842, -69.2442)
+polygon = PackedVector2Array(10.436, 2.5, 18.3828, 3.99999, 29.7001, 4.5, 29.6382, 23, -1.74706, 23.5, -1.63884, -0.5)
