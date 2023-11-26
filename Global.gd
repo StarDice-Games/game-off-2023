@@ -62,10 +62,16 @@ enum Scaling {
 var currentGameState = GameState.SPLASH_SCREEN
 
 var completedLevels = {}
+var curretLevel = ""
 
 func playSelectButton():
 	if not sfxMuted:
 		AudioManager.play(menuButtonSelect)
+
+func isLevelComplete(key):
+	if completedLevels.has(key):
+		return completedLevels.get(key) == true
+	return false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():	
@@ -407,11 +413,11 @@ func exitGame():
 	else:
 		push_error("Main scene missing in Global")
 
-func loadSelectedLevel(index):
+func loadSelectedLevel(res : LevelResourceBase):
 	print("Load level index")
-	if index < scenes.size():
+	if res != null:
 		AudioManager.play(levelSelectionSound)
-		var sceneToLoad = scenes[index].scene
+		var sceneToLoad = res.scene
 		currentGameState = GameState.START_LEVEL
 		activePlayer = 0
 		bgMenuMusic.stop()
@@ -422,7 +428,8 @@ func loadSelectedLevel(index):
 		if selectLevelNode != null:
 			get_tree().root.remove_child(selectLevelNode)
 		
-		get_tree().change_scene_to_packed(sceneToLoad)
+		if sceneToLoad != null:
+			get_tree().change_scene_to_packed(sceneToLoad)
 		#play the start level sound, reset the statecurrentGameState = GameState.START_LEVEL
 			
 		if not sfxMuted:

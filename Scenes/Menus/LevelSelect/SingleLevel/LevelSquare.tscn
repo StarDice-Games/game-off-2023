@@ -1,17 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://cylhgxe6wocod"]
+[gd_scene load_steps=7 format=3 uid="uid://cylhgxe6wocod"]
 
 [ext_resource type="Texture2D" uid="uid://bjn1m5qtjaiff" path="res://Icons/icon.svg" id="1_4t0a8"]
+[ext_resource type="Script" path="res://Scenes/Menus/LevelSelect/SingleLevel/LevelSquare.gd" id="1_o7tdi"]
 [ext_resource type="Texture2D" uid="uid://cs8kfsrnmd72i" path="res://Resources/Assets/UI_e_tutorial/levels_square.png" id="1_yqhs5"]
+[ext_resource type="Texture2D" uid="uid://035a4eru7owx" path="res://Resources/Assets/UI_e_tutorial/levels_done.png" id="3_b1ilb"]
+[ext_resource type="Texture2D" uid="uid://cwx41ps4p2mfc" path="res://Resources/Assets/UI_e_tutorial/levels_square_hover.png" id="4_2wau0"]
+[ext_resource type="Texture2D" uid="uid://blewx540a7nvb" path="res://Resources/Assets/UI_e_tutorial/levels_square_selected.png" id="4_46wfv"]
 
-[node name="LevelSquare" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="LevelSquare" type="TextureButton"]
+z_index = 2
+offset_right = 87.0
+offset_bottom = 111.0
+texture_normal = ExtResource("1_yqhs5")
+texture_pressed = ExtResource("4_46wfv")
+texture_hover = ExtResource("4_2wau0")
+texture_focused = ExtResource("4_2wau0")
+ignore_texture_size = true
+script = ExtResource("1_o7tdi")
 
 [node name="icon" type="TextureRect" parent="."]
+z_index = -1
 layout_mode = 0
 offset_left = 5.0
 offset_top = 6.0
@@ -20,8 +28,22 @@ offset_bottom = 79.0
 texture = ExtResource("1_4t0a8")
 expand_mode = 1
 
-[node name="border" type="TextureRect" parent="."]
+[node name="tickComplete" type="TextureRect" parent="."]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 38.0
+offset_right = 80.0
+offset_bottom = 83.0
+texture = ExtResource("3_b1ilb")
+
+[node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("1_yqhs5")
+offset_left = 14.0
+offset_top = 90.0
+offset_right = 69.0
+offset_bottom = 116.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Level X"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="toggled" from="." to="." method="_on_border_toggled"]
