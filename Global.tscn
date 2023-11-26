@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bxeb2iva4yrgw"]
+[gd_scene load_steps=24 format=3 uid="uid://bxeb2iva4yrgw"]
 
 [ext_resource type="Script" path="res://Global.gd" id="1_j5qpw"]
 [ext_resource type="Resource" uid="uid://4q02kbimxt6b" path="res://Resources/LevelsResources/level_1.tres" id="2_owt0f"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c3k6y8yqg3qju" path="res://Scenes/Menus/SplashScreen/SplashScreen.tscn" id="4_bnw24"]
 [ext_resource type="Resource" uid="uid://c1c4k60242ob8" path="res://Resources/LevelsResources/level_3.tres" id="4_v6e8j"]
 [ext_resource type="Resource" uid="uid://cg3nfupqtj3ny" path="res://Resources/LevelsResources/level_5.tres" id="5_8wok5"]
+[ext_resource type="Resource" uid="uid://dnsdp82cxl2hu" path="res://Resources/LevelsResources/level_4.tres" id="5_jfyiu"]
 [ext_resource type="PackedScene" uid="uid://blauksugtg8ro" path="res://Scenes/Menus/LevelSelect/SelectLevel.tscn" id="6_6nmfb"]
 [ext_resource type="Resource" uid="uid://b88wusvh81hoe" path="res://Resources/LevelsResources/level_6.tres" id="6_558h2"]
 [ext_resource type="Resource" uid="uid://t8m4rcxflqt4" path="res://Resources/LevelsResources/level_8.tres" id="7_1wprs"]
@@ -25,9 +26,8 @@
 
 [node name="Global" type="Node2D"]
 script = ExtResource("1_j5qpw")
-useMenu = false
 showSplash = false
-scenes = Array[Resource("res://Resources/LevelsResources/LevelResourceBase.gd")]([ExtResource("2_owt0f"), ExtResource("3_jtt7o"), ExtResource("4_v6e8j"), ExtResource("5_8wok5"), ExtResource("6_558h2"), ExtResource("7_smhhi"), ExtResource("7_1wprs"), ExtResource("8_yfkdj"), ExtResource("9_ev42n"), null])
+scenes = Array[Resource("res://Resources/LevelsResources/LevelResourceBase.gd")]([ExtResource("2_owt0f"), ExtResource("3_jtt7o"), ExtResource("4_v6e8j"), ExtResource("5_jfyiu"), ExtResource("5_8wok5"), ExtResource("6_558h2"), ExtResource("7_smhhi"), ExtResource("7_1wprs"), ExtResource("8_yfkdj"), ExtResource("9_ev42n")])
 splashScreen = ExtResource("4_bnw24")
 mainMenuScene = ExtResource("3_wleec")
 pauseMenuScene = ExtResource("3_kic5l")

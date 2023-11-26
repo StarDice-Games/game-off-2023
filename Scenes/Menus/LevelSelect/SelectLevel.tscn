@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://blauksugtg8ro"]
+[gd_scene load_steps=19 format=3 uid="uid://blauksugtg8ro"]
 
 [ext_resource type="Script" path="res://Scenes/Menus/LevelSelect/SelectLevel.gd" id="1_8sxpd"]
 [ext_resource type="Texture2D" uid="uid://b2h0wguux7sp6" path="res://Resources/Assets/UI_e_tutorial/Background_levels.png" id="2_41glp"]
@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://ijv66m5ac5i5" path="res://Resources/LevelsResources/level_2.tres" id="7_uo4q8"]
 [ext_resource type="Resource" uid="uid://c1c4k60242ob8" path="res://Resources/LevelsResources/level_3.tres" id="8_f2l7i"]
 [ext_resource type="Resource" uid="uid://cg3nfupqtj3ny" path="res://Resources/LevelsResources/level_5.tres" id="9_8mhn7"]
+[ext_resource type="Resource" uid="uid://dnsdp82cxl2hu" path="res://Resources/LevelsResources/level_4.tres" id="10_4s1qb"]
 [ext_resource type="Resource" uid="uid://b88wusvh81hoe" path="res://Resources/LevelsResources/level_6.tres" id="10_so2k4"]
 [ext_resource type="Resource" uid="uid://dxfy8fmwrsu6q" path="res://Resources/LevelsResources/level_7.tres" id="11_texmv"]
 [ext_resource type="Resource" uid="uid://t8m4rcxflqt4" path="res://Resources/LevelsResources/level_8.tres" id="12_u1bhc"]
@@ -110,10 +111,11 @@ levelRes = ExtResource("8_f2l7i")
 layout_mode = 1
 offset_left = 1077.0
 offset_top = 400.0
-offset_right = 1077.0
-offset_bottom = 400.0
+offset_right = 1159.0
+offset_bottom = 512.0
 toggle_mode = true
 button_group = ExtResource("6_me2e6")
+levelRes = ExtResource("10_4s1qb")
 
 [node name="LevelSquare5" parent="." instance=ExtResource("5_5ld3b")]
 layout_mode = 1
