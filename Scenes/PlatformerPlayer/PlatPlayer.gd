@@ -18,6 +18,12 @@ class_name PlatPlayer
 @export var grabObject : AudioStream
 @export var releaseObject : AudioStream
 
+@export var deathSoundSmall : AudioStream
+@export var jumpSoundSmall : AudioStream
+@export var stepsSmall : AudioStream
+@export var grabObjectSmall : AudioStream
+@export var releaseObjectSmall : AudioStream
+
 var collindingNode : Node2D = null
 var pickedItem : PickupComponent = null
 
@@ -138,7 +144,7 @@ func _physics_process(delta):
 		# Handle Jump.
 		if Input.is_action_just_pressed("Jump") and is_on_floor():
 			getActiveAnimationPlayer().play("Jump")
-			AudioManager.play(jumpSound)
+			AudioManager.play(getSoundBySide(jumpSound, jumpSoundSmall))
 			jumpAnimationEnd = false
 			velocity.y = (JUMP_VELOCITY - velocity.y)
 
@@ -152,7 +158,7 @@ func _physics_process(delta):
 			
 			if jumpAnimationEnd == true:
 				getActiveAnimationPlayer().play("Walk")
-				AudioManager.play(steps)
+				AudioManager.play(getSoundBySide(steps, stepsSmall))
 		else:
 			velocity.x = move_toward(velocity.x, 0, GROUND_FRICTION)
 			if jumpAnimationEnd == true:
@@ -204,11 +210,11 @@ func _physics_process(delta):
 				
 				pickedItem = null
 				collindingNode = null
-				AudioManager.play(releaseObject)
+				AudioManager.play(getSoundBySide(releaseObject, releaseObjectSmall))
 				
 			elif collindingNode != null && pickedItem == null:
 				pickupItem(collindingNode)
-				AudioManager.play(grabObject)
+				AudioManager.play(getSoundBySide(grabObject, grabObjectSmall))
 			
 				
 	if move_and_slide():
@@ -216,12 +222,17 @@ func _physics_process(delta):
 		var collider = collision.get_collider()
 		if collider.has_node("DeathComponent"):
 			print("Death ", collision.get_collider().name)
-			AudioManager.play(deathSound)
+			AudioManager.play(getSoundBySide(deathSound, deathSoundSmall))
 			died.emit()
 
+func getSoundBySide(sound1, sound2):
+	match side:
+		0: #Big side
+			return sound1
+		1: #Small side
+			return sound2
+
 func playDeathAudio():
-#	if deathSound != null:
-#		audioPlayer.stream = deathSound
 	
 	if audioPlayer.playing == false:
 		audioPlayer.play()
