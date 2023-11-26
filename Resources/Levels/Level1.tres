@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="LevelResource" load_steps=3 format=3 uid="uid://cpy6dd3hx5r8m"]
-
-[ext_resource type="Script" path="res://Resources/Levels/LevelResource.gd" id="1_keull"]
-[ext_resource type="PackedScene" uid="uid://1asqm4mxi7np" path="res://Levels/LevelTestFromTemplate.tscn" id="2_f74y2"]
-
-[resource]
-script = ExtResource("1_keull")
-name = "First level"
-scene = ExtResource("2_f74y2")
