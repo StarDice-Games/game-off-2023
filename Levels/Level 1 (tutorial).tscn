@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://n08gswe6qeoa"]
+[gd_scene load_steps=20 format=3 uid="uid://n08gswe6qeoa"]
 
 [ext_resource type="PackedScene" uid="uid://c6oxlwfitiwcd" path="res://Scenes/PlatformerPlayer/Obstacle/statiWall.tscn" id="1_0k40l"]
 [ext_resource type="PackedScene" uid="uid://c5xj8w588i6aa" path="res://Scenes/Visual Indicator/visualIndicator.tscn" id="2_o00de"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dys77aiydaakp" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed.tscn" id="12_pxffw"]
 [ext_resource type="PackedScene" uid="uid://c0yejb6v7hqpy" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x2.tscn" id="13_qhjde"]
 [ext_resource type="PackedScene" uid="uid://dn8ylngmbs0mt" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x2.tscn" id="14_5dgnf"]
+[ext_resource type="PackedScene" uid="uid://c3snw3pxmp7x8" path="res://Scenes/PlatformerPlayer/Doors/Indicators/BigDoorIndicator.tscn" id="14_36t53"]
 [ext_resource type="PackedScene" uid="uid://dc601pwyjee1" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x5.tscn" id="15_4oelk"]
 [ext_resource type="PackedScene" uid="uid://din1h8ql506vb" path="res://Scenes/Background.tscn" id="16_58n5x"]
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="18_nyfm7"]
@@ -131,6 +132,8 @@ position = Vector2(576, 880)
 z_index = 0
 position = Vector2(816, 272)
 maxButton = 1
+goalNumber = 1
+indicatorScene = ExtResource("14_36t53")
 
 [node name="Button01" parent="LevelDesign_Red" node_paths=PackedStringArray("receivers") instance=ExtResource("20_dexti")]
 z_index = -1
