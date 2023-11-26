@@ -4,10 +4,11 @@ class_name MainMenu
 signal new_game_pressed
 signal select_level_ressed
 signal exit_pressed
+signal open_credits
 
 @onready var buttonToFocus = $Control2/NewGame
-@onready var musicToggle = $Control2/ColorRect/Music
-@onready var sfxToggle = $Control2/ColorRect2/Sounds
+@onready var musicToggle = $Control2/TextureMusic
+@onready var sfxToggle = $Control2/TextureSounds
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

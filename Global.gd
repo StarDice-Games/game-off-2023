@@ -62,7 +62,8 @@ enum Scaling {
 var currentGameState = GameState.SPLASH_SCREEN
 
 func playSelectButton():
-	AudioManager.play(menuButtonSelect)
+	if not sfxMuted:
+		AudioManager.play(menuButtonSelect)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():	

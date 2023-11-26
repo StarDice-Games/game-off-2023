@@ -5,11 +5,14 @@ signal on_resume_pressed
 signal on_restart_pressed
 signal on_exit_pressed
 
+@onready var musicToggle = $Control/Music
+@onready var soundToggle = $Control/Sounds
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Control/Resume.grab_focus()
-	$Control/Music.button_pressed = !Global.musicMuted
-	$Control/Sounds.button_pressed = !Global.sfxMuted
+	musicToggle.button_pressed = !Global.musicMuted
+	soundToggle.button_pressed = !Global.sfxMuted
 	pass # Replace with function body.
 
 
@@ -38,8 +41,8 @@ func _on_exit_pressed():
 
 func _on_control_draw():
 	$Control/Resume.grab_focus()
-	$Control/Music.button_pressed = !Global.musicMuted
-	$Control/Sounds.button_pressed = !Global.sfxMuted
+	musicToggle.button_pressed = !Global.musicMuted
+	soundToggle.button_pressed = !Global.sfxMuted
 	pass # Replace with function body.
 
 
