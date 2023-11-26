@@ -42,7 +42,11 @@ func _physics_process(delta):
 		spreadWater()
 	#TEST KEVIN ANIMAZIONE 	
 		if animStarted==false:
-			$AnimationPlayer.play("rotate");
+			if $PickupComponent.activeSprite.flip_h:
+				$AnimationPlayer.play("rotate");
+			else:
+				$AnimationPlayer.play("rotate_flip");
+
 			animStarted = true
 	else:
 		stopWater()
