@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b8upryncqwmc6" path="res://Scenes/PlatformerPlayer/Doors/SmallDoor/SmallDoor.tscn" id="11_sth3h"]
 [ext_resource type="PackedScene" uid="uid://bwwry4wow68b6" path="res://Scenes/PlatformerPlayer/Obstacle/Fire/Fire.tscn" id="12_sqht7"]
 [ext_resource type="PackedScene" uid="uid://phjy1geq4nek" path="res://Scenes/PlatformerPlayer/Platforms/Platform1/Platform2.tscn" id="13_7i2k0"]
-[ext_resource type="PackedScene" uid="uid://bc4tsc83nd2al" path="res://Scenes/PlatformerPlayer/PressurePlates/PressurePlate1/PressurePlate1.tscn" id="14_sp555"]
+[ext_resource type="PackedScene" uid="uid://bc4tsc83nd2al" path="res://Scenes/PlatformerPlayer/PressurePlates/PressurePlate1.tscn" id="14_sp555"]
 [ext_resource type="PackedScene" uid="uid://c8qbn2xe7w0yv" path="res://Scenes/PlatformerPlayer/Doors/BigDoor/BigDoor.tscn" id="15_qjrpe"]
 [ext_resource type="PackedScene" uid="uid://ddfaeavjffgx6" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x5.tscn" id="16_pm71b"]
 [ext_resource type="PackedScene" uid="uid://c0yejb6v7hqpy" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x2.tscn" id="17_7gvvk"]
@@ -167,7 +167,6 @@ scale = Vector2(0.75, 0.75)
 AIR_SPEED = 150.0
 JUMP_VELOCITY = -430.0
 push_force = 50
-side = 0
 
 [node name="Player2" parent="." instance=ExtResource("5_5k7vc")]
 z_index = -1

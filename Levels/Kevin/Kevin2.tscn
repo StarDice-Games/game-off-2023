@@ -10,11 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://phjy1geq4nek" path="res://Scenes/PlatformerPlayer/Platforms/Platform1/Platform2.tscn" id="10_gaau7"]
 [ext_resource type="PackedScene" uid="uid://js3ym6n0f3po" path="res://Scenes/PlatformerPlayer/Pickable/RigidBodyPickable/PicakbleBall.tscn" id="11_ed5n2"]
 [ext_resource type="PackedScene" uid="uid://cdoatt4q6g2nt" path="res://Scenes/PlatformerPlayer/Walls/BreakableWall/BreakableWall.tscn" id="12_4lfmm"]
-[ext_resource type="PackedScene" uid="uid://bc4tsc83nd2al" path="res://Scenes/PlatformerPlayer/PressurePlates/PressurePlate1/PressurePlate1.tscn" id="13_yjaho"]
+[ext_resource type="PackedScene" uid="uid://bc4tsc83nd2al" path="res://Scenes/PlatformerPlayer/PressurePlates/PressurePlate1.tscn" id="13_yjaho"]
 [ext_resource type="PackedScene" uid="uid://c8qbn2xe7w0yv" path="res://Scenes/PlatformerPlayer/Doors/BigDoor/BigDoor.tscn" id="14_r516p"]
 [ext_resource type="PackedScene" uid="uid://c3eux8dwlxtov" path="res://Scenes/PlatformerPlayer/Platforms/Plants/Vase/Vase.tscn" id="15_ud3du"]
 [ext_resource type="PackedScene" uid="uid://birka5inve0vm" path="res://Scenes/PlatformerPlayer/Platforms/Plants/LeafPlatform/LeafPlatform.tscn" id="16_8d8y8"]
-[ext_resource type="PackedScene" uid="uid://ch1k62rewst8" path="res://Scenes/PlatformerPlayer/PressurePlates/PressurePlate1/PressurePlate2.tscn" id="17_uqyxi"]
+[ext_resource type="PackedScene" uid="uid://ch1k62rewst8" path="res://Scenes/PlatformerPlayer/PressurePlates/PressurePlate2.tscn" id="17_uqyxi"]
 [ext_resource type="PackedScene" uid="uid://b3cbj1cjbxle3" path="res://Scenes/PlatformerPlayer/Spikes/Spikes2.tscn" id="18_k1axc"]
 [ext_resource type="PackedScene" uid="uid://b50r2cbdgb676" path="res://Scenes/PlatformerPlayer/Pickable/WaterContainer/WaterContainer.tscn" id="19_kl7v6"]
 [ext_resource type="PackedScene" uid="uid://c0yejb6v7hqpy" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x2.tscn" id="20_g5e7w"]
@@ -245,6 +245,7 @@ scale = Vector2(0.75, 0.75)
 GROUND_SPEED = 230.0
 AIR_SPEED = 150.0
 JUMP_VELOCITY = -350.0
+side = 1
 directionOffsetZ = 50.0
 
 [node name="PlatformStaticRed" parent="." instance=ExtResource("22_y1drr")]
