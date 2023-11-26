@@ -1,15 +1,24 @@
-[gd_scene load_steps=9 format=3 uid="uid://dqijkmgdh5ulw"]
+[gd_scene load_steps=17 format=3 uid="uid://dqijkmgdh5ulw"]
 
 [ext_resource type="Script" path="res://Scenes/Menus/MainMenu/MainMenu.gd" id="1_qdm7w"]
-[ext_resource type="Texture2D" uid="uid://cg1ymalfuxac" path="res://Resources/Images/New Piskel.png" id="1_s2rg6"]
-[ext_resource type="Texture2D" uid="uid://gb0kvlkeqvp1" path="res://Resources/Images/testBack.png" id="2_sejcl"]
-[ext_resource type="Theme" uid="uid://b15dltfliv1gb" path="res://Resources/Theme/Theme.tres" id="4_0yllo"]
-[ext_resource type="Texture2D" uid="uid://dhygrefhjnums" path="res://Resources/Assets/Test/Platform_rossa.png" id="4_cs5qg"]
-[ext_resource type="Texture2D" uid="uid://buwaq11fw15nu" path="res://Resources/Assets/Test/Platform_blu.png" id="6_0krrx"]
-[ext_resource type="Texture2D" uid="uid://bxio167qqgrls" path="res://Resources/Assets/UI/icons8-sound-50.png" id="7_b1ts1"]
-[ext_resource type="Texture2D" uid="uid://covdgg0f4qrqv" path="res://Resources/Assets/UI/icons8-no-audio-50.png" id="8_t0uxh"]
+[ext_resource type="Texture2D" uid="uid://dpkm83g44toxx" path="res://Resources/Assets/UI_e_tutorial/Background_home.jpg" id="2_rraye"]
+[ext_resource type="Texture2D" uid="uid://qghasdrawflw" path="res://Resources/Assets/UI_e_tutorial/Start.png" id="3_5dsbo"]
+[ext_resource type="Texture2D" uid="uid://cqqo6a8blq0qy" path="res://Resources/Assets/UI_e_tutorial/exit.png" id="3_ncqee"]
+[ext_resource type="Texture2D" uid="uid://c3dbn7f08tcnw" path="res://Resources/Assets/UI_e_tutorial/effect_sound.png" id="4_76x7w"]
+[ext_resource type="Texture2D" uid="uid://ocose2x1yj3x" path="res://Resources/Assets/UI_e_tutorial/Start_hover.png" id="4_h0rnt"]
+[ext_resource type="Texture2D" uid="uid://c34chwc6x3s51" path="res://Resources/Assets/UI_e_tutorial/levels.png" id="5_fdt5v"]
+[ext_resource type="Texture2D" uid="uid://nwlqkq8th72o" path="res://Resources/Assets/UI_e_tutorial/sound.png" id="5_v4mkc"]
+[ext_resource type="Texture2D" uid="uid://o4x6muexmdn7" path="res://Resources/Assets/UI_e_tutorial/levels_hover.png" id="6_kntwn"]
+[ext_resource type="Texture2D" uid="uid://ckl6r43cb4uoc" path="res://Resources/Assets/UI_e_tutorial/exit_hover.png" id="8_7kb3s"]
+[ext_resource type="Texture2D" uid="uid://00gr3ceos83k" path="res://Resources/Assets/UI_e_tutorial/sound_hover.png" id="9_5edbt"]
+[ext_resource type="Texture2D" uid="uid://cr0sn8u34jjow" path="res://Resources/Assets/UI_e_tutorial/effect_sound_hover.png" id="9_6b8cp"]
+[ext_resource type="Texture2D" uid="uid://dbfqx3kxallsy" path="res://Resources/Assets/UI_e_tutorial/credits.png" id="13_51kdt"]
+[ext_resource type="Texture2D" uid="uid://bj46y44y38hld" path="res://Resources/Assets/UI_e_tutorial/credits_hover.png" id="14_hsski"]
+[ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="15_jotjt"]
+[ext_resource type="PackedScene" uid="uid://c6oxlwfitiwcd" path="res://Scenes/PlatformerPlayer/Obstacle/statiWall.tscn" id="16_03557"]
 
 [node name="MainMenu" type="Control"]
+z_index = 9
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,80 +29,70 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qdm7w")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
 [node name="Control2" type="Control" parent="."]
 z_index = 2
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="Control2"]
 layout_mode = 0
 offset_right = 10603.0
 offset_bottom = 5521.0
 scale = Vector2(0.181089, 0.195609)
-texture = ExtResource("2_sejcl")
+texture = ExtResource("2_rraye")
 
-[node name="Control" type="Control" parent="Control2"]
-anchors_preset = 0
-offset_left = 421.0
-offset_top = 93.0
-offset_right = 461.0
-offset_bottom = 133.0
-
-[node name="TextureRect" type="TextureRect" parent="Control2/Control"]
-modulate = Color(0, 0, 0, 1)
+[node name="NewGame" type="TextureButton" parent="Control2"]
 layout_mode = 0
-offset_left = 325.0
-offset_top = 54.0
-offset_right = 365.0
-offset_bottom = 94.0
-scale = Vector2(12.4, 5.68278)
-texture = ExtResource("1_s2rg6")
-
-[node name="Label" type="Label" parent="Control2/Control"]
-layout_mode = 0
-offset_left = 490.0
-offset_top = 132.0
-offset_right = 530.0
-offset_bottom = 158.0
-scale = Vector2(4.16664, 3.05855)
-text = "Logo"
-horizontal_alignment = 1
-
-[node name="NewGame" type="Button" parent="Control2"]
-layout_mode = 0
-offset_left = 880.0
-offset_top = 524.0
-offset_right = 973.0
-offset_bottom = 555.0
+offset_left = 792.0
+offset_top = 319.0
+offset_right = 965.0
+offset_bottom = 359.0
 scale = Vector2(1.99241, 1.81114)
 focus_neighbor_top = NodePath("../Exit")
 focus_neighbor_bottom = NodePath("../LevelSelect")
 focus_next = NodePath("../LevelSelect")
 focus_previous = NodePath("../Exit")
-text = "New Game"
+texture_normal = ExtResource("3_5dsbo")
+texture_hover = ExtResource("4_h0rnt")
+texture_focused = ExtResource("4_h0rnt")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="LevelSelect" type="Button" parent="Control2"]
+[node name="LevelSelect" type="TextureButton" parent="Control2"]
 layout_mode = 0
-offset_left = 875.0
-offset_top = 604.0
-offset_right = 974.0
-offset_bottom = 635.0
+offset_left = 792.0
+offset_top = 455.0
+offset_right = 965.0
+offset_bottom = 499.0
 scale = Vector2(1.99241, 1.81114)
-text = "Level Select
-"
+texture_normal = ExtResource("5_fdt5v")
+texture_hover = ExtResource("6_kntwn")
+texture_focused = ExtResource("6_kntwn")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Exit" type="Button" parent="Control2"]
+[node name="Exit" type="TextureButton" parent="Control2"]
 layout_mode = 0
-offset_left = 888.0
-offset_top = 687.0
-offset_right = 987.0
-offset_bottom = 718.0
+offset_left = 544.0
+offset_top = 143.0
+offset_right = 591.0
+offset_bottom = 187.0
 scale = Vector2(1.7161, 1.81114)
-text = "Exit
-"
+focus_neighbor_right = NodePath("../NewGame")
+texture_normal = ExtResource("3_ncqee")
+texture_hover = ExtResource("8_7kb3s")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="ColorRect" type="ColorRect" parent="Control2"]
+visible = false
 layout_mode = 0
 offset_left = 832.0
 offset_top = 799.0
@@ -110,6 +109,7 @@ button_pressed = true
 text = "Music"
 
 [node name="ColorRect2" type="ColorRect" parent="Control2"]
+visible = false
 layout_mode = 0
 offset_left = 1000.0
 offset_top = 799.0
@@ -126,42 +126,59 @@ button_pressed = true
 text = "Sounds
 "
 
-[node name="TextureNewGame" type="TextureButton" parent="Control2"]
-visible = false
-layout_mode = 0
-offset_left = 904.0
-offset_top = 527.0
-offset_right = 1038.0
-offset_bottom = 578.0
-theme = ExtResource("4_0yllo")
-texture_normal = ExtResource("4_cs5qg")
-texture_focused = ExtResource("6_0krrx")
-
-[node name="Label" type="Label" parent="Control2/TextureNewGame"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -59.0
-offset_right = 61.0
-offset_bottom = 32.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 27
-text = "New Game"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="TextureMusic" type="TextureButton" parent="Control2"]
-visible = false
 layout_mode = 0
-offset_left = 848.0
-offset_top = 871.0
-offset_right = 898.0
-offset_bottom = 921.0
+offset_left = 1176.0
+offset_top = 143.0
+offset_right = 1264.0
+offset_bottom = 231.0
 toggle_mode = true
 button_pressed = true
-texture_normal = ExtResource("8_t0uxh")
-texture_pressed = ExtResource("7_b1ts1")
+texture_normal = ExtResource("4_76x7w")
+texture_pressed = ExtResource("9_6b8cp")
+
+[node name="TextureSounds" type="TextureButton" parent="Control2"]
+layout_mode = 0
+offset_left = 1288.0
+offset_top = 143.0
+offset_right = 1376.0
+offset_bottom = 231.0
+focus_neighbor_left = NodePath("../TextureMusic")
+focus_neighbor_right = NodePath("../Exit")
+focus_neighbor_bottom = NodePath("../NewGame")
+toggle_mode = true
+button_pressed = true
+texture_normal = ExtResource("5_v4mkc")
+texture_pressed = ExtResource("9_5edbt")
+
+[node name="TextureCredits" type="TextureButton" parent="Control2"]
+layout_mode = 0
+offset_left = 792.0
+offset_top = 591.0
+offset_right = 1136.0
+offset_bottom = 671.0
+focus_neighbor_left = NodePath("../Exit")
+focus_neighbor_top = NodePath("../LevelSelect")
+focus_neighbor_right = NodePath("../TextureMusic")
+focus_neighbor_bottom = NodePath("../NewGame")
+texture_normal = ExtResource("13_51kdt")
+texture_hover = ExtResource("14_hsski")
+texture_focused = ExtResource("14_hsski")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="PlatPlayer" parent="Control2" instance=ExtResource("15_jotjt")]
+position = Vector2(672, 775)
+motion_mode = 1
+
+[node name="PlatPlayer2" parent="Control2" instance=ExtResource("15_jotjt")]
+position = Vector2(1232, 807)
+motion_mode = 1
+side = 1
+
+[node name="StaticBody2D" parent="Control2" instance=ExtResource("16_03557")]
+position = Vector2(944, 887)
+scale = Vector2(23.96, 1)
 
 [connection signal="draw" from="." to="." method="_on_draw"]
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
@@ -175,7 +192,5 @@ texture_pressed = ExtResource("7_b1ts1")
 [connection signal="toggled" from="Control2/ColorRect/Music" to="." method="_on_music_toggled"]
 [connection signal="focus_entered" from="Control2/ColorRect2/Sounds" to="." method="_on_button_focus"]
 [connection signal="toggled" from="Control2/ColorRect2/Sounds" to="." method="_on_sounds_toggled"]
-[connection signal="focus_entered" from="Control2/TextureNewGame" to="." method="_on_button_focus"]
-[connection signal="pressed" from="Control2/TextureNewGame" to="." method="_on_new_game_pressed"]
 [connection signal="focus_entered" from="Control2/TextureMusic" to="." method="_on_button_focus"]
 [connection signal="toggled" from="Control2/TextureMusic" to="." method="_on_music_toggled"]
