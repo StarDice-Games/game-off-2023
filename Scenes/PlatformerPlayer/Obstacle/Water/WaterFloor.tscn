@@ -53,6 +53,12 @@ collision_mask = 6
 script = ExtResource("1_wmnvp")
 plopSound = ExtResource("2_wdmid")
 
+[node name="Acqua" type="Sprite2D" parent="."]
+visible = false
+z_index = -2
+position = Vector2(-392, -156)
+texture = ExtResource("4_a5nnv")
+
 [node name="Control" type="Control" parent="."]
 clip_contents = true
 layout_mode = 3
@@ -61,23 +67,18 @@ offset_left = -488.0
 offset_top = -273.0
 offset_right = 490.0
 
-[node name="Acqua" type="Sprite2D" parent="Control"]
-z_index = -2
-position = Vector2(96, 117)
-texture = ExtResource("4_a5nnv")
-
 [node name="Onde_1" type="Sprite2D" parent="Control"]
 modulate = Color(0.662745, 0.862745, 1, 1)
 z_index = -2
 texture_filter = 1
-position = Vector2(488, 273)
+position = Vector2(473.476, 273)
 texture = ExtResource("2_ntxe1")
 offset = Vector2(0, -54)
 
 [node name="Onde_2" type="Sprite2D" parent="Control"]
 z_index = -2
 texture_filter = 1
-position = Vector2(801, 273)
+position = Vector2(821.588, 273)
 texture = ExtResource("2_ntxe1")
 offset = Vector2(0, -54)
 
