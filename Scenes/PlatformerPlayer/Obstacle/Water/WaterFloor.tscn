@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dejvvmbnpvblp"]
+[gd_scene load_steps=11 format=3 uid="uid://dejvvmbnpvblp"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Obstacle/Water/WaterFloor.gd" id="1_wmnvp"]
 [ext_resource type="PackedScene" uid="uid://bu75kel0q2p7r" path="res://Scenes/PlatformerPlayer/DeathComponent/DeathComponent.tscn" id="2_7oql1"]
@@ -42,34 +42,8 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 1.2, 3, 4)
 }
 
-[sub_resource type="Animation" id="Animation_67gfq"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/Onde_1:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(628, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Control/Onde_2:position:x")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(911, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ep78m"]
 _data = {
-"RESET": SubResource("Animation_67gfq"),
 "water": SubResource("Animation_dl3pv")
 }
 
@@ -96,14 +70,14 @@ texture = ExtResource("4_a5nnv")
 modulate = Color(0.662745, 0.862745, 1, 1)
 z_index = -2
 texture_filter = 1
-position = Vector2(628, 273)
+position = Vector2(488, 273)
 texture = ExtResource("2_ntxe1")
 offset = Vector2(0, -54)
 
 [node name="Onde_2" type="Sprite2D" parent="Control"]
 z_index = -2
 texture_filter = 1
-position = Vector2(911, 273)
+position = Vector2(801, 273)
 texture = ExtResource("2_ntxe1")
 offset = Vector2(0, -54)
 
