@@ -121,8 +121,8 @@ position = Vector2(672, 275)
 side = 1
 
 [node name="Player1" parent="LevelDesign_Red" instance=ExtResource("18_nyfm7")]
-z_index = -1
-position = Vector2(119, 924)
+z_index = 1
+position = Vector2(155, 843)
 scale = Vector2(0.75, 0.75)
 AIR_SPEED = 150.0
 JUMP_VELOCITY = -430.0
