@@ -145,7 +145,6 @@ receivers = [NodePath("../BigDoor")]
 z_index = 0
 position = Vector2(192, 292)
 maxButton = 1
-goalNumber = 1
 indicatorScene = ExtResource("10_cygq0")
 
 [node name="Pickables" type="Node2D" parent="LevelDesign_Red"]

@@ -100,7 +100,6 @@ position = Vector2(576, 880)
 z_index = 0
 position = Vector2(816, 276)
 maxButton = 1
-goalNumber = 1
 indicatorScene = ExtResource("14_36t53")
 indicatorOffset = 40
 
