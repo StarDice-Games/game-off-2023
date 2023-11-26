@@ -13,7 +13,7 @@ var goals : Array[Node2D] = [null, null]
 @export_category("Menus")
 @export var useMenu = true
 @export var showSplash = true
-@export var scenes : Array[LevelResource]
+@export var scenes : Array[LevelResourceBase]
 @export var splashScreen : PackedScene
 @export var mainMenuScene : PackedScene
 @export var pauseMenuScene : PackedScene
@@ -60,6 +60,8 @@ enum Scaling {
 }
 
 var currentGameState = GameState.SPLASH_SCREEN
+
+var completedLevels = {}
 
 func playSelectButton():
 	if not sfxMuted:
