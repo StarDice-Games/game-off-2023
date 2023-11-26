@@ -87,7 +87,6 @@ jumpSoundSmall = ExtResource("3_dtvcr")
 [node name="Left" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(9, -0.207445)
-scale = Vector2(1, 0.585106)
 texture = ExtResource("2_iu07t")
 offset = Vector2(1, -24)
 
@@ -96,7 +95,6 @@ process_mode = 4
 visible = false
 texture_filter = 1
 position = Vector2(0, -0.24252)
-scale = Vector2(1, 0.596269)
 texture = ExtResource("2_5vik6")
 offset = Vector2(0, -32)
 
