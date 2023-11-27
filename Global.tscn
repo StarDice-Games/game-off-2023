@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bxeb2iva4yrgw"]
+[gd_scene load_steps=23 format=3 uid="uid://bxeb2iva4yrgw"]
 
 [ext_resource type="Script" path="res://Global.gd" id="1_j5qpw"]
 [ext_resource type="Resource" uid="uid://4q02kbimxt6b" path="res://Resources/LevelsResources/level_1.tres" id="2_owt0f"]
@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c3k6y8yqg3qju" path="res://Scenes/Menus/SplashScreen/SplashScreen.tscn" id="4_bnw24"]
 [ext_resource type="Resource" uid="uid://c1c4k60242ob8" path="res://Resources/LevelsResources/level_3.tres" id="4_v6e8j"]
 [ext_resource type="Resource" uid="uid://cg3nfupqtj3ny" path="res://Resources/LevelsResources/level_5.tres" id="5_8wok5"]
-[ext_resource type="Resource" uid="uid://dnsdp82cxl2hu" path="res://Resources/LevelsResources/level_4.tres" id="5_jfyiu"]
+[ext_resource type="Resource" path="res://Resources/LevelsResources/level_4.tres" id="5_jfyiu"]
 [ext_resource type="PackedScene" uid="uid://blauksugtg8ro" path="res://Scenes/Menus/LevelSelect/SelectLevel.tscn" id="6_6nmfb"]
 [ext_resource type="Resource" uid="uid://b88wusvh81hoe" path="res://Resources/LevelsResources/level_6.tres" id="6_558h2"]
 [ext_resource type="Resource" uid="uid://t8m4rcxflqt4" path="res://Resources/LevelsResources/level_8.tres" id="7_1wprs"]
@@ -17,10 +17,11 @@
 [ext_resource type="AudioStream" uid="uid://dfd45avut5cm0" path="res://Resources/Audio/Sound/sfx_lvl_start.ogg" id="8_3xu02"]
 [ext_resource type="Resource" uid="uid://cr8qxmhptla0j" path="res://Resources/LevelsResources/level_9.tres" id="8_yfkdj"]
 [ext_resource type="Resource" uid="uid://b0r8q0ews8c6p" path="res://Resources/LevelsResources/level_10.tres" id="9_ev42n"]
-[ext_resource type="AudioStream" uid="uid://d0vc5sf2bjecv" path="res://Resources/Audio/Music/bgm_title.ogg" id="9_pvhhq"]
+[ext_resource type="AudioStream" uid="uid://b26k5msti3lug" path="res://Resources/Audio/Music/bgm_title.ogg" id="9_pvhhq"]
 [ext_resource type="AudioStream" uid="uid://bcqmvyqoq1bs6" path="res://Resources/Audio/Sound/sfx_victory.ogg" id="10_3yqsn"]
-[ext_resource type="AudioStream" uid="uid://b05mtllph2ded" path="res://Resources/Audio/Music/bgm_level1A.ogg" id="10_gkp78"]
-[ext_resource type="AudioStream" uid="uid://b7s0qg07ggtmc" path="res://Resources/Audio/Music/bgm_level1B.ogg" id="12_1yry6"]
+[ext_resource type="AudioStream" uid="uid://2urbf3w65ht4" path="res://Resources/Audio/Music/bgm_level1A.ogg" id="10_gkp78"]
+[ext_resource type="AudioStream" uid="uid://b0v7l2t5fkkkf" path="res://Resources/Audio/Music/bgm_level1B.ogg" id="12_1yry6"]
+[ext_resource type="AudioStream" uid="uid://dmym7sdqorugm" path="res://Resources/Audio/Sound/sfx_transfer.ogg" id="18_dvjt0"]
 
 [node name="Global" type="Node2D"]
 script = ExtResource("1_j5qpw")
@@ -32,6 +33,7 @@ pauseMenuScene = ExtResource("3_kic5l")
 mainScene = ExtResource("4_56l5m")
 selectLevelScene = ExtResource("6_6nmfb")
 levelStartSound = ExtResource("8_3xu02")
+tranferSound = ExtResource("18_dvjt0")
 levelCompleteSound = ExtResource("10_3yqsn")
 menuMusic = ExtResource("9_pvhhq")
 inGameMusicBig = ExtResource("10_gkp78")
