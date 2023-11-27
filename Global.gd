@@ -86,8 +86,7 @@ func _ready():
 		printerr("Error missing pause scene")
 		
 	bgMenuMusic.stream = menuMusic
-	if !musicMuted:
-		bgMenuMusic.play()
+	bgMenuMusic.play()
 	
 	bgInGameMusic.stream = inGameMusicBig
 	bgInGameMusic2.stream = inGameMusicSmall

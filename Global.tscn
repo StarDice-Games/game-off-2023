@@ -1,11 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://bxeb2iva4yrgw"]
+[gd_scene load_steps=22 format=3 uid="uid://bxeb2iva4yrgw"]
 
 [ext_resource type="Script" path="res://Global.gd" id="1_j5qpw"]
 [ext_resource type="Resource" uid="uid://4q02kbimxt6b" path="res://Resources/LevelsResources/level_1.tres" id="2_owt0f"]
 [ext_resource type="Resource" uid="uid://ijv66m5ac5i5" path="res://Resources/LevelsResources/level_2.tres" id="3_jtt7o"]
 [ext_resource type="PackedScene" uid="uid://d3w0vp34bfsu4" path="res://Scenes/Menus/PauseMenu/PauseMenu.tscn" id="3_kic5l"]
 [ext_resource type="PackedScene" uid="uid://dqijkmgdh5ulw" path="res://Scenes/Menus/MainMenu/MainMenu.tscn" id="3_wleec"]
-[ext_resource type="PackedScene" uid="uid://c231qmwyovhcq" path="res://Main.tscn" id="4_56l5m"]
+[ext_resource type="PackedScene" uid="uid://c231qmwyovhcq" path="res://main.tscn" id="4_56l5m"]
 [ext_resource type="PackedScene" uid="uid://c3k6y8yqg3qju" path="res://Scenes/Menus/SplashScreen/SplashScreen.tscn" id="4_bnw24"]
 [ext_resource type="Resource" uid="uid://c1c4k60242ob8" path="res://Resources/LevelsResources/level_3.tres" id="4_v6e8j"]
 [ext_resource type="Resource" uid="uid://cg3nfupqtj3ny" path="res://Resources/LevelsResources/level_5.tres" id="5_8wok5"]
@@ -14,15 +14,13 @@
 [ext_resource type="Resource" uid="uid://b88wusvh81hoe" path="res://Resources/LevelsResources/level_6.tres" id="6_558h2"]
 [ext_resource type="Resource" uid="uid://t8m4rcxflqt4" path="res://Resources/LevelsResources/level_8.tres" id="7_1wprs"]
 [ext_resource type="Resource" uid="uid://dxfy8fmwrsu6q" path="res://Resources/LevelsResources/level_7.tres" id="7_smhhi"]
-[ext_resource type="AudioStream" uid="uid://dfd45avut5cm0" path="res://Resources/Sounds/sfx_lvl_start.ogg" id="8_3xu02"]
+[ext_resource type="AudioStream" uid="uid://dfd45avut5cm0" path="res://Resources/Audio/Sound/sfx_lvl_start.ogg" id="8_3xu02"]
 [ext_resource type="Resource" uid="uid://cr8qxmhptla0j" path="res://Resources/LevelsResources/level_9.tres" id="8_yfkdj"]
-[ext_resource type="AudioStream" uid="uid://dcjg43o43tw5e" path="res://Resources/Sounds/blip.wav" id="9_2u2u1"]
 [ext_resource type="Resource" uid="uid://b0r8q0ews8c6p" path="res://Resources/LevelsResources/level_10.tres" id="9_ev42n"]
-[ext_resource type="AudioStream" uid="uid://d0vc5sf2bjecv" path="res://Resources/Sounds/bgm_title.ogg" id="9_pvhhq"]
-[ext_resource type="AudioStream" uid="uid://bcqmvyqoq1bs6" path="res://Resources/Sounds/sfx_victory.ogg" id="10_3yqsn"]
-[ext_resource type="AudioStream" uid="uid://b05mtllph2ded" path="res://Resources/Sounds/bgm_level1A.ogg" id="10_gkp78"]
-[ext_resource type="AudioStream" uid="uid://b7s0qg07ggtmc" path="res://Resources/Sounds/bgm_level1B.ogg" id="12_1yry6"]
-[ext_resource type="AudioStream" uid="uid://cv6hw23lpprg2" path="res://Resources/Sounds/place_piece.wav" id="14_aqt12"]
+[ext_resource type="AudioStream" uid="uid://d0vc5sf2bjecv" path="res://Resources/Audio/Music/bgm_title.ogg" id="9_pvhhq"]
+[ext_resource type="AudioStream" uid="uid://bcqmvyqoq1bs6" path="res://Resources/Audio/Sound/sfx_victory.ogg" id="10_3yqsn"]
+[ext_resource type="AudioStream" uid="uid://b05mtllph2ded" path="res://Resources/Audio/Music/bgm_level1A.ogg" id="10_gkp78"]
+[ext_resource type="AudioStream" uid="uid://b7s0qg07ggtmc" path="res://Resources/Audio/Music/bgm_level1B.ogg" id="12_1yry6"]
 
 [node name="Global" type="Node2D"]
 script = ExtResource("1_j5qpw")
@@ -33,17 +31,11 @@ mainMenuScene = ExtResource("3_wleec")
 pauseMenuScene = ExtResource("3_kic5l")
 mainScene = ExtResource("4_56l5m")
 selectLevelScene = ExtResource("6_6nmfb")
-musicMuted = true
-sfxMuted = true
 levelStartSound = ExtResource("8_3xu02")
-tranferSound = ExtResource("9_2u2u1")
 levelCompleteSound = ExtResource("10_3yqsn")
 menuMusic = ExtResource("9_pvhhq")
 inGameMusicBig = ExtResource("10_gkp78")
 inGameMusicSmall = ExtResource("12_1yry6")
-menuButtonPress = ExtResource("14_aqt12")
-menuButtonSelect = ExtResource("9_2u2u1")
-resumeSound = ExtResource("9_2u2u1")
 
 [node name="BackgroundMusic1" type="AudioStreamPlayer" parent="."]
 volume_db = -20.0
