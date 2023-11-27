@@ -1,6 +1,5 @@
-[gd_scene load_steps=25 format=3 uid="uid://bsny7i5npeg2v"]
+[gd_scene load_steps=24 format=3 uid="uid://bsny7i5npeg2v"]
 
-[ext_resource type="PackedScene" uid="uid://c6oxlwfitiwcd" path="res://Scenes/PlatformerPlayer/Obstacle/statiWall.tscn" id="1_lvxdt"]
 [ext_resource type="PackedScene" uid="uid://din1h8ql506vb" path="res://Scenes/Background.tscn" id="2_8qhv3"]
 [ext_resource type="PackedScene" uid="uid://ddfaeavjffgx6" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x5.tscn" id="3_6dh1h"]
 [ext_resource type="PackedScene" uid="uid://c0yejb6v7hqpy" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x2.tscn" id="4_l642x"]
@@ -51,9 +50,15 @@ point_count = 2
 texture_filter = 1
 offset = Vector2(960, 540)
 
-[node name="GROUND" parent="." instance=ExtResource("1_lvxdt")]
-position = Vector2(992, 1024)
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(231.998, 1125.49)
 scale = Vector2(64.68, 2)
+disable_mode = 1
+collision_mask = 7
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground"]
+position = Vector2(-2.96842, -69.2442)
+polygon = PackedVector2Array(10.436, 2.5, 18.3828, 3.99999, 29.7001, 4.5, 29.6382, 23, -1.74706, 23.5, -1.62338, -0.5)
 
 [node name="Background" parent="." instance=ExtResource("2_8qhv3")]
 metadata/_edit_lock_ = true
@@ -161,7 +166,7 @@ side = 1
 
 [node name="Player1" parent="LevelDesign_Red" instance=ExtResource("12_hw85n")]
 z_index = -1
-position = Vector2(112, 928)
+position = Vector2(155, 920)
 scale = Vector2(0.75, 0.75)
 AIR_SPEED = 150.0
 JUMP_VELOCITY = -430.0
@@ -293,7 +298,7 @@ position = Vector2(1344, 400)
 
 [node name="Player2" parent="LevelDesign_Blue" instance=ExtResource("12_hw85n")]
 z_index = -1
-position = Vector2(1120, 896)
+position = Vector2(1221, 949)
 scale = Vector2(0.75, 0.75)
 GROUND_SPEED = 230.0
 AIR_SPEED = 150.0
@@ -302,13 +307,13 @@ side = 1
 directionOffsetZ = 50.0
 
 [node name="ExitLetf" type="Sprite2D" parent="."]
-z_index = -3
+z_index = -4
 texture_filter = 1
 position = Vector2(324, 242)
 texture = ExtResource("19_g73iw")
 
 [node name="ExitRight2" type="Sprite2D" parent="."]
-z_index = -3
+z_index = -4
 texture_filter = 1
 position = Vector2(1574, 248)
 scale = Vector2(0.5, 0.5)
