@@ -115,9 +115,10 @@ active = false
 [node name="Objectives" type="Node2D" parent="LevelDesign_Red"]
 z_index = -1
 
-[node name="Button01" parent="LevelDesign_Red/Objectives" instance=ExtResource("30_gqiev")]
+[node name="Button01" parent="LevelDesign_Red/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("30_gqiev")]
 z_index = -1
 position = Vector2(864, 179)
+receivers = [NodePath("../BigDoor")]
 
 [node name="BigDoor" parent="LevelDesign_Red/Objectives" instance=ExtResource("14_r516p")]
 position = Vector2(757, 579)
@@ -136,6 +137,7 @@ z_index = -1
 
 [node name="WaterFloor" parent="LevelDesign_Red/Obstacles" instance=ExtResource("24_l01l3")]
 position = Vector2(496, 1056)
+metadata/_edit_lock_ = true
 
 [node name="Fire" parent="LevelDesign_Red/Obstacles" instance=ExtResource("9_xi3b3")]
 z_index = -1
@@ -284,8 +286,9 @@ position = Vector2(1120, 371)
 maxKeys = 1
 goalNumber = 1
 
-[node name="Key01" parent="LevelDesign_Blue/Objectives" instance=ExtResource("29_awpvh")]
+[node name="Key01" parent="LevelDesign_Blue/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("29_awpvh")]
 position = Vector2(1424, 512)
+receivers = [NodePath("../SmallDoor")]
 
 [node name="Obstacles" type="Node2D" parent="LevelDesign_Blue"]
 z_index = -1

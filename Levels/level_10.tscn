@@ -90,9 +90,10 @@ speed = 100.0
 path = NodePath("..")
 active = false
 
-[node name="Button02" parent="LevelDesign_Red/Platforms/PathButt/PathFollowButt" instance=ExtResource("19_t4xh0")]
+[node name="Button02" parent="LevelDesign_Red/Platforms/PathButt/PathFollowButt" node_paths=PackedStringArray("receivers") instance=ExtResource("19_t4xh0")]
 position = Vector2(2, 0)
 rotation = -1.5708
+receivers = [NodePath("../../../../Objectives/BigDoor")]
 
 [node name="Path2D" type="Path2D" parent="LevelDesign_Red/Platforms"]
 position = Vector2(544, 592)
@@ -118,9 +119,10 @@ active = false
 [node name="Objectives" type="Node2D" parent="LevelDesign_Red"]
 z_index = -1
 
-[node name="Button01" parent="LevelDesign_Red/Objectives" instance=ExtResource("19_t4xh0")]
+[node name="Button01" parent="LevelDesign_Red/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("19_t4xh0")]
 position = Vector2(736, 348)
 rotation = 3.14159
+receivers = [NodePath("../BigDoor")]
 
 [node name="BigDoor" parent="LevelDesign_Red/Objectives" instance=ExtResource("13_vip2c")]
 position = Vector2(736, 292)
@@ -253,11 +255,13 @@ active = false
 [node name="Objectives" type="Node2D" parent="LevelDesign_Blue"]
 z_index = -1
 
-[node name="Key01" parent="LevelDesign_Blue/Objectives" instance=ExtResource("25_2xgoo")]
+[node name="Key01" parent="LevelDesign_Blue/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("25_2xgoo")]
 position = Vector2(1670, 416)
+receivers = [NodePath("../SmallDoor")]
 
-[node name="Key02" parent="LevelDesign_Blue/Objectives" instance=ExtResource("25_2xgoo")]
+[node name="Key02" parent="LevelDesign_Blue/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("25_2xgoo")]
 position = Vector2(1453, 752)
+receivers = [NodePath("../SmallDoor")]
 
 [node name="PressurePlate3" parent="LevelDesign_Blue/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("16_1l158")]
 position = Vector2(1584, 977)
