@@ -1,6 +1,5 @@
-[gd_scene load_steps=25 format=3 uid="uid://yvn8q114418g"]
+[gd_scene load_steps=24 format=3 uid="uid://yvn8q114418g"]
 
-[ext_resource type="PackedScene" uid="uid://c6oxlwfitiwcd" path="res://Scenes/PlatformerPlayer/Obstacle/statiWall.tscn" id="1_iblu8"]
 [ext_resource type="PackedScene" uid="uid://b8upryncqwmc6" path="res://Scenes/PlatformerPlayer/Doors/SmallDoor/SmallDoor.tscn" id="3_g076e"]
 [ext_resource type="PackedScene" uid="uid://c8qbn2xe7w0yv" path="res://Scenes/PlatformerPlayer/Doors/BigDoor/BigDoor.tscn" id="4_dfdgb"]
 [ext_resource type="PackedScene" uid="uid://din1h8ql506vb" path="res://Scenes/Background.tscn" id="5_fc0pw"]
@@ -45,10 +44,6 @@ point_count = 2
 [node name="Camera2D" type="Camera2D" parent="."]
 texture_filter = 1
 offset = Vector2(960, 540)
-
-[node name="GROUND" parent="." instance=ExtResource("1_iblu8")]
-position = Vector2(992, 1024)
-scale = Vector2(64.68, 2)
 
 [node name="Background" parent="." instance=ExtResource("5_fc0pw")]
 metadata/_edit_lock_ = true
@@ -403,8 +398,18 @@ position = Vector2(666, 225)
 texture = ExtResource("21_vts2o")
 
 [node name="ExitRight2" type="Sprite2D" parent="."]
-z_index = -3
+z_index = -4
 texture_filter = 1
 position = Vector2(1399, 213)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("21_vts2o")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(231.998, 1125.49)
+scale = Vector2(64.68, 2)
+disable_mode = 1
+collision_mask = 7
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground"]
+position = Vector2(-2.96842, -69.2442)
+polygon = PackedVector2Array(10.436, 2.5, 18.3828, 3.99999, 29.7001, 4.5, 29.6382, 23, -1.74706, 23.5, -1.62338, -0.5)
