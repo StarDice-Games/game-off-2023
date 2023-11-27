@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bc4tsc83nd2al"]
+[gd_scene load_steps=11 format=3 uid="uid://bc4tsc83nd2al"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/PressurePlates/PressurePlateComponent.gd" id="1_h5jo8"]
 [ext_resource type="Texture2D" uid="uid://omcrunitdqv6" path="res://Resources/Assets/Nuovi_PNG/Pressure_rossa_base.png" id="2_3v3w2"]
 [ext_resource type="PackedScene" uid="uid://db2r5vwiirvo8" path="res://Scenes/PlatformerPlayer/TriggerComponent/SenderComponent.tscn" id="2_32blu"]
+[ext_resource type="AudioStream" uid="uid://iw5aj10hk6w5" path="res://Resources/Audio/Effects/sfx_pressureplate_big.ogg" id="2_qew4a"]
 [ext_resource type="Texture2D" uid="uid://lh48062fuf5b" path="res://Resources/Assets/Nuovi_PNG/Pressure_rossa_sopra.png" id="3_dryiq"]
+[ext_resource type="AudioStream" uid="uid://gstxkg5kivc1" path="res://Resources/Audio/Effects/sfx_pressureplate_decompress_big.ogg" id="3_qmjd0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27fqp"]
 size = Vector2(136, 32)
@@ -48,6 +50,8 @@ _data = {
 collision_layer = 8
 collision_mask = 6
 script = ExtResource("1_h5jo8")
+compressSound = ExtResource("2_qew4a")
+decompressSound = ExtResource("3_qmjd0")
 
 [node name="Control" type="Control" parent="."]
 clip_contents = true
