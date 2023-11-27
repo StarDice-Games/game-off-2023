@@ -20,7 +20,7 @@ func _on_body_entered(body):
 func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	print("DeathComponent _on_body_shape_entered endtered ", body.name)
 	if body is PlatPlayer:
-		body.emit_signal("died")
+		body.playDeath()
 	pass # Replace with function body.
 
 
