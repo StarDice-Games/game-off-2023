@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://c8qbn2xe7w0yv"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Doors/BigDoor/BigDoor.gd" id="1_6xypb"]
-[ext_resource type="AudioStream" uid="uid://dcjg43o43tw5e" path="res://Resources/Sounds/blip.wav" id="2_72sby"]
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/TriggerComponent/ReceiverComponent.gd" id="2_j5eds"]
 [ext_resource type="PackedScene" uid="uid://c3snw3pxmp7x8" path="res://Scenes/PlatformerPlayer/Doors/Indicators/BigDoorIndicator.tscn" id="2_uuxmp"]
 [ext_resource type="Texture2D" uid="uid://b62jrrm1guoib" path="res://Resources/Assets/Upd_Assets/Porta_grande_chiusa.png" id="2_vm08e"]
+[ext_resource type="AudioStream" uid="uid://cg4r6rktpil34" path="res://Resources/Audio/Sound/sfx_door_unlock_red.ogg" id="3_womvv"]
 [ext_resource type="Texture2D" uid="uid://c5oxtjlencke6" path="res://Resources/Assets/Upd_Assets/Porta_grande_aperta.png" id="3_xweti"]
 [ext_resource type="PackedScene" uid="uid://cs8xishx48a2x" path="res://Scenes/PlatformerPlayer/Goal/GoalComponent.tscn" id="4_hsend"]
 
@@ -47,7 +47,7 @@ z_index = -1
 collision_mask = 3
 script = ExtResource("1_6xypb")
 indicatorScene = ExtResource("2_uuxmp")
-doorOpen = ExtResource("2_72sby")
+doorOpen = ExtResource("3_womvv")
 
 [node name="Sprite_Porta_Chiusa" type="Sprite2D" parent="."]
 z_index = 1
