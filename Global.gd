@@ -298,7 +298,7 @@ func loadNextLevel():
 			get_tree().change_scene_to_packed(scenes[next_scene].scene)
 			next_scene += 1
 			next_scene %= scenes.size()
-			AudioManager.play(levelStartSound)
+#			AudioManager.play(levelStartSound)
 			currentGameState = GameState.IN_GAME
 			
 			setActivePlayer(0)
@@ -347,18 +347,20 @@ func startGame():
 	bgInGameMusic2.play()
 	
 	currentGameState = GameState.START_LEVEL
+	
+	if not sfxMuted:
+		AudioManager.play(levelStartSound)
+		$Timer.start(1)
+		timerCallback = startLevelAfterJingle
+	else:
+		startLevelAfterJingle()
+
+func startLevelAfterJingle():
 	closeMainMenu()
 	
 	if scenes.size() > 0:
 		curretLevel = scenes.front().name
 		get_tree().change_scene_to_packed(scenes.front().scene)
-		if not sfxMuted:
-			playSoundAndWait(levelStartSound)
-			timerCallback = startLevelAfterJingle
-		else:
-			startLevelAfterJingle()
-
-func startLevelAfterJingle():
 	currentGameState = GameState.IN_GAME
 
 func _on_main_menu_select_level_pressed():
@@ -439,11 +441,11 @@ func loadSelectedLevel(res : LevelResourceBase):
 			get_tree().change_scene_to_packed(sceneToLoad)
 		#play the start level sound, reset the statecurrentGameState = GameState.START_LEVEL
 			
-		if not sfxMuted:
-			playSoundAndWait(levelStartSound)
-			timerCallback = startLevelAfterJingle
-		else:
-			startLevelAfterJingle()
+#		if not sfxMuted:
+#			playSoundAndWait(levelStartSound)
+#			timerCallback = startLevelAfterJingle
+#		else:
+		startLevelAfterJingle()
 
 func playSoundAndWait(sound: AudioStream):
 	if sound == null:
