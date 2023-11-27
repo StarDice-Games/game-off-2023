@@ -1,12 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://cqnl53v0iei8b"]
+[gd_scene load_steps=17 format=3 uid="uid://cqnl53v0iei8b"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/PlatPlayer.gd" id="1_go3e0"]
 [ext_resource type="Material" uid="uid://bdjvh3cymune7" path="res://Resources/Materials/Unshaded.tres" id="2_4bwpy"]
 [ext_resource type="AudioStream" uid="uid://bcndcx2ykmoru" path="res://Resources/Audio/Sound/sfx_death.ogg" id="2_fmq1i"]
 [ext_resource type="PackedScene" uid="uid://dqsmn4tqyn4ca" path="res://Scenes/PlatformerPlayer/Players_animation/player_rosso.tscn" id="2_x7kcr"]
 [ext_resource type="PackedScene" uid="uid://dnuopb0n063hc" path="res://Scenes/PlatformerPlayer/Pickable/PickupComponent/PickupComponent.tscn" id="3_0rr4x"]
+[ext_resource type="AudioStream" uid="uid://cbyhkgw8hcoq1" path="res://Resources/Audio/Effects/sfx_jump_big.ogg" id="3_3equq"]
 [ext_resource type="Texture2D" uid="uid://3q2g1gjl31kx" path="res://Resources/Assets/Elementi_rossi/Omino_rosso.png" id="3_ld05j"]
 [ext_resource type="PackedScene" uid="uid://dc75c5p24oslr" path="res://Scenes/PlatformerPlayer/Players_animation/player_blu.tscn" id="3_v5sda"]
+[ext_resource type="AudioStream" uid="uid://c5ry23dyjwjtd" path="res://Resources/Audio/Effects/sfx_jump_small.ogg" id="4_kbatb"]
 [ext_resource type="Texture2D" uid="uid://dgbwbb6pe3see" path="res://Resources/Assets/Elementi_blu/Omino_blu.png" id="4_v002a"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8nqjx"]
@@ -37,7 +39,9 @@ collision_mask = 61
 platform_on_leave = 2
 script = ExtResource("1_go3e0")
 deathSound = ExtResource("2_fmq1i")
+jumpSound = ExtResource("3_3equq")
 deathSoundSmall = ExtResource("2_fmq1i")
+jumpSoundSmall = ExtResource("4_kbatb")
 
 [node name="Player_rosso" parent="." instance=ExtResource("2_x7kcr")]
 position = Vector2(4, -31)
