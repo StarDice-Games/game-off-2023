@@ -64,6 +64,7 @@ func animateIdle():
 		0:
 			animationRed.play("Idle")
 			animationRed.connect("animation_finished", _on_anim_finish)
+			
 		1:
 			animationBlue.play("Idle")
 			animationBlue.connect("animation_finished", _on_anim_finish)
@@ -96,6 +97,10 @@ func _on_anim_finish(animation):
 	match animation:
 		"Jump":
 			jumpAnimationEnd = true
+		"death":
+			canDie = true
+			died.emit()
+			pass
 
 func getActiveAnimationPlayer():
 	match side:
@@ -110,8 +115,13 @@ func stopAnimation():
 	animationBlue.play("Idle")
 	animationRed.play("Idle")
 
+
+
 func _physics_process(delta):
 	if Global.currentGameState != Global.GameState.IN_GAME:
+		return
+	
+	if canDie == false:
 		return
 		
 	if pickedItem != null:
@@ -223,7 +233,7 @@ func _physics_process(delta):
 		if collider.has_node("DeathComponent"):
 			print("Death ", collision.get_collider().name)
 			AudioManager.play(getSoundBySide(deathSound, deathSoundSmall))
-			died.emit()
+			playDeath()
 
 func getSoundBySide(sound1, sound2):
 	match side:
@@ -232,10 +242,13 @@ func getSoundBySide(sound1, sound2):
 		1: #Small side
 			return sound2
 
-func playDeathAudio():
+var canDie = true
+
+func playDeath():
+	if canDie:
+		getActiveAnimationPlayer().play("death")
+		canDie = false
 	
-	if audioPlayer.playing == false:
-		audioPlayer.play()
 
 func pickupItem(item):
 	var parent = item.get_parent()
