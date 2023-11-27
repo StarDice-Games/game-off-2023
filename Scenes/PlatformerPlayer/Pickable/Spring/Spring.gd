@@ -41,7 +41,7 @@ func ApplyForceToPlayer(collider, size):
 		
 		if $PickupComponent.held == false:
 			collider.velocity.y = JUMP_FORCE
-			playSound(jumpSoundBig)
+			playSound(jumpSoundSmall)
 			animator.play("push")
 
 func ApplyForceToItems(collider):
@@ -57,7 +57,7 @@ func ApplyForceToItems(collider):
 					collider.apply_impulse(Vector2.UP * JUMP_FORCE)
 				else:
 					collider.velocity.y = JUMP_FORCE
-				playSound(jumpSoundSmall)
+				playSound(jumpSoundBig)
 				animator.play("push")
 		
 
