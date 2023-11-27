@@ -70,7 +70,7 @@ offset_bottom = -1.0
 [node name="Onde_1" type="Sprite2D" parent="Control"]
 z_index = -2
 texture_filter = 1
-position = Vector2(488, 208)
+position = Vector2(443.956, 208)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_s05gd")
 offset = Vector2(0, -54)
@@ -78,12 +78,13 @@ offset = Vector2(0, -54)
 [node name="Onde_2" type="Sprite2D" parent="Control"]
 z_index = -2
 texture_filter = 1
-position = Vector2(801, 206)
+position = Vector2(837.086, 206)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_s05gd")
-offset = Vector2(0, -54)
+offset = Vector2(-476.879, -54)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-30.5, -30)
 shape = SubResource("RectangleShape2D_o47hv")
 metadata/_edit_lock_ = true
@@ -94,12 +95,14 @@ collision_mask = 6
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 position = Vector2(-30, -30)
 rotation = -0.00105078
 shape = SubResource("RectangleShape2D_r3fju")
 metadata/_edit_lock_ = true
 
 [node name="DeathComponent" parent="." instance=ExtResource("3_7edu2")]
+visible = false
 position = Vector2(0, 8)
 scale = Vector2(1, 0.8)
 metadata/_edit_lock_ = true
