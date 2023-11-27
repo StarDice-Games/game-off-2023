@@ -439,13 +439,8 @@ func loadSelectedLevel(res : LevelResourceBase):
 		if sceneToLoad != null:
 			curretLevel = res.name
 			get_tree().change_scene_to_packed(sceneToLoad)
-		#play the start level sound, reset the statecurrentGameState = GameState.START_LEVEL
-			
-#		if not sfxMuted:
-#			playSoundAndWait(levelStartSound)
-#			timerCallback = startLevelAfterJingle
-#		else:
-		startLevelAfterJingle()
+		
+		currentGameState = GameState.IN_GAME
 
 func playSoundAndWait(sound: AudioStream):
 	if sound == null:
