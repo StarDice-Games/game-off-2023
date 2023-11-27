@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c3k6y8yqg3qju" path="res://Scenes/Menus/SplashScreen/SplashScreen.tscn" id="4_bnw24"]
 [ext_resource type="Resource" uid="uid://c1c4k60242ob8" path="res://Resources/LevelsResources/level_3.tres" id="4_v6e8j"]
 [ext_resource type="Resource" uid="uid://cg3nfupqtj3ny" path="res://Resources/LevelsResources/level_5.tres" id="5_8wok5"]
-[ext_resource type="Resource" path="res://Resources/LevelsResources/level_4.tres" id="5_jfyiu"]
+[ext_resource type="Resource" uid="uid://dnsdp82cxl2hu" path="res://Resources/LevelsResources/level_4.tres" id="5_jfyiu"]
 [ext_resource type="PackedScene" uid="uid://blauksugtg8ro" path="res://Scenes/Menus/LevelSelect/SelectLevel.tscn" id="6_6nmfb"]
 [ext_resource type="Resource" uid="uid://b88wusvh81hoe" path="res://Resources/LevelsResources/level_6.tres" id="6_558h2"]
 [ext_resource type="Resource" uid="uid://t8m4rcxflqt4" path="res://Resources/LevelsResources/level_8.tres" id="7_1wprs"]
@@ -41,12 +41,15 @@ inGameMusicSmall = ExtResource("12_1yry6")
 
 [node name="BackgroundMusic1" type="AudioStreamPlayer" parent="."]
 volume_db = -20.0
+bus = &"Music"
 
 [node name="BackgroundMusic2" type="AudioStreamPlayer" parent="."]
 volume_db = -20.0
+bus = &"Music"
 
 [node name="BGInGameMusic" type="AudioStreamPlayer" parent="."]
 volume_db = -80.0
+bus = &"Music"
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
