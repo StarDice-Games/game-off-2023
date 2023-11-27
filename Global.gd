@@ -37,8 +37,9 @@ var goals : Array[Node2D] = [null, null]
 @export var resumeSound : AudioStream
 
 @onready var bgMenuMusic : AudioStreamPlayer = $BackgroundMusic1
-@onready var bgInGameMusic : AudioStreamPlayer = $BackgroundMusic2
-@onready var bgInGameMusic2 : AudioStreamPlayer = $BGInGameMusic
+@onready var bgInGameMusic : AudioStreamPlayer = $SmallMusic #Small
+@onready var bgInGameMusic2 : AudioStreamPlayer = $BigMusic #Big
+@onready var audioAnimator : AnimationPlayer = $AnimationPlayer
 
 var timerCallback : Callable
 var nodeInstance = null
@@ -89,8 +90,8 @@ func _ready():
 	bgMenuMusic.stream = menuMusic
 	bgMenuMusic.play()
 	
-	bgInGameMusic.stream = inGameMusicBig
-	bgInGameMusic2.stream = inGameMusicSmall
+	bgInGameMusic.stream = inGameMusicBig #Bgi
+	bgInGameMusic2.stream = inGameMusicSmall #Small
 	
 	
 	pass # Replace with function body.
@@ -145,14 +146,16 @@ func changeActivePlayer():
 			0 : 
 				players[0].stopAnimation()
 				activePlayer = 1
-				bgInGameMusic.volume_db = -80
-				bgInGameMusic2.volume_db = 0
 				
+#				bgInGameMusic.volume_db = 0
+#				bgInGameMusic2.volume_db = 0
+				audioAnimator.play("FadeToBig")
 			1 : 
 				players[1].stopAnimation()
 				activePlayer = 0
-				bgInGameMusic.volume_db = 0
-				bgInGameMusic2.volume_db = -80
+				audioAnimator.play("FadeToSmall")
+#				bgInGameMusic.volume_db = 0
+#				bgInGameMusic2.volume_db = -80
 				
 func setActivePlayer(number):
 	activePlayer = number
