@@ -43,12 +43,13 @@ func _physics_process(delta):
 		canPlaySound = false
 		match $PickupComponent.currentSide:
 			1: 
-				AudioManager.play(rollingSoundBig)
-				$WaitForSoundToStop.start(rollingSoundBig.get_length())
+				if rollingSoundBig != null:
+					AudioManager.play(rollingSoundBig)
+					$WaitForSoundToStop.start(rollingSoundBig.get_length())
 			0:
-				AudioManager.play(rollingSoundSmall)
-				$WaitForSoundToStop.start(rollingSoundSmall.get_length())
-
+				if rollingSoundSmall != null:
+					AudioManager.play(rollingSoundSmall)
+					$WaitForSoundToStop.start(rollingSoundSmall.get_length())
 
 func _on_wait_for_sound_to_stop_timeout():
 	canPlaySound = true
