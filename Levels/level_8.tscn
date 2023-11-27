@@ -68,9 +68,10 @@ active = false
 [node name="Objectives" type="Node2D" parent="LevelDesign_Red"]
 z_index = -1
 
-[node name="Button01" parent="LevelDesign_Red/Objectives" instance=ExtResource("21_s6k26")]
+[node name="Button01" parent="LevelDesign_Red/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("21_s6k26")]
 z_index = -1
 position = Vector2(96, 992)
+receivers = [NodePath("../BigDoor")]
 
 [node name="BigDoor" parent="LevelDesign_Red/Objectives" instance=ExtResource("15_qjrpe")]
 position = Vector2(736, 370)
@@ -164,8 +165,9 @@ position = Vector2(1357, 443)
 [node name="Objectives" type="Node2D" parent="LevelDesign_Blue"]
 z_index = -1
 
-[node name="Key01" parent="LevelDesign_Blue/Objectives" instance=ExtResource("20_cuqwu")]
+[node name="Key01" parent="LevelDesign_Blue/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("20_cuqwu")]
 position = Vector2(1600, 656)
+receivers = [NodePath("../SmallDoor")]
 
 [node name="SmallDoor" parent="LevelDesign_Blue/Objectives" instance=ExtResource("11_sth3h")]
 position = Vector2(1467, 404)
