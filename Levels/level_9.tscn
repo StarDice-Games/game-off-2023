@@ -1,7 +1,5 @@
-[gd_scene load_steps=32 format=3 uid="uid://uqrjfoi60ci"]
+[gd_scene load_steps=31 format=3 uid="uid://uqrjfoi60ci"]
 
-[ext_resource type="PackedScene" uid="uid://c6oxlwfitiwcd" path="res://Scenes/PlatformerPlayer/Obstacle/statiWall.tscn" id="3_1ne33"]
-[ext_resource type="PackedScene" uid="uid://c5xj8w588i6aa" path="res://Scenes/Visual Indicator/visualIndicator.tscn" id="4_rr41s"]
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="5_11chb"]
 [ext_resource type="PackedScene" uid="uid://dvhrt43a8uu5r" path="res://Scenes/PlatformerPlayer/Pickable/Box/BoxPickable.tscn" id="6_vo1ox"]
 [ext_resource type="PackedScene" uid="uid://d4diwwos6tieb" path="res://Scenes/PlatformerPlayer/Platforms/Platform1/Platform1.tscn" id="7_6afhk"]
@@ -27,18 +25,19 @@
 [ext_resource type="PackedScene" uid="uid://ddfaeavjffgx6" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x5.tscn" id="26_alnv4"]
 [ext_resource type="PackedScene" uid="uid://b7mn5x5w28ccf" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue.tscn" id="27_gjolv"]
 [ext_resource type="PackedScene" uid="uid://sn8oy4jcubwe" path="res://Scenes/PlatformerPlayer/Platforms/DisappearPlatform1/DisapperaPlatform1.tscn" id="28_ieqbb"]
+[ext_resource type="Texture2D" uid="uid://dkncjjtpcesun" path="res://Resources/Assets/Upd_Assets/Exit_right.png" id="28_m1tas"]
 [ext_resource type="PackedScene" uid="uid://cxjw8tk4kep1p" path="res://Scenes/PlatformerPlayer/Keys/Key01/Key01.tscn" id="29_awpvh"]
 [ext_resource type="PackedScene" uid="uid://6a1c38prt1a4" path="res://Scenes/PlatformerPlayer/Buttons/Button1/Button01.tscn" id="30_gqiev"]
-
-[sub_resource type="Curve2D" id="Curve2D_p2asn"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -48, 288, 0, 0, 0, 0, -48, 32, 0, 0, 0, 0, -48, -80)
-}
-point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_lndfr"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 2.13757, 242.236, 0, 0, 0, 0, -0.213745, 48.6042, 0, 0, 0, 0, 0, -576)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_p2asn"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -48, 288, 0, 0, 0, 0, -48, 32, 0, 0, 0, 0, -48, -80)
 }
 point_count = 3
 
@@ -47,178 +46,286 @@ point_count = 3
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(960, 540)
 
-[node name="StaticBody2D" parent="." instance=ExtResource("3_1ne33")]
-position = Vector2(992, 1024)
-scale = Vector2(64.68, 2)
-
-[node name="ColorRect" parent="." instance=ExtResource("4_rr41s")]
-visible = false
+[node name="Background" parent="." instance=ExtResource("21_qt0xv")]
 metadata/_edit_lock_ = true
 
-[node name="ColorRect2" parent="." instance=ExtResource("4_rr41s")]
-visible = false
-offset_left = 1024.0
-offset_right = 1984.0
-metadata/_edit_lock_ = true
+[node name="LevelDesign_Red" type="Node2D" parent="."]
 
-[node name="BoxPickable3" parent="." instance=ExtResource("6_vo1ox")]
-position = Vector2(1296, 992)
-
-[node name="BoxPickable8" parent="." instance=ExtResource("6_vo1ox")]
-position = Vector2(256, 880)
-side = 1
-
-[node name="BoxPickable4" parent="." instance=ExtResource("6_vo1ox")]
-position = Vector2(1072, 784)
-
-[node name="BoxPickable5" parent="." instance=ExtResource("6_vo1ox")]
-position = Vector2(1856, 448)
-
-[node name="BoxPickable6" parent="." instance=ExtResource("6_vo1ox")]
-position = Vector2(1344, 624)
-
-[node name="BoxPickable7" parent="." instance=ExtResource("6_vo1ox")]
-position = Vector2(432, 176)
-side = 1
-
-[node name="SmallDoor" parent="." instance=ExtResource("8_db12k")]
-position = Vector2(1120, 368)
-goalNumber = 1
-
-[node name="Fire" parent="." instance=ExtResource("9_xi3b3")]
+[node name="Platforms" type="Node2D" parent="LevelDesign_Red"]
 z_index = -1
-position = Vector2(688, 576)
 
-[node name="Ball" parent="." instance=ExtResource("11_ed5n2")]
-position = Vector2(1824, 768)
-mass = 1.0
-lock_rotation = false
-
-[node name="Ball2" parent="." instance=ExtResource("11_ed5n2")]
-position = Vector2(464, 576)
-mass = 1.0
-lock_rotation = false
-side = 1
-
-[node name="BreakableWall" parent="." instance=ExtResource("12_4lfmm")]
+[node name="PlatformStaticRed_Oblique" parent="LevelDesign_Red/Platforms" instance=ExtResource("25_efh71")]
 z_index = -1
-position = Vector2(592, 576)
+position = Vector2(224, 528)
 
-[node name="Path2D2" type="Path2D" parent="."]
-position = Vector2(1600, 688)
-curve = SubResource("Curve2D_p2asn")
+[node name="PlatformStaticRed_Oblique2" parent="LevelDesign_Red/Platforms" instance=ExtResource("25_efh71")]
+z_index = -1
+position = Vector2(272, 576)
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
-position = Vector2(-48, 16.3032)
-rotation = -1.5708
-progress = 271.74
-rotates = false
-loop = false
+[node name="PlatformStaticRed2" parent="LevelDesign_Red/Platforms" instance=ExtResource("22_y1drr")]
+position = Vector2(224, 576)
 
-[node name="Platform6" parent="Path2D2/PathFollow2D" node_paths=PackedStringArray("path") instance=ExtResource("7_6afhk")]
-position = Vector2(-16.0059, 0)
-rotation = 1.5708
-speed = 200.0
-path = NodePath("..")
-active = false
+[node name="PlatformStaticRed_x5" parent="LevelDesign_Red/Platforms" instance=ExtResource("26_alnv4")]
+z_index = -1
+position = Vector2(464, 640)
 
-[node name="PressurePlate4" parent="." node_paths=PackedStringArray("receivers") instance=ExtResource("13_yjaho")]
-position = Vector2(256, 880)
-receivers = [NodePath("../Path2D3/PathFollow2D_2/Platform32")]
+[node name="PlatformStaticRed_x10" parent="LevelDesign_Red/Platforms" instance=ExtResource("26_alnv4")]
+z_index = -1
+position = Vector2(352, 640)
 
-[node name="BigDoor" parent="." instance=ExtResource("14_r516p")]
-position = Vector2(784, 576)
+[node name="PlatformStaticRed_x7" parent="LevelDesign_Red/Platforms" instance=ExtResource("26_alnv4")]
+z_index = -1
+position = Vector2(336, 240)
 
-[node name="Plant" type="Node2D" parent="."]
-position = Vector2(800, -96)
+[node name="PlatformStaticRed_x6" parent="LevelDesign_Red/Platforms" instance=ExtResource("26_alnv4")]
+z_index = -1
+position = Vector2(672, 640)
 
-[node name="Vase" parent="Plant" node_paths=PackedStringArray("receivers") instance=ExtResource("15_ud3du")]
-position = Vector2(448, 720)
-receivers = [NodePath("../LeafPlatform2"), NodePath("../LeafPlatform3"), NodePath("../LeafPlatform4"), NodePath("../LeafPlatform6")]
+[node name="PlatformStaticRed" parent="LevelDesign_Red/Platforms" instance=ExtResource("22_y1drr")]
+z_index = -1
+position = Vector2(608, 960)
 
-[node name="LeafPlatform2" parent="Plant" instance=ExtResource("16_8d8y8")]
-position = Vector2(406, 640)
-scale = Vector2(-1, 1)
+[node name="PlatformStaticRed_x8" parent="LevelDesign_Red/Platforms" instance=ExtResource("20_g5e7w")]
+position = Vector2(832, 960)
 
-[node name="LeafPlatform3" parent="Plant" instance=ExtResource("16_8d8y8")]
-position = Vector2(496, 672)
+[node name="PlatformStaticRed_x11" parent="LevelDesign_Red/Platforms" instance=ExtResource("20_g5e7w")]
+z_index = -1
+position = Vector2(864, 240)
 
-[node name="LeafPlatform4" parent="Plant" instance=ExtResource("16_8d8y8")]
-position = Vector2(488, 596)
+[node name="PlatformStaticRed_x9" parent="LevelDesign_Red/Platforms" instance=ExtResource("20_g5e7w")]
+position = Vector2(256, 944)
 
-[node name="LeafPlatform6" parent="Plant" instance=ExtResource("16_8d8y8")]
-position = Vector2(407, 552)
-scale = Vector2(-1, 1)
-
-[node name="PressurePlate3" parent="." node_paths=PackedStringArray("receivers") instance=ExtResource("17_uqyxi")]
-position = Vector2(1792, 992)
-receivers = [NodePath("../Path2D2/PathFollow2D/Platform6")]
-
-[node name="Spikes" parent="." instance=ExtResource("18_k1axc")]
-position = Vector2(1456, 624)
-
-[node name="Spikes3" parent="." instance=ExtResource("18_k1axc")]
-position = Vector2(1488, 624)
-
-[node name="Spikes2" parent="." instance=ExtResource("18_k1axc")]
-position = Vector2(1424, 624)
-
-[node name="Path2D3" type="Path2D" parent="."]
+[node name="Path2D3" type="Path2D" parent="LevelDesign_Red/Platforms"]
 position = Vector2(128, 688)
 curve = SubResource("Curve2D_lndfr")
 
-[node name="PathFollow2D_2" type="PathFollow2D" parent="Path2D3"]
+[node name="PathFollow2D_2" type="PathFollow2D" parent="LevelDesign_Red/Platforms/Path2D3"]
 position = Vector2(2.13757, 242.236)
 rotation = -1.57962
 rotates = false
 loop = false
 
-[node name="Platform32" parent="Path2D3/PathFollow2D_2" node_paths=PackedStringArray("path") instance=ExtResource("10_gaau7")]
+[node name="Platform32" parent="LevelDesign_Red/Platforms/Path2D3/PathFollow2D_2" node_paths=PackedStringArray("path") instance=ExtResource("10_gaau7")]
 position = Vector2(-13.7446, -2.25891)
 rotation = 1.5708
 speed = 100.0
 path = NodePath("..")
 active = false
 
-[node name="WaterContainer" parent="." instance=ExtResource("19_kl7v6")]
-position = Vector2(1392, 624)
-
-[node name="PlatformStaticRed_x8" parent="." instance=ExtResource("20_g5e7w")]
-position = Vector2(832, 960)
-
-[node name="PlatformStaticRed_x11" parent="." instance=ExtResource("20_g5e7w")]
+[node name="Objectives" type="Node2D" parent="LevelDesign_Red"]
 z_index = -1
-position = Vector2(864, 240)
 
-[node name="PlatformStaticRed_x9" parent="." instance=ExtResource("20_g5e7w")]
-position = Vector2(256, 944)
-
-[node name="PlatformStaticBlue_x2" parent="." instance=ExtResource("21_crjod")]
-position = Vector2(1120, 400)
-
-[node name="PlatformStaticBlue_x5" parent="." instance=ExtResource("22_he76p")]
-position = Vector2(1280, 656)
-
-[node name="PlatformStaticBlue_x6" parent="." instance=ExtResource("22_he76p")]
-position = Vector2(1424, 656)
-
-[node name="PlatformStaticBlue_x8" parent="." instance=ExtResource("22_he76p")]
-position = Vector2(1808, 960)
-
-[node name="Background" parent="." instance=ExtResource("21_qt0xv")]
-metadata/_edit_lock_ = true
-
-[node name="Player1" parent="." instance=ExtResource("5_11chb")]
+[node name="Button01" parent="LevelDesign_Red/Objectives" instance=ExtResource("30_gqiev")]
 z_index = -1
-position = Vector2(384, 496)
+position = Vector2(864, 179)
+
+[node name="BigDoor" parent="LevelDesign_Red/Objectives" instance=ExtResource("14_r516p")]
+position = Vector2(757, 579)
+maxButton = 1
+
+[node name="PressurePlate4" parent="LevelDesign_Red/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("13_yjaho")]
+position = Vector2(256, 880)
+receivers = [NodePath("../../Platforms/Path2D3/PathFollow2D_2/Platform32")]
+
+[node name="BreakableWall" parent="LevelDesign_Red/Objectives" instance=ExtResource("12_4lfmm")]
+z_index = -1
+position = Vector2(560, 591)
+
+[node name="Obstacles" type="Node2D" parent="LevelDesign_Red"]
+z_index = -1
+
+[node name="WaterFloor" parent="LevelDesign_Red/Obstacles" instance=ExtResource("24_l01l3")]
+position = Vector2(496, 1056)
+
+[node name="Fire" parent="LevelDesign_Red/Obstacles" instance=ExtResource("9_xi3b3")]
+z_index = -1
+position = Vector2(643, 576)
+
+[node name="Pickables" type="Node2D" parent="LevelDesign_Red"]
+z_index = -1
+
+[node name="Ball2" parent="LevelDesign_Red/Pickables" instance=ExtResource("11_ed5n2")]
+position = Vector2(464, 576)
+mass = 1.0
+lock_rotation = false
+side = 1
+
+[node name="BoxPickable8" parent="LevelDesign_Red/Pickables" instance=ExtResource("6_vo1ox")]
+position = Vector2(256, 880)
+side = 1
+
+[node name="BoxPickable7" parent="LevelDesign_Red/Pickables" instance=ExtResource("6_vo1ox")]
+position = Vector2(432, 176)
+side = 1
+
+[node name="Player1" parent="LevelDesign_Red" instance=ExtResource("5_11chb")]
+z_index = -1
+position = Vector2(835, 828)
 scale = Vector2(0.75, 0.75)
 AIR_SPEED = 150.0
 JUMP_VELOCITY = -430.0
 push_force = 50
 
-[node name="Player2" parent="." instance=ExtResource("5_11chb")]
+[node name="LevelDesign_Blue" type="Node2D" parent="."]
+
+[node name="Platforms" type="Node2D" parent="LevelDesign_Blue"]
 z_index = -1
-position = Vector2(1179, 937)
+
+[node name="PlatformStaticBlue_x4" parent="LevelDesign_Blue/Platforms" instance=ExtResource("21_crjod")]
+z_index = -1
+position = Vector2(1088, 816)
+
+[node name="PlatformStaticBlue_x7" parent="LevelDesign_Blue/Platforms" instance=ExtResource("21_crjod")]
+z_index = -1
+position = Vector2(1840, 480)
+
+[node name="PlatformStaticBlue_x9" parent="LevelDesign_Blue/Platforms" instance=ExtResource("22_he76p")]
+z_index = -1
+position = Vector2(1824, 800)
+
+[node name="PlatformStaticBlue_x10" parent="LevelDesign_Blue/Platforms" instance=ExtResource("22_he76p")]
+z_index = -1
+position = Vector2(1712, 800)
+
+[node name="DisapperaPlatform1" parent="LevelDesign_Blue/Platforms" instance=ExtResource("28_ieqbb")]
+z_index = -1
+position = Vector2(1472, 816)
+
+[node name="DisapperaPlatform6" parent="LevelDesign_Blue/Platforms" instance=ExtResource("28_ieqbb")]
+z_index = -1
+position = Vector2(1632, 624)
+
+[node name="DisapperaPlatform7" parent="LevelDesign_Blue/Platforms" instance=ExtResource("28_ieqbb")]
+z_index = -1
+position = Vector2(1696, 576)
+
+[node name="DisapperaPlatform8" parent="LevelDesign_Blue/Platforms" instance=ExtResource("28_ieqbb")]
+z_index = -1
+position = Vector2(1760, 528)
+
+[node name="DisapperaPlatform2" parent="LevelDesign_Blue/Platforms" instance=ExtResource("28_ieqbb")]
+z_index = -1
+position = Vector2(1376, 816)
+
+[node name="DisapperaPlatform4" parent="LevelDesign_Blue/Platforms" instance=ExtResource("28_ieqbb")]
+z_index = -1
+position = Vector2(1280, 816)
+
+[node name="DisapperaPlatform5" parent="LevelDesign_Blue/Platforms" instance=ExtResource("28_ieqbb")]
+z_index = -1
+position = Vector2(1184, 816)
+
+[node name="PlatformStaticBlue" parent="LevelDesign_Blue/Platforms" instance=ExtResource("27_gjolv")]
+z_index = -1
+position = Vector2(1840, 992)
+
+[node name="PlatformStaticBlue_x2" parent="LevelDesign_Blue/Platforms" instance=ExtResource("21_crjod")]
+position = Vector2(1120, 400)
+
+[node name="PlatformStaticBlue_x5" parent="LevelDesign_Blue/Platforms" instance=ExtResource("22_he76p")]
+position = Vector2(1280, 656)
+
+[node name="PlatformStaticBlue_x6" parent="LevelDesign_Blue/Platforms" instance=ExtResource("22_he76p")]
+position = Vector2(1424, 656)
+
+[node name="PlatformStaticBlue_x8" parent="LevelDesign_Blue/Platforms" instance=ExtResource("22_he76p")]
+position = Vector2(1808, 960)
+
+[node name="Plant" type="Node2D" parent="LevelDesign_Blue/Platforms"]
+position = Vector2(800, -96)
+
+[node name="Vase" parent="LevelDesign_Blue/Platforms/Plant" node_paths=PackedStringArray("receivers") instance=ExtResource("15_ud3du")]
+position = Vector2(448, 720)
+receivers = [NodePath("../LeafPlatform2"), NodePath("../LeafPlatform3"), NodePath("../LeafPlatform4"), NodePath("../LeafPlatform6")]
+
+[node name="LeafPlatform2" parent="LevelDesign_Blue/Platforms/Plant" instance=ExtResource("16_8d8y8")]
+position = Vector2(406, 640)
+rotation = -3.14159
+scale = Vector2(1, -1)
+
+[node name="LeafPlatform3" parent="LevelDesign_Blue/Platforms/Plant" instance=ExtResource("16_8d8y8")]
+position = Vector2(496, 672)
+
+[node name="LeafPlatform4" parent="LevelDesign_Blue/Platforms/Plant" instance=ExtResource("16_8d8y8")]
+position = Vector2(488, 596)
+
+[node name="LeafPlatform6" parent="LevelDesign_Blue/Platforms/Plant" instance=ExtResource("16_8d8y8")]
+position = Vector2(407, 552)
+rotation = -3.14159
+scale = Vector2(1, -1)
+
+[node name="Path2D2" type="Path2D" parent="LevelDesign_Blue/Platforms"]
+position = Vector2(1600, 688)
+curve = SubResource("Curve2D_p2asn")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="LevelDesign_Blue/Platforms/Path2D2"]
+position = Vector2(-48, 16.3032)
+rotation = -1.5708
+progress = 271.74
+rotates = false
+loop = false
+
+[node name="Platform6" parent="LevelDesign_Blue/Platforms/Path2D2/PathFollow2D" node_paths=PackedStringArray("path") instance=ExtResource("7_6afhk")]
+position = Vector2(-16.0059, 0)
+rotation = 1.5708
+speed = 200.0
+path = NodePath("..")
+active = false
+
+[node name="Objectives" type="Node2D" parent="LevelDesign_Blue"]
+z_index = -1
+
+[node name="PressurePlate3" parent="LevelDesign_Blue/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("17_uqyxi")]
+position = Vector2(1792, 995)
+receivers = [NodePath("../../Platforms/Path2D2/PathFollow2D/Platform6")]
+
+[node name="SmallDoor" parent="LevelDesign_Blue/Objectives" instance=ExtResource("8_db12k")]
+position = Vector2(1120, 371)
+maxKeys = 1
+goalNumber = 1
+
+[node name="Key01" parent="LevelDesign_Blue/Objectives" instance=ExtResource("29_awpvh")]
+position = Vector2(1424, 512)
+
+[node name="Obstacles" type="Node2D" parent="LevelDesign_Blue"]
+z_index = -1
+
+[node name="Spikes" parent="LevelDesign_Blue/Obstacles" instance=ExtResource("18_k1axc")]
+position = Vector2(1456, 626)
+
+[node name="Spikes3" parent="LevelDesign_Blue/Obstacles" instance=ExtResource("18_k1axc")]
+position = Vector2(1488, 626)
+
+[node name="Spikes2" parent="LevelDesign_Blue/Obstacles" instance=ExtResource("18_k1axc")]
+position = Vector2(1424, 626)
+
+[node name="Pickables" type="Node2D" parent="LevelDesign_Blue"]
+z_index = -1
+
+[node name="WaterContainer" parent="LevelDesign_Blue/Pickables" instance=ExtResource("19_kl7v6")]
+position = Vector2(1392, 624)
+side = 0
+
+[node name="Ball" parent="LevelDesign_Blue/Pickables" instance=ExtResource("11_ed5n2")]
+position = Vector2(1824, 768)
+mass = 1.0
+lock_rotation = false
+
+[node name="BoxPickable3" parent="LevelDesign_Blue/Pickables" instance=ExtResource("6_vo1ox")]
+position = Vector2(1296, 992)
+
+[node name="BoxPickable4" parent="LevelDesign_Blue/Pickables" instance=ExtResource("6_vo1ox")]
+position = Vector2(1072, 784)
+
+[node name="BoxPickable5" parent="LevelDesign_Blue/Pickables" instance=ExtResource("6_vo1ox")]
+position = Vector2(1856, 448)
+
+[node name="BoxPickable6" parent="LevelDesign_Blue/Pickables" instance=ExtResource("6_vo1ox")]
+position = Vector2(1344, 624)
+
+[node name="Player2" parent="LevelDesign_Blue" instance=ExtResource("5_11chb")]
+z_index = -1
+position = Vector2(1404, 952)
 scale = Vector2(0.75, 0.75)
 GROUND_SPEED = 230.0
 AIR_SPEED = 150.0
@@ -226,91 +333,26 @@ JUMP_VELOCITY = -350.0
 side = 1
 directionOffsetZ = 50.0
 
-[node name="PlatformStaticRed" parent="." instance=ExtResource("22_y1drr")]
-z_index = -1
-position = Vector2(608, 960)
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(231.998, 1125.49)
+scale = Vector2(64.68, 2)
+disable_mode = 1
+collision_mask = 7
 
-[node name="WaterFloor" parent="." instance=ExtResource("24_l01l3")]
-position = Vector2(496, 1056)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground"]
+position = Vector2(-2.96842, -69.2442)
+polygon = PackedVector2Array(10.436, 2.5, 18.3828, 3.99999, 29.7001, 4.5, 29.6382, 23, -1.74706, 23.5, -1.63884, -0.5)
 
-[node name="PlatformStaticRed_Oblique" parent="." instance=ExtResource("25_efh71")]
-z_index = -1
-position = Vector2(224, 528)
+[node name="ExitRight2" type="Sprite2D" parent="."]
+z_index = -2
+texture_filter = 1
+position = Vector2(1045, 262)
+rotation = 1.07687
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("28_m1tas")
 
-[node name="PlatformStaticRed_Oblique2" parent="." instance=ExtResource("25_efh71")]
-z_index = -1
-position = Vector2(272, 576)
-
-[node name="PlatformStaticRed2" parent="." instance=ExtResource("22_y1drr")]
-position = Vector2(224, 576)
-
-[node name="PlatformStaticRed_x5" parent="." instance=ExtResource("26_alnv4")]
-z_index = -1
-position = Vector2(464, 640)
-
-[node name="PlatformStaticRed_x10" parent="." instance=ExtResource("26_alnv4")]
-z_index = -1
-position = Vector2(352, 640)
-
-[node name="PlatformStaticRed_x7" parent="." instance=ExtResource("26_alnv4")]
-z_index = -1
-position = Vector2(336, 240)
-
-[node name="PlatformStaticRed_x6" parent="." instance=ExtResource("26_alnv4")]
-z_index = -1
-position = Vector2(672, 640)
-
-[node name="PlatformStaticBlue" parent="." instance=ExtResource("27_gjolv")]
-z_index = -1
-position = Vector2(1840, 992)
-
-[node name="DisapperaPlatform1" parent="." instance=ExtResource("28_ieqbb")]
-z_index = -1
-position = Vector2(1472, 816)
-
-[node name="DisapperaPlatform6" parent="." instance=ExtResource("28_ieqbb")]
-z_index = -1
-position = Vector2(1632, 624)
-
-[node name="DisapperaPlatform7" parent="." instance=ExtResource("28_ieqbb")]
-z_index = -1
-position = Vector2(1696, 576)
-
-[node name="DisapperaPlatform8" parent="." instance=ExtResource("28_ieqbb")]
-z_index = -1
-position = Vector2(1760, 528)
-
-[node name="DisapperaPlatform2" parent="." instance=ExtResource("28_ieqbb")]
-z_index = -1
-position = Vector2(1376, 816)
-
-[node name="DisapperaPlatform4" parent="." instance=ExtResource("28_ieqbb")]
-z_index = -1
-position = Vector2(1280, 816)
-
-[node name="DisapperaPlatform5" parent="." instance=ExtResource("28_ieqbb")]
-z_index = -1
-position = Vector2(1184, 816)
-
-[node name="PlatformStaticBlue_x4" parent="." instance=ExtResource("21_crjod")]
-z_index = -1
-position = Vector2(1088, 816)
-
-[node name="PlatformStaticBlue_x7" parent="." instance=ExtResource("21_crjod")]
-z_index = -1
-position = Vector2(1840, 480)
-
-[node name="PlatformStaticBlue_x9" parent="." instance=ExtResource("22_he76p")]
-z_index = -1
-position = Vector2(1824, 800)
-
-[node name="PlatformStaticBlue_x10" parent="." instance=ExtResource("22_he76p")]
-z_index = -1
-position = Vector2(1712, 800)
-
-[node name="Key01" parent="." instance=ExtResource("29_awpvh")]
-position = Vector2(1424, 512)
-
-[node name="Button01" parent="." instance=ExtResource("30_gqiev")]
-z_index = -1
-position = Vector2(864, 176)
+[node name="ExitRight" type="Sprite2D" parent="."]
+z_index = -2
+texture_filter = 1
+position = Vector2(392, 529)
+texture = ExtResource("28_m1tas")
