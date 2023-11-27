@@ -266,8 +266,7 @@ func processGame(delta):
 		if sfxMuted:
 			loadNextLevel()
 		else:
-			AudioManager.play(levelCompleteSound)
-			$Timer.start(levelCompleteSound.get_length())
+			playSoundAndWait(levelCompleteSound)
 			timerCallback = loadNextLevel
 #		#TODO animation
 
@@ -351,8 +350,7 @@ func startGame():
 		curretLevel = scenes.front().name
 		get_tree().change_scene_to_packed(scenes.front().scene)
 		if not sfxMuted:
-			AudioManager.play(levelStartSound)
-			$Timer.start(levelStartSound.get_length())
+			playSoundAndWait(levelStartSound)
 			timerCallback = startLevelAfterJingle
 		else:
 			startLevelAfterJingle()
@@ -439,11 +437,16 @@ func loadSelectedLevel(res : LevelResourceBase):
 		#play the start level sound, reset the statecurrentGameState = GameState.START_LEVEL
 			
 		if not sfxMuted:
-			AudioManager.play(levelStartSound)
-			$Timer.start(levelStartSound.get_length())
+			playSoundAndWait(levelStartSound)
 			timerCallback = startLevelAfterJingle
 		else:
 			startLevelAfterJingle()
+
+func playSoundAndWait(sound: AudioStream):
+	if sound == null:
+		return
+	AudioManager.play(sound)
+	$Timer.start(sound.get_length())
 
 func backToMainMenu():
 	print("back to the main menu")
