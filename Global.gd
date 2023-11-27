@@ -149,11 +149,13 @@ func changeActivePlayer():
 				
 #				bgInGameMusic.volume_db = 0
 #				bgInGameMusic2.volume_db = 0
-				audioAnimator.play("FadeToBig")
+				if not musicMuted: 
+					audioAnimator.play("FadeToBig")
 			1 : 
 				players[1].stopAnimation()
 				activePlayer = 0
-				audioAnimator.play("FadeToSmall")
+				if not musicMuted:
+					audioAnimator.play("FadeToSmall")
 #				bgInGameMusic.volume_db = 0
 #				bgInGameMusic2.volume_db = -80
 				
