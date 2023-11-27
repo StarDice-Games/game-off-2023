@@ -1,6 +1,5 @@
-[gd_scene load_steps=24 format=3 uid="uid://c02hoepp7nb7y"]
+[gd_scene load_steps=23 format=3 uid="uid://c02hoepp7nb7y"]
 
-[ext_resource type="PackedScene" uid="uid://c6oxlwfitiwcd" path="res://Scenes/PlatformerPlayer/Obstacle/statiWall.tscn" id="1_5ph2c"]
 [ext_resource type="PackedScene" uid="uid://din1h8ql506vb" path="res://Scenes/Background.tscn" id="2_875ux"]
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="3_2u6ho"]
 [ext_resource type="PackedScene" uid="uid://ddfaeavjffgx6" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x5.tscn" id="4_xvf6w"]
@@ -40,20 +39,8 @@ point_count = 5
 texture_filter = 1
 offset = Vector2(960, 540)
 
-[node name="GROUND" parent="." instance=ExtResource("1_5ph2c")]
-position = Vector2(992, 1024)
-scale = Vector2(64.68, 2)
-
 [node name="Background" parent="." instance=ExtResource("2_875ux")]
 metadata/_edit_lock_ = true
-
-[node name="Player1" parent="." instance=ExtResource("3_2u6ho")]
-z_index = -1
-position = Vector2(112, 928)
-scale = Vector2(0.75, 0.75)
-AIR_SPEED = 150.0
-JUMP_VELOCITY = -430.0
-push_force = 50
 
 [node name="LevelDesign_Red" type="Node2D" parent="."]
 z_index = -2
@@ -131,13 +118,13 @@ active = false
 
 [node name="Button01" parent="LevelDesign_Red/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("9_01sxw")]
 z_index = -1
-position = Vector2(112, 464)
+position = Vector2(112, 461)
 rotation = 3.14159
 receivers = [NodePath("../BigDoor")]
 
 [node name="BigDoor" parent="LevelDesign_Red/Objectives" instance=ExtResource("10_jt6l6")]
 z_index = 0
-position = Vector2(848, 368)
+position = Vector2(848, 371)
 maxButton = 1
 
 [node name="Pickables" type="Node2D" parent="LevelDesign_Red"]
@@ -161,17 +148,15 @@ position = Vector2(720, 368)
 side = 1
 
 [node name="Spikes4" parent="LevelDesign_Red" instance=ExtResource("20_sdvew")]
-position = Vector2(336, 432)
+position = Vector2(336, 435)
 
-[node name="Player2" parent="." instance=ExtResource("3_2u6ho")]
+[node name="Player1" parent="LevelDesign_Red" instance=ExtResource("3_2u6ho")]
 z_index = -1
-position = Vector2(1776, 944)
+position = Vector2(112, 928)
 scale = Vector2(0.75, 0.75)
-GROUND_SPEED = 230.0
 AIR_SPEED = 150.0
-JUMP_VELOCITY = -350.0
-side = 1
-directionOffsetZ = 50.0
+JUMP_VELOCITY = -430.0
+push_force = 50
 
 [node name="LevelDesign_Blue" type="Node2D" parent="."]
 z_index = -2
@@ -250,7 +235,7 @@ path = NodePath("..")
 active = false
 
 [node name="PressurePlate2" parent="LevelDesign_Blue/Platforms" node_paths=PackedStringArray("receivers") instance=ExtResource("17_nhauu")]
-position = Vector2(1616, 784)
+position = Vector2(1616, 785)
 receivers = [NodePath("../Path2D4/PathFollow2D/Platform1")]
 
 [node name="Objectives" type="Node2D" parent="LevelDesign_Blue"]
@@ -261,7 +246,7 @@ receivers = [NodePath("../SmallDoor")]
 
 [node name="SmallDoor" parent="LevelDesign_Blue/Objectives" instance=ExtResource("19_11g46")]
 z_index = 0
-position = Vector2(1392, 368)
+position = Vector2(1392, 369)
 maxKeys = 1
 goalNumber = 1
 
@@ -273,32 +258,54 @@ position = Vector2(1616, 784)
 [node name="BoxPickable6" parent="LevelDesign_Blue/Pickables" instance=ExtResource("12_8jgdu")]
 position = Vector2(1616, 368)
 
-[node name="Spikes5" parent="." instance=ExtResource("21_lbmmh")]
-position = Vector2(1456, 608)
-
-[node name="Spikes8" parent="." instance=ExtResource("21_lbmmh")]
-position = Vector2(1392, 608)
-
-[node name="Spikes6" parent="." instance=ExtResource("21_lbmmh")]
-position = Vector2(1360, 368)
-
-[node name="Spikes7" parent="." instance=ExtResource("21_lbmmh")]
-position = Vector2(1328, 368)
-
-[node name="Spikes9" parent="." instance=ExtResource("21_lbmmh")]
-position = Vector2(1456, 368)
-
-[node name="Spikes10" parent="." instance=ExtResource("21_lbmmh")]
-position = Vector2(1424, 368)
-
-[node name="Spring" parent="." instance=ExtResource("22_iwa48")]
+[node name="Spring" parent="LevelDesign_Blue/Pickables" instance=ExtResource("22_iwa48")]
 position = Vector2(1296, 992)
 
-[node name="Spring4" parent="." instance=ExtResource("22_iwa48")]
+[node name="Spring4" parent="LevelDesign_Blue/Pickables" instance=ExtResource("22_iwa48")]
 position = Vector2(1680, 448)
 
-[node name="Spring5" parent="." instance=ExtResource("22_iwa48")]
+[node name="Spring5" parent="LevelDesign_Blue/Pickables" instance=ExtResource("22_iwa48")]
 position = Vector2(1824, 512)
 
-[node name="Spring3" parent="." instance=ExtResource("22_iwa48")]
+[node name="Spring3" parent="LevelDesign_Blue/Pickables" instance=ExtResource("22_iwa48")]
 position = Vector2(1232, 992)
+
+[node name="Obstacles" type="Node2D" parent="LevelDesign_Blue"]
+
+[node name="Spikes5" parent="LevelDesign_Blue/Obstacles" instance=ExtResource("21_lbmmh")]
+position = Vector2(1456, 610)
+
+[node name="Spikes8" parent="LevelDesign_Blue/Obstacles" instance=ExtResource("21_lbmmh")]
+position = Vector2(1392, 610)
+
+[node name="Spikes6" parent="LevelDesign_Blue/Obstacles" instance=ExtResource("21_lbmmh")]
+position = Vector2(1360, 368)
+
+[node name="Spikes7" parent="LevelDesign_Blue/Obstacles" instance=ExtResource("21_lbmmh")]
+position = Vector2(1328, 368)
+
+[node name="Spikes9" parent="LevelDesign_Blue/Obstacles" instance=ExtResource("21_lbmmh")]
+position = Vector2(1456, 368)
+
+[node name="Spikes10" parent="LevelDesign_Blue/Obstacles" instance=ExtResource("21_lbmmh")]
+position = Vector2(1424, 368)
+
+[node name="Player2" parent="LevelDesign_Blue" instance=ExtResource("3_2u6ho")]
+z_index = -1
+position = Vector2(1776, 944)
+scale = Vector2(0.75, 0.75)
+GROUND_SPEED = 230.0
+AIR_SPEED = 150.0
+JUMP_VELOCITY = -350.0
+side = 1
+directionOffsetZ = 50.0
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(231.998, 1125.49)
+scale = Vector2(64.68, 2)
+disable_mode = 1
+collision_mask = 7
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground"]
+position = Vector2(-2.96842, -69.2442)
+polygon = PackedVector2Array(10.436, 2.5, 18.3828, 3.99999, 29.7001, 4.5, 29.6382, 23, -1.74706, 23.5, -1.63884, -0.5)

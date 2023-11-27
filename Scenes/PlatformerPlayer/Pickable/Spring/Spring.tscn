@@ -1,11 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://pd5e2y2wk2ql"]
+[gd_scene load_steps=12 format=3 uid="uid://pd5e2y2wk2ql"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Pickable/Spring/Spring.gd" id="1_8qnpb"]
 [ext_resource type="PackedScene" uid="uid://dnuopb0n063hc" path="res://Scenes/PlatformerPlayer/Pickable/PickupComponent/PickupComponent.tscn" id="1_ex5wo"]
 [ext_resource type="Texture2D" uid="uid://c05dkc6wqg4pe" path="res://Resources/Assets/Oggetti/Molla.png" id="2_5vik6"]
 [ext_resource type="Texture2D" uid="uid://b5x1xveqvie3f" path="res://Resources/Assets/Nuovi_PNG/Molla_piccola.png" id="2_iu07t"]
-[ext_resource type="AudioStream" uid="uid://udnk4t0e8ueh" path="res://Resources/Sounds/menusel.wav" id="2_qitua"]
-[ext_resource type="AudioStream" uid="uid://cv6hw23lpprg2" path="res://Resources/Sounds/place_piece.wav" id="3_dtvcr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ygvuk"]
 size = Vector2(20, 38)
@@ -81,12 +79,11 @@ collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_8qnpb")
 JUMP_FORCE = -400
-jumpSoundBig = ExtResource("2_qitua")
-jumpSoundSmall = ExtResource("3_dtvcr")
 
 [node name="Left" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(9, -0.207445)
+scale = Vector2(1, 0.585106)
 texture = ExtResource("2_iu07t")
 offset = Vector2(1, -24)
 
@@ -95,6 +92,7 @@ process_mode = 4
 visible = false
 texture_filter = 1
 position = Vector2(0, -0.24252)
+scale = Vector2(1, 0.596269)
 texture = ExtResource("2_5vik6")
 offset = Vector2(0, -32)
 
