@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cqnl53v0iei8b"]
+[gd_scene load_steps=21 format=3 uid="uid://cqnl53v0iei8b"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/PlatPlayer.gd" id="1_go3e0"]
 [ext_resource type="Material" uid="uid://bdjvh3cymune7" path="res://Resources/Materials/Unshaded.tres" id="2_4bwpy"]
@@ -8,8 +8,12 @@
 [ext_resource type="AudioStream" uid="uid://cbyhkgw8hcoq1" path="res://Resources/Audio/Effects/sfx_jump_big.ogg" id="3_3equq"]
 [ext_resource type="Texture2D" uid="uid://3q2g1gjl31kx" path="res://Resources/Assets/Elementi_rossi/Omino_rosso.png" id="3_ld05j"]
 [ext_resource type="PackedScene" uid="uid://dc75c5p24oslr" path="res://Scenes/PlatformerPlayer/Players_animation/player_blu.tscn" id="3_v5sda"]
+[ext_resource type="AudioStream" uid="uid://dcmhqx6o7avjk" path="res://Resources/Audio/Effects/sfx_pickup_big.ogg" id="4_6ywwo"]
 [ext_resource type="AudioStream" uid="uid://c5ry23dyjwjtd" path="res://Resources/Audio/Effects/sfx_jump_small.ogg" id="4_kbatb"]
 [ext_resource type="Texture2D" uid="uid://dgbwbb6pe3see" path="res://Resources/Assets/Elementi_blu/Omino_blu.png" id="4_v002a"]
+[ext_resource type="AudioStream" uid="uid://b7smjntfqo5fx" path="res://Resources/Audio/Effects/sfx_release_big.ogg" id="5_b0fdw"]
+[ext_resource type="AudioStream" uid="uid://cgsfbacq6jurc" path="res://Resources/Audio/Effects/sfx_pickup_small.ogg" id="7_a3o6d"]
+[ext_resource type="AudioStream" uid="uid://dcp5a17xu3ori" path="res://Resources/Audio/Effects/sfx_release_small.ogg" id="8_272ec"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8nqjx"]
 radius = 11.0
@@ -40,8 +44,12 @@ platform_on_leave = 2
 script = ExtResource("1_go3e0")
 deathSound = ExtResource("2_fmq1i")
 jumpSound = ExtResource("3_3equq")
+grabObject = ExtResource("4_6ywwo")
+releaseObject = ExtResource("5_b0fdw")
 deathSoundSmall = ExtResource("2_fmq1i")
 jumpSoundSmall = ExtResource("4_kbatb")
+grabObjectSmall = ExtResource("7_a3o6d")
+releaseObjectSmall = ExtResource("8_272ec")
 
 [node name="Player_rosso" parent="." instance=ExtResource("2_x7kcr")]
 position = Vector2(4, -31)
