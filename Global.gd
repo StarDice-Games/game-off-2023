@@ -76,6 +76,7 @@ func isLevelComplete(key):
 # Called when the node enters the scene tree for the first time.
 func _ready():	
 	if scenes.size() > 0:
+		curretLevel = scenes[0].name
 		next_scene %= scenes.size() #adapt the next_scene based on the total scenes
 	print("Global ready")
 	
@@ -86,11 +87,11 @@ func _ready():
 		printerr("Error missing pause scene")
 		
 	bgMenuMusic.stream = menuMusic
-	if !musicMuted:
-		bgMenuMusic.play()
+	bgMenuMusic.play()
 	
 	bgInGameMusic.stream = inGameMusicBig
 	bgInGameMusic2.stream = inGameMusicSmall
+	
 	
 	pass # Replace with function body.
 
@@ -290,11 +291,14 @@ func processGame(delta):
 
 func loadNextLevel():
 	if scenes[next_scene] != null:
+			completedLevels[curretLevel] = true
+			curretLevel = scenes[next_scene].name
 			get_tree().change_scene_to_packed(scenes[next_scene].scene)
 			next_scene += 1
 			next_scene %= scenes.size()
 			AudioManager.play(levelStartSound)
 			currentGameState = GameState.IN_GAME
+			
 			setActivePlayer(0)
 
 func processMainMenu(delta):
@@ -344,6 +348,7 @@ func startGame():
 	closeMainMenu()
 	
 	if scenes.size() > 0:
+		curretLevel = scenes.front().name
 		get_tree().change_scene_to_packed(scenes.front().scene)
 		if not sfxMuted:
 			AudioManager.play(levelStartSound)
@@ -360,7 +365,7 @@ func _on_main_menu_select_level_pressed():
 	AudioManager.play(menuButtonPress)
 	if scenes.size() > 0:
 		closeMainMenu()
-		currentGameState = GameState.LEVEL_SELECT		
+		currentGameState = GameState.LEVEL_SELECT
 		var levelSelectInstance = selectLevelScene.instantiate()
 		get_tree().root.add_child(levelSelectInstance)
 		levelSelectInstance.setItems(scenes)
@@ -429,6 +434,7 @@ func loadSelectedLevel(res : LevelResourceBase):
 			get_tree().root.remove_child(selectLevelNode)
 		
 		if sceneToLoad != null:
+			curretLevel = res.name
 			get_tree().change_scene_to_packed(sceneToLoad)
 		#play the start level sound, reset the statecurrentGameState = GameState.START_LEVEL
 			

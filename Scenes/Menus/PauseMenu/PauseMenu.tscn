@@ -10,9 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://dqp2oqc6hol8j" path="res://Resources/Assets/UI_e_tutorial/home.png" id="8_qb5nd"]
 [ext_resource type="Texture2D" uid="uid://b50gej6qh68u3" path="res://Resources/Assets/UI_e_tutorial/home_hover.png" id="9_vnv38"]
 [ext_resource type="Texture2D" uid="uid://c3dbn7f08tcnw" path="res://Resources/Assets/UI_e_tutorial/effect_sound.png" id="10_2waei"]
-[ext_resource type="Texture2D" uid="uid://cr0sn8u34jjow" path="res://Resources/Assets/UI_e_tutorial/effect_sound_hover.png" id="11_wnf7r"]
+[ext_resource type="Texture2D" uid="uid://b8jlmdwctrsc1" path="res://Resources/Assets/UI_e_tutorial/effect_sound_off.png" id="11_w87sh"]
 [ext_resource type="Texture2D" uid="uid://nwlqkq8th72o" path="res://Resources/Assets/UI_e_tutorial/sound.png" id="12_51qku"]
-[ext_resource type="Texture2D" uid="uid://00gr3ceos83k" path="res://Resources/Assets/UI_e_tutorial/sound_hover.png" id="13_i0o6p"]
+[ext_resource type="Texture2D" uid="uid://e832etribt31" path="res://Resources/Assets/UI_e_tutorial/sound_off.png" id="14_duysq"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rolu0"]
 light_mode = 1
@@ -101,10 +101,8 @@ offset_top = 133.0
 offset_right = 1276.0
 offset_bottom = 223.0
 toggle_mode = true
-button_pressed = true
 texture_normal = ExtResource("10_2waei")
-texture_pressed = ExtResource("11_wnf7r")
-texture_focused = ExtResource("11_wnf7r")
+texture_pressed = ExtResource("11_w87sh")
 ignore_texture_size = true
 
 [node name="Sounds" type="TextureButton" parent="Control"]
@@ -114,10 +112,8 @@ offset_top = 133.0
 offset_right = 1397.0
 offset_bottom = 224.0
 toggle_mode = true
-button_pressed = true
 texture_normal = ExtResource("12_51qku")
-texture_pressed = ExtResource("13_i0o6p")
-texture_focused = ExtResource("13_i0o6p")
+texture_pressed = ExtResource("14_duysq")
 ignore_texture_size = true
 
 [connection signal="draw" from="Control" to="." method="_on_control_draw"]

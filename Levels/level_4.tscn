@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c02hoepp7nb7y"]
+[gd_scene load_steps=24 format=3 uid="uid://c02hoepp7nb7y"]
 
 [ext_resource type="PackedScene" uid="uid://c6oxlwfitiwcd" path="res://Scenes/PlatformerPlayer/Obstacle/statiWall.tscn" id="1_5ph2c"]
 [ext_resource type="PackedScene" uid="uid://din1h8ql506vb" path="res://Scenes/Background.tscn" id="2_875ux"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://phjy1geq4nek" path="res://Scenes/PlatformerPlayer/Platforms/Platform1/Platform2.tscn" id="8_2ygp8"]
 [ext_resource type="PackedScene" uid="uid://6a1c38prt1a4" path="res://Scenes/PlatformerPlayer/Buttons/Button1/Button01.tscn" id="9_01sxw"]
 [ext_resource type="PackedScene" uid="uid://c8qbn2xe7w0yv" path="res://Scenes/PlatformerPlayer/Doors/BigDoor/BigDoor.tscn" id="10_jt6l6"]
-[ext_resource type="PackedScene" uid="uid://c3snw3pxmp7x8" path="res://Scenes/PlatformerPlayer/Doors/Indicators/BigDoorIndicator.tscn" id="11_822mu"]
 [ext_resource type="PackedScene" uid="uid://dvhrt43a8uu5r" path="res://Scenes/PlatformerPlayer/Pickable/Box/BoxPickable.tscn" id="12_8jgdu"]
 [ext_resource type="PackedScene" uid="uid://dc601pwyjee1" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x5.tscn" id="13_niaxn"]
 [ext_resource type="PackedScene" uid="uid://dn8ylngmbs0mt" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x2.tscn" id="14_3xocg"]
@@ -140,8 +139,6 @@ receivers = [NodePath("../BigDoor")]
 z_index = 0
 position = Vector2(848, 368)
 maxButton = 1
-goalNumber = 1
-indicatorScene = ExtResource("11_822mu")
 
 [node name="Pickables" type="Node2D" parent="LevelDesign_Red"]
 

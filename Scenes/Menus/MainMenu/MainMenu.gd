@@ -13,8 +13,8 @@ signal open_credits
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	buttonToFocus.grab_focus()
-	musicToggle.button_pressed = !Global.musicMuted
-	sfxToggle.button_pressed = !Global.sfxMuted
+	musicToggle.button_pressed = Global.musicMuted
+	sfxToggle.button_pressed = Global.sfxMuted
 	pass # Replace with function body.
 
 
@@ -43,18 +43,18 @@ func _on_exit_pressed():
 func _on_draw():
 	print("main menu Become visible")
 	buttonToFocus.grab_focus()
-	musicToggle.button_pressed = !Global.musicMuted
-	sfxToggle.button_pressed = !Global.sfxMuted
+	musicToggle.button_pressed = Global.musicMuted
+	sfxToggle.button_pressed = Global.sfxMuted
 	pass # Replace with function body.
 
 
 func _on_music_toggled(button_pressed):
-	Global.musicMuted = !button_pressed
+	Global.musicMuted = button_pressed
 	pass # Replace with function body.
 
 
 func _on_sounds_toggled(button_pressed):
-	Global.sfxMuted = !button_pressed
+	Global.sfxMuted = button_pressed
 	pass # Replace with function body.
 
 

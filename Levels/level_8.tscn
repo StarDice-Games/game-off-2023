@@ -100,6 +100,7 @@ position = Vector2(1216, 992)
 
 [node name="SmallDoor" parent="." instance=ExtResource("11_sth3h")]
 position = Vector2(1467, 399)
+goalNumber = 1
 
 [node name="Fire" parent="." instance=ExtResource("12_sqht7")]
 position = Vector2(304, 992)
