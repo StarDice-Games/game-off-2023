@@ -83,6 +83,7 @@ side = 1
 
 [node name="SmallDoor" parent="." instance=ExtResource("8_db12k")]
 position = Vector2(1120, 368)
+goalNumber = 1
 
 [node name="Fire" parent="." instance=ExtResource("9_xi3b3")]
 z_index = -1
