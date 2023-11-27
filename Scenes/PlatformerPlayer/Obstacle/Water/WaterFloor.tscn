@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Obstacle/Water/WaterFloor.gd" id="1_wmnvp"]
 [ext_resource type="PackedScene" uid="uid://bu75kel0q2p7r" path="res://Scenes/PlatformerPlayer/DeathComponent/DeathComponent.tscn" id="2_7oql1"]
 [ext_resource type="Texture2D" uid="uid://bnl6uu5lvfndx" path="res://Resources/Assets/Nuovi_PNG/Livello_acqua.png" id="2_ntxe1"]
-[ext_resource type="AudioStream" uid="uid://udnk4t0e8ueh" path="res://Resources/Sounds/menusel.wav" id="2_wdmid"]
+[ext_resource type="AudioStream" uid="uid://dy5hcgh0tv568" path="res://Resources/Audio/Effects/sfx_water-plop_big.ogg" id="2_syvh2"]
 [ext_resource type="Texture2D" uid="uid://b7k8cjmoypoet" path="res://Resources/Assets/Oggetti/Acqua.png" id="4_a5nnv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o47hv"]
@@ -51,7 +51,7 @@ _data = {
 collision_layer = 64
 collision_mask = 6
 script = ExtResource("1_wmnvp")
-plopSound = ExtResource("2_wdmid")
+plopSound = ExtResource("2_syvh2")
 
 [node name="Acqua" type="Sprite2D" parent="."]
 visible = false
