@@ -70,7 +70,7 @@ offset_bottom = -1.0
 [node name="Onde_1" type="Sprite2D" parent="Control"]
 z_index = -2
 texture_filter = 1
-position = Vector2(529.537, 208)
+position = Vector2(488, 208)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_s05gd")
 offset = Vector2(0, -54)
@@ -78,7 +78,7 @@ offset = Vector2(0, -54)
 [node name="Onde_2" type="Sprite2D" parent="Control"]
 z_index = -2
 texture_filter = 1
-position = Vector2(770.871, 206)
+position = Vector2(801, 206)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_s05gd")
 offset = Vector2(0, -54)

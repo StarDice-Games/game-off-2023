@@ -119,7 +119,7 @@ position = Vector2(672, 275)
 side = 1
 
 [node name="Player1" parent="LevelDesign_Red" instance=ExtResource("18_nyfm7")]
-position = Vector2(155, 843)
+position = Vector2(158, 911)
 scale = Vector2(0.75, 0.75)
 AIR_SPEED = 150.0
 JUMP_VELOCITY = -430.0
@@ -199,7 +199,7 @@ receivers = [NodePath("../SmallDoor")]
 
 [node name="Player2" parent="LevelDesign_Blue" instance=ExtResource("18_nyfm7")]
 z_index = -1
-position = Vector2(1766, 948)
+position = Vector2(1577, 948)
 scale = Vector2(0.75, 0.75)
 GROUND_SPEED = 230.0
 AIR_SPEED = 150.0
@@ -214,7 +214,7 @@ position = Vector2(611, 224)
 texture = ExtResource("17_hvh5o")
 
 [node name="ExitRight2" type="Sprite2D" parent="."]
-z_index = -3
+z_index = -4
 texture_filter = 1
 position = Vector2(1495, 296)
 scale = Vector2(0.5, 0.5)

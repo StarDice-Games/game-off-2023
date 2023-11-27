@@ -52,6 +52,7 @@ offset = Vector2(960, 540)
 z_index = -1
 
 [node name="Platforms" type="Node2D" parent="LevelDesign_Red"]
+z_index = -1
 position = Vector2(528, 768)
 
 [node name="PlatformStaticRed_x5" parent="LevelDesign_Red/Platforms" instance=ExtResource("6_u4jqa")]
@@ -104,6 +105,7 @@ position = Vector2(-400, 224)
 receivers = [NodePath("../Path2D/PathFollow2D/M_Platform")]
 
 [node name="Obstacles" type="Node2D" parent="LevelDesign_Red"]
+z_index = -1
 
 [node name="BreakableWall" parent="LevelDesign_Red/Obstacles" instance=ExtResource("9_fbkii")]
 position = Vector2(656, 1008)
@@ -112,6 +114,7 @@ position = Vector2(656, 1008)
 position = Vector2(528, 718)
 
 [node name="Objectives" type="Node2D" parent="LevelDesign_Red"]
+z_index = -1
 
 [node name="BigDoor" parent="LevelDesign_Red/Objectives" instance=ExtResource("8_ogpna")]
 z_index = 0
@@ -129,6 +132,7 @@ rotation = -3.14159
 receivers = [NodePath("../BigDoor")]
 
 [node name="Pickables" type="Node2D" parent="LevelDesign_Red"]
+z_index = -1
 
 [node name="Ball" parent="LevelDesign_Red/Pickables" instance=ExtResource("12_fi1h6")]
 position = Vector2(448, 992)
@@ -282,10 +286,13 @@ position = Vector2(1344, 737)
 receivers = [NodePath("../Path2D/PathFollow2D/M_Platform2")]
 
 [node name="Obstacles" type="Node2D" parent="LevelDesign_Blue"]
+z_index = -1
 
 [node name="Objectives" type="Node2D" parent="LevelDesign_Blue"]
+z_index = -1
 
 [node name="SmallDoor" parent="LevelDesign_Blue/Objectives" instance=ExtResource("7_28e4i")]
+z_index = 0
 position = Vector2(1504, 289)
 maxKeys = 2
 goalNumber = 1
@@ -298,6 +305,7 @@ position = Vector2(1664, 656)
 position = Vector2(1232, 144)
 
 [node name="Pickables" type="Node2D" parent="LevelDesign_Blue"]
+z_index = -1
 
 [node name="Ball" parent="LevelDesign_Blue/Pickables" instance=ExtResource("12_fi1h6")]
 position = Vector2(1392, 640)
@@ -312,6 +320,7 @@ JUMP_FORCE = -750
 position = Vector2(1680, 928)
 
 [node name="Player2" parent="LevelDesign_Blue" instance=ExtResource("6_bgo1k")]
+z_index = 0
 position = Vector2(1184, 944)
 scale = Vector2(0.75, 0.75)
 GROUND_SPEED = 230.0
