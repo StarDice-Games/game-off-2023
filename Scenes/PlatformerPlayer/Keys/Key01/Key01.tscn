@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Keys/KeyComponent.gd" id="1_agsc3"]
 [ext_resource type="Texture2D" uid="uid://cxkk2kgo6optb" path="res://Resources/Assets/Nuovi_PNG/Chiave_piccola.png" id="2_iu8xh"]
-[ext_resource type="AudioStream" uid="uid://udnk4t0e8ueh" path="res://Resources/Sounds/menusel.wav" id="2_nnybn"]
+[ext_resource type="AudioStream" uid="uid://ba8fupd7u1i2y" path="res://Resources/Audio/Effects/sfx_key.ogg" id="2_jnehj"]
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/TriggerComponent/SenderComponent.gd" id="3_yqoax"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xubi1"]
@@ -13,7 +13,7 @@ z_index = -1
 collision_layer = 32
 collision_mask = 2
 script = ExtResource("1_agsc3")
-pickupSound = ExtResource("2_nnybn")
+pickupSound = ExtResource("2_jnehj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
