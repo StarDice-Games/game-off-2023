@@ -23,6 +23,34 @@
 [ext_resource type="AudioStream" uid="uid://b0v7l2t5fkkkf" path="res://Resources/Audio/Music/bgm_level1B.ogg" id="12_1yry6"]
 [ext_resource type="AudioStream" uid="uid://dmym7sdqorugm" path="res://Resources/Audio/Sound/sfx_transfer.ogg" id="18_dvjt0"]
 
+[sub_resource type="Animation" id="Animation_u0jyr"]
+resource_name = "FadeToBig"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BigMusic:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 5.09824),
+"update": 0,
+"values": [-80.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SmallMusic:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(6.06286, 1),
+"update": 0,
+"values": [0.0, -80.0]
+}
+
 [sub_resource type="Animation" id="Animation_vg1bu"]
 resource_name = "FadeToSmall"
 length = 0.3
@@ -76,34 +104,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [-20.0]
-}
-
-[sub_resource type="Animation" id="Animation_u0jyr"]
-resource_name = "FadeToBig"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BigMusic:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 5.09824),
-"update": 0,
-"values": [-80.0, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SmallMusic:volume_db")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(6.06286, 1),
-"update": 0,
-"values": [0.0, -80.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_250ox"]
