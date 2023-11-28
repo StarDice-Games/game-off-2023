@@ -28,19 +28,19 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(3, 3, 3, 3),
-"points": PackedFloat32Array(488, -0.5, -90.3866, 0.5, 90.3866, 566.155, -0.25, 0, 0.25, 0, 492.764, -0.4, 55.0432, 0.4, -55.0432, 488, -0.5, -98.3491, 0.5, 98.3491),
+"points": PackedFloat32Array(488, -0.5, -78.181, 0.5, 78.181, 566.155, -0.25, 0, 0.25, 0, 492.764, -0.4, 55.0432, 0.4, -55.0432, 488, -0.5, -67.3279, 0.5, 67.3279),
 "times": PackedFloat32Array(0, 1.2, 2.5, 4)
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
-tracks/1/enabled = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Control/Onde_2:position:x")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(801, -0.25, 0, 0.25, 0, 712.936, -0.25, 0, 0.25, 0, 841.37, -0.25, 0, 0.3, 24.4636, 801, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1.2, 3, 4)
+"points": PackedFloat32Array(801, -0.25, 0, 0.25, 0, 841.37, -0.25, 0, 0.3, 24.4636, 712.936, -0.25, 0, 0.25, 0, 801, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.2, 2.7, 4)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ep78m"]
@@ -73,14 +73,14 @@ offset_right = 490.0
 modulate = Color(0.662745, 0.862745, 1, 1)
 z_index = -2
 texture_filter = 1
-position = Vector2(488, 273)
+position = Vector2(559.233, 273)
 texture = ExtResource("2_ntxe1")
 offset = Vector2(0, -54)
 
 [node name="Onde_2" type="Sprite2D" parent="Control"]
 z_index = -2
 texture_filter = 1
-position = Vector2(801, 273)
+position = Vector2(827.903, 273)
 texture = ExtResource("2_ntxe1")
 offset = Vector2(0, -54)
 
