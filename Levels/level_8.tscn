@@ -190,6 +190,7 @@ z_index = -1
 
 [node name="WaterContainer" parent="LevelDesign_Blue/Pickables" instance=ExtResource("9_rmdhr")]
 position = Vector2(1216, 992)
+side = 0
 
 [node name="BoxPickable2" parent="LevelDesign_Blue/Pickables" instance=ExtResource("6_pet4a")]
 position = Vector2(1403, 756)
