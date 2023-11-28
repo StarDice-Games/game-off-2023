@@ -83,7 +83,7 @@ position = Vector2(496, 672)
 position = Vector2(400, 608)
 
 [node name="PlatformStaticRed_x4" parent="LevelDesign_Red/Platforms" instance=ExtResource("13_qhjde")]
-position = Vector2(464, 400)
+position = Vector2(494, 400)
 
 [node name="PlatformStaticRed_x8" parent="LevelDesign_Red/Platforms" instance=ExtResource("12_p3l3w")]
 position = Vector2(736, 336)
@@ -104,7 +104,7 @@ indicatorOffset = 40
 
 [node name="Button01" parent="LevelDesign_Red/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("20_dexti")]
 z_index = -1
-position = Vector2(464, 339)
+position = Vector2(494, 339)
 receivers = [NodePath("../BigDoor")]
 
 [node name="Pickable" type="Node2D" parent="LevelDesign_Red"]
@@ -199,7 +199,7 @@ receivers = [NodePath("../SmallDoor")]
 
 [node name="Player2" parent="LevelDesign_Blue" instance=ExtResource("18_nyfm7")]
 z_index = -1
-position = Vector2(1577, 948)
+position = Vector2(1601, 946)
 scale = Vector2(0.75, 0.75)
 GROUND_SPEED = 230.0
 AIR_SPEED = 150.0

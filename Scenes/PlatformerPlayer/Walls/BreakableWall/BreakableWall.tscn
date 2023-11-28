@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cdoatt4q6g2nt"]
+[gd_scene load_steps=12 format=3 uid="uid://cdoatt4q6g2nt"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Walls/BreakableWall/BreakableWall.gd" id="1_ubadn"]
+[ext_resource type="AudioStream" uid="uid://f1t6wx8xckly" path="res://Resources/Audio/Effects/sfx_breakwall.ogg" id="2_8rwd8"]
 [ext_resource type="Texture2D" uid="uid://bo6l6qihfp3l8" path="res://Resources/Assets/Nuovi_PNG/Muro _rompere_1.png" id="2_q2now"]
 [ext_resource type="Texture2D" uid="uid://dpriorn15oerj" path="res://Resources/Assets/Nuovi_PNG/Muro _rompere_4.png" id="2_y88b8"]
 [ext_resource type="Texture2D" uid="uid://bcupp08kog4se" path="res://Resources/Assets/Nuovi_PNG/Muro _rompere_2.png" id="4_d80ww"]
@@ -93,6 +94,7 @@ _data = {
 collision_mask = 6
 script = ExtResource("1_ubadn")
 breakSpeed = 50.0
+breakSound = ExtResource("2_8rwd8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(334, -277)

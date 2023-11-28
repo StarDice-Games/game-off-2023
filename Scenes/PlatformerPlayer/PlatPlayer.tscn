@@ -8,27 +8,28 @@
 [ext_resource type="AudioStream" uid="uid://dg8xotbkxu6si" path="res://Resources/Audio/Effects/sfx_jump_big.ogg" id="3_3equq"]
 [ext_resource type="Texture2D" uid="uid://3q2g1gjl31kx" path="res://Resources/Assets/Elementi_rossi/Omino_rosso.png" id="3_ld05j"]
 [ext_resource type="PackedScene" uid="uid://dc75c5p24oslr" path="res://Scenes/PlatformerPlayer/Players_animation/player_blu.tscn" id="3_v5sda"]
-[ext_resource type="AudioStream" uid="uid://dcmhqx6o7avjk" path="res://Resources/Audio/Effects/sfx_pickup_big.ogg" id="4_6ywwo"]
+[ext_resource type="AudioStream" uid="uid://c5l04fx0incyk" path="res://Resources/Audio/Effects/sfx_pickup_big.ogg" id="4_6ywwo"]
 [ext_resource type="AudioStream" uid="uid://b6tgtybk5s0qs" path="res://Resources/Audio/Effects/sfx_jump_small.ogg" id="4_kbatb"]
 [ext_resource type="Texture2D" uid="uid://dgbwbb6pe3see" path="res://Resources/Assets/Elementi_blu/Omino_blu.png" id="4_v002a"]
-[ext_resource type="AudioStream" uid="uid://b7smjntfqo5fx" path="res://Resources/Audio/Effects/sfx_release_big.ogg" id="5_b0fdw"]
-[ext_resource type="AudioStream" uid="uid://cgsfbacq6jurc" path="res://Resources/Audio/Effects/sfx_pickup_small.ogg" id="7_a3o6d"]
-[ext_resource type="AudioStream" uid="uid://dcp5a17xu3ori" path="res://Resources/Audio/Effects/sfx_release_small.ogg" id="8_272ec"]
+[ext_resource type="AudioStream" uid="uid://c61l7m8ktmjdj" path="res://Resources/Audio/Effects/sfx_release_big.ogg" id="5_b0fdw"]
+[ext_resource type="AudioStream" uid="uid://cyy2umbjtof2e" path="res://Resources/Audio/Effects/sfx_pickup_small.ogg" id="7_a3o6d"]
+[ext_resource type="AudioStream" uid="uid://dugloowaxfw0h" path="res://Resources/Audio/Effects/sfx_release_small.ogg" id="8_272ec"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8nqjx"]
-radius = 11.0
-height = 164.0
+radius = 23.0
+height = 148.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_32an5"]
-radius = 11.0
-height = 46.0
+radius = 26.0
+height = 52.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w3jm4"]
-radius = 9.0
-height = 84.0
+radius = 16.0
+height = 60.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6u44k"]
-radius = 4.0
+radius = 17.0
+height = 34.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ynrlp"]
 size = Vector2(31.5, 113)
@@ -71,25 +72,25 @@ visible = false
 texture = ExtResource("4_v002a")
 
 [node name="LeftCollision" type="CollisionShape2D" parent="."]
-position = Vector2(-4, 2)
+position = Vector2(0, -10)
 shape = SubResource("CapsuleShape2D_8nqjx")
 
 [node name="LeftCollision2" type="CollisionShape2D" parent="."]
-position = Vector2(0, 80)
+position = Vector2(0, 64)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_32an5")
 
 [node name="RightCollision" type="CollisionShape2D" parent="."]
 process_mode = 4
 visible = false
-position = Vector2(0, 17)
+position = Vector2(-1, 11)
 shape = SubResource("CapsuleShape2D_w3jm4")
 disabled = true
 
 [node name="RightCollision2" type="CollisionShape2D" parent="."]
 process_mode = 4
 visible = false
-position = Vector2(-4.5, 54)
+position = Vector2(-1, 40)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_6u44k")
 disabled = true
@@ -122,7 +123,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Blue" type="CollisionShape2D" parent="Area2D"]
 process_mode = 4
 visible = false
-position = Vector2(-39, 25.8)
+position = Vector2(-43, 21)
 scale = Vector2(1, 3.28)
 shape = SubResource("RectangleShape2D_26yuy")
 disabled = true

@@ -1,5 +1,6 @@
-[gd_scene load_steps=29 format=3 uid="uid://bx2cylhqb7luc"]
+[gd_scene load_steps=30 format=3 uid="uid://bx2cylhqb7luc"]
 
+[ext_resource type="AudioStream" uid="uid://du8gmognffgmg" path="res://Resources/Audio/Effects/sfx_waterpipe.ogg" id="3_yqjlg"]
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="5_dwfel"]
 [ext_resource type="PackedScene" uid="uid://dvhrt43a8uu5r" path="res://Scenes/PlatformerPlayer/Pickable/Box/BoxPickable.tscn" id="6_otahl"]
 [ext_resource type="PackedScene" uid="uid://b50r2cbdgb676" path="res://Scenes/PlatformerPlayer/Pickable/WaterContainer/WaterContainer.tscn" id="7_v2vud"]
@@ -54,6 +55,7 @@ metadata/_edit_lock_ = true
 
 [node name="WaterFloor" parent="." instance=ExtResource("23_7e4xn")]
 position = Vector2(1456, 1056)
+pipeSound = ExtResource("3_yqjlg")
 
 [node name="LevelDesign_Red" type="Node2D" parent="."]
 
