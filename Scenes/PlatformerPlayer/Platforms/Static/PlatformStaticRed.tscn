@@ -1,9 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dys77aiydaakp"]
+[gd_scene load_steps=2 format=3 uid="uid://dys77aiydaakp"]
 
 [ext_resource type="Texture2D" uid="uid://bwqyphf173gpa" path="res://Resources/Assets/Nuovi_PNG/Blocco_1_rosso.png" id="1_x0csp"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ih7s"]
-size = Vector2(63, 63)
 
 [node name="PlatformStaticRed" type="StaticBody2D"]
 
@@ -11,6 +8,5 @@ size = Vector2(63, 63)
 texture = ExtResource("1_x0csp")
 offset = Vector2(0, -32)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -31.5)
-shape = SubResource("RectangleShape2D_1ih7s")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-23, -61, -30, -53, -30, -11, -23, -3, 21, -3, 29, -11, 30, -54, 21, -61)
