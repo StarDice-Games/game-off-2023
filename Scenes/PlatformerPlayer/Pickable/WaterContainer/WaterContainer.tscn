@@ -259,4 +259,6 @@ libraries = {
 
 [node name="stopMusic" type="Timer" parent="."]
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="timeout" from="stopMusic" to="." method="_on_stop_music_timeout"]

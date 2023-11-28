@@ -18,6 +18,8 @@ var lastAnimation = ""
 @export var sprinkleOffset_big = 10
 @export var sprinkleOffset_small = 10
 
+@onready var soundPlayer = $AudioStreamPlayer
+
 func _ready():
 #	$Sprinkle.disabled = true
 	$Sprinkle.hide()
@@ -33,11 +35,13 @@ func spreadWater():
 				$Sprinkle.scale.x = 1
 		match $PickupComponent.currentSide:
 			1:
-				#$Sprinkle/Sprinkle_left.position.x = $Sprinkle/Sprinkle_left.position.x + (sprinkleOffset_big*$Sprinkle.scale.x)
 				playSound(wateringBig)
+				$Sprinkle/Sprinkle_right.disabled = false
+				$Sprinkle/Sprinkle_left.disabled = false
 			0:
-				#$Sprinkle/Sprinkle_right.position.x = $Sprinkle/Sprinkle_right.position.x + (sprinkleOffset_small*$Sprinkle.scale.x)
 				playSound(wateringSmall)
+				$Sprinkle/Sprinkle_right.disabled = false
+				$Sprinkle/Sprinkle_left.disabled = false
 
 func stopWater():
 #	$Sprinkle.disabled = true
@@ -69,9 +73,12 @@ func _physics_process(delta):
 			
 	else:
 		stopWater()
+		soundPlayer.stop()
+		canPlaySound = true
 	#TEST KEVIN ANIMAZIONE 	
 		$AnimationPlayer.play("RESET");
-		animStarted = false
+		lastAnimation = ""
+		
 		
 	# Add the gravity.
 	if not is_on_floor() and not $PickupComponent.held:
@@ -84,7 +91,11 @@ func playSound(sound):
 		if timeBeforeLoop > 0:
 			timerTime = timeBeforeLoop
 		canPlaySound = false
-		AudioManager.play(sound)
+		
+		soundPlayer.stream = sound
+		soundPlayer.play()
+		
+#		AudioManager.play(sound)
 		$stopMusic.start(timerTime)
 
 
