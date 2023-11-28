@@ -298,11 +298,13 @@ maxKeys = 2
 goalNumber = 1
 indicatorOffset = 44
 
-[node name="Key01" parent="LevelDesign_Blue/Objectives" instance=ExtResource("25_jlwkn")]
+[node name="Key01" parent="LevelDesign_Blue/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("25_jlwkn")]
 position = Vector2(1664, 656)
+receivers = [NodePath("../SmallDoor")]
 
-[node name="Key02" parent="LevelDesign_Blue/Objectives" instance=ExtResource("25_jlwkn")]
+[node name="Key02" parent="LevelDesign_Blue/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("25_jlwkn")]
 position = Vector2(1232, 144)
+receivers = [NodePath("../SmallDoor")]
 
 [node name="Pickables" type="Node2D" parent="LevelDesign_Blue"]
 z_index = -1
