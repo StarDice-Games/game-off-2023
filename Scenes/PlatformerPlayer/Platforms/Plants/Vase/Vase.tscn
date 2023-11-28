@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3eux8dwlxtov"]
+[gd_scene load_steps=7 format=3 uid="uid://c3eux8dwlxtov"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Platforms/Plants/Vase/Vase.gd" id="1_fpijm"]
+[ext_resource type="AudioStream" uid="uid://b016kav7j6l3h" path="res://Resources/Audio/Effects/sfx_plantgrowing.ogg" id="2_6g4ll"]
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/TriggerComponent/SenderComponent.gd" id="2_lqxn7"]
 [ext_resource type="Texture2D" uid="uid://dn2pjld0irp66" path="res://Resources/Assets/Nuovi_PNG/Vaso.png" id="2_sdpvn"]
 [ext_resource type="Texture2D" uid="uid://dxqjxjs8f8jta" path="res://Resources/Assets/Nuovi_PNG/Gambo.png" id="4_ogitm"]
@@ -12,6 +13,7 @@ size = Vector2(31, 34)
 visibility_layer = 3
 collision_mask = 4
 script = ExtResource("1_fpijm")
+growSound = ExtResource("2_6g4ll")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
