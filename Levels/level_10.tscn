@@ -127,8 +127,9 @@ rotation = 3.14159
 receivers = [NodePath("../BigDoor")]
 
 [node name="BigDoor" parent="LevelDesign_Red/Objectives" instance=ExtResource("13_vip2c")]
-position = Vector2(736, 292)
+position = Vector2(824, 712)
 maxButton = 2
+indicatorOffset = 40
 
 [node name="PressurePlate2" parent="LevelDesign_Red/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("12_1siyf")]
 position = Vector2(704, 992)
@@ -176,15 +177,6 @@ push_force = 50
 [node name="Platforms" type="Node2D" parent="LevelDesign_Blue"]
 z_index = -1
 
-[node name="DisapperaPlatform1" parent="LevelDesign_Blue/Platforms" instance=ExtResource("26_gd0vm")]
-position = Vector2(1671, 561)
-
-[node name="DisapperaPlatform3" parent="LevelDesign_Blue/Platforms" instance=ExtResource("26_gd0vm")]
-position = Vector2(1578, 503)
-
-[node name="DisapperaPlatform4" parent="LevelDesign_Blue/Platforms" instance=ExtResource("26_gd0vm")]
-position = Vector2(1494, 448)
-
 [node name="DisapperaPlatform2" parent="LevelDesign_Blue/Platforms" instance=ExtResource("26_gd0vm")]
 position = Vector2(1456, 800)
 
@@ -204,7 +196,7 @@ position = Vector2(1472, 1008)
 position = Vector2(1600, 615)
 
 [node name="PlatformStaticBlue_x5" parent="LevelDesign_Blue/Platforms" instance=ExtResource("24_bjv2b")]
-position = Vector2(1216, 912)
+position = Vector2(1216, 922)
 
 [node name="PlatformStaticBlue_x6" parent="LevelDesign_Blue/Platforms" instance=ExtResource("24_bjv2b")]
 z_index = -2
@@ -222,19 +214,19 @@ position = Vector2(1776, 1008)
 position = Vector2(32, -544)
 
 [node name="Vase" parent="LevelDesign_Blue/Platforms/Plant" node_paths=PackedStringArray("receivers") instance=ExtResource("14_tlrqs")]
-position = Vector2(1136, 1427)
+position = Vector2(1578, 1131)
 receivers = [NodePath("../LeafPlatform2"), NodePath("../LeafPlatform3"), NodePath("../LeafPlatform4")]
 
 [node name="LeafPlatform2" parent="LevelDesign_Blue/Platforms/Plant" instance=ExtResource("15_7fygb")]
-position = Vector2(1184, 1360)
+position = Vector2(1624, 1072)
 
 [node name="LeafPlatform3" parent="LevelDesign_Blue/Platforms/Plant" instance=ExtResource("15_7fygb")]
-position = Vector2(1088, 1312)
+position = Vector2(1528, 1024)
 rotation = -3.14159
 scale = Vector2(1, -1)
 
 [node name="LeafPlatform4" parent="LevelDesign_Blue/Platforms/Plant" instance=ExtResource("15_7fygb")]
-position = Vector2(1184, 1264)
+position = Vector2(1624, 976)
 
 [node name="Path2D2" type="Path2D" parent="LevelDesign_Blue/Platforms"]
 position = Vector2(1504, 768)
@@ -270,9 +262,10 @@ position = Vector2(1584, 977)
 receivers = [NodePath("../../Platforms/Path2D2/PathFollow2D/Platform6")]
 
 [node name="SmallDoor" parent="LevelDesign_Blue/Objectives" instance=ExtResource("9_q0q2r")]
-position = Vector2(1424, 356)
+position = Vector2(1469.25, 413.5)
 maxKeys = 2
 goalNumber = 1
+indicatorOffset = 44
 
 [node name="Obstacles" type="Node2D" parent="LevelDesign_Blue"]
 z_index = -1
@@ -296,18 +289,18 @@ z_index = -1
 position = Vector2(1750, 975)
 JUMP_FORCE = -750
 
-[node name="BoxPickable3" parent="LevelDesign_Blue/Pickables" instance=ExtResource("6_otahl")]
-position = Vector2(1312, 672)
-
 [node name="BoxPickable5" parent="LevelDesign_Blue/Pickables" instance=ExtResource("6_otahl")]
 position = Vector2(1824, 977)
 
 [node name="BoxPickable4" parent="LevelDesign_Blue/Pickables" instance=ExtResource("6_otahl")]
 position = Vector2(1484, 977)
 
+[node name="BoxPickable6" parent="LevelDesign_Blue/Pickables" instance=ExtResource("6_otahl")]
+position = Vector2(1264, 890)
+
 [node name="Player2" parent="LevelDesign_Blue" instance=ExtResource("5_dwfel")]
 z_index = -1
-position = Vector2(1405, 931)
+position = Vector2(1192, 838)
 scale = Vector2(0.75, 0.75)
 GROUND_SPEED = 230.0
 AIR_SPEED = 150.0
@@ -328,16 +321,16 @@ polygon = PackedVector2Array(10.436, 2.5, 18.3828, 3.99999, 29.7001, 4.5, 29.638
 [node name="ExitRight2" type="Sprite2D" parent="."]
 z_index = -2
 texture_filter = 1
-position = Vector2(1336, 328)
+position = Vector2(1381.25, 385.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("25_x4fhh")
 
 [node name="ExitRight" type="Sprite2D" parent="."]
 z_index = -2
 texture_filter = 1
-position = Vector2(606.5, 247.843)
+position = Vector2(688, 664)
 texture = ExtResource("25_x4fhh")
 
 [node name="PlatformStaticBlue_x5" parent="." instance=ExtResource("24_bjv2b")]
 z_index = -1
-position = Vector2(1382, 384)
+position = Vector2(1427.25, 441.5)

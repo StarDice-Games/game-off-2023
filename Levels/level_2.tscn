@@ -148,9 +148,9 @@ position = Vector2(352, 515)
 receivers = [NodePath("../BigDoor")]
 
 [node name="BigDoor" parent="LevelDesign_Red/Objectives" instance=ExtResource("9_yqc1v")]
-z_index = 0
 position = Vector2(192, 292)
 maxButton = 1
+indicatorOffset = 40
 
 [node name="Pickables" type="Node2D" parent="LevelDesign_Red"]
 
@@ -283,6 +283,7 @@ z_index = 0
 position = Vector2(1632, 274)
 maxKeys = 1
 goalNumber = 1
+indicatorOffset = 44
 
 [node name="Pickables" type="Node2D" parent="LevelDesign_Blue"]
 

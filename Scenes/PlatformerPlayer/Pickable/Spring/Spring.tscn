@@ -21,27 +21,29 @@ size = Vector2(48, 69)
 
 [sub_resource type="Animation" id="Animation_u42vm"]
 length = 0.001
-tracks/0/type = "bezier"
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Right:scale:y")
+tracks/0/path = NodePath("Left:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.596269, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
 }
-tracks/1/type = "bezier"
+tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Left:scale:y")
+tracks/1/path = NodePath("Right:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.585106, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_dlmrm"]
@@ -87,7 +89,6 @@ jumpSoundSmall = ExtResource("2_p37q8")
 [node name="Left" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(9, -0.207445)
-scale = Vector2(1, 0.585106)
 texture = ExtResource("2_iu07t")
 offset = Vector2(1, -24)
 
@@ -96,7 +97,6 @@ process_mode = 4
 visible = false
 texture_filter = 1
 position = Vector2(0, -0.24252)
-scale = Vector2(1, 0.596269)
 texture = ExtResource("2_5vik6")
 offset = Vector2(0, -32)
 

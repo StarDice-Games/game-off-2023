@@ -1,9 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7mn5x5w28ccf"]
+[gd_scene load_steps=2 format=3 uid="uid://b7mn5x5w28ccf"]
 
 [ext_resource type="Texture2D" uid="uid://dj7yr4mmxolyn" path="res://Resources/Assets/Nuovi_PNG/Blocco_1_blu-1.png" id="1_0yiao"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ih7s"]
-size = Vector2(32, 32)
 
 [node name="PlatformStaticBlue" type="StaticBody2D"]
 
@@ -12,7 +9,6 @@ texture_filter = 1
 texture = ExtResource("1_0yiao")
 offset = Vector2(0, -16)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-texture_filter = 1
-position = Vector2(0, -16)
-shape = SubResource("RectangleShape2D_1ih7s")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-0.5, -32)
+polygon = PackedVector2Array(-10.5, 1, -14.5, 5, -14.5, 28, -10.5, 31, 11.5, 31, 14.5, 28, 14.5, 4, 10.5, 1)
