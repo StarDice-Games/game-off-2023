@@ -440,6 +440,11 @@ func loadSelectedLevel(res : LevelResourceBase):
 		
 		if sceneToLoad != null:
 			curretLevel = res.name
+			var currentLevel = scenes.find(res)
+			
+			next_scene = currentLevel + 1
+			next_scene %= scenes.size()
+			
 			get_tree().change_scene_to_packed(sceneToLoad)
 		
 		currentGameState = GameState.IN_GAME
