@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://sn8oy4jcubwe" path="res://Scenes/PlatformerPlayer/Platforms/DisappearPlatform1/DisapperaPlatform1.tscn" id="19_ehrur"]
 [ext_resource type="PackedScene" uid="uid://dn8ylngmbs0mt" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x2.tscn" id="19_g6bqh"]
 [ext_resource type="PackedScene" uid="uid://d4diwwos6tieb" path="res://Scenes/PlatformerPlayer/Platforms/Platform1/Platform1.tscn" id="20_bh6bv"]
-[ext_resource type="PackedScene" uid="uid://4gi2pgtqjl" path="res://Scenes/PlatformerPlayer/Platforms/DisappearPlatform2/DisapperaPlatform2_blue.tscn" id="20_f20lr"]
+[ext_resource type="PackedScene" uid="uid://bm6c2dprd5k1l" path="res://Scenes/PlatformerPlayer/Platforms/DisappearPlatform2/DisapperaPlatform2_blue.tscn" id="20_f20lr"]
 [ext_resource type="PackedScene" uid="uid://b8upryncqwmc6" path="res://Scenes/PlatformerPlayer/Doors/SmallDoor/SmallDoor.tscn" id="21_pjmyp"]
 [ext_resource type="PackedScene" uid="uid://ch1k62rewst8" path="res://Scenes/PlatformerPlayer/PressurePlates/PressurePlate2.tscn" id="22_rmwhc"]
 [ext_resource type="PackedScene" uid="uid://cxjw8tk4kep1p" path="res://Scenes/PlatformerPlayer/Keys/Key01/Key01.tscn" id="23_tjyvs"]
@@ -306,11 +306,13 @@ maxKeys = 2
 goalNumber = 1
 indicatorOffset = 44
 
-[node name="Key01" parent="LevelDesign_Blue/Objectives" instance=ExtResource("23_tjyvs")]
+[node name="Key01" parent="LevelDesign_Blue/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("23_tjyvs")]
 position = Vector2(1168, 960)
+receivers = [NodePath("../SmallDoor")]
 
-[node name="Key02" parent="LevelDesign_Blue/Objectives" instance=ExtResource("23_tjyvs")]
+[node name="Key02" parent="LevelDesign_Blue/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("23_tjyvs")]
 position = Vector2(1744, 960)
+receivers = [NodePath("../SmallDoor")]
 
 [node name="PressurePlate2" parent="LevelDesign_Blue/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("22_rmwhc")]
 position = Vector2(1392, 417)
