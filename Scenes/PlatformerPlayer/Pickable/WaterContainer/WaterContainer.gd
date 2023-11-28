@@ -34,10 +34,10 @@ func spreadWater():
 		match $PickupComponent.currentSide:
 			1:
 				#$Sprinkle/Sprinkle_left.position.x = $Sprinkle/Sprinkle_left.position.x + (sprinkleOffset_big*$Sprinkle.scale.x)
-				playSound(wateringSmall)
+				playSound(wateringBig)
 			0:
 				#$Sprinkle/Sprinkle_right.position.x = $Sprinkle/Sprinkle_right.position.x + (sprinkleOffset_small*$Sprinkle.scale.x)
-				playSound(wateringBig)
+				playSound(wateringSmall)
 
 func stopWater():
 #	$Sprinkle.disabled = true
