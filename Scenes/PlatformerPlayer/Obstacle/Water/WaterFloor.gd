@@ -7,15 +7,25 @@ class_name WaterFloor
 
 var mapSplash = {}
 
+@onready var soundPLayer : AudioStreamPlayer = $AudioStreamPlayer
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	AudioManager.play(pipeSound)
+#	AudioManager.play(pipeSound)
+	if pipeSound != null: 
+		soundPLayer.stream = pipeSound
+		soundPLayer.play()
 	$AnimationPlayer.play("water")
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	if Global.currentGameState != Global.GameState.IN_GAME:
+		soundPLayer.stream_paused = true
+	else:
+		soundPLayer.stream_paused = false
 	pass
 
 
