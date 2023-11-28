@@ -4,10 +4,16 @@ extends StaticBody2D
 @export var fireSound : AudioStream
 @export var putOutSound : AudioStream
 
+@onready var soundPlayer : AudioStreamPlayer = $AudioStreamPlayer
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimatedSprite2D.play("default")
-	AudioManager.play(fireSound)
+#	AudioManager.play(fireSound)
+	
+	soundPlayer.stream = fireSound
+	soundPlayer.play()
+	
 	pass # Replace with function body.
 
 
@@ -19,6 +25,7 @@ func extinguish(node):
 	for group in node.get_groups():
 		if group == "Water":
 			AudioManager.play(putOutSound)
+			soundPlayer.stop()
 			get_tree().queue_delete(self)
 
 func _on_area_2d_area_entered(area):

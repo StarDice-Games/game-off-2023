@@ -76,5 +76,7 @@ position = Vector2(-329.821, -138.26)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathComponent"]
 shape = SubResource("RectangleShape2D_5d3kl")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
