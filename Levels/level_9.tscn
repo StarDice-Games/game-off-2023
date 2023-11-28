@@ -90,7 +90,7 @@ position = Vector2(832, 960)
 
 [node name="PlatformStaticRed_x11" parent="LevelDesign_Red/Platforms" instance=ExtResource("20_g5e7w")]
 z_index = -1
-position = Vector2(864, 240)
+position = Vector2(616, 240)
 
 [node name="PlatformStaticRed_x9" parent="LevelDesign_Red/Platforms" instance=ExtResource("20_g5e7w")]
 position = Vector2(256, 944)
@@ -117,12 +117,13 @@ z_index = -1
 
 [node name="Button01" parent="LevelDesign_Red/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("30_gqiev")]
 z_index = -1
-position = Vector2(864, 179)
+position = Vector2(616, 180)
 receivers = [NodePath("../BigDoor")]
 
 [node name="BigDoor" parent="LevelDesign_Red/Objectives" instance=ExtResource("14_r516p")]
 position = Vector2(757, 579)
 maxButton = 1
+indicatorOffset = 40
 
 [node name="PressurePlate4" parent="LevelDesign_Red/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("13_yjaho")]
 position = Vector2(256, 880)
@@ -147,17 +148,13 @@ position = Vector2(643, 576)
 z_index = -1
 
 [node name="Ball2" parent="LevelDesign_Red/Pickables" instance=ExtResource("11_ed5n2")]
-position = Vector2(464, 576)
+position = Vector2(610, 896)
 mass = 1.0
 lock_rotation = false
 side = 1
 
 [node name="BoxPickable8" parent="LevelDesign_Red/Pickables" instance=ExtResource("6_vo1ox")]
 position = Vector2(256, 880)
-side = 1
-
-[node name="BoxPickable7" parent="LevelDesign_Red/Pickables" instance=ExtResource("6_vo1ox")]
-position = Vector2(432, 176)
 side = 1
 
 [node name="Player1" parent="LevelDesign_Red" instance=ExtResource("5_11chb")]
@@ -270,7 +267,7 @@ loop = false
 [node name="Platform6" parent="LevelDesign_Blue/Platforms/Path2D2/PathFollow2D" node_paths=PackedStringArray("path") instance=ExtResource("7_6afhk")]
 position = Vector2(-16.0059, 0)
 rotation = 1.5708
-speed = 200.0
+speed = 150.0
 path = NodePath("..")
 active = false
 
@@ -285,6 +282,7 @@ receivers = [NodePath("../../Platforms/Path2D2/PathFollow2D/Platform6")]
 position = Vector2(1120, 371)
 maxKeys = 1
 goalNumber = 1
+indicatorOffset = 44
 
 [node name="Key01" parent="LevelDesign_Blue/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("29_awpvh")]
 position = Vector2(1424, 512)

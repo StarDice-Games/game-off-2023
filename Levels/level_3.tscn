@@ -135,6 +135,7 @@ receivers = [NodePath("../BigDoor")]
 z_index = 0
 position = Vector2(864, 276)
 maxButton = 1
+indicatorOffset = 40
 
 [node name="Pickables" type="Node2D" parent="LevelDesign_Red"]
 
@@ -277,6 +278,7 @@ z_index = 1
 position = Vector2(1456, 241)
 maxKeys = 1
 goalNumber = 1
+indicatorOffset = 44
 
 [node name="Pickables" type="Node2D" parent="LevelDesign_Blue"]
 

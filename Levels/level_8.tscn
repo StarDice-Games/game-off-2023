@@ -61,7 +61,7 @@ loop = false
 
 [node name="Platform17" parent="LevelDesign_Red/Platforms/Path2D/PathFollow2D" node_paths=PackedStringArray("path") instance=ExtResource("13_7i2k0")]
 rotation = 1.5708
-speed = 200.0
+speed = 150.0
 path = NodePath("..")
 active = false
 
@@ -76,6 +76,7 @@ receivers = [NodePath("../BigDoor")]
 [node name="BigDoor" parent="LevelDesign_Red/Objectives" instance=ExtResource("15_qjrpe")]
 position = Vector2(736, 370)
 maxButton = 1
+indicatorOffset = 40
 
 [node name="PressurePlate2" parent="LevelDesign_Red/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("14_sp555")]
 position = Vector2(128, 788)
@@ -173,6 +174,7 @@ receivers = [NodePath("../SmallDoor")]
 position = Vector2(1467, 404)
 maxKeys = 1
 goalNumber = 1
+indicatorOffset = 44
 
 [node name="Vase" parent="LevelDesign_Blue/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("7_1eped")]
 position = Vector2(1632, 997)
