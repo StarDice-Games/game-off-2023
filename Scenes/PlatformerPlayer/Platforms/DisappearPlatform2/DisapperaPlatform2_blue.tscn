@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://4gi2pgtqjl"]
+[gd_scene load_steps=10 format=3 uid="uid://bm6c2dprd5k1l"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Platforms/DisappearPlatform2/DisapperaPlatform2.gd" id="1_l5kxv"]
-[ext_resource type="AudioStream" uid="uid://cv6hw23lpprg2" path="res://Resources/Sounds/place_piece.wav" id="2_x7x5e"]
+[ext_resource type="AudioStream" uid="uid://b23lvpqrihxqa" path="res://Resources/Audio/Effects/sfx_disappearingplatform_small.ogg" id="2_bqle0"]
 [ext_resource type="Texture2D" uid="uid://x3mo0fj2u2bk" path="res://Resources/Assets/Nuovi_PNG/Blocco_time_blu.png" id="3_wl80d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kois8"]
@@ -151,7 +151,7 @@ size = Vector2(61, 36)
 [node name="DisapperaPlatform2" type="StaticBody2D"]
 collision_mask = 7
 script = ExtResource("1_l5kxv")
-disappearSound = ExtResource("2_x7x5e")
+disappearSound = ExtResource("2_bqle0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
