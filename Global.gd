@@ -312,6 +312,8 @@ func processGame(delta):
 		nodeInstance.connect("on_exit_pressed", exitGame)
 		bgInGameMusic.stream_paused = true
 		bgInGameMusic2.stream_paused = true
+		
+	
 
 func loadNextLevel():
 	if scenes[next_scene] != null:
@@ -330,8 +332,8 @@ func processMainMenu(delta):
 		openMainMenu()
 
 func processPause(delta):
-#	bgMenuMusic.stop()
-#	bgInGameMusic.stop()
+	if Input.is_action_just_pressed("Pause"):
+		resumeGame()
 	pass
 
 func processLevelSelect(delta):
