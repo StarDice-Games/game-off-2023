@@ -50,6 +50,8 @@ signal died
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+var canJump = true
+
 func _ready():
 	Global.setPlayer(side, self)
 	
@@ -150,12 +152,15 @@ func _physics_process(delta):
 			
 	if Global.activePlayer == side:
 
+		if is_on_floor():
+			canJump = true
 #		$PointLight2D.enabled = true
 		# Handle Jump.
-		if Input.is_action_just_pressed("Jump") and is_on_floor():
+		if Input.is_action_just_pressed("Jump") and canJump:
 			getActiveAnimationPlayer().play("Jump")
 			AudioManager.play(getSoundBySide(jumpSound, jumpSoundSmall))
 			jumpAnimationEnd = false
+			canJump = false
 			velocity.y = (JUMP_VELOCITY - velocity.y)
 
 		# Get the input direction and handle the movement/deceleration.
