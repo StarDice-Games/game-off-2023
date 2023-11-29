@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c02hoepp7nb7y"]
+[gd_scene load_steps=27 format=3 uid="uid://c02hoepp7nb7y"]
 
 [ext_resource type="PackedScene" uid="uid://din1h8ql506vb" path="res://Scenes/Background.tscn" id="2_875ux"]
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="3_2u6ho"]
@@ -18,8 +18,12 @@
 [ext_resource type="PackedScene" uid="uid://cxjw8tk4kep1p" path="res://Scenes/PlatformerPlayer/Keys/Key01/Key01.tscn" id="18_0gtov"]
 [ext_resource type="PackedScene" uid="uid://b8upryncqwmc6" path="res://Scenes/PlatformerPlayer/Doors/SmallDoor/SmallDoor.tscn" id="19_11g46"]
 [ext_resource type="PackedScene" uid="uid://do88ox8hahe8i" path="res://Scenes/PlatformerPlayer/Spikes/Spikes.tscn" id="20_sdvew"]
+[ext_resource type="Texture2D" uid="uid://dqn05jghgxtn8" path="res://Resources/Assets/Archivio_segni/segni_freccia_3.png" id="21_306qs"]
 [ext_resource type="PackedScene" uid="uid://b3cbj1cjbxle3" path="res://Scenes/PlatformerPlayer/Spikes/Spikes2.tscn" id="21_lbmmh"]
+[ext_resource type="Texture2D" uid="uid://ddjg6w0no827o" path="res://Resources/Assets/Archivio_segni/segni_punture.png" id="22_4vi8b"]
 [ext_resource type="PackedScene" uid="uid://pd5e2y2wk2ql" path="res://Scenes/PlatformerPlayer/Pickable/Spring/Spring.tscn" id="22_iwa48"]
+[ext_resource type="Texture2D" uid="uid://sbtcujloclhi" path="res://Resources/Assets/Archivio_segni/segni_freccia_2.png" id="23_8w3ai"]
+[ext_resource type="Texture2D" uid="uid://cqowkgmsfof6s" path="res://Resources/Assets/Archivio_segni/segni_tratteggio_1.png" id="24_lxrkk"]
 
 [sub_resource type="Curve2D" id="Curve2D_jnqpo"]
 _data = {
@@ -321,3 +325,93 @@ collision_mask = 7
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground"]
 position = Vector2(-2.96842, -69.2442)
 polygon = PackedVector2Array(10.436, 2.5, 18.3828, 3.99999, 29.7001, 4.5, 29.6382, 23, -1.74706, 23.5, -1.63884, -0.5)
+
+[node name="Props" type="Node2D" parent="."]
+z_index = -4
+
+[node name="SegniFreccia3" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1816, 420)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("21_306qs")
+
+[node name="SegniPunture2" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1424, 558)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("22_4vi8b")
+
+[node name="SegniPunture3" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1343, 316)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("22_4vi8b")
+
+[node name="SegniPunture4" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1442, 318)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("22_4vi8b")
+
+[node name="SegniPunture" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(337, 336)
+texture = ExtResource("22_4vi8b")
+
+[node name="SegniFreccia2" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(454, 747)
+texture = ExtResource("23_8w3ai")
+
+[node name="SegniTratteggio1" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1334, 752)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("24_lxrkk")
+
+[node name="SegniTratteggio2" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1226, 752)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("24_lxrkk")
+
+[node name="SegniTratteggio4" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1158, 713)
+rotation = -0.629243
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("24_lxrkk")
+
+[node name="SegniTratteggio5" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1231, 660)
+rotation = -0.629243
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("24_lxrkk")
+
+[node name="SegniTratteggio6" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1229, 587)
+rotation = -2.51271
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("24_lxrkk")
+
+[node name="SegniTratteggio7" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1157, 535)
+rotation = -2.51271
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("24_lxrkk")
+
+[node name="SegniTratteggio8" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1104, 432)
+rotation = -1.57215
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("24_lxrkk")
+
+[node name="SegniTratteggio3" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1160, 752)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("24_lxrkk")

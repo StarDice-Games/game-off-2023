@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dhkj0amwslwoe"]
+[gd_scene load_steps=37 format=3 uid="uid://dhkj0amwslwoe"]
 
 [ext_resource type="PackedScene" uid="uid://c7lc1cagba60g" path="res://Scenes/PlatformerPlayer/Obstacle/Water/WaterFloor_piccola.tscn" id="4_hnkxl"]
 [ext_resource type="PackedScene" uid="uid://dejvvmbnpvblp" path="res://Scenes/PlatformerPlayer/Obstacle/Water/WaterFloor.tscn" id="5_iftcb"]
@@ -28,7 +28,12 @@
 [ext_resource type="PackedScene" uid="uid://dnpelmrygcwdv" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_Oblique.tscn" id="28_py780"]
 [ext_resource type="Texture2D" uid="uid://dkncjjtpcesun" path="res://Resources/Assets/Upd_Assets/Exit_right.png" id="29_6tu3f"]
 [ext_resource type="PackedScene" uid="uid://b7mn5x5w28ccf" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue.tscn" id="29_vtjlc"]
+[ext_resource type="Texture2D" uid="uid://ndxgyhkbihrc" path="res://Resources/Assets/Archivio_segni/segni_attento.png" id="30_2cy5l"]
 [ext_resource type="PackedScene" uid="uid://b3cbj1cjbxle3" path="res://Scenes/PlatformerPlayer/Spikes/Spikes2.tscn" id="30_3kad2"]
+[ext_resource type="Texture2D" uid="uid://cqowkgmsfof6s" path="res://Resources/Assets/Archivio_segni/segni_tratteggio_1.png" id="31_q73kk"]
+[ext_resource type="Texture2D" uid="uid://bry1rj352jxnj" path="res://Resources/Assets/Archivio_segni/segni_freccia_1.png" id="32_ot10y"]
+[ext_resource type="Texture2D" uid="uid://ddjg6w0no827o" path="res://Resources/Assets/Archivio_segni/segni_punture.png" id="33_oitgf"]
+[ext_resource type="Texture2D" uid="uid://dqn05jghgxtn8" path="res://Resources/Assets/Archivio_segni/segni_freccia_3.png" id="34_ofks5"]
 
 [sub_resource type="Curve2D" id="Curve2D_btyo7"]
 _data = {
@@ -355,3 +360,68 @@ texture_filter = 1
 position = Vector2(1080, 600)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("29_6tu3f")
+
+[node name="SegniAttento" type="Sprite2D" parent="."]
+position = Vector2(496, 736)
+texture = ExtResource("30_2cy5l")
+
+[node name="Props" type="Node2D" parent="."]
+z_index = -3
+
+[node name="SegniTratteggio1" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(240, 408)
+rotation = 1.5708
+texture = ExtResource("31_q73kk")
+
+[node name="SegniFreccia1" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(848, 272)
+texture = ExtResource("32_ot10y")
+flip_h = true
+flip_v = true
+
+[node name="SegniPunture" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1616, 568)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("33_oitgf")
+
+[node name="SegniPunture2" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1552, 880)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("33_oitgf")
+
+[node name="SegniAttento2" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1280, 864)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("30_2cy5l")
+
+[node name="SegniTratteggio2" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1760, 424)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("31_q73kk")
+
+[node name="SegniTratteggio3" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1760, 544)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("31_q73kk")
+
+[node name="SegniTratteggio4" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1760, 592)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("31_q73kk")
+
+[node name="SegniFreccia3" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1576, 176)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("34_ofks5")

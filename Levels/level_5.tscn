@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://daasegoi4tyo3"]
+[gd_scene load_steps=31 format=3 uid="uid://daasegoi4tyo3"]
 
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="6_bgo1k"]
 [ext_resource type="PackedScene" uid="uid://ddfaeavjffgx6" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x5.tscn" id="6_u4jqa"]
@@ -18,9 +18,13 @@
 [ext_resource type="PackedScene" uid="uid://din1h8ql506vb" path="res://Scenes/Background.tscn" id="23_buiqh"]
 [ext_resource type="PackedScene" uid="uid://ch1k62rewst8" path="res://Scenes/PlatformerPlayer/PressurePlates/PressurePlate2.tscn" id="23_lyloj"]
 [ext_resource type="Texture2D" uid="uid://ngs3muq8vnat" path="res://Resources/Assets/Upd_Assets/Exit_letf.png" id="23_vfut5"]
+[ext_resource type="Texture2D" uid="uid://cqowkgmsfof6s" path="res://Resources/Assets/Archivio_segni/segni_tratteggio_1.png" id="24_pp10t"]
 [ext_resource type="PackedScene" uid="uid://pd5e2y2wk2ql" path="res://Scenes/PlatformerPlayer/Pickable/Spring/Spring.tscn" id="24_v1kyx"]
+[ext_resource type="Texture2D" uid="uid://bry1rj352jxnj" path="res://Resources/Assets/Archivio_segni/segni_freccia_1.png" id="25_54odr"]
+[ext_resource type="Texture2D" uid="uid://dqn05jghgxtn8" path="res://Resources/Assets/Archivio_segni/segni_freccia_3.png" id="25_ak5km"]
 [ext_resource type="PackedScene" uid="uid://cxjw8tk4kep1p" path="res://Scenes/PlatformerPlayer/Keys/Key01/Key01.tscn" id="25_jlwkn"]
 [ext_resource type="PackedScene" uid="uid://dc601pwyjee1" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x5.tscn" id="26_c214d"]
+[ext_resource type="Texture2D" uid="uid://sbtcujloclhi" path="res://Resources/Assets/Archivio_segni/segni_freccia_2.png" id="27_hqj2c"]
 [ext_resource type="PackedScene" uid="uid://dn8ylngmbs0mt" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x2.tscn" id="27_uaa5p"]
 [ext_resource type="PackedScene" uid="uid://dnpelmrygcwdv" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_Oblique.tscn" id="28_g2t5r"]
 
@@ -356,3 +360,73 @@ z_index = -3
 texture_filter = 1
 position = Vector2(540, 209)
 texture = ExtResource("23_vfut5")
+
+[node name="Props" type="Node2D" parent="."]
+z_index = -4
+rotation = 0.00294299
+
+[node name="SegniTratteggio4" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1794.19, 740.723)
+rotation = 1.55392
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("24_pp10t")
+
+[node name="SegniTratteggio5" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1795.51, 850.72)
+rotation = 1.55392
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("24_pp10t")
+
+[node name="SegniFreccia3" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1140.32, 445.646)
+rotation = -0.00294299
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("25_ak5km")
+flip_h = true
+flip_v = true
+
+[node name="SegniTratteggio1" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(786.83, 620.687)
+rotation = 1.56058
+texture = ExtResource("24_pp10t")
+
+[node name="SegniTratteggio2" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(785.215, 411.691)
+rotation = 1.56058
+texture = ExtResource("24_pp10t")
+
+[node name="SegniTratteggio3" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(710.345, 285.911)
+rotation = -0.00294299
+scale = Vector2(0.607759, 1)
+texture = ExtResource("24_pp10t")
+
+[node name="SegniFreccia1" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(308.738, 590.094)
+rotation = -0.00294299
+scale = Vector2(1, 1)
+texture = ExtResource("25_54odr")
+flip_v = true
+
+[node name="SegniFreccia2" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1554.04, 689.43)
+rotation = -0.00294299
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("25_54odr")
+flip_h = true
+flip_v = true
+
+[node name="SegniFreccia4" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1625.51, 849.22)
+rotation = -0.00294299
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("27_hqj2c")
