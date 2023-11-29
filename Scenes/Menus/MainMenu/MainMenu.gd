@@ -15,6 +15,11 @@ func _ready():
 	buttonToFocus.grab_focus()
 	musicToggle.button_pressed = Global.musicMuted
 	sfxToggle.button_pressed = Global.sfxMuted
+	
+	if OS.get_name() == "Web":
+		$Control2/Exit.disabled = true
+		$Control2/Exit.hide()
+		
 	pass # Replace with function body.
 
 
