@@ -183,6 +183,26 @@ func transferPickable(starting, receiver, scaling : Scaling):
 			toTransfer.setSide(0)
 		elif scaling == Scaling.DECREASE: #toLeftSide
 			toTransfer.setSide(1)
+			
+		#KEVIN TEST SWIPE ANIMATION	
+		if toTransfer != null:
+			$Explosion_Left.frame = 0
+			$Explosion_Right.frame = 0
+			
+			$Explosion_Left.position.x = receiver.position.x
+			if scaling == Scaling.INCREASE: #toRightSide
+				$Explosion_Left.position.y = receiver.position.y-50
+			else:
+				$Explosion_Left.position.y = receiver.position.y-100
+				
+			$Explosion_Right.position.x = starting.position.x
+			if scaling == Scaling.DECREASE: #toRightSide
+				$Explosion_Right.position.y = starting.position.y-50
+			else:
+				$Explosion_Right.position.y = starting.position.y-100
+
+			$Explosion_Left.play()
+			$Explosion_Right.play()
 		
 		receiver.pickupItem(toTransfer)
 		starting.dropItem()
