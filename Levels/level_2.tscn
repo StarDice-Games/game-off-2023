@@ -161,12 +161,12 @@ side = 1
 
 [node name="BoxPickable5" parent="LevelDesign_Red/Pickables" instance=ExtResource("11_axvy4")]
 z_index = 1
-position = Vector2(160, 656)
+position = Vector2(848, 752)
 side = 1
 
 [node name="Player1" parent="LevelDesign_Red" instance=ExtResource("12_hw85n")]
 z_index = -1
-position = Vector2(96, 592)
+position = Vector2(272, 928)
 scale = Vector2(0.75, 0.75)
 AIR_SPEED = 150.0
 JUMP_VELOCITY = -430.0
@@ -289,7 +289,7 @@ indicatorOffset = 44
 
 [node name="BoxPickable" parent="LevelDesign_Blue/Pickables" instance=ExtResource("11_axvy4")]
 z_index = 1
-position = Vector2(1392, 880)
+position = Vector2(1232, 880)
 
 [node name="BoxPickable5" parent="LevelDesign_Blue/Pickables" instance=ExtResource("11_axvy4")]
 position = Vector2(1648, 576)
