@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dhkj0amwslwoe"]
+[gd_scene load_steps=36 format=3 uid="uid://dhkj0amwslwoe"]
 
 [ext_resource type="PackedScene" uid="uid://c7lc1cagba60g" path="res://Scenes/PlatformerPlayer/Obstacle/Water/WaterFloor_piccola.tscn" id="4_hnkxl"]
 [ext_resource type="PackedScene" uid="uid://dejvvmbnpvblp" path="res://Scenes/PlatformerPlayer/Obstacle/Water/WaterFloor.tscn" id="5_iftcb"]
@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="16_6ab1g"]
 [ext_resource type="PackedScene" uid="uid://dc601pwyjee1" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x5.tscn" id="18_g8jx5"]
 [ext_resource type="PackedScene" uid="uid://cg5qp6djrjlof" path="res://Scenes/PlatformerPlayer/Platforms/DisappearPlatform2/DisapperaPlatform2.tscn" id="18_lpghp"]
-[ext_resource type="PackedScene" uid="uid://sn8oy4jcubwe" path="res://Scenes/PlatformerPlayer/Platforms/DisappearPlatform1/DisapperaPlatform1.tscn" id="19_ehrur"]
 [ext_resource type="PackedScene" uid="uid://dn8ylngmbs0mt" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x2.tscn" id="19_g6bqh"]
 [ext_resource type="PackedScene" uid="uid://d4diwwos6tieb" path="res://Scenes/PlatformerPlayer/Platforms/Platform1/Platform1.tscn" id="20_bh6bv"]
 [ext_resource type="PackedScene" uid="uid://bm6c2dprd5k1l" path="res://Scenes/PlatformerPlayer/Platforms/DisappearPlatform2/DisapperaPlatform2_blue.tscn" id="20_f20lr"]
@@ -28,7 +27,12 @@
 [ext_resource type="PackedScene" uid="uid://dnpelmrygcwdv" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_Oblique.tscn" id="28_py780"]
 [ext_resource type="Texture2D" uid="uid://dkncjjtpcesun" path="res://Resources/Assets/Upd_Assets/Exit_right.png" id="29_6tu3f"]
 [ext_resource type="PackedScene" uid="uid://b7mn5x5w28ccf" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue.tscn" id="29_vtjlc"]
+[ext_resource type="Texture2D" uid="uid://ndxgyhkbihrc" path="res://Resources/Assets/Archivio_segni/segni_attento.png" id="30_2cy5l"]
 [ext_resource type="PackedScene" uid="uid://b3cbj1cjbxle3" path="res://Scenes/PlatformerPlayer/Spikes/Spikes2.tscn" id="30_3kad2"]
+[ext_resource type="Texture2D" uid="uid://cqowkgmsfof6s" path="res://Resources/Assets/Archivio_segni/segni_tratteggio_1.png" id="31_q73kk"]
+[ext_resource type="Texture2D" uid="uid://bry1rj352jxnj" path="res://Resources/Assets/Archivio_segni/segni_freccia_1.png" id="32_ot10y"]
+[ext_resource type="Texture2D" uid="uid://ddjg6w0no827o" path="res://Resources/Assets/Archivio_segni/segni_punture.png" id="33_oitgf"]
+[ext_resource type="Texture2D" uid="uid://dqn05jghgxtn8" path="res://Resources/Assets/Archivio_segni/segni_freccia_3.png" id="34_ofks5"]
 
 [sub_resource type="Curve2D" id="Curve2D_btyo7"]
 _data = {
@@ -59,13 +63,13 @@ position = Vector2(112, 320)
 position = Vector2(208, 704)
 
 [node name="PlatformStaticRed_x6" parent="LevelDesign_Red/Platforms" instance=ExtResource("8_xmue0")]
-position = Vector2(784, 608)
+position = Vector2(795, 576)
 
 [node name="PlatformStaticRed_x3" parent="LevelDesign_Red/Platforms" instance=ExtResource("7_q4ufh")]
-position = Vector2(816, 544)
+position = Vector2(827, 512)
 
 [node name="PlatformStaticRed_x4" parent="LevelDesign_Red/Platforms" instance=ExtResource("7_q4ufh")]
-position = Vector2(880, 480)
+position = Vector2(891, 448)
 
 [node name="PlatformStaticRed_x7" parent="LevelDesign_Red/Platforms" instance=ExtResource("8_xmue0")]
 position = Vector2(528, 320)
@@ -81,39 +85,42 @@ position = Vector2(192, 992)
 position = Vector2(784, 992)
 
 [node name="PlatformStaticRed_Oblique" parent="LevelDesign_Red/Platforms" instance=ExtResource("9_okhfb")]
-position = Vector2(720, 544)
+position = Vector2(731, 512)
 rotation = 3.14159
 scale = Vector2(1, -1)
 
 [node name="PlatformStaticRed_Oblique2" parent="LevelDesign_Red/Platforms" instance=ExtResource("9_okhfb")]
-position = Vector2(784, 480)
+position = Vector2(795, 448)
 rotation = 3.14159
 scale = Vector2(1, -1)
 
 [node name="PlatformStaticRed_Oblique3" parent="LevelDesign_Red/Platforms" instance=ExtResource("9_okhfb")]
-position = Vector2(848, 416)
+position = Vector2(859, 384)
 rotation = 3.14159
 scale = Vector2(1, -1)
 
 [node name="PlatformStaticRed_Oblique4" parent="LevelDesign_Red/Platforms" instance=ExtResource("9_okhfb")]
-position = Vector2(912, 352)
+position = Vector2(923, 320)
 rotation = 3.14159
 scale = Vector2(1, -1)
 
 [node name="PlatformStaticRed" parent="LevelDesign_Red/Platforms" instance=ExtResource("27_uvh04")]
-position = Vector2(224, 640)
+position = Vector2(240, 640)
 
 [node name="PlatformStaticRed2" parent="LevelDesign_Red/Platforms" instance=ExtResource("27_uvh04")]
-position = Vector2(912, 544)
+position = Vector2(923, 512)
+
+[node name="PlatformStaticRed5" parent="LevelDesign_Red/Platforms" instance=ExtResource("27_uvh04")]
+position = Vector2(400, 704)
 
 [node name="PlatformStaticRed3" parent="LevelDesign_Red/Platforms" instance=ExtResource("27_uvh04")]
-position = Vector2(912, 416)
+position = Vector2(923, 384)
 
 [node name="DisapperaPlatform2" parent="LevelDesign_Red/Platforms" instance=ExtResource("18_lpghp")]
-position = Vector2(496, 640)
+position = Vector2(528, 656)
 
 [node name="DisapperaPlatform3" parent="LevelDesign_Red/Platforms" instance=ExtResource("18_lpghp")]
-position = Vector2(496, 928)
+position = Vector2(480, 944)
 
 [node name="Path2D" type="Path2D" parent="LevelDesign_Red/Platforms"]
 position = Vector2(288, 256)
@@ -137,7 +144,7 @@ active = false
 z_index = -1
 
 [node name="BreakableWall2" parent="LevelDesign_Red/Obstacles" instance=ExtResource("10_jwqig")]
-position = Vector2(661, 560)
+position = Vector2(672, 528)
 
 [node name="WaterFloor" parent="LevelDesign_Red/Obstacles" instance=ExtResource("5_iftcb")]
 z_index = 3
@@ -156,12 +163,12 @@ position = Vector2(112, 259)
 receivers = [NodePath("../BigDoor")]
 
 [node name="Button02" parent="LevelDesign_Red/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("12_6r0xg")]
-position = Vector2(784, 604)
+position = Vector2(795, 572)
 rotation = -3.14159
 receivers = [NodePath("../BigDoor")]
 
 [node name="PressurePlate3" parent="LevelDesign_Red/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("25_j03y2")]
-position = Vector2(128, 640)
+position = Vector2(144, 640)
 receivers = [NodePath("../../Platforms/Path2D/PathFollow2D/M_Platform")]
 
 [node name="Pickables" type="Node2D" parent="LevelDesign_Red"]
@@ -214,13 +221,10 @@ position = Vector2(1632, 384)
 position = Vector2(1728, 256)
 
 [node name="PlatformStaticBlue_x14" parent="LevelDesign_Blue/Platforms" instance=ExtResource("18_g8jx5")]
-position = Vector2(1200, 288)
-
-[node name="PlatformStaticBlue_x15" parent="LevelDesign_Blue/Platforms" instance=ExtResource("18_g8jx5")]
-position = Vector2(1040, 288)
+position = Vector2(1200, 295)
 
 [node name="PlatformStaticBlue_x16" parent="LevelDesign_Blue/Platforms" instance=ExtResource("18_g8jx5")]
-position = Vector2(1040, 288)
+position = Vector2(1040, 295)
 
 [node name="PlatformStaticBlue_x2" parent="LevelDesign_Blue/Platforms" instance=ExtResource("19_g6bqh")]
 position = Vector2(1392, 448)
@@ -246,9 +250,6 @@ position = Vector2(1440, 416)
 [node name="PlatformStaticBlue5" parent="LevelDesign_Blue/Platforms" instance=ExtResource("29_vtjlc")]
 position = Vector2(1440, 448)
 
-[node name="DisapperaPlatform3" parent="LevelDesign_Blue/Platforms" instance=ExtResource("19_ehrur")]
-position = Vector2(1280, 960)
-
 [node name="Path2D2" type="Path2D" parent="LevelDesign_Blue/Platforms"]
 position = Vector2(1808, 336)
 curve = SubResource("Curve2D_63gm2")
@@ -269,6 +270,9 @@ active = false
 
 [node name="DisapperaPlatform2" parent="LevelDesign_Blue/Platforms" instance=ExtResource("20_f20lr")]
 position = Vector2(1392, 256)
+
+[node name="DisapperaPlatform5" parent="LevelDesign_Blue/Platforms" instance=ExtResource("20_f20lr")]
+position = Vector2(1280, 960)
 
 [node name="DisapperaPlatform4" parent="LevelDesign_Blue/Platforms" instance=ExtResource("20_f20lr")]
 position = Vector2(1520, 256)
@@ -355,3 +359,68 @@ texture_filter = 1
 position = Vector2(1080, 600)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("29_6tu3f")
+
+[node name="SegniAttento" type="Sprite2D" parent="."]
+position = Vector2(496, 736)
+texture = ExtResource("30_2cy5l")
+
+[node name="Props" type="Node2D" parent="."]
+z_index = -3
+
+[node name="SegniTratteggio1" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(240, 408)
+rotation = 1.5708
+texture = ExtResource("31_q73kk")
+
+[node name="SegniFreccia1" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(848, 272)
+texture = ExtResource("32_ot10y")
+flip_h = true
+flip_v = true
+
+[node name="SegniPunture" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1616, 568)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("33_oitgf")
+
+[node name="SegniPunture2" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1552, 880)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("33_oitgf")
+
+[node name="SegniAttento2" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1280, 864)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("30_2cy5l")
+
+[node name="SegniTratteggio2" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1760, 424)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("31_q73kk")
+
+[node name="SegniTratteggio3" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1760, 544)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("31_q73kk")
+
+[node name="SegniTratteggio4" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1760, 592)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("31_q73kk")
+
+[node name="SegniFreccia3" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1576, 176)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("34_ofks5")

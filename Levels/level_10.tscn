@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bx2cylhqb7luc"]
+[gd_scene load_steps=35 format=3 uid="uid://bx2cylhqb7luc"]
 
 [ext_resource type="AudioStream" uid="uid://du8gmognffgmg" path="res://Resources/Audio/Effects/sfx_waterpipe.ogg" id="3_yqjlg"]
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="5_dwfel"]
@@ -26,6 +26,11 @@
 [ext_resource type="PackedScene" uid="uid://cxjw8tk4kep1p" path="res://Scenes/PlatformerPlayer/Keys/Key01/Key01.tscn" id="25_2xgoo"]
 [ext_resource type="Texture2D" uid="uid://dkncjjtpcesun" path="res://Resources/Assets/Upd_Assets/Exit_right.png" id="25_x4fhh"]
 [ext_resource type="PackedScene" uid="uid://sn8oy4jcubwe" path="res://Scenes/PlatformerPlayer/Platforms/DisappearPlatform1/DisapperaPlatform1.tscn" id="26_gd0vm"]
+[ext_resource type="Texture2D" uid="uid://ddjg6w0no827o" path="res://Resources/Assets/Archivio_segni/segni_punture.png" id="27_dyoab"]
+[ext_resource type="Texture2D" uid="uid://sbtcujloclhi" path="res://Resources/Assets/Archivio_segni/segni_freccia_2.png" id="28_ryy4s"]
+[ext_resource type="Texture2D" uid="uid://cqowkgmsfof6s" path="res://Resources/Assets/Archivio_segni/segni_tratteggio_1.png" id="29_gbxpb"]
+[ext_resource type="Texture2D" uid="uid://dqn05jghgxtn8" path="res://Resources/Assets/Archivio_segni/segni_freccia_3.png" id="30_jllpa"]
+[ext_resource type="Texture2D" uid="uid://ndxgyhkbihrc" path="res://Resources/Assets/Archivio_segni/segni_attento.png" id="31_4kw1k"]
 
 [sub_resource type="Curve2D" id="Curve2D_phncs"]
 _data = {
@@ -334,3 +339,59 @@ texture = ExtResource("25_x4fhh")
 [node name="PlatformStaticBlue_x5" parent="." instance=ExtResource("24_bjv2b")]
 z_index = -1
 position = Vector2(1427.25, 441.5)
+
+[node name="Props" type="Node2D" parent="."]
+z_index = -2
+position = Vector2(504, 424)
+
+[node name="SegniPunture" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(-184, 0)
+texture = ExtResource("27_dyoab")
+
+[node name="SegniFreccia2" type="Sprite2D" parent="Props"]
+texture_filter = 1
+texture = ExtResource("28_ryy4s")
+
+[node name="SegniTratteggio1" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(-328, 377)
+rotation = 1.5708
+texture = ExtResource("29_gbxpb")
+
+[node name="SegniTratteggio2" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(848, 264)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("29_gbxpb")
+
+[node name="SegniTratteggio3" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(957, 264)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("29_gbxpb")
+
+[node name="SegniFreccia3" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1021, 161)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("28_ryy4s")
+
+[node name="SegniFreccia4" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1273, 24)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("30_jllpa")
+flip_h = true
+flip_v = true
+
+[node name="SegniAttento2" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1164, 467)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("31_4kw1k")
+
+[node name="SegniAttento" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(72, 392)
+texture = ExtResource("31_4kw1k")
