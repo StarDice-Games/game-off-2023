@@ -148,7 +148,6 @@ func _physics_process(delta):
 	if not is_on_floor():
 			moveSpeed = AIR_SPEED
 			velocity.y += gravity * delta
-#	$PointLight2D.enabled = false
 			
 	if Global.activePlayer == side:
 
@@ -156,7 +155,7 @@ func _physics_process(delta):
 			canJump = true
 #		$PointLight2D.enabled = true
 		# Handle Jump.
-		if Input.is_action_just_pressed("Jump") and canJump:
+		if Input.is_action_just_pressed("Jump") and is_on_floor():
 			getActiveAnimationPlayer().play("Jump")
 			AudioManager.play(getSoundBySide(jumpSound, jumpSoundSmall))
 			jumpAnimationEnd = false
