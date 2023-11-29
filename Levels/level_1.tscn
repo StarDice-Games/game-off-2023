@@ -38,6 +38,12 @@ polygon = PackedVector2Array(10.436, 2.5, 18.3828, 3.99999, 29.7001, 4.5, 29.638
 [node name="Background" parent="." instance=ExtResource("16_58n5x")]
 metadata/_edit_lock_ = true
 
+[node name="PauseTutorial" type="Sprite2D" parent="Background"]
+z_index = -1
+position = Vector2(489, 104)
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("18_21jci")
+
 [node name="MoveTutorial" type="Sprite2D" parent="Background"]
 z_index = -1
 texture_filter = 1
@@ -120,7 +126,7 @@ position = Vector2(672, 275)
 side = 1
 
 [node name="Player1" parent="LevelDesign_Red" instance=ExtResource("18_nyfm7")]
-position = Vector2(183, 922)
+position = Vector2(178, 919)
 scale = Vector2(0.75, 0.75)
 AIR_SPEED = 150.0
 JUMP_VELOCITY = -430.0
@@ -220,9 +226,3 @@ texture_filter = 1
 position = Vector2(1495, 296)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("17_hvh5o")
-
-[node name="PauseTutorial" type="Sprite2D" parent="."]
-modulate = Color(0.635294, 0.635294, 0.635294, 1)
-position = Vector2(489, 104)
-scale = Vector2(0.11, 0.11)
-texture = ExtResource("18_21jci")
