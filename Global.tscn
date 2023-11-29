@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bxeb2iva4yrgw"]
+[gd_scene load_steps=38 format=3 uid="uid://bxeb2iva4yrgw"]
 
 [ext_resource type="Script" path="res://Global.gd" id="1_j5qpw"]
 [ext_resource type="Resource" uid="uid://4q02kbimxt6b" path="res://Resources/LevelsResources/level_1.tres" id="2_owt0f"]
@@ -26,34 +26,12 @@
 [ext_resource type="AudioStream" uid="uid://b3nj0tiafspjj" path="res://Resources/Audio/UI/ui_sfx_buttonpress.ogg" id="23_2c1i2"]
 [ext_resource type="AudioStream" uid="uid://cqwlnq555l6jq" path="res://Resources/Audio/UI/ui_sfx_buttonselection.ogg" id="24_ikb0p"]
 [ext_resource type="AudioStream" uid="uid://b3mcyw7a6q4qc" path="res://Resources/Audio/UI/ui_sfx_resume.ogg" id="26_u56oa"]
-
-[sub_resource type="Animation" id="Animation_u0jyr"]
-resource_name = "FadeToBig"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BigMusic:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 5.09824),
-"update": 0,
-"values": [-80.0, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SmallMusic:volume_db")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(6.06286, 1),
-"update": 0,
-"values": [0.0, -80.0]
-}
+[ext_resource type="Texture2D" uid="uid://dgd1aajmpr7vn" path="res://Resources/Assets/Explosion/clouds-pop0.png" id="27_lwim6"]
+[ext_resource type="Texture2D" uid="uid://c3vvdfmrhdnap" path="res://Resources/Assets/Explosion/clouds-pop1.png" id="28_o2o63"]
+[ext_resource type="Texture2D" uid="uid://bq6watv10024u" path="res://Resources/Assets/Explosion/clouds-pop2.png" id="29_gvbiu"]
+[ext_resource type="Texture2D" uid="uid://duyg8y5ljwpk3" path="res://Resources/Assets/Explosion/clouds-pop3.png" id="30_4tr2x"]
+[ext_resource type="Texture2D" uid="uid://dymgt6j4gk8cy" path="res://Resources/Assets/Explosion/clouds-pop4.png" id="31_7hqvr"]
+[ext_resource type="Texture2D" uid="uid://bu48jdw8lyyy7" path="res://Resources/Assets/Explosion/clouds-pop5.png" id="32_vr4q7"]
 
 [sub_resource type="Animation" id="Animation_u0jyr"]
 resource_name = "FadeToBig"
@@ -145,6 +123,35 @@ _data = {
 "RESET": SubResource("Animation_xonw5")
 }
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_ksdkw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("27_lwim6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_o2o63")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_gvbiu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_4tr2x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_7hqvr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_vr4q7")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
 [node name="Global" type="Node2D"]
 script = ExtResource("1_j5qpw")
 showSplash = false
@@ -184,5 +191,17 @@ one_shot = true
 libraries = {
 "": SubResource("AnimationLibrary_250ox")
 }
+
+[node name="Explosion_Left" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ksdkw")
+frame = 6
+frame_progress = 1.0
+
+[node name="Explosion_Right" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ksdkw")
+frame = 6
+frame_progress = 1.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
