@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://ijv66m5ac5i5" path="res://Resources/LevelsResources/level_2.tres" id="3_jtt7o"]
 [ext_resource type="PackedScene" uid="uid://d3w0vp34bfsu4" path="res://Scenes/Menus/PauseMenu/PauseMenu.tscn" id="3_kic5l"]
 [ext_resource type="PackedScene" uid="uid://dqijkmgdh5ulw" path="res://Scenes/Menus/MainMenu/MainMenu.tscn" id="3_wleec"]
-[ext_resource type="PackedScene" uid="uid://c231qmwyovhcq" path="res://main.tscn" id="4_56l5m"]
+[ext_resource type="PackedScene" uid="uid://c231qmwyovhcq" path="res://Main.tscn" id="4_56l5m"]
 [ext_resource type="PackedScene" uid="uid://c3k6y8yqg3qju" path="res://Scenes/Menus/SplashScreen/SplashScreen.tscn" id="4_bnw24"]
 [ext_resource type="Resource" uid="uid://c1c4k60242ob8" path="res://Resources/LevelsResources/level_3.tres" id="4_v6e8j"]
 [ext_resource type="Resource" uid="uid://cg3nfupqtj3ny" path="res://Resources/LevelsResources/level_5.tres" id="5_8wok5"]
