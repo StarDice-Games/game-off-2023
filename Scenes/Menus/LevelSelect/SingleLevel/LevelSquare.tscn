@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cylhgxe6wocod"]
+[gd_scene load_steps=9 format=3 uid="uid://cylhgxe6wocod"]
 
 [ext_resource type="Texture2D" uid="uid://bjn1m5qtjaiff" path="res://Icons/icon.svg" id="1_4t0a8"]
 [ext_resource type="Script" path="res://Scenes/Menus/LevelSelect/SingleLevel/LevelSquare.gd" id="1_o7tdi"]
@@ -6,6 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://035a4eru7owx" path="res://Resources/Assets/UI_e_tutorial/levels_done.png" id="3_b1ilb"]
 [ext_resource type="Texture2D" uid="uid://cwx41ps4p2mfc" path="res://Resources/Assets/UI_e_tutorial/levels_square_hover.png" id="4_2wau0"]
 [ext_resource type="Texture2D" uid="uid://blewx540a7nvb" path="res://Resources/Assets/UI_e_tutorial/levels_square_selected.png" id="4_46wfv"]
+[ext_resource type="FontFile" uid="uid://cjhx1nxg21jkj" path="res://Resources/Assets/Fonts/Two_sides_prox_font-Regular (1).otf" id="7_e5xt3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_oh2ps"]
+font = ExtResource("7_e5xt3")
+font_size = 40
+font_color = Color(0, 0, 0, 1)
 
 [node name="LevelSquare" type="TextureButton"]
 z_index = 2
@@ -38,12 +44,13 @@ texture = ExtResource("3_b1ilb")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 90.0
-offset_right = 69.0
+offset_left = 3.0
+offset_top = 83.0
+offset_right = 78.0
 offset_bottom = 116.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Level X"
+label_settings = SubResource("LabelSettings_oh2ps")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
 [connection signal="toggled" from="." to="." method="_on_border_toggled"]

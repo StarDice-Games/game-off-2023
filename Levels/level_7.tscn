@@ -161,7 +161,7 @@ side = 1
 JUMP_FORCE = -750
 
 [node name="Player1" parent="Platform_Red" instance=ExtResource("7_hle3n")]
-position = Vector2(672, 192)
+position = Vector2(669, 192)
 scale = Vector2(0.75, 0.75)
 AIR_SPEED = 150.0
 JUMP_VELOCITY = -430.0
@@ -294,7 +294,7 @@ position = Vector2(1120, 512)
 lock_rotation = false
 
 [node name="Player2" parent="Platform_Blue" instance=ExtResource("7_hle3n")]
-position = Vector2(1712, 464)
+position = Vector2(1728, 472)
 scale = Vector2(0.75, 0.75)
 GROUND_SPEED = 230.0
 AIR_SPEED = 150.0
