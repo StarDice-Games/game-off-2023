@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bxeb2iva4yrgw"]
+[gd_scene load_steps=37 format=3 uid="uid://bxeb2iva4yrgw"]
 
 [ext_resource type="Script" path="res://Global.gd" id="1_j5qpw"]
 [ext_resource type="Resource" uid="uid://4q02kbimxt6b" path="res://Resources/LevelsResources/level_1.tres" id="2_owt0f"]
@@ -33,6 +33,33 @@
 [ext_resource type="Texture2D" uid="uid://dymgt6j4gk8cy" path="res://Resources/Assets/Explosion/clouds-pop4.png" id="31_7hqvr"]
 [ext_resource type="Texture2D" uid="uid://bu48jdw8lyyy7" path="res://Resources/Assets/Explosion/clouds-pop5.png" id="32_vr4q7"]
 
+[sub_resource type="Animation" id="Animation_xonw5"]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BigMusic:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(5.65686, 1),
+"update": 0,
+"values": [-80.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SmallMusic:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 5.27803),
+"update": 0,
+"values": [-20.0, -80.0]
+}
+
 [sub_resource type="Animation" id="Animation_vg1bu"]
 resource_name = "FadeToSmall"
 length = 0.3
@@ -61,36 +88,9 @@ tracks/1/keys = {
 "values": [-80.0, 0.0]
 }
 
-[sub_resource type="Animation" id="Animation_xonw5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BigMusic:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-80.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SmallMusic:volume_db")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-20.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_250ox"]
 _data = {
-"FadeToBig": SubResource("Animation_u0jyr"),
+"FadeToBig": SubResource("Animation_xonw5"),
 "FadeToSmall": SubResource("Animation_vg1bu"),
 "RESET": SubResource("Animation_xonw5")
 }
