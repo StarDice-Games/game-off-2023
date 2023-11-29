@@ -164,7 +164,7 @@ side = 1
 
 [node name="Player1" parent="LevelDesign_Red" instance=ExtResource("5_11chb")]
 z_index = -1
-position = Vector2(835, 828)
+position = Vector2(832, 824)
 scale = Vector2(0.75, 0.75)
 AIR_SPEED = 150.0
 JUMP_VELOCITY = -430.0
@@ -331,7 +331,7 @@ position = Vector2(1344, 624)
 
 [node name="Player2" parent="LevelDesign_Blue" instance=ExtResource("5_11chb")]
 z_index = -1
-position = Vector2(1404, 952)
+position = Vector2(1512, 944)
 scale = Vector2(0.75, 0.75)
 GROUND_SPEED = 230.0
 AIR_SPEED = 150.0

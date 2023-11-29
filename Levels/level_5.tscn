@@ -148,7 +148,7 @@ position = Vector2(304, 256)
 side = 1
 
 [node name="Player1" parent="LevelDesign_Red" instance=ExtResource("6_bgo1k")]
-position = Vector2(271, 925)
+position = Vector2(271, 916)
 scale = Vector2(0.75, 0.75)
 AIR_SPEED = 150.0
 JUMP_VELOCITY = -430.0
@@ -327,7 +327,7 @@ position = Vector2(1680, 928)
 
 [node name="Player2" parent="LevelDesign_Blue" instance=ExtResource("6_bgo1k")]
 z_index = 0
-position = Vector2(1184, 944)
+position = Vector2(1153, 945)
 scale = Vector2(0.75, 0.75)
 GROUND_SPEED = 230.0
 AIR_SPEED = 150.0
@@ -411,7 +411,6 @@ texture = ExtResource("24_pp10t")
 texture_filter = 1
 position = Vector2(308.738, 590.094)
 rotation = -0.00294299
-scale = Vector2(1, 1)
 texture = ExtResource("25_54odr")
 flip_v = true
 

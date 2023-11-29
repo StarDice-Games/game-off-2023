@@ -119,7 +119,7 @@ position = Vector2(672, 275)
 side = 1
 
 [node name="Player1" parent="LevelDesign_Red" instance=ExtResource("18_nyfm7")]
-position = Vector2(158, 911)
+position = Vector2(183, 922)
 scale = Vector2(0.75, 0.75)
 AIR_SPEED = 150.0
 JUMP_VELOCITY = -430.0
@@ -199,7 +199,7 @@ receivers = [NodePath("../SmallDoor")]
 
 [node name="Player2" parent="LevelDesign_Blue" instance=ExtResource("18_nyfm7")]
 z_index = -1
-position = Vector2(1601, 946)
+position = Vector2(1631, 954)
 scale = Vector2(0.75, 0.75)
 GROUND_SPEED = 230.0
 AIR_SPEED = 150.0

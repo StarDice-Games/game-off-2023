@@ -129,7 +129,6 @@ rotation = 3.14159
 receivers = [NodePath("../BigDoor")]
 
 [node name="BigDoor" parent="LevelDesign_Red/Objectives" instance=ExtResource("10_jt6l6")]
-z_index = 0
 position = Vector2(848, 371)
 maxButton = 1
 indicatorOffset = 40
@@ -163,7 +162,7 @@ position = Vector2(336, 435)
 
 [node name="Player1" parent="LevelDesign_Red" instance=ExtResource("3_2u6ho")]
 z_index = -1
-position = Vector2(112, 928)
+position = Vector2(139, 920)
 scale = Vector2(0.75, 0.75)
 AIR_SPEED = 150.0
 JUMP_VELOCITY = -430.0
@@ -308,7 +307,7 @@ position = Vector2(1424, 371)
 
 [node name="Player2" parent="LevelDesign_Blue" instance=ExtResource("3_2u6ho")]
 z_index = -1
-position = Vector2(1776, 944)
+position = Vector2(1739, 945)
 scale = Vector2(0.75, 0.75)
 GROUND_SPEED = 230.0
 AIR_SPEED = 150.0

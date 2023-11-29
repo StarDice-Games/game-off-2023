@@ -335,7 +335,7 @@ position = Vector2(1312, 352)
 position = Vector2(1168, 1008)
 
 [node name="Player2" parent="LevelDesign_Blue" instance=ExtResource("16_6ab1g")]
-position = Vector2(1200, 208)
+position = Vector2(1160, 216)
 scale = Vector2(0.75, 0.75)
 GROUND_SPEED = 230.0
 AIR_SPEED = 150.0
