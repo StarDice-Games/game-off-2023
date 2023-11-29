@@ -77,23 +77,20 @@ position = Vector2(640, 304)
 [node name="PlatformStaticRed_x2" parent="LevelDesign_Red/Platforms" instance=ExtResource("4_l642x")]
 position = Vector2(128, 720)
 
-[node name="PlatformStaticRed_x3" parent="LevelDesign_Red/Platforms" instance=ExtResource("4_l642x")]
-position = Vector2(256, 816)
-
 [node name="PlatformStaticRed_x6" parent="LevelDesign_Red/Platforms" instance=ExtResource("3_6dh1h")]
-position = Vector2(624, 576)
+position = Vector2(624, 569)
 
-[node name="PlatformStaticRed_x7" parent="LevelDesign_Red/Platforms" instance=ExtResource("4_l642x")]
-position = Vector2(544, 816)
+[node name="PlatformStaticRed_x9" parent="LevelDesign_Red/Platforms" instance=ExtResource("3_6dh1h")]
+position = Vector2(464, 816)
 
 [node name="PlatformStaticRed" parent="LevelDesign_Red/Platforms" instance=ExtResource("5_ge43e")]
-position = Vector2(400, 816)
+position = Vector2(224, 816)
 
 [node name="PlatformStaticRed2" parent="LevelDesign_Red/Platforms" instance=ExtResource("5_ge43e")]
-position = Vector2(688, 816)
+position = Vector2(704, 816)
 
 [node name="PlatformStaticRed_x4" parent="LevelDesign_Red/Platforms" instance=ExtResource("4_l642x")]
-position = Vector2(352, 576)
+position = Vector2(352, 569)
 
 [node name="PlatformStaticRed_x8" parent="LevelDesign_Red/Platforms" instance=ExtResource("3_6dh1h")]
 position = Vector2(208, 352)
@@ -103,11 +100,11 @@ position = Vector2(592, 986.961)
 receivers = [NodePath("../Path2D/PathFollow2D/Platform1")]
 
 [node name="PressurePlate4" parent="LevelDesign_Red/Platforms" node_paths=PackedStringArray("receivers") instance=ExtResource("6_axirn")]
-position = Vector2(624, 512)
+position = Vector2(624, 505)
 receivers = [NodePath("../Path2D2/PathFollow2D/Platform2")]
 
 [node name="Path2D2" type="Path2D" parent="LevelDesign_Red/Platforms"]
-position = Vector2(1616, 448)
+position = Vector2(1616, 441)
 curve = SubResource("Curve2D_mrtmm")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="LevelDesign_Red/Platforms/Path2D2"]
@@ -147,7 +144,7 @@ active = false
 
 [node name="Button01" parent="LevelDesign_Red/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("8_4u5rs")]
 z_index = -1
-position = Vector2(352, 515)
+position = Vector2(352, 508)
 receivers = [NodePath("../BigDoor")]
 
 [node name="BigDoor" parent="LevelDesign_Red/Objectives" instance=ExtResource("9_yqc1v")]
@@ -164,12 +161,12 @@ side = 1
 
 [node name="BoxPickable5" parent="LevelDesign_Red/Pickables" instance=ExtResource("11_axvy4")]
 z_index = 1
-position = Vector2(848, 752)
+position = Vector2(160, 656)
 side = 1
 
 [node name="Player1" parent="LevelDesign_Red" instance=ExtResource("12_hw85n")]
 z_index = -1
-position = Vector2(155, 920)
+position = Vector2(96, 592)
 scale = Vector2(0.75, 0.75)
 AIR_SPEED = 150.0
 JUMP_VELOCITY = -430.0
