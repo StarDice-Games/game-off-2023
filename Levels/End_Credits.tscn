@@ -104,12 +104,14 @@ color = Color(0, 0, 0, 1)
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0)
+texture_filter = 1
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("6_vdidm")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0)
+texture_filter = 1
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("2_jnjwf")
