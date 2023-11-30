@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bxeb2iva4yrgw"]
+[gd_scene load_steps=39 format=3 uid="uid://bxeb2iva4yrgw"]
 
 [ext_resource type="Script" path="res://Global.gd" id="1_j5qpw"]
 [ext_resource type="Resource" uid="uid://4q02kbimxt6b" path="res://Resources/LevelsResources/level_1.tres" id="2_owt0f"]
@@ -23,6 +23,7 @@
 [ext_resource type="AudioStream" uid="uid://b0v7l2t5fkkkf" path="res://Resources/Audio/Music/bgm_level1B.ogg" id="12_1yry6"]
 [ext_resource type="PackedScene" uid="uid://0nxe15ge3pyq" path="res://Scenes/Menus/Credits/Credits.tscn" id="17_tjo4o"]
 [ext_resource type="AudioStream" uid="uid://dmym7sdqorugm" path="res://Resources/Audio/Sound/sfx_transfer.ogg" id="18_dvjt0"]
+[ext_resource type="PackedScene" uid="uid://0tw7jwo8dt2l" path="res://Scenes/Menus/Transition/LevelTransition.tscn" id="18_p31uf"]
 [ext_resource type="AudioStream" uid="uid://b4dl042lhjlhq" path="res://Resources/Audio/UI/ui_sfx_levelselection.ogg" id="20_n475r"]
 [ext_resource type="AudioStream" uid="uid://b3nj0tiafspjj" path="res://Resources/Audio/UI/ui_sfx_buttonpress.ogg" id="23_2c1i2"]
 [ext_resource type="AudioStream" uid="uid://cqwlnq555l6jq" path="res://Resources/Audio/UI/ui_sfx_buttonselection.ogg" id="24_ikb0p"]
@@ -135,6 +136,7 @@ pauseMenuScene = ExtResource("3_kic5l")
 mainScene = ExtResource("4_56l5m")
 selectLevelScene = ExtResource("6_6nmfb")
 creditsScene = ExtResource("17_tjo4o")
+levelTransitionScene = ExtResource("18_p31uf")
 musicMuted = true
 levelStartSound = ExtResource("8_3xu02")
 tranferSound = ExtResource("18_dvjt0")

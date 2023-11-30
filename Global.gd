@@ -20,6 +20,7 @@ var goals : Array[Node2D] = [null, null]
 @export var mainScene : PackedScene
 @export var selectLevelScene : PackedScene
 @export var creditsScene : PackedScene
+@export var levelTransitionScene : PackedScene
 
 @export_category("Audio")
 @export var musicMuted = false
@@ -325,10 +326,10 @@ func loadNextLevel():
 			get_tree().change_scene_to_packed(scenes[next_scene].scene)
 			next_scene += 1
 			next_scene %= scenes.size()
-#			AudioManager.play(levelStartSound)
-			currentGameState = GameState.IN_GAME
 			
 			setActivePlayer(0)
+			
+			openLevelTransition(GameState.IN_GAME)
 
 func processMainMenu(delta):
 	if get_tree().root.get_node("MainMenu") == null:
@@ -388,7 +389,27 @@ func startLevelAfterJingle():
 	if scenes.size() > 0:
 		curretLevel = scenes.front().name
 		get_tree().change_scene_to_packed(scenes.front().scene)
-	currentGameState = GameState.IN_GAME
+		
+	openLevelTransition(GameState.IN_GAME)
+
+func openLevelTransition(stateAfterTransition : GameState):
+	if levelTransitionScene == null:
+		levelTransitionEnded(stateAfterTransition)
+		return
+		
+	if levelTransitionScene.can_instantiate():
+		var levelTransitionInstance = levelTransitionScene.instantiate()
+		get_tree().root.add_child(levelTransitionInstance)
+		levelTransitionInstance.connect("fadeOut_completed", levelTransitionEnded.bind(stateAfterTransition))	
+	pass
+
+func levelTransitionEnded(stateAfterTransition : GameState):
+	var node = get_tree().root.get_node("LevelTransition")
+	if node != null:
+		get_tree().root.remove_child(node)
+		
+	currentGameState = stateAfterTransition
+	pass
 
 func _on_main_menu_select_level_pressed():
 	print("Select levels")
@@ -480,7 +501,9 @@ func startAfterLevelSelection(res : LevelResourceBase):
 		
 		get_tree().change_scene_to_packed(sceneToLoad)
 	
-	currentGameState = GameState.IN_GAME
+	openLevelTransition(GameState.IN_GAME)
+	
+#	currentGameState = GameState.IN_GAME
 	pass
 
 func playSoundAndWait(sound: AudioStream):
