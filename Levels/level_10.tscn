@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://b3cbj1cjbxle3" path="res://Scenes/PlatformerPlayer/Spikes/Spikes2.tscn" id="18_e78wl"]
 [ext_resource type="PackedScene" uid="uid://6a1c38prt1a4" path="res://Scenes/PlatformerPlayer/Buttons/Button1/Button01.tscn" id="19_t4xh0"]
 [ext_resource type="PackedScene" uid="uid://do88ox8hahe8i" path="res://Scenes/PlatformerPlayer/Spikes/Spikes.tscn" id="20_duw4t"]
+[ext_resource type="PackedScene" uid="uid://bm6c2dprd5k1l" path="res://Scenes/PlatformerPlayer/Platforms/DisappearPlatform2/DisapperaPlatform2_blue.tscn" id="21_0meg7"]
 [ext_resource type="PackedScene" uid="uid://c0yejb6v7hqpy" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x2.tscn" id="21_no3ns"]
 [ext_resource type="PackedScene" uid="uid://ddfaeavjffgx6" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x5.tscn" id="22_vbdvr"]
 [ext_resource type="PackedScene" uid="uid://c7lc1cagba60g" path="res://Scenes/PlatformerPlayer/Obstacle/Water/WaterFloor_piccola.tscn" id="23_7e4xn"]
@@ -25,7 +26,6 @@
 [ext_resource type="PackedScene" uid="uid://dc601pwyjee1" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x5.tscn" id="24_bjv2b"]
 [ext_resource type="PackedScene" uid="uid://cxjw8tk4kep1p" path="res://Scenes/PlatformerPlayer/Keys/Key01/Key01.tscn" id="25_2xgoo"]
 [ext_resource type="Texture2D" uid="uid://dkncjjtpcesun" path="res://Resources/Assets/Upd_Assets/Exit_right.png" id="25_x4fhh"]
-[ext_resource type="PackedScene" uid="uid://sn8oy4jcubwe" path="res://Scenes/PlatformerPlayer/Platforms/DisappearPlatform1/DisapperaPlatform1.tscn" id="26_gd0vm"]
 [ext_resource type="Texture2D" uid="uid://ddjg6w0no827o" path="res://Resources/Assets/Archivio_segni/segni_punture.png" id="27_dyoab"]
 [ext_resource type="Texture2D" uid="uid://sbtcujloclhi" path="res://Resources/Assets/Archivio_segni/segni_freccia_2.png" id="28_ryy4s"]
 [ext_resource type="Texture2D" uid="uid://cqowkgmsfof6s" path="res://Resources/Assets/Archivio_segni/segni_tratteggio_1.png" id="29_gbxpb"]
@@ -182,9 +182,6 @@ push_force = 50
 [node name="Platforms" type="Node2D" parent="LevelDesign_Blue"]
 z_index = -1
 
-[node name="DisapperaPlatform2" parent="LevelDesign_Blue/Platforms" instance=ExtResource("26_gd0vm")]
-position = Vector2(1456, 800)
-
 [node name="PlatformStaticBlue_x4" parent="LevelDesign_Blue/Platforms" instance=ExtResource("23_ldy1h")]
 z_index = -3
 position = Vector2(1392, 1008)
@@ -251,6 +248,9 @@ speed = 50.0
 path = NodePath("..")
 active = false
 
+[node name="DisapperaPlatform2" parent="LevelDesign_Blue/Platforms" instance=ExtResource("21_0meg7")]
+position = Vector2(1455, 809)
+
 [node name="Objectives" type="Node2D" parent="LevelDesign_Blue"]
 z_index = -1
 
@@ -305,7 +305,7 @@ position = Vector2(1264, 890)
 
 [node name="Player2" parent="LevelDesign_Blue" instance=ExtResource("5_dwfel")]
 z_index = -1
-position = Vector2(1192, 847)
+position = Vector2(1455, 694)
 scale = Vector2(0.75, 0.75)
 GROUND_SPEED = 230.0
 AIR_SPEED = 150.0
@@ -343,6 +343,21 @@ position = Vector2(1427.25, 441.5)
 [node name="Props" type="Node2D" parent="."]
 z_index = -2
 position = Vector2(504, 424)
+
+[node name="SegniTratteggio4" type="Sprite2D" parent="Props"]
+position = Vector2(-9, 428)
+rotation = 1.5708
+texture = ExtResource("29_gbxpb")
+
+[node name="SegniTratteggio5" type="Sprite2D" parent="Props"]
+position = Vector2(-9, 216)
+rotation = 1.5708
+texture = ExtResource("29_gbxpb")
+
+[node name="SegniTratteggio6" type="Sprite2D" parent="Props"]
+position = Vector2(-9, 179)
+rotation = 1.5708
+texture = ExtResource("29_gbxpb")
 
 [node name="SegniPunture" type="Sprite2D" parent="Props"]
 texture_filter = 1
