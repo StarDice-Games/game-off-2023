@@ -46,5 +46,5 @@ position = Vector2(1931, 529)
 scale = Vector2(2.96, 35.48)
 
 [node name="ColorRect" parent="." instance=ExtResource("4_yydo2")]
-z_index = 0
+z_index = 4
 metadata/_edit_lock_ = true

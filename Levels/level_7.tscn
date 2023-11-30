@@ -161,6 +161,7 @@ side = 1
 JUMP_FORCE = -750
 
 [node name="Player1" parent="Platform_Red" instance=ExtResource("7_hle3n")]
+z_index = 2
 position = Vector2(669, 192)
 scale = Vector2(0.75, 0.75)
 AIR_SPEED = 150.0
@@ -294,6 +295,7 @@ position = Vector2(1120, 512)
 lock_rotation = false
 
 [node name="Player2" parent="Platform_Blue" instance=ExtResource("7_hle3n")]
+z_index = 2
 position = Vector2(1728, 472)
 scale = Vector2(0.75, 0.75)
 GROUND_SPEED = 230.0
@@ -335,7 +337,7 @@ texture = ExtResource("27_a50ff")
 
 [node name="SegniTratteggio4" type="Sprite2D" parent="Props"]
 texture_filter = 1
-position = Vector2(1200, 264)
+position = Vector2(1200, 257)
 rotation = 1.5708
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("28_3548o")
@@ -347,41 +349,34 @@ rotation = 1.5708
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("28_3548o")
 
-[node name="SegniTratteggio6" type="Sprite2D" parent="Props"]
-texture_filter = 1
-position = Vector2(1200, 307)
-rotation = 1.5708
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("28_3548o")
-
 [node name="SegniTratteggio7" type="Sprite2D" parent="Props"]
 texture_filter = 1
-position = Vector2(1200, 307)
+position = Vector2(1200, 325)
 rotation = 1.5708
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("28_3548o")
 
 [node name="SegniTratteggio8" type="Sprite2D" parent="Props"]
 texture_filter = 1
-position = Vector2(1264, 383)
+position = Vector2(1258, 385)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("28_3548o")
 
 [node name="SegniTratteggio9" type="Sprite2D" parent="Props"]
 texture_filter = 1
-position = Vector2(1375, 383)
+position = Vector2(1368, 385)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("28_3548o")
 
 [node name="SegniTratteggio10" type="Sprite2D" parent="Props"]
 texture_filter = 1
-position = Vector2(1419, 383)
+position = Vector2(1414, 385)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("28_3548o")
 
 [node name="SegniTratteggio11" type="Sprite2D" parent="Props"]
 texture_filter = 1
-position = Vector2(1472, 450)
+position = Vector2(1472, 446)
 rotation = 1.5708
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("28_3548o")
@@ -400,15 +395,22 @@ rotation = 1.5708
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("28_3548o")
 
+[node name="SegniTratteggio17" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1472, 687)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("28_3548o")
+
 [node name="SegniTratteggio14" type="Sprite2D" parent="Props"]
 texture_filter = 1
-position = Vector2(1536, 752)
+position = Vector2(1531, 752)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("28_3548o")
 
 [node name="SegniTratteggio15" type="Sprite2D" parent="Props"]
 texture_filter = 1
-position = Vector2(1645, 752)
+position = Vector2(1641, 752)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("28_3548o")
 
@@ -431,6 +433,6 @@ texture = ExtResource("31_icx61")
 
 [node name="SegniTratteggio16" type="Sprite2D" parent="Props"]
 texture_filter = 1
-position = Vector2(1753, 752)
+position = Vector2(1751, 752)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("28_3548o")
