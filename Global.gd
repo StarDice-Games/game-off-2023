@@ -385,9 +385,7 @@ func startGame():
 	#change the status
 	activePlayer = 0
 	bgMenuMusic.stop()
-	bgInGameMusic.play()
-	bgInGameMusic2.play()
-	
+		
 	currentGameState = GameState.START_LEVEL
 	
 	if not sfxMuted:
@@ -399,6 +397,9 @@ func startGame():
 
 func startLevelAfterJingle():
 	closeMainMenu()
+	
+	bgInGameMusic.play()
+	bgInGameMusic2.play()
 	
 	if scenes.size() > 0:
 		curretLevel = scenes.front().name
