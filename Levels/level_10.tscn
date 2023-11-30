@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bx2cylhqb7luc"]
+[gd_scene load_steps=34 format=3 uid="uid://bx2cylhqb7luc"]
 
 [ext_resource type="AudioStream" uid="uid://du8gmognffgmg" path="res://Resources/Audio/Effects/sfx_waterpipe.ogg" id="3_yqjlg"]
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="5_dwfel"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://birka5inve0vm" path="res://Scenes/PlatformerPlayer/Platforms/Plants/LeafPlatform/LeafPlatform.tscn" id="15_7fygb"]
 [ext_resource type="PackedScene" uid="uid://ch1k62rewst8" path="res://Scenes/PlatformerPlayer/PressurePlates/PressurePlate2.tscn" id="16_1l158"]
 [ext_resource type="PackedScene" uid="uid://pd5e2y2wk2ql" path="res://Scenes/PlatformerPlayer/Pickable/Spring/Spring.tscn" id="17_2ojhy"]
-[ext_resource type="PackedScene" uid="uid://b3cbj1cjbxle3" path="res://Scenes/PlatformerPlayer/Spikes/Spikes2.tscn" id="18_e78wl"]
 [ext_resource type="PackedScene" uid="uid://6a1c38prt1a4" path="res://Scenes/PlatformerPlayer/Buttons/Button1/Button01.tscn" id="19_t4xh0"]
 [ext_resource type="PackedScene" uid="uid://do88ox8hahe8i" path="res://Scenes/PlatformerPlayer/Spikes/Spikes.tscn" id="20_duw4t"]
 [ext_resource type="PackedScene" uid="uid://bm6c2dprd5k1l" path="res://Scenes/PlatformerPlayer/Platforms/DisappearPlatform2/DisapperaPlatform2_blue.tscn" id="21_0meg7"]
@@ -204,14 +203,6 @@ position = Vector2(1216, 922)
 z_index = -2
 position = Vector2(1568, 1008)
 
-[node name="PlatformStaticBlue_x7" parent="LevelDesign_Blue/Platforms" instance=ExtResource("24_bjv2b")]
-z_index = -2
-position = Vector2(1712, 1008)
-
-[node name="PlatformStaticBlue_x8" parent="LevelDesign_Blue/Platforms" instance=ExtResource("24_bjv2b")]
-z_index = -2
-position = Vector2(1776, 1008)
-
 [node name="Plant" type="Node2D" parent="LevelDesign_Blue/Platforms"]
 position = Vector2(32, -544)
 
@@ -275,27 +266,8 @@ indicatorOffset = 44
 [node name="Obstacles" type="Node2D" parent="LevelDesign_Blue"]
 z_index = -1
 
-[node name="Spikes2" parent="LevelDesign_Blue/Obstacles" instance=ExtResource("18_e78wl")]
-position = Vector2(1670, 978)
-
-[node name="Spikes3" parent="LevelDesign_Blue/Obstacles" instance=ExtResource("18_e78wl")]
-position = Vector2(1703, 978)
-
-[node name="Spikes6" parent="LevelDesign_Blue/Obstacles" instance=ExtResource("18_e78wl")]
-position = Vector2(1734, 978)
-
-[node name="Spikes4" parent="LevelDesign_Blue/Obstacles" instance=ExtResource("18_e78wl")]
-position = Vector2(1637, 978)
-
 [node name="Pickables" type="Node2D" parent="LevelDesign_Blue"]
 z_index = -1
-
-[node name="Spring3" parent="LevelDesign_Blue/Pickables" instance=ExtResource("17_2ojhy")]
-position = Vector2(1750, 975)
-JUMP_FORCE = -750
-
-[node name="BoxPickable5" parent="LevelDesign_Blue/Pickables" instance=ExtResource("6_otahl")]
-position = Vector2(1824, 977)
 
 [node name="BoxPickable4" parent="LevelDesign_Blue/Pickables" instance=ExtResource("6_otahl")]
 position = Vector2(1484, 977)
