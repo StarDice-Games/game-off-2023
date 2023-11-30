@@ -60,6 +60,7 @@ func _on_button_focus():
 func _on_level_square_level_selected(res):
 	currentSelectedLevel = res
 	print("Level selected:", res.name)
+	Global.playLevelSelectionSound()
 	pass # Replace with function body.
 
 

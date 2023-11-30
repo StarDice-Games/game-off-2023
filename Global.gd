@@ -540,3 +540,7 @@ func closeCredits():
 		get_tree().change_scene_to_packed(mainScene)
 	else:
 		push_error("Main scene missing in Global")
+
+func playLevelSelectionSound():
+	if not sfxMuted:
+		AudioManager.play(levelSelectionSound)

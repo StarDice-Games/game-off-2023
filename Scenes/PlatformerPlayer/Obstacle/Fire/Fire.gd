@@ -14,11 +14,17 @@ func _ready():
 	soundPlayer.stream = fireSound
 	soundPlayer.play()
 	
+	
+	
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if Global.sfxMuted:
+		soundPlayer.stream_paused = true
+	else:
+		soundPlayer.stream_paused = false
 	pass
 
 func extinguish(node):

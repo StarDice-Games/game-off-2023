@@ -62,6 +62,11 @@ func getAnimation():
 
 func _physics_process(delta):
 	
+	if Global.sfxMuted:
+		soundPlayer.stream_paused = true
+	else:
+		soundPlayer.stream_paused = false
+	
 	if $PickupComponent.held:
 		spreadWater()
 		#TEST KEVIN ANIMAZIONE 	
