@@ -236,7 +236,6 @@ func _physics_process(delta):
 		var collider = collision.get_collider()
 		if collider.has_node("DeathComponent"):
 			print("Death ", collision.get_collider().name)
-			AudioManager.play(getSoundBySide(deathSound, deathSoundSmall))
 			playDeath()
 
 func getSoundBySide(sound1, sound2):
@@ -251,6 +250,7 @@ var canDie = true
 func playDeath():
 	if canDie:
 		getActiveAnimationPlayer().play("death")
+		AudioManager.play(getSoundBySide(deathSound, deathSoundSmall))
 		canDie = false
 	
 
