@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b8upryncqwmc6"]
+[gd_scene load_steps=12 format=3 uid="uid://b8upryncqwmc6"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/TriggerComponent/ReceiverComponent.gd" id="1_22d2v"]
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Doors/SmallDoor/SmallDoor.gd" id="1_cg50m"]
@@ -37,8 +37,23 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0)
 }
 
+[sub_resource type="Animation" id="Animation_qdsie"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite_Porta_Chiusa:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.625, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lgxr4"]
 _data = {
+"RESET": SubResource("Animation_qdsie"),
 "open": SubResource("Animation_wj3ie")
 }
 

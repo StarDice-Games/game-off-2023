@@ -11,12 +11,14 @@ extends StaticBody2D
 var buttonActivated = 0
 var isOpen = false
 var indicators : Array[Node2D]
+var animStarted = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Goal.goalNumber = goalNumber
 	$Goal.active = false
 	Global.setGoal(goalNumber, $Goal)
+	$AnimationPlayer.play("RESET")
 	
 	if maxButton > 0 and indicatorScene != null:
 		for i in range(0, maxButton):
@@ -44,7 +46,10 @@ func _process(delta):
 			indicators[i].unlock(true)
 			
 	if $Goal.active:
-		$Sprite_Porta_Chiusa.hide()
+		#$Sprite_Porta_Chiusa.hide()
+		if animStarted == false:
+			$AnimationPlayer.play("open")
+			animStarted = true;
 		#$Sprite_Porta_Aperta.show()
 	else:
 		$Sprite_Porta_Chiusa.show()
@@ -58,6 +63,7 @@ func fullyOpen():
 	isOpen = true
 	$Goal.active = true
 	AudioManager.play(doorOpen)
+	#$AnimationPlayer.play("open")
 	pass
 
 func fullyClosed():
