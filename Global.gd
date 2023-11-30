@@ -21,6 +21,8 @@ var goals : Array[Node2D] = [null, null]
 @export var selectLevelScene : PackedScene
 @export var creditsScene : PackedScene
 @export var levelTransitionScene : PackedScene
+#@export var endLevel : PackedScene
+@export var endCredits : PackedScene
 
 @export_category("Audio")
 @export var musicMuted = false
@@ -358,7 +360,14 @@ func toggleNode(node, state):
 
 func onPlayerDeath():
 	print("Player Died")
+	
+	if curretLevel == "level_end":
+		get_tree().change_scene_to_packed(endCredits)
+		return
 	get_tree().reload_current_scene()
+
+#func restartFromTheMenu():
+#	backToMainMenu()
 
 
 func _on_main_menu_exit_pressed():

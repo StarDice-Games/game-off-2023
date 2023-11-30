@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bxeb2iva4yrgw"]
+[gd_scene load_steps=41 format=3 uid="uid://bxeb2iva4yrgw"]
 
 [ext_resource type="Script" path="res://Global.gd" id="1_j5qpw"]
 [ext_resource type="Resource" uid="uid://4q02kbimxt6b" path="res://Resources/LevelsResources/level_1.tres" id="2_owt0f"]
@@ -21,9 +21,11 @@
 [ext_resource type="AudioStream" uid="uid://bcqmvyqoq1bs6" path="res://Resources/Audio/Sound/sfx_victory.ogg" id="10_3yqsn"]
 [ext_resource type="AudioStream" uid="uid://2urbf3w65ht4" path="res://Resources/Audio/Music/bgm_level1A.ogg" id="10_gkp78"]
 [ext_resource type="AudioStream" uid="uid://b0v7l2t5fkkkf" path="res://Resources/Audio/Music/bgm_level1B.ogg" id="12_1yry6"]
+[ext_resource type="Resource" uid="uid://c8x8hcg82cu7o" path="res://Resources/LevelsResources/level_end.tres" id="12_y44ma"]
 [ext_resource type="PackedScene" uid="uid://0nxe15ge3pyq" path="res://Scenes/Menus/Credits/Credits.tscn" id="17_tjo4o"]
 [ext_resource type="AudioStream" uid="uid://dmym7sdqorugm" path="res://Resources/Audio/Sound/sfx_transfer.ogg" id="18_dvjt0"]
 [ext_resource type="PackedScene" uid="uid://0tw7jwo8dt2l" path="res://Scenes/Menus/Transition/LevelTransition.tscn" id="18_p31uf"]
+[ext_resource type="PackedScene" uid="uid://bw17dtk8hgbyn" path="res://Levels/End_Credits.tscn" id="20_6j0xb"]
 [ext_resource type="AudioStream" uid="uid://b4dl042lhjlhq" path="res://Resources/Audio/UI/ui_sfx_levelselection.ogg" id="20_n475r"]
 [ext_resource type="AudioStream" uid="uid://b3nj0tiafspjj" path="res://Resources/Audio/UI/ui_sfx_buttonpress.ogg" id="23_2c1i2"]
 [ext_resource type="AudioStream" uid="uid://cqwlnq555l6jq" path="res://Resources/Audio/UI/ui_sfx_buttonselection.ogg" id="24_ikb0p"]
@@ -60,6 +62,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 5.27803),
 "update": 0,
 "values": [-20.0, -80.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:musicVolume")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_vg1bu"]
@@ -129,7 +143,7 @@ animations = [{
 [node name="Global" type="Node2D"]
 script = ExtResource("1_j5qpw")
 showSplash = false
-scenes = Array[Resource("res://Resources/LevelsResources/LevelResourceBase.gd")]([ExtResource("2_owt0f"), ExtResource("3_jtt7o"), ExtResource("4_v6e8j"), ExtResource("5_jfyiu"), ExtResource("5_8wok5"), ExtResource("6_558h2"), ExtResource("7_smhhi"), ExtResource("7_1wprs"), ExtResource("8_yfkdj"), ExtResource("9_ev42n")])
+scenes = Array[Resource("res://Resources/LevelsResources/LevelResourceBase.gd")]([ExtResource("2_owt0f"), ExtResource("3_jtt7o"), ExtResource("4_v6e8j"), ExtResource("5_jfyiu"), ExtResource("5_8wok5"), ExtResource("6_558h2"), ExtResource("7_smhhi"), ExtResource("7_1wprs"), ExtResource("8_yfkdj"), ExtResource("9_ev42n"), ExtResource("12_y44ma")])
 splashScreen = ExtResource("4_bnw24")
 mainMenuScene = ExtResource("3_wleec")
 pauseMenuScene = ExtResource("3_kic5l")
@@ -137,7 +151,7 @@ mainScene = ExtResource("4_56l5m")
 selectLevelScene = ExtResource("6_6nmfb")
 creditsScene = ExtResource("17_tjo4o")
 levelTransitionScene = ExtResource("18_p31uf")
-musicMuted = true
+endCredits = ExtResource("20_6j0xb")
 levelStartSound = ExtResource("8_3xu02")
 tranferSound = ExtResource("18_dvjt0")
 levelCompleteSound = ExtResource("10_3yqsn")
