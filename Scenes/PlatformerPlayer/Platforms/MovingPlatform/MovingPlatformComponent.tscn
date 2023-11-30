@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bddj4cek8eb70"]
+
+[ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Platforms/MovingPlatform/MovingComponent.gd" id="1_n2ra6"]
+
+[node name="MovingPlatformComponent" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_n2ra6")

@@ -1,0 +1,48 @@
+[gd_scene load_steps=10 format=3 uid="uid://giaagw06k0v"]
+
+[ext_resource type="PackedScene" uid="uid://c6oxlwfitiwcd" path="res://Scenes/PlatformerPlayer/Obstacle/statiWall.tscn" id="3_v2cx5"]
+[ext_resource type="PackedScene" uid="uid://c5xj8w588i6aa" path="res://Scenes/Visual Indicator/visualIndicator.tscn" id="4_1n3ic"]
+[ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="5_lih6r"]
+[ext_resource type="PackedScene" uid="uid://din1h8ql506vb" path="res://Scenes/Background.tscn" id="5_stvad"]
+[ext_resource type="PackedScene" uid="uid://c7lc1cagba60g" path="res://Scenes/PlatformerPlayer/Obstacle/Water/WaterFloor_piccola.tscn" id="6_r0hmf"]
+[ext_resource type="PackedScene" uid="uid://dvhrt43a8uu5r" path="res://Scenes/PlatformerPlayer/Pickable/Box/BoxPickable.tscn" id="6_upoev"]
+[ext_resource type="PackedScene" uid="uid://dejvvmbnpvblp" path="res://Scenes/PlatformerPlayer/Obstacle/Water/WaterFloor.tscn" id="7_30js2"]
+[ext_resource type="PackedScene" uid="uid://c5jgo2b42vaf3" path="res://Scenes/PlatformerPlayer/Platforms/Platform1/Platform_Red_x2.tscn" id="8_jslhm"]
+[ext_resource type="PackedScene" uid="uid://c1dfvabhknwwj" path="res://Scenes/PlatformerPlayer/Platforms/Platform1/Platform_Blue_x2.tscn" id="9_0s8c2"]
+
+[node name="TestBasic4" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(960, 540)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("3_v2cx5")]
+position = Vector2(992, 1024)
+scale = Vector2(64.68, 2)
+
+[node name="ColorRect" parent="." instance=ExtResource("4_1n3ic")]
+metadata/_edit_lock_ = true
+
+[node name="Player1" parent="." instance=ExtResource("5_lih6r")]
+position = Vector2(433, 848)
+
+[node name="Player2" parent="." instance=ExtResource("5_lih6r")]
+position = Vector2(1438.42, 665.348)
+
+[node name="BoxPickable" parent="." instance=ExtResource("6_upoev")]
+position = Vector2(512, 928)
+side = 1
+
+[node name="Background" parent="." instance=ExtResource("5_stvad")]
+metadata/_edit_lock_ = true
+
+[node name="WaterFloor_Piccola" parent="." instance=ExtResource("6_r0hmf")]
+position = Vector2(1482, 1048)
+
+[node name="WaterFloor" parent="." instance=ExtResource("7_30js2")]
+position = Vector2(485, 1048)
+
+[node name="Platform1" parent="." instance=ExtResource("8_jslhm")]
+position = Vector2(469, 992)
+
+[node name="Platform2" parent="." instance=ExtResource("9_0s8c2")]
+position = Vector2(1440, 768)

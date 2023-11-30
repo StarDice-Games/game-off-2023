@@ -1,0 +1,120 @@
+[gd_scene load_steps=11 format=3 uid="uid://c7lc1cagba60g"]
+
+[ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Obstacle/Water/WaterFloor.gd" id="1_15trh"]
+[ext_resource type="AudioStream" uid="uid://dx0nlgdj7qpo" path="res://Resources/Audio/Effects/sfx_water-plop_small.ogg" id="2_d8a4n"]
+[ext_resource type="Texture2D" uid="uid://bnl6uu5lvfndx" path="res://Resources/Assets/Nuovi_PNG/Livello_acqua.png" id="2_s05gd"]
+[ext_resource type="PackedScene" uid="uid://bu75kel0q2p7r" path="res://Scenes/PlatformerPlayer/DeathComponent/DeathComponent.tscn" id="3_7edu2"]
+[ext_resource type="Texture2D" uid="uid://dmiyigmjeny6d" path="res://Resources/Assets/Oggetti/Acqua_piccola.png" id="4_qy5hn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o47hv"]
+size = Vector2(961, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3fju"]
+size = Vector2(960, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11aq3"]
+size = Vector2(961, 92.5)
+
+[sub_resource type="Animation" id="Animation_g7uk6"]
+resource_name = "water"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Onde_1:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(3, 3, 3, 3),
+"points": PackedFloat32Array(488, -0.7, -44.1024, 0.7, 44.1024, 545.887, -0.375, 0, 0.375, 0, 431.013, -0.25, 0, 0.25, 0, 488, -0.5, -47.7968, 0.5, 47.7968),
+"times": PackedFloat32Array(0, 1.5, 2.8, 4)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Onde_2:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(3, 3, 3, 3),
+"points": PackedFloat32Array(801, -0.375, 0, 0.375, 0, 743, -0.375, 0, 0.375, 0, 854, -0.25, 0, 0.25, 0, 801, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.5, 3, 4)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y2sc1"]
+_data = {
+"water": SubResource("Animation_g7uk6")
+}
+
+[node name="WaterFloor_Piccola" type="StaticBody2D"]
+collision_layer = 64
+collision_mask = 6
+script = ExtResource("1_15trh")
+plopSound = ExtResource("2_d8a4n")
+
+[node name="Acqua" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(-387, -130.325)
+texture = ExtResource("4_qy5hn")
+
+[node name="Control" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -463.0
+offset_top = -208.0
+offset_right = 464.0
+offset_bottom = -1.0
+
+[node name="Onde_1" type="Sprite2D" parent="Control"]
+z_index = -2
+texture_filter = 1
+position = Vector2(443.956, 208)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_s05gd")
+offset = Vector2(0, -54)
+
+[node name="Onde_2" type="Sprite2D" parent="Control"]
+z_index = -2
+texture_filter = 1
+position = Vector2(837.086, 206)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_s05gd")
+offset = Vector2(-476.879, -54)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-30.5, -30)
+shape = SubResource("RectangleShape2D_o47hv")
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 6
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-30, -30)
+rotation = -0.00105078
+shape = SubResource("RectangleShape2D_r3fju")
+metadata/_edit_lock_ = true
+
+[node name="DeathComponent" parent="." instance=ExtResource("3_7edu2")]
+position = Vector2(0, 8)
+scale = Vector2(1, 0.8)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathComponent"]
+position = Vector2(-30.5, -56.25)
+shape = SubResource("RectangleShape2D_11aq3")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_y2sc1")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

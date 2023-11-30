@@ -1,0 +1,180 @@
+[gd_scene load_steps=12 format=3 uid="uid://dvhrt43a8uu5r"]
+
+[ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Pickable/Box/BoxPickable.gd" id="1_1jlfo"]
+[ext_resource type="PackedScene" uid="uid://dnuopb0n063hc" path="res://Scenes/PlatformerPlayer/Pickable/PickupComponent/PickupComponent.tscn" id="2_1lxe1"]
+[ext_resource type="Texture2D" uid="uid://b8lnc811ypq3s" path="res://Resources/Assets/Nuovi_PNG/Box_grande.png" id="2_kpup0"]
+[ext_resource type="Texture2D" uid="uid://bdcw2ur2170nr" path="res://Resources/Assets/Nuovi_PNG/Box_piccola.png" id="3_8rudv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uo74p"]
+size = Vector2(64, 59.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i51mx"]
+size = Vector2(33, 26.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cdgs6"]
+size = Vector2(64, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0n44"]
+size = Vector2(33, 33)
+
+[sub_resource type="Animation" id="Animation_lewg4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Right:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Left:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RightCollision:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -32)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LeftCollision:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -16)]
+}
+
+[sub_resource type="Animation" id="Animation_8ickf"]
+resource_name = "float"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Right:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -15), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Left:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -15), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RightCollision:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -32), Vector2(0, -43), Vector2(0, -32)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LeftCollision:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -16), Vector2(0, -31), Vector2(0, -16)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uae6p"]
+_data = {
+"RESET": SubResource("Animation_lewg4"),
+"float": SubResource("Animation_8ickf")
+}
+
+[node name="BoxPickable" type="CharacterBody2D" groups=["Pickable"]]
+collision_layer = 4
+collision_mask = 71
+script = ExtResource("1_1jlfo")
+
+[node name="Right" type="Sprite2D" parent="."]
+process_mode = 4
+visible = false
+texture_filter = 1
+texture = ExtResource("2_kpup0")
+offset = Vector2(0, -32)
+
+[node name="Left" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("3_8rudv")
+offset = Vector2(0, -16)
+
+[node name="RightCollision" type="CollisionShape2D" parent="."]
+process_mode = 4
+visible = false
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_uo74p")
+disabled = true
+debug_color = Color(0.882353, 0.231373, 0.619608, 0.419608)
+
+[node name="LeftCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_i51mx")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="PickupComponent" parent="." node_paths=PackedStringArray("father", "leftElement", "rightElement", "collisionLeft", "collisionRight") instance=ExtResource("2_1lxe1")]
+father = NodePath("..")
+leftElement = [NodePath("../Left"), NodePath("../LeftCollision"), NodePath("LeftArea")]
+rightElement = [NodePath("../Right"), NodePath("../RightCollision"), NodePath("RightArea")]
+collisionLeft = NodePath("../LeftCollision")
+collisionRight = NodePath("../RightCollision")
+
+[node name="RightArea" type="CollisionShape2D" parent="PickupComponent"]
+process_mode = 4
+visible = false
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_cdgs6")
+disabled = true
+debug_color = Color(0.815686, 0.329412, 0.615686, 0.419608)
+
+[node name="LeftArea" type="CollisionShape2D" parent="PickupComponent"]
+position = Vector2(0, -16.5)
+shape = SubResource("RectangleShape2D_j0n44")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_uae6p")
+}

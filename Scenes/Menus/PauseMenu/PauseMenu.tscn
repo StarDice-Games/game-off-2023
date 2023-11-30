@@ -1,0 +1,129 @@
+[gd_scene load_steps=15 format=3 uid="uid://d3w0vp34bfsu4"]
+
+[ext_resource type="Script" path="res://Scenes/Menus/PauseMenu/PauseMenu.gd" id="1_0vhar"]
+[ext_resource type="Material" uid="uid://bdjvh3cymune7" path="res://Resources/Materials/Unshaded.tres" id="2_2qwo7"]
+[ext_resource type="Texture2D" uid="uid://6hcesrhf7o8e" path="res://Resources/Assets/UI_e_tutorial/popup_ingame.png" id="2_r33si"]
+[ext_resource type="Texture2D" uid="uid://sag6xrkcl1lb" path="res://Resources/Assets/UI_e_tutorial/restart.png" id="4_sa2jo"]
+[ext_resource type="Texture2D" uid="uid://c3ikaexiywa3k" path="res://Resources/Assets/UI_e_tutorial/continue.png" id="4_wu3wi"]
+[ext_resource type="Texture2D" uid="uid://b3fp1apq870f" path="res://Resources/Assets/UI_e_tutorial/restart_hover.png" id="5_fl6qr"]
+[ext_resource type="Texture2D" uid="uid://b8okpbmo7oe8n" path="res://Resources/Assets/UI_e_tutorial/continue_hover.png" id="5_pwmaa"]
+[ext_resource type="Texture2D" uid="uid://dqp2oqc6hol8j" path="res://Resources/Assets/UI_e_tutorial/home.png" id="8_qb5nd"]
+[ext_resource type="Texture2D" uid="uid://b50gej6qh68u3" path="res://Resources/Assets/UI_e_tutorial/home_hover.png" id="9_vnv38"]
+[ext_resource type="Texture2D" uid="uid://c3dbn7f08tcnw" path="res://Resources/Assets/UI_e_tutorial/effect_sound.png" id="10_2waei"]
+[ext_resource type="Texture2D" uid="uid://b8jlmdwctrsc1" path="res://Resources/Assets/UI_e_tutorial/effect_sound_off.png" id="11_w87sh"]
+[ext_resource type="Texture2D" uid="uid://nwlqkq8th72o" path="res://Resources/Assets/UI_e_tutorial/sound.png" id="12_51qku"]
+[ext_resource type="Texture2D" uid="uid://e832etribt31" path="res://Resources/Assets/UI_e_tutorial/sound_off.png" id="14_duysq"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rolu0"]
+light_mode = 1
+
+[node name="PauseMenu" type="Control"]
+light_mask = 2
+z_index = 10
+material = SubResource("CanvasItemMaterial_rolu0")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0vhar")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -498.5
+offset_top = -526.5
+offset_right = 498.5
+offset_bottom = 526.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_r33si")
+
+[node name="Resume" type="TextureButton" parent="Control"]
+material = ExtResource("2_2qwo7")
+layout_mode = 0
+offset_left = 845.0
+offset_top = 500.0
+offset_right = 1149.0
+offset_bottom = 723.0
+focus_neighbor_left = NodePath("../Exit")
+focus_neighbor_top = NodePath("../Music")
+focus_neighbor_right = NodePath("../Restart")
+focus_neighbor_bottom = NodePath("../Restart")
+texture_normal = ExtResource("4_wu3wi")
+texture_hover = ExtResource("5_pwmaa")
+texture_focused = ExtResource("5_pwmaa")
+ignore_texture_size = true
+
+[node name="Restart" type="TextureButton" parent="Control"]
+material = ExtResource("2_2qwo7")
+layout_mode = 0
+offset_left = 1313.0
+offset_top = 825.0
+offset_right = 1412.0
+offset_bottom = 918.0
+focus_neighbor_left = NodePath("../Resume")
+focus_neighbor_top = NodePath("../Sounds")
+texture_normal = ExtResource("4_sa2jo")
+texture_hover = ExtResource("5_fl6qr")
+texture_focused = ExtResource("5_fl6qr")
+ignore_texture_size = true
+
+[node name="Exit" type="TextureButton" parent="Control"]
+material = ExtResource("2_2qwo7")
+layout_mode = 0
+offset_left = 562.0
+offset_top = 123.0
+offset_right = 651.0
+offset_bottom = 214.0
+texture_normal = ExtResource("8_qb5nd")
+texture_hover = ExtResource("9_vnv38")
+texture_focused = ExtResource("9_vnv38")
+ignore_texture_size = true
+
+[node name="Music" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 1186.0
+offset_top = 133.0
+offset_right = 1276.0
+offset_bottom = 223.0
+toggle_mode = true
+texture_normal = ExtResource("10_2waei")
+texture_pressed = ExtResource("11_w87sh")
+ignore_texture_size = true
+
+[node name="Sounds" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 1306.0
+offset_top = 133.0
+offset_right = 1397.0
+offset_bottom = 224.0
+toggle_mode = true
+texture_normal = ExtResource("12_51qku")
+texture_pressed = ExtResource("14_duysq")
+ignore_texture_size = true
+
+[connection signal="draw" from="Control" to="." method="_on_control_draw"]
+[connection signal="focus_entered" from="Control/Resume" to="." method="_on_button_focus"]
+[connection signal="pressed" from="Control/Resume" to="." method="_on_resume_pressed"]
+[connection signal="focus_entered" from="Control/Restart" to="." method="_on_button_focus"]
+[connection signal="pressed" from="Control/Restart" to="." method="_on_restart_pressed"]
+[connection signal="focus_entered" from="Control/Exit" to="." method="_on_button_focus"]
+[connection signal="pressed" from="Control/Exit" to="." method="_on_exit_pressed"]
+[connection signal="focus_entered" from="Control/Music" to="." method="_on_button_focus"]
+[connection signal="toggled" from="Control/Music" to="." method="_on_music_toggled"]
+[connection signal="focus_entered" from="Control/Sounds" to="." method="_on_button_focus"]
+[connection signal="toggled" from="Control/Sounds" to="." method="_on_sounds_toggled"]

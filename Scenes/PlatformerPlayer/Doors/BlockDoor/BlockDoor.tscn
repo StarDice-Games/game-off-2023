@@ -1,0 +1,110 @@
+[gd_scene load_steps=9 format=3 uid="uid://c3htusdfespqa"]
+
+[ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Doors/BlockDoor/BlockDoor.gd" id="1_068fd"]
+[ext_resource type="Texture2D" uid="uid://cg1ymalfuxac" path="res://Resources/Images/New Piskel.png" id="1_80jhh"]
+[ext_resource type="Script" path="res://Scenes/PlatformerPlayer/TriggerComponent/ReceiverComponent.gd" id="2_1enko"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3jm36"]
+
+[sub_resource type="Animation" id="Animation_14cll"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.5), Vector2(1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fullyOpen"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_8h5bf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_o5xlo"]
+resource_name = "close"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 0), Vector2(1, 0.5), Vector2(1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fullyClosed"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_il48f"]
+_data = {
+"RESET": SubResource("Animation_8h5bf"),
+"close": SubResource("Animation_o5xlo"),
+"open": SubResource("Animation_14cll")
+}
+
+[node name="BlockDoor" type="StaticBody2D"]
+collision_mask = 7
+script = ExtResource("1_068fd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.333333, 0.333333, 0.333333, 1)
+texture = ExtResource("1_80jhh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3jm36")
+
+[node name="ReceiverComponent" type="Node2D" parent="."]
+script = ExtResource("2_1enko")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_il48f")
+}
+
+[connection signal="disabled" from="ReceiverComponent" to="." method="_on_receiver_component_disabled"]
+[connection signal="enabled" from="ReceiverComponent" to="." method="_on_receiver_component_enabled"]

@@ -1,0 +1,264 @@
+[gd_scene load_steps=17 format=3 uid="uid://b50r2cbdgb676"]
+
+[ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Pickable/WaterContainer/WaterContainer.gd" id="1_886g2"]
+[ext_resource type="PackedScene" uid="uid://dnuopb0n063hc" path="res://Scenes/PlatformerPlayer/Pickable/PickupComponent/PickupComponent.tscn" id="1_b3ec7"]
+[ext_resource type="Texture2D" uid="uid://dmklscn3rq4av" path="res://Resources/Assets/Oggetti/Annaffiatoio_piccolo.png" id="2_3ft8s"]
+[ext_resource type="AudioStream" uid="uid://dvmnrnnjisyw1" path="res://Resources/Audio/Effects/sfx_watercontainer_small.ogg" id="2_hblnj"]
+[ext_resource type="AudioStream" uid="uid://cxk6qma6jtpx3" path="res://Resources/Audio/Effects/sfx_watercontainer_big.ogg" id="2_ysuye"]
+[ext_resource type="Texture2D" uid="uid://0wwso3gtjpid" path="res://Resources/Assets/Nuovi_PNG/Annaffiatoio_grande.png" id="3_ebwan"]
+[ext_resource type="Texture2D" uid="uid://b210fk8xybtqq" path="res://Resources/Assets/Nuovi_PNG/Goccia.png" id="5_dn3ek"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8pf4b"]
+size = Vector2(48.5, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_djtta"]
+size = Vector2(62, 70)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qr3wd"]
+size = Vector2(49, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nsq6e"]
+size = Vector2(74, 70)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7hbax"]
+size = Vector2(53.5, 190.75)
+
+[sub_resource type="Animation" id="Animation_uou5i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Left:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Right:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprinkle:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_f8gge"]
+resource_name = "rotate"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Left:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.93026]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Right:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.74002]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprinkle:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_wn7qo"]
+resource_name = "rotate_flip"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Right:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.74002]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Left:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.74002]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprinkle:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bdl37"]
+_data = {
+"RESET": SubResource("Animation_uou5i"),
+"rotate": SubResource("Animation_f8gge"),
+"rotate_flip": SubResource("Animation_wn7qo")
+}
+
+[node name="WaterContainer" type="CharacterBody2D" groups=["Pickable", "Water"]]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_886g2")
+side = 1
+wateringSmall = ExtResource("2_hblnj")
+wateringBig = ExtResource("2_ysuye")
+
+[node name="Left" type="Sprite2D" parent="."]
+process_mode = 4
+visible = false
+texture_filter = 1
+texture = ExtResource("2_3ft8s")
+offset = Vector2(0, -20)
+
+[node name="Right" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("3_ebwan")
+offset = Vector2(0, -39)
+
+[node name="LefiCollision" type="CollisionShape2D" parent="."]
+process_mode = 4
+visible = false
+position = Vector2(-12.75, -18)
+shape = SubResource("RectangleShape2D_8pf4b")
+disabled = true
+
+[node name="RightCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -35)
+shape = SubResource("RectangleShape2D_djtta")
+debug_color = Color(0.741176, 0.282353, 0.917647, 0.419608)
+
+[node name="PickupComponent" parent="." node_paths=PackedStringArray("father", "leftElement", "rightElement", "collisionLeft", "collisionRight") groups=["Water"] instance=ExtResource("1_b3ec7")]
+position = Vector2(16.5, -19.5)
+currentSide = 1
+father = NodePath("..")
+leftElement = [NodePath("../Left"), NodePath("../LefiCollision"), NodePath("LeftArea"), NodePath("../Sprinkle/Sprinkle_left")]
+rightElement = [NodePath("../Right"), NodePath("../RightCollision"), NodePath("RightArea"), NodePath("../Sprinkle/Sprinkle_right")]
+collisionLeft = NodePath("../LefiCollision")
+collisionRight = NodePath("../RightCollision")
+
+[node name="LeftArea" type="CollisionShape2D" parent="PickupComponent"]
+process_mode = 4
+visible = false
+position = Vector2(-29, 2.5)
+shape = SubResource("RectangleShape2D_qr3wd")
+disabled = true
+
+[node name="RightArea" type="CollisionShape2D" parent="PickupComponent"]
+position = Vector2(-23.5, -14.5)
+shape = SubResource("RectangleShape2D_nsq6e")
+debug_color = Color(0.831373, 0.180392, 0.843137, 0.419608)
+
+[node name="Sprinkle" type="Area2D" parent="." groups=["Water"]]
+visible = false
+collision_layer = 4
+collision_mask = 5
+
+[node name="Sprinkle_right" type="CollisionShape2D" parent="Sprinkle"]
+position = Vector2(59.3, 27.045)
+scale = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_7hbax")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Sprinkle/Sprinkle_right"]
+texture_filter = 1
+position = Vector2(3, -20)
+amount = 5
+lifetime = 2.0
+fixed_fps = 30
+local_coords = true
+texture = ExtResource("5_dn3ek")
+direction = Vector2(-50, 20)
+gravity = Vector2(0, 40)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+linear_accel_min = 2.0
+linear_accel_max = 2.0
+color = Color(0, 0.690196, 0.803922, 1)
+
+[node name="Sprinkle_left" type="CollisionShape2D" parent="Sprinkle"]
+process_mode = 4
+visible = false
+position = Vector2(27.805, 19.19)
+scale = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_7hbax")
+disabled = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Sprinkle/Sprinkle_left"]
+texture_filter = 1
+position = Vector2(3, -20)
+amount = 5
+lifetime = 2.0
+fixed_fps = 30
+local_coords = true
+texture = ExtResource("5_dn3ek")
+direction = Vector2(-50, 20)
+gravity = Vector2(0, 40)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+linear_accel_min = 2.0
+linear_accel_max = 2.0
+color = Color(0, 0.690196, 0.803922, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bdl37")
+}
+
+[node name="stopMusic" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="timeout" from="stopMusic" to="." method="_on_stop_music_timeout"]

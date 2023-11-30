@@ -1,0 +1,163 @@
+[gd_scene load_steps=17 format=3 uid="uid://dqijkmgdh5ulw"]
+
+[ext_resource type="Script" path="res://Scenes/Menus/MainMenu/MainMenu.gd" id="1_qdm7w"]
+[ext_resource type="Texture2D" uid="uid://dpkm83g44toxx" path="res://Resources/Assets/UI_e_tutorial/Background_home.jpg" id="2_rraye"]
+[ext_resource type="Texture2D" uid="uid://qghasdrawflw" path="res://Resources/Assets/UI_e_tutorial/Start.png" id="3_5dsbo"]
+[ext_resource type="Texture2D" uid="uid://cqqo6a8blq0qy" path="res://Resources/Assets/UI_e_tutorial/exit.png" id="3_ncqee"]
+[ext_resource type="Texture2D" uid="uid://c3dbn7f08tcnw" path="res://Resources/Assets/UI_e_tutorial/effect_sound.png" id="4_76x7w"]
+[ext_resource type="Texture2D" uid="uid://ocose2x1yj3x" path="res://Resources/Assets/UI_e_tutorial/Start_hover.png" id="4_h0rnt"]
+[ext_resource type="Texture2D" uid="uid://c34chwc6x3s51" path="res://Resources/Assets/UI_e_tutorial/levels.png" id="5_fdt5v"]
+[ext_resource type="Texture2D" uid="uid://nwlqkq8th72o" path="res://Resources/Assets/UI_e_tutorial/sound.png" id="5_v4mkc"]
+[ext_resource type="Texture2D" uid="uid://o4x6muexmdn7" path="res://Resources/Assets/UI_e_tutorial/levels_hover.png" id="6_kntwn"]
+[ext_resource type="Texture2D" uid="uid://ckl6r43cb4uoc" path="res://Resources/Assets/UI_e_tutorial/exit_hover.png" id="8_7kb3s"]
+[ext_resource type="Texture2D" uid="uid://b8jlmdwctrsc1" path="res://Resources/Assets/UI_e_tutorial/effect_sound_off.png" id="10_slpo8"]
+[ext_resource type="Texture2D" uid="uid://e832etribt31" path="res://Resources/Assets/UI_e_tutorial/sound_off.png" id="12_rhahs"]
+[ext_resource type="Texture2D" uid="uid://dbfqx3kxallsy" path="res://Resources/Assets/UI_e_tutorial/credits.png" id="13_51kdt"]
+[ext_resource type="Texture2D" uid="uid://bj46y44y38hld" path="res://Resources/Assets/UI_e_tutorial/credits_hover.png" id="14_hsski"]
+[ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="15_jotjt"]
+[ext_resource type="PackedScene" uid="uid://c6oxlwfitiwcd" path="res://Scenes/PlatformerPlayer/Obstacle/statiWall.tscn" id="16_03557"]
+
+[node name="MainMenu" type="Control"]
+z_index = 9
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qdm7w")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="Control2" type="Control" parent="."]
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control2"]
+layout_mode = 0
+offset_right = 10603.0
+offset_bottom = 5521.0
+scale = Vector2(0.181089, 0.195609)
+texture = ExtResource("2_rraye")
+
+[node name="NewGame" type="TextureButton" parent="Control2"]
+layout_mode = 0
+offset_left = 790.0
+offset_top = 355.0
+offset_right = 963.0
+offset_bottom = 395.0
+scale = Vector2(1.99241, 1.81114)
+focus_neighbor_top = NodePath("../Exit")
+focus_neighbor_bottom = NodePath("../LevelSelect")
+focus_next = NodePath("../LevelSelect")
+focus_previous = NodePath("../Exit")
+texture_normal = ExtResource("3_5dsbo")
+texture_hover = ExtResource("4_h0rnt")
+texture_focused = ExtResource("4_h0rnt")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="LevelSelect" type="TextureButton" parent="Control2"]
+layout_mode = 0
+offset_left = 792.0
+offset_top = 455.0
+offset_right = 965.0
+offset_bottom = 499.0
+scale = Vector2(1.99241, 1.81114)
+texture_normal = ExtResource("5_fdt5v")
+texture_hover = ExtResource("6_kntwn")
+texture_focused = ExtResource("6_kntwn")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Exit" type="TextureButton" parent="Control2"]
+layout_mode = 0
+offset_left = 544.0
+offset_top = 143.0
+offset_right = 591.0
+offset_bottom = 187.0
+scale = Vector2(1.7161, 1.81114)
+focus_neighbor_left = NodePath("../TextureSounds")
+focus_neighbor_top = NodePath("../TextureCredits")
+focus_neighbor_right = NodePath("../TextureMusic")
+focus_neighbor_bottom = NodePath("../NewGame")
+texture_normal = ExtResource("3_ncqee")
+texture_hover = ExtResource("8_7kb3s")
+texture_focused = ExtResource("8_7kb3s")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureMusic" type="TextureButton" parent="Control2"]
+layout_mode = 0
+offset_left = 1176.0
+offset_top = 143.0
+offset_right = 1264.0
+offset_bottom = 231.0
+toggle_mode = true
+texture_normal = ExtResource("4_76x7w")
+texture_pressed = ExtResource("10_slpo8")
+
+[node name="TextureSounds" type="TextureButton" parent="Control2"]
+layout_mode = 0
+offset_left = 1288.0
+offset_top = 143.0
+offset_right = 1376.0
+offset_bottom = 231.0
+focus_neighbor_left = NodePath("../TextureMusic")
+focus_neighbor_right = NodePath("../Exit")
+focus_neighbor_bottom = NodePath("../NewGame")
+toggle_mode = true
+texture_normal = ExtResource("5_v4mkc")
+texture_pressed = ExtResource("12_rhahs")
+
+[node name="TextureCredits" type="TextureButton" parent="Control2"]
+layout_mode = 0
+offset_left = 792.0
+offset_top = 563.0
+offset_right = 1136.0
+offset_bottom = 643.0
+focus_neighbor_left = NodePath("../Exit")
+focus_neighbor_top = NodePath("../LevelSelect")
+focus_neighbor_right = NodePath("../TextureMusic")
+focus_neighbor_bottom = NodePath("../NewGame")
+texture_normal = ExtResource("13_51kdt")
+texture_hover = ExtResource("14_hsski")
+texture_focused = ExtResource("14_hsski")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="PlatPlayer" parent="Control2" instance=ExtResource("15_jotjt")]
+position = Vector2(672, 775)
+motion_mode = 1
+
+[node name="PlatPlayer2" parent="Control2" instance=ExtResource("15_jotjt")]
+position = Vector2(1232, 807)
+motion_mode = 1
+side = 1
+
+[node name="StaticBody2D" parent="Control2" instance=ExtResource("16_03557")]
+position = Vector2(944, 887)
+scale = Vector2(23.96, 1)
+
+[connection signal="draw" from="." to="." method="_on_draw"]
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="focus_entered" from="Control2/NewGame" to="." method="_on_button_focus"]
+[connection signal="pressed" from="Control2/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="focus_entered" from="Control2/LevelSelect" to="." method="_on_button_focus"]
+[connection signal="pressed" from="Control2/LevelSelect" to="." method="_on_level_select_pressed"]
+[connection signal="focus_entered" from="Control2/Exit" to="." method="_on_button_focus"]
+[connection signal="pressed" from="Control2/Exit" to="." method="_on_exit_pressed"]
+[connection signal="focus_entered" from="Control2/TextureMusic" to="." method="_on_button_focus"]
+[connection signal="toggled" from="Control2/TextureMusic" to="." method="_on_music_toggled"]
+[connection signal="focus_entered" from="Control2/TextureSounds" to="." method="_on_button_focus"]
+[connection signal="toggled" from="Control2/TextureSounds" to="." method="_on_sounds_toggled"]
+[connection signal="focus_entered" from="Control2/TextureCredits" to="." method="_on_button_focus"]
+[connection signal="pressed" from="Control2/TextureCredits" to="." method="_on_texture_credits_pressed"]

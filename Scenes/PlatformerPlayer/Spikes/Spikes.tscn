@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://do88ox8hahe8i"]
+
+[ext_resource type="Texture2D" uid="uid://c2jff778f22ug" path="res://Resources/Assets/Nuovi_PNG/Punta_grande.png" id="1_lgdwe"]
+[ext_resource type="PackedScene" uid="uid://bu75kel0q2p7r" path="res://Scenes/PlatformerPlayer/DeathComponent/DeathComponent.tscn" id="2_qo210"]
+
+[node name="Spikes" type="StaticBody2D"]
+collision_mask = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_lgdwe")
+offset = Vector2(0, -33)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(1, -39)
+rotation = 0.261799
+polygon = PackedVector2Array(-5.57389, -28.5295, -15.279, 43.4345, 28.1877, 31.7876)
+
+[node name="DeathComponent" parent="." instance=ExtResource("2_qo210")]
+process_mode = 4
+position = Vector2(3.8147e-06, -32)
+scale = Vector2(1.6, 1.6)

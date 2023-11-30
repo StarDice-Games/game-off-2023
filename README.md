@@ -18,6 +18,7 @@ If you want to open, edit or see the Godot project:
 ### Team
 **Programmers**
 * Simone Guidi: https://github.com/irafunesta / https://irafunesta.itch.io
+* insane: https://github.com/waliente / https://helloarkbits.itch.io
 * Marco Chierchia: https://github.com/waliente / https://helloarkbits.itch.io
 * John Amiel Hilario: https://github.com/JohnAmielHilario / 
 

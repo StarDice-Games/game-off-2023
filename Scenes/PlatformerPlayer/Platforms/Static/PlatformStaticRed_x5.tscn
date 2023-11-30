@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddfaeavjffgx6"]
+
+[ext_resource type="Texture2D" uid="uid://yansviarflov" path="res://Resources/Assets/Nuovi_PNG/Blocco_5_rosso.png" id="1_iqh7r"]
+
+[node name="PlatformStaticRed_x5" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_iqh7r")
+offset = Vector2(0, -32)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-150, -61, -158, -55, -158, -11, -150, -4, 151, -4, 158, -13, 158, -53, 150, -61)

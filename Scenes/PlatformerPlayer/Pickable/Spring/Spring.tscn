@@ -1,0 +1,145 @@
+[gd_scene load_steps=14 format=3 uid="uid://pd5e2y2wk2ql"]
+
+[ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Pickable/Spring/Spring.gd" id="1_8qnpb"]
+[ext_resource type="PackedScene" uid="uid://dnuopb0n063hc" path="res://Scenes/PlatformerPlayer/Pickable/PickupComponent/PickupComponent.tscn" id="1_ex5wo"]
+[ext_resource type="Texture2D" uid="uid://c05dkc6wqg4pe" path="res://Resources/Assets/Oggetti/Molla.png" id="2_5vik6"]
+[ext_resource type="Texture2D" uid="uid://b5x1xveqvie3f" path="res://Resources/Assets/Nuovi_PNG/Molla_piccola.png" id="2_iu07t"]
+[ext_resource type="AudioStream" uid="uid://di6uqfo1c4umh" path="res://Resources/Audio/Effects/sfx_spring_small.ogg" id="2_p37q8"]
+[ext_resource type="AudioStream" uid="uid://bqlvwvorf77at" path="res://Resources/Audio/Effects/sfx_spring_big.ogg" id="3_tovva"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygvuk"]
+size = Vector2(20, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x8dih"]
+size = Vector2(48, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cb7wd"]
+size = Vector2(20, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4qcdh"]
+size = Vector2(48, 69)
+
+[sub_resource type="Animation" id="Animation_u42vm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Left:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Right:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dlmrm"]
+resource_name = "push"
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Left:scale:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(3, 3, 3),
+"points": PackedFloat32Array(1, -0.025, 0, 0.025, 0, 0.5, -0.025, 0, 0.025, 0, 1, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0, 0.1, 0.3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Right:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(3, 3, 3),
+"points": PackedFloat32Array(1, -0.025, 0, 0.025, 0, 0.5, -0.025, 0, 0.025, 0, 1, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0, 0.1, 0.3)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1er2t"]
+_data = {
+"RESET": SubResource("Animation_u42vm"),
+"push": SubResource("Animation_dlmrm")
+}
+
+[node name="Spring" type="CharacterBody2D" groups=["Pickable"]]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_8qnpb")
+JUMP_FORCE = -400
+jumpSoundBig = ExtResource("3_tovva")
+jumpSoundSmall = ExtResource("2_p37q8")
+
+[node name="Left" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(9, -0.207445)
+texture = ExtResource("2_iu07t")
+offset = Vector2(1, -24)
+
+[node name="Right" type="Sprite2D" parent="."]
+process_mode = 4
+visible = false
+texture_filter = 1
+position = Vector2(0, -0.24252)
+texture = ExtResource("2_5vik6")
+offset = Vector2(0, -32)
+
+[node name="LeftCollision" type="CollisionShape2D" parent="."]
+position = Vector2(10, -20.5)
+shape = SubResource("RectangleShape2D_ygvuk")
+
+[node name="RightCollision" type="CollisionShape2D" parent="."]
+process_mode = 4
+visible = false
+position = Vector2(0, -27)
+shape = SubResource("RectangleShape2D_x8dih")
+disabled = true
+
+[node name="PickupComponent" parent="." node_paths=PackedStringArray("father", "leftElement", "rightElement", "collisionLeft", "collisionRight") instance=ExtResource("1_ex5wo")]
+position = Vector2(10, -23.5)
+father = NodePath("..")
+leftElement = [NodePath("../Left"), NodePath("../LeftCollision"), NodePath("AreaLeft")]
+rightElement = [NodePath("../Right"), NodePath("../RightCollision"), NodePath("AreaRight")]
+collisionLeft = NodePath("../LeftCollision")
+collisionRight = NodePath("../RightCollision")
+
+[node name="AreaLeft" type="CollisionShape2D" parent="PickupComponent"]
+texture_filter = 1
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_cb7wd")
+debug_color = Color(0.803922, 0.266667, 0.8, 0.419608)
+
+[node name="AreaRight" type="CollisionShape2D" parent="PickupComponent"]
+process_mode = 4
+visible = false
+position = Vector2(-10, -9.5)
+shape = SubResource("RectangleShape2D_4qcdh")
+disabled = true
+debug_color = Color(0.866667, 0.345098, 0.207843, 0.419608)
+
+[node name="stopMusic" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1er2t")
+}
+
+[connection signal="body_entered" from="PickupComponent" to="." method="_on_pickup_component_body_entered"]
+[connection signal="body_shape_entered" from="PickupComponent" to="." method="_on_pickup_component_body_shape_entered"]
+[connection signal="timeout" from="stopMusic" to="." method="_on_stop_music_timeout"]
