@@ -162,9 +162,9 @@ levelRes = ExtResource("11_texmv")
 
 [node name="LevelSquare8" parent="." instance=ExtResource("5_5ld3b")]
 layout_mode = 1
-offset_left = 917.0
+offset_left = 922.0
 offset_top = 560.0
-offset_right = 1001.0
+offset_right = 1006.0
 offset_bottom = 674.0
 focus_neighbor_left = NodePath("../LevelSquare7")
 focus_neighbor_top = NodePath("../LevelSquare3")
