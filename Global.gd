@@ -43,6 +43,7 @@ var goals : Array[Node2D] = [null, null]
 @onready var bgInGameMusic2 : AudioStreamPlayer = $BigMusic #Big
 @onready var audioAnimator : AnimationPlayer = $AnimationPlayer
 
+
 var timerCallback : Callable
 var nodeInstance = null
 var next_scene = 1
@@ -291,6 +292,10 @@ func processGame(delta):
 	if levelComplete:
 		print("Level is complete !!!", scenes.size())
 		currentGameState = GameState.LEVEL_COMPLETE
+		
+		for player in players:
+			player.manageWaitLeft(false)
+			player.manageWaitRight(false)
 		
 		if sfxMuted:
 			loadNextLevel()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cqnl53v0iei8b"]
+[gd_scene load_steps=23 format=3 uid="uid://cqnl53v0iei8b"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/PlatPlayer.gd" id="1_go3e0"]
 [ext_resource type="Material" uid="uid://bdjvh3cymune7" path="res://Resources/Materials/Unshaded.tres" id="2_4bwpy"]
@@ -14,6 +14,8 @@
 [ext_resource type="AudioStream" uid="uid://c61l7m8ktmjdj" path="res://Resources/Audio/Effects/sfx_release_big.ogg" id="5_b0fdw"]
 [ext_resource type="AudioStream" uid="uid://cyy2umbjtof2e" path="res://Resources/Audio/Effects/sfx_pickup_small.ogg" id="7_a3o6d"]
 [ext_resource type="AudioStream" uid="uid://dugloowaxfw0h" path="res://Resources/Audio/Effects/sfx_release_small.ogg" id="8_272ec"]
+[ext_resource type="Texture2D" uid="uid://kn16efp1pen4" path="res://Resources/Assets/UI_e_tutorial/Fumetto_attesa_blu.png" id="15_lptp7"]
+[ext_resource type="Texture2D" uid="uid://ddumeh4ssdi64" path="res://Resources/Assets/UI_e_tutorial/Fumetto_attesa_rosso.png" id="16_fsh13"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8nqjx"]
 radius = 23.0
@@ -144,6 +146,15 @@ collisionLeft = NodePath("../LeftCollision")
 collisionRight = NodePath("../RightCollision")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="WaitLeft" type="Sprite2D" parent="."]
+position = Vector2(-56, -151)
+texture = ExtResource("15_lptp7")
+
+[node name="WaitRight" type="Sprite2D" parent="."]
+position = Vector2(39, -109)
+texture = ExtResource("16_fsh13")
+flip_h = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

@@ -45,6 +45,9 @@ var jumpAnimationEnd = false
 
 @onready var audioPlayer : AudioStreamPlayer = $Sounds/Death
 
+@onready var thinkLeft : Sprite2D = $WaitLeft
+@onready var thinkRight : Sprite2D = $WaitRight
+
 signal died
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -60,6 +63,21 @@ func _ready():
 	jumpAnimationEnd = true
 	
 	holdObjectAnimation(false)
+	
+	thinkLeft.hide()
+	thinkRight.hide()
+
+func manageWaitLeft(state):
+	manageNode(thinkLeft,state)
+
+func manageWaitRight(state):
+	manageNode(thinkRight,state)
+
+func manageNode(node, state):
+	if state:
+		node.show()
+	else:
+		node.hide()
 
 func animateIdle():
 	match side:
@@ -289,6 +307,9 @@ func _on_area_2d_area_entered(area):
 				"Dividers":
 					print("Hitting devider")
 					isHittingDivider = true
+					return
+				"Goals":
+					print("On Goal")
 					return
 				_ :
 					collindingNode = null

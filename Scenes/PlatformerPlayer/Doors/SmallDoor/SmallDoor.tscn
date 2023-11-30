@@ -11,6 +11,20 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a46u8"]
 size = Vector2(20, 64)
 
+[sub_resource type="Animation" id="Animation_qdsie"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite_Porta_Chiusa:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.625, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
 [sub_resource type="Animation" id="Animation_wj3ie"]
 resource_name = "open"
 length = 0.5
@@ -34,20 +48,6 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(0.65625, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
-[sub_resource type="Animation" id="Animation_qdsie"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Sprite_Porta_Chiusa:scale:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.625, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 

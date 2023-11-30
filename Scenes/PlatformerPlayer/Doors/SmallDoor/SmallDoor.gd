@@ -79,10 +79,13 @@ func _on_goal_body_entered(body):
 	if $Goal.active:
 		if body is PlatPlayer:
 			$Goal.achieved = true
+			body.manageWaitRight(true)
 	pass # Replace with function body.
 
 
 func _on_goal_body_exited(body):
 	print("Goal exit")
 	$Goal.achieved = false
+	if body is PlatPlayer:
+		body.manageWaitRight(false)
 	pass # Replace with function body.
