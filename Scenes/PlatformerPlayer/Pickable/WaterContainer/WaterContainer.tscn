@@ -18,7 +18,7 @@ size = Vector2(62, 70)
 size = Vector2(49, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nsq6e"]
-size = Vector2(74, 70)
+size = Vector2(88, 70)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7hbax"]
 size = Vector2(53.5, 190.75)
@@ -198,7 +198,7 @@ shape = SubResource("RectangleShape2D_qr3wd")
 disabled = true
 
 [node name="RightArea" type="CollisionShape2D" parent="PickupComponent"]
-position = Vector2(-23.5, -14.5)
+position = Vector2(-16.5, -14.5)
 shape = SubResource("RectangleShape2D_nsq6e")
 debug_color = Color(0.831373, 0.180392, 0.843137, 0.419608)
 

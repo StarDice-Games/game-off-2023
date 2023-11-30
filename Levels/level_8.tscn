@@ -9,13 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://b8upryncqwmc6" path="res://Scenes/PlatformerPlayer/Doors/SmallDoor/SmallDoor.tscn" id="11_sth3h"]
 [ext_resource type="PackedScene" uid="uid://bwwry4wow68b6" path="res://Scenes/PlatformerPlayer/Obstacle/Fire/Fire.tscn" id="12_sqht7"]
 [ext_resource type="PackedScene" uid="uid://phjy1geq4nek" path="res://Scenes/PlatformerPlayer/Platforms/Platform1/Platform2.tscn" id="13_7i2k0"]
+[ext_resource type="PackedScene" uid="uid://bm6c2dprd5k1l" path="res://Scenes/PlatformerPlayer/Platforms/DisappearPlatform2/DisapperaPlatform2_blue.tscn" id="14_b6lec"]
 [ext_resource type="PackedScene" uid="uid://bc4tsc83nd2al" path="res://Scenes/PlatformerPlayer/PressurePlates/PressurePlate1.tscn" id="14_sp555"]
 [ext_resource type="PackedScene" uid="uid://c8qbn2xe7w0yv" path="res://Scenes/PlatformerPlayer/Doors/BigDoor/BigDoor.tscn" id="15_qjrpe"]
 [ext_resource type="PackedScene" uid="uid://ddfaeavjffgx6" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x5.tscn" id="16_pm71b"]
 [ext_resource type="PackedScene" uid="uid://c0yejb6v7hqpy" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x2.tscn" id="17_7gvvk"]
 [ext_resource type="PackedScene" uid="uid://din1h8ql506vb" path="res://Scenes/Background.tscn" id="18_5ij66"]
 [ext_resource type="PackedScene" uid="uid://dn8ylngmbs0mt" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x2.tscn" id="18_qp5cu"]
-[ext_resource type="PackedScene" uid="uid://sn8oy4jcubwe" path="res://Scenes/PlatformerPlayer/Platforms/DisappearPlatform1/DisapperaPlatform1.tscn" id="19_ve8ur"]
 [ext_resource type="PackedScene" uid="uid://dc601pwyjee1" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x5.tscn" id="19_wc13e"]
 [ext_resource type="PackedScene" uid="uid://cxjw8tk4kep1p" path="res://Scenes/PlatformerPlayer/Keys/Key01/Key01.tscn" id="20_cuqwu"]
 [ext_resource type="Texture2D" uid="uid://sbtcujloclhi" path="res://Resources/Assets/Archivio_segni/segni_freccia_2.png" id="20_ylorw"]
@@ -115,14 +115,6 @@ push_force = 50
 [node name="Platforms" type="Node2D" parent="LevelDesign_Blue"]
 z_index = -1
 
-[node name="DisapperaPlatform1" parent="LevelDesign_Blue/Platforms" instance=ExtResource("19_ve8ur")]
-z_index = -1
-position = Vector2(1600, 732)
-
-[node name="DisapperaPlatform2" parent="LevelDesign_Blue/Platforms" instance=ExtResource("19_ve8ur")]
-z_index = -1
-position = Vector2(1470, 672)
-
 [node name="PlatformStaticBlue_x2" parent="LevelDesign_Blue/Platforms" instance=ExtResource("18_qp5cu")]
 position = Vector2(1467, 432)
 
@@ -166,6 +158,12 @@ scale = Vector2(1, -1)
 
 [node name="LeafPlatform10" parent="LevelDesign_Blue/Platforms" instance=ExtResource("8_p5xca")]
 position = Vector2(1357, 443)
+
+[node name="DisapperaPlatform2" parent="LevelDesign_Blue/Platforms" instance=ExtResource("14_b6lec")]
+position = Vector2(1469, 674)
+
+[node name="DisapperaPlatform3" parent="LevelDesign_Blue/Platforms" instance=ExtResource("14_b6lec")]
+position = Vector2(1602, 728)
 
 [node name="Objectives" type="Node2D" parent="LevelDesign_Blue"]
 z_index = -1

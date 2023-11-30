@@ -327,7 +327,7 @@ position = Vector2(1072, 784)
 position = Vector2(1856, 448)
 
 [node name="BoxPickable6" parent="LevelDesign_Blue/Pickables" instance=ExtResource("6_vo1ox")]
-position = Vector2(1344, 624)
+position = Vector2(1336, 624)
 
 [node name="Player2" parent="LevelDesign_Blue" instance=ExtResource("5_11chb")]
 z_index = -1

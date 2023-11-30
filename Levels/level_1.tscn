@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://n08gswe6qeoa"]
+[gd_scene load_steps=19 format=3 uid="uid://n08gswe6qeoa"]
 
 [ext_resource type="PackedScene" uid="uid://dvhrt43a8uu5r" path="res://Scenes/PlatformerPlayer/Pickable/Box/BoxPickable.tscn" id="3_fb0xc"]
 [ext_resource type="Texture2D" uid="uid://ce6wqv6fwfmsg" path="res://Resources/Assets/Tutorial/Move_direction_tutorial.png" id="4_pff5u"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dc601pwyjee1" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x5.tscn" id="15_4oelk"]
 [ext_resource type="PackedScene" uid="uid://din1h8ql506vb" path="res://Scenes/Background.tscn" id="16_58n5x"]
 [ext_resource type="Texture2D" uid="uid://dkncjjtpcesun" path="res://Resources/Assets/Upd_Assets/Exit_right.png" id="17_hvh5o"]
+[ext_resource type="Texture2D" uid="uid://npf8k0usx5oy" path="res://Resources/Assets/Tutorial/pause_tutorial.png" id="18_21jci"]
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="18_nyfm7"]
 [ext_resource type="PackedScene" uid="uid://cxjw8tk4kep1p" path="res://Scenes/PlatformerPlayer/Keys/Key01/Key01.tscn" id="19_f4ke7"]
 [ext_resource type="PackedScene" uid="uid://6a1c38prt1a4" path="res://Scenes/PlatformerPlayer/Buttons/Button1/Button01.tscn" id="20_dexti"]
@@ -36,6 +37,12 @@ polygon = PackedVector2Array(10.436, 2.5, 18.3828, 3.99999, 29.7001, 4.5, 29.638
 
 [node name="Background" parent="." instance=ExtResource("16_58n5x")]
 metadata/_edit_lock_ = true
+
+[node name="PauseTutorial" type="Sprite2D" parent="Background"]
+z_index = -1
+position = Vector2(489, 104)
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("18_21jci")
 
 [node name="MoveTutorial" type="Sprite2D" parent="Background"]
 z_index = -1
@@ -119,7 +126,7 @@ position = Vector2(672, 275)
 side = 1
 
 [node name="Player1" parent="LevelDesign_Red" instance=ExtResource("18_nyfm7")]
-position = Vector2(183, 922)
+position = Vector2(178, 919)
 scale = Vector2(0.75, 0.75)
 AIR_SPEED = 150.0
 JUMP_VELOCITY = -430.0
