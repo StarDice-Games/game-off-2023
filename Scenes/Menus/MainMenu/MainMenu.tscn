@@ -50,10 +50,10 @@ texture = ExtResource("2_rraye")
 
 [node name="NewGame" type="TextureButton" parent="Control2"]
 layout_mode = 0
-offset_left = 792.0
-offset_top = 319.0
-offset_right = 965.0
-offset_bottom = 359.0
+offset_left = 790.0
+offset_top = 355.0
+offset_right = 963.0
+offset_bottom = 395.0
 scale = Vector2(1.99241, 1.81114)
 focus_neighbor_top = NodePath("../Exit")
 focus_neighbor_bottom = NodePath("../LevelSelect")
@@ -121,9 +121,9 @@ texture_pressed = ExtResource("12_rhahs")
 [node name="TextureCredits" type="TextureButton" parent="Control2"]
 layout_mode = 0
 offset_left = 792.0
-offset_top = 591.0
+offset_top = 563.0
 offset_right = 1136.0
-offset_bottom = 671.0
+offset_bottom = 643.0
 focus_neighbor_left = NodePath("../Exit")
 focus_neighbor_top = NodePath("../LevelSelect")
 focus_neighbor_right = NodePath("../TextureMusic")

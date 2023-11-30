@@ -23,23 +23,15 @@ texture = ExtResource("1_512ii")
 
 [node name="Back" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 908.0
-offset_top = 489.0
-offset_right = 997.0
-offset_bottom = 577.0
+offset_left = 1310.0
+offset_top = 908.0
+offset_right = 1399.0
+offset_bottom = 996.0
+scale = Vector2(0.737853, 0.74772)
 texture_normal = ExtResource("2_d78ew")
 texture_hover = ExtResource("3_e5f1w")
 texture_focused = ExtResource("3_e5f1w")
 ignore_texture_size = true
-
-[node name="LinkButton" type="LinkButton" parent="."]
-layout_mode = 0
-offset_left = 1057.0
-offset_top = 247.0
-offset_right = 1391.0
-offset_bottom = 408.0
-underline = 1
-uri = "https://irafunesta.itch.io/"
 
 [connection signal="focus_entered" from="Back" to="." method="_on_texture_button_focus_entered"]
 [connection signal="pressed" from="Back" to="." method="_on_texture_button_pressed"]
