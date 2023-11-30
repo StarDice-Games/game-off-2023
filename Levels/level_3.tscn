@@ -169,6 +169,7 @@ position = Vector2(736, 994)
 position = Vector2(448, 991)
 
 [node name="Player1" parent="LevelDesign_Red" instance=ExtResource("9_u5uib")]
+z_index = 2
 position = Vector2(157, 159)
 scale = Vector2(0.75, 0.75)
 AIR_SPEED = 150.0
@@ -390,6 +391,7 @@ position = Vector2(1808, 996)
 position = Vector2(1680, 997)
 
 [node name="Player2" parent="LevelDesign_Blue" instance=ExtResource("9_u5uib")]
+z_index = 2
 position = Vector2(1826, 595)
 scale = Vector2(0.75, 0.75)
 GROUND_SPEED = 230.0

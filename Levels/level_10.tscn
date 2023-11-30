@@ -170,7 +170,7 @@ JUMP_FORCE = -750
 position = Vector2(608, 992)
 
 [node name="Player1" parent="LevelDesign_Red" instance=ExtResource("5_dwfel")]
-z_index = -1
+z_index = 2
 position = Vector2(852, 923)
 scale = Vector2(0.75, 0.75)
 AIR_SPEED = 150.0
@@ -304,8 +304,8 @@ position = Vector2(1484, 977)
 position = Vector2(1264, 890)
 
 [node name="Player2" parent="LevelDesign_Blue" instance=ExtResource("5_dwfel")]
-z_index = -1
-position = Vector2(1455, 694)
+z_index = 2
+position = Vector2(1181, 845)
 scale = Vector2(0.75, 0.75)
 GROUND_SPEED = 230.0
 AIR_SPEED = 150.0
