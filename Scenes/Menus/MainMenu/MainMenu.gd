@@ -66,3 +66,8 @@ func _on_sounds_toggled(button_pressed):
 func _on_button_focus():
 	Global.playSelectButton()
 	pass # Replace with function body.
+
+
+func _on_texture_credits_pressed():
+	open_credits.emit()
+	pass # Replace with function body.

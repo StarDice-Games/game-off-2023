@@ -159,3 +159,5 @@ scale = Vector2(23.96, 1)
 [connection signal="toggled" from="Control2/TextureMusic" to="." method="_on_music_toggled"]
 [connection signal="focus_entered" from="Control2/TextureSounds" to="." method="_on_button_focus"]
 [connection signal="toggled" from="Control2/TextureSounds" to="." method="_on_sounds_toggled"]
+[connection signal="focus_entered" from="Control2/TextureCredits" to="." method="_on_button_focus"]
+[connection signal="pressed" from="Control2/TextureCredits" to="." method="_on_texture_credits_pressed"]

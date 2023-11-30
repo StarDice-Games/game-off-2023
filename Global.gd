@@ -19,6 +19,7 @@ var goals : Array[Node2D] = [null, null]
 @export var pauseMenuScene : PackedScene
 @export var mainScene : PackedScene
 @export var selectLevelScene : PackedScene
+@export var creditsScene : PackedScene
 
 @export_category("Audio")
 @export var musicMuted = false
@@ -53,6 +54,7 @@ enum GameState {
 	LEVEL_COMPLETE,
 	START_LEVEL,
 	SPLASH_SCREEN,
+	CREDITS,
 }
 
 enum Scaling {
@@ -104,6 +106,7 @@ func openMainMenu():
 		mainMenuInstance.connect("exit_pressed", _on_main_menu_exit_pressed)
 		mainMenuInstance.connect("new_game_pressed", _on_main_menu_new_game_pressed)
 		mainMenuInstance.connect("select_level_ressed", _on_main_menu_select_level_pressed)
+		mainMenuInstance.connect("open_credits", _on_main_menu_credits)
 	
 		currentGameState = GameState.MAIN_MENU
 	
@@ -448,9 +451,16 @@ func exitGame():
 func loadSelectedLevel(res : LevelResourceBase):
 	print("Load level index")
 	if res != null:
-		AudioManager.play(levelSelectionSound)
+#		AudioManager.play(levelSelectionSound)
 		var sceneToLoad = res.scene
 		currentGameState = GameState.START_LEVEL
+		
+		if not sfxMuted:
+			playSoundAndWait(levelStartSound)
+			timerCallback = startAfterLevelSelection
+		else:
+			startAfterLevelSelection(res)
+		
 		activePlayer = 0
 		bgMenuMusic.stop()
 		bgInGameMusic.play()
@@ -470,6 +480,9 @@ func loadSelectedLevel(res : LevelResourceBase):
 			get_tree().change_scene_to_packed(sceneToLoad)
 		
 		currentGameState = GameState.IN_GAME
+
+func startAfterLevelSelection(res : LevelResourceBase):
+	pass
 
 func playSoundAndWait(sound: AudioStream):
 	if sound == null:
@@ -504,3 +517,27 @@ func _on_timer_timeout():
 
 func onMenuButtonPress():
 	AudioManager.play(menuButtonPress)
+
+func _on_main_menu_credits():
+	closeMainMenu()
+	currentGameState = GameState.CREDITS
+	var creditsInstance = creditsScene.instantiate()
+	get_tree().root.add_child(creditsInstance)
+	creditsInstance.connect("close_credits", closeCredits)
+
+func closeCredits():
+	print("back to the main menu")
+	AudioManager.play(menuButtonPress)
+	currentGameState = GameState.MAIN_MENU
+	
+	var creditsNode = get_tree().root.get_node("Credits")
+	if creditsNode != null:
+		get_tree().root.remove_child(creditsNode)
+		
+	openMainMenu()
+	
+	#load the main scene ? or add the main menu as before ?
+	if mainScene != null:
+		get_tree().change_scene_to_packed(mainScene)
+	else:
+		push_error("Main scene missing in Global")
