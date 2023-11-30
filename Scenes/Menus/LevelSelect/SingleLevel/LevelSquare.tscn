@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cylhgxe6wocod"]
+[gd_scene load_steps=8 format=3 uid="uid://cylhgxe6wocod"]
 
 [ext_resource type="Texture2D" uid="uid://bjn1m5qtjaiff" path="res://Icons/icon.svg" id="1_4t0a8"]
 [ext_resource type="Texture2D" uid="uid://bfuxfpmq0o05g" path="res://Resources/Assets/UI_e_tutorial/livello_da_fare.png" id="1_gie85"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://boh4htbjlhhry" path="res://Resources/Assets/UI_e_tutorial/livello_finale.png" id="2_4fflu"]
 [ext_resource type="Texture2D" uid="uid://dj7rspt0p5kya" path="res://Resources/Assets/UI_e_tutorial/livello_hovering_2.png" id="3_7ucfi"]
 [ext_resource type="Texture2D" uid="uid://035a4eru7owx" path="res://Resources/Assets/UI_e_tutorial/levels_done.png" id="3_b1ilb"]
+[ext_resource type="FontFile" uid="uid://b2i3plyb0exg4" path="res://Resources/Assets/Fonts/Two_sides_prox_font-Regular (1).ttf" id="7_ubcpx"]
 
 [node name="LevelSquare" type="TextureButton"]
 z_index = 2
@@ -28,14 +29,6 @@ offset_bottom = 79.0
 texture = ExtResource("1_4t0a8")
 expand_mode = 1
 
-[node name="tickComplete" type="TextureRect" parent="."]
-layout_mode = 1
-offset_left = 40.0
-offset_top = 38.0
-offset_right = 80.0
-offset_bottom = 83.0
-texture = ExtResource("3_b1ilb")
-
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 14.0
@@ -44,6 +37,33 @@ offset_right = 69.0
 offset_bottom = 116.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Level X"
+
+[node name="Number" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.5
+offset_top = -52.5
+offset_right = 24.5
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_ubcpx")
+theme_override_font_sizes/font_size = 100
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="tickComplete" type="TextureRect" parent="."]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 38.0
+offset_right = 80.0
+offset_bottom = 83.0
+texture = ExtResource("3_b1ilb")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
 [connection signal="toggled" from="." to="." method="_on_border_toggled"]

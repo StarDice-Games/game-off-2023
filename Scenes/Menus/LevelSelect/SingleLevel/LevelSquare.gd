@@ -6,6 +6,7 @@ class_name LevelSquare
 @onready var icon : TextureRect = $icon
 @onready var complete : TextureRect = $tickComplete
 @onready var levelName : Label = $Label
+@onready var number : Label = $Number
 
 signal level_selected(res)
 signal on_focus
@@ -17,6 +18,7 @@ func _ready():
 	if levelRes != null:
 		icon.texture = levelRes.icon
 		levelName.text = levelRes.name
+		number.text = levelRes.level
 		complete.hide()
 		if Global.isLevelComplete(levelRes.name):
 			complete.show()

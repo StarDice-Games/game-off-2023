@@ -6,4 +6,5 @@
 [resource]
 script = ExtResource("2_qu0cm")
 name = "Level 9"
+level = "9"
 scene = ExtResource("1_yg8am")
