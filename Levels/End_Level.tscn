@@ -1,6 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://buuq3ie871qpl"]
+[gd_scene load_steps=15 format=3 uid="uid://buuq3ie871qpl"]
 
+[ext_resource type="Script" path="res://Levels/End_Level.gd" id="1_b7ow7"]
 [ext_resource type="PackedScene" uid="uid://din1h8ql506vb" path="res://Scenes/Background.tscn" id="1_kvh7o"]
+[ext_resource type="AudioStream" uid="uid://cnu76smmgja2v" path="res://Resources/Audio/UI/sfx_laugh.ogg" id="2_k0ni0"]
 [ext_resource type="PackedScene" uid="uid://b3cbj1cjbxle3" path="res://Scenes/PlatformerPlayer/Spikes/Spikes2.tscn" id="5_l1ml8"]
 [ext_resource type="PackedScene" uid="uid://do88ox8hahe8i" path="res://Scenes/PlatformerPlayer/Spikes/Spikes.tscn" id="6_ohgtc"]
 [ext_resource type="Texture2D" uid="uid://cepit1b3crehm" path="res://Resources/Assets/Credits/Claudio.png" id="7_63ges"]
@@ -14,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://dn8ylngmbs0mt" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x2.tscn" id="15_pqa05"]
 
 [node name="TestBasic" type="Node2D"]
+script = ExtResource("1_b7ow7")
+laughSound = ExtResource("2_k0ni0")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 texture_filter = 1

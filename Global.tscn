@@ -142,7 +142,6 @@ animations = [{
 
 [node name="Global" type="Node2D"]
 script = ExtResource("1_j5qpw")
-showSplash = false
 scenes = Array[Resource("res://Resources/LevelsResources/LevelResourceBase.gd")]([ExtResource("2_owt0f"), ExtResource("3_jtt7o"), ExtResource("4_v6e8j"), ExtResource("5_jfyiu"), ExtResource("5_8wok5"), ExtResource("6_558h2"), ExtResource("7_smhhi"), ExtResource("7_1wprs"), ExtResource("8_yfkdj"), ExtResource("9_ev42n"), ExtResource("12_y44ma")])
 splashScreen = ExtResource("4_bnw24")
 mainMenuScene = ExtResource("3_wleec")
