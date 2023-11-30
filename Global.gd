@@ -451,37 +451,36 @@ func exitGame():
 func loadSelectedLevel(res : LevelResourceBase):
 	print("Load level index")
 	if res != null:
-#		AudioManager.play(levelSelectionSound)
-		var sceneToLoad = res.scene
+#		AudioManager.play(levelStartSound)
 		currentGameState = GameState.START_LEVEL
 		
 		if not sfxMuted:
 			playSoundAndWait(levelStartSound)
-			timerCallback = startAfterLevelSelection
+			timerCallback = startAfterLevelSelection.bind(res)
 		else:
 			startAfterLevelSelection(res)
-		
-		activePlayer = 0
-		bgMenuMusic.stop()
-		bgInGameMusic.play()
-		bgInGameMusic2.play()
-		
-		var selectLevelNode = get_tree().root.get_node("SelectLevel")
-		if selectLevelNode != null:
-			get_tree().root.remove_child(selectLevelNode)
-		
-		if sceneToLoad != null:
-			curretLevel = res.name
-			var currentLevel = scenes.find(res)
-			
-			next_scene = currentLevel + 1
-			next_scene %= scenes.size()
-			
-			get_tree().change_scene_to_packed(sceneToLoad)
-		
-		currentGameState = GameState.IN_GAME
 
 func startAfterLevelSelection(res : LevelResourceBase):
+	activePlayer = 0
+	bgMenuMusic.stop()
+	bgInGameMusic.play()
+	bgInGameMusic2.play()
+	
+	var sceneToLoad = res.scene
+	var selectLevelNode = get_tree().root.get_node("SelectLevel")
+	if selectLevelNode != null:
+		get_tree().root.remove_child(selectLevelNode)
+	
+	if sceneToLoad != null:
+		curretLevel = res.name
+		var currentLevel = scenes.find(res)
+		
+		next_scene = currentLevel + 1
+		next_scene %= scenes.size()
+		
+		get_tree().change_scene_to_packed(sceneToLoad)
+	
+	currentGameState = GameState.IN_GAME
 	pass
 
 func playSoundAndWait(sound: AudioStream):

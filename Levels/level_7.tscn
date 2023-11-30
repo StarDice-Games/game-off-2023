@@ -306,21 +306,7 @@ directionOffsetZ = 50.0
 z_index = 1
 metadata/_edit_lock_ = true
 
-[node name="ExitRight2" type="Sprite2D" parent="."]
-z_index = -3
-texture_filter = 1
-position = Vector2(1728, 487)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("27_a50ff")
-
-[node name="ExitRight" type="Sprite2D" parent="."]
-z_index = -3
-texture_filter = 1
-position = Vector2(703, 208)
-texture = ExtResource("27_a50ff")
-
 [node name="Props" type="Node2D" parent="."]
-z_index = -1
 
 [node name="SegniTratteggio1" type="Sprite2D" parent="Props"]
 texture_filter = 1
@@ -333,6 +319,19 @@ texture_filter = 1
 position = Vector2(544, 687)
 rotation = 1.5708
 texture = ExtResource("28_3548o")
+
+[node name="ExitRight2" type="Sprite2D" parent="Props"]
+z_index = -3
+texture_filter = 1
+position = Vector2(1728, 487)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("27_a50ff")
+
+[node name="ExitRight" type="Sprite2D" parent="Props"]
+z_index = -3
+texture_filter = 1
+position = Vector2(703, 208)
+texture = ExtResource("27_a50ff")
 
 [node name="SegniTratteggio4" type="Sprite2D" parent="Props"]
 texture_filter = 1
