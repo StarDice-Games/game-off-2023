@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://buuq3ie871qpl"]
+[gd_scene load_steps=17 format=3 uid="uid://buuq3ie871qpl"]
 
 [ext_resource type="Script" path="res://Levels/End_Level.gd" id="1_b7ow7"]
 [ext_resource type="PackedScene" uid="uid://din1h8ql506vb" path="res://Scenes/Background.tscn" id="1_kvh7o"]
@@ -14,6 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://x01qfcfa3ev7" path="res://Resources/Assets/Credits/Simone.png" id="12_p0tax"]
 [ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="13_bp30p"]
 [ext_resource type="PackedScene" uid="uid://dn8ylngmbs0mt" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x2.tscn" id="15_pqa05"]
+[ext_resource type="PackedScene" uid="uid://bu75kel0q2p7r" path="res://Scenes/PlatformerPlayer/DeathComponent/DeathComponent.tscn" id="15_t7x30"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_23o1k"]
+size = Vector2(921, 120)
 
 [node name="TestBasic" type="Node2D"]
 script = ExtResource("1_b7ow7")
@@ -727,3 +731,18 @@ modulate = Color(0.47451, 0.380392, 0.380392, 0.65098)
 position = Vector2(1218, 650)
 scale = Vector2(0.62, 0.62)
 texture = ExtResource("12_p0tax")
+
+[node name="DeathComponent" parent="." instance=ExtResource("15_t7x30")]
+position = Vector2(0, 8)
+scale = Vector2(1, 0.8)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathComponent"]
+position = Vector2(515, 1216.25)
+scale = Vector2(1, 1.25)
+shape = SubResource("RectangleShape2D_23o1k")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathComponent"]
+position = Vector2(1454.5, 1265)
+scale = Vector2(1, 1.25)
+shape = SubResource("RectangleShape2D_23o1k")
