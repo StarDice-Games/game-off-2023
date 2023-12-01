@@ -293,7 +293,7 @@ collision_mask = 7
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground"]
 position = Vector2(-2.96842, -69.2442)
-polygon = PackedVector2Array(10.436, 2.5, 18.3828, 3.99999, 29.7001, 4.5, 29.6382, 23, -1.74706, 23.5, -1.63884, -0.5)
+polygon = PackedVector2Array(10.436, 2.5, 14.2084, 3.49921, 14.1929, 21.4992, -1.74706, 23.5, -1.63884, -0.5)
 
 [node name="ExitRight2" type="Sprite2D" parent="."]
 z_index = -2
