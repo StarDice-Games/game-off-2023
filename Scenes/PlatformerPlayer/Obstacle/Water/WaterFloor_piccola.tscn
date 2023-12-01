@@ -7,10 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://dmiyigmjeny6d" path="res://Resources/Assets/Oggetti/Acqua_piccola.png" id="4_qy5hn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o47hv"]
-size = Vector2(961, 60)
+size = Vector2(961, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r3fju"]
-size = Vector2(960, 60)
+size = Vector2(960, 74.001)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11aq3"]
 size = Vector2(961, 92.5)
@@ -26,7 +26,7 @@ tracks/0/path = NodePath("Control/Onde_1:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(3, 3, 3, 3),
+"handle_modes": PackedInt32Array(0, 3, 3, 3),
 "points": PackedFloat32Array(488, -0.7, -44.1024, 0.7, 44.1024, 545.887, -0.375, 0, 0.375, 0, 431.013, -0.25, 0, 0.25, 0, 488, -0.5, -47.7968, 0.5, 47.7968),
 "times": PackedFloat32Array(0, 1.5, 2.8, 4)
 }
@@ -37,7 +37,7 @@ tracks/1/path = NodePath("Control/Onde_2:position:x")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"handle_modes": PackedInt32Array(3, 3, 3, 3),
+"handle_modes": PackedInt32Array(0, 3, 3, 3),
 "points": PackedFloat32Array(801, -0.375, 0, 0.375, 0, 743, -0.375, 0, 0.375, 0, 854, -0.25, 0, 0.25, 0, 801, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1.5, 3, 4)
 }
@@ -70,7 +70,7 @@ offset_bottom = -1.0
 [node name="Onde_1" type="Sprite2D" parent="Control"]
 z_index = -2
 texture_filter = 1
-position = Vector2(443.956, 208)
+position = Vector2(488, 208)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_s05gd")
 offset = Vector2(0, -54)
@@ -78,13 +78,13 @@ offset = Vector2(0, -54)
 [node name="Onde_2" type="Sprite2D" parent="Control"]
 z_index = -2
 texture_filter = 1
-position = Vector2(837.086, 206)
+position = Vector2(801, 206)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_s05gd")
 offset = Vector2(-476.879, -54)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-30.5, -30)
+position = Vector2(-30.5, -25)
 shape = SubResource("RectangleShape2D_o47hv")
 metadata/_edit_lock_ = true
 
@@ -94,7 +94,7 @@ collision_mask = 6
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-30, -30)
+position = Vector2(-30.0074, -37.0005)
 rotation = -0.00105078
 shape = SubResource("RectangleShape2D_r3fju")
 metadata/_edit_lock_ = true
