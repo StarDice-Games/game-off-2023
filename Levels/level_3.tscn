@@ -435,6 +435,13 @@ position = Vector2(512, 449)
 rotation = 1.5708
 texture = ExtResource("21_aiu6h")
 
+[node name="SegniTratteggio5" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(848, 887.028)
+rotation = 1.5708
+scale = Vector2(0.681273, 1)
+texture = ExtResource("21_aiu6h")
+
 [node name="SegniTratteggio4" type="Sprite2D" parent="Props"]
 texture_filter = 1
 position = Vector2(512, 211)

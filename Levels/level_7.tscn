@@ -34,9 +34,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_wosg4"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -48, 613, 0, 0, 0, 0, -48, 32)
+"points": PackedVector2Array(0, 0, 0, 0, -48, 688, 0, 0, 0, 0, -47.6808, 510.049, 0, 0, 0, 0, -48, 32)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_c6i8q"]
 _data = {
@@ -95,9 +95,9 @@ position = Vector2(592, 256)
 curve = SubResource("Curve2D_wosg4")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Platform_Red/Platforms/Path2D"]
-position = Vector2(-48, 32)
+position = Vector2(-48, 32.0003)
 rotation = -1.5708
-progress = 625.0
+progress = 656.0
 rotates = false
 loop = false
 
@@ -231,7 +231,7 @@ curve = SubResource("Curve2D_c6i8q")
 [node name="PathFollow2D" type="PathFollow2D" parent="Platform_Blue/Platforms/Path2D2"]
 position = Vector2(-608, -560)
 rotation = -1.5708
-progress = 1168.0
+progress = 1136.0
 rotates = false
 loop = false
 
@@ -311,14 +311,30 @@ metadata/_edit_lock_ = true
 [node name="Props" type="Node2D" parent="."]
 
 [node name="SegniTratteggio1" type="Sprite2D" parent="Props"]
+z_index = -1
 texture_filter = 1
 position = Vector2(544, 469)
 rotation = 1.5708
 texture = ExtResource("28_3548o")
 
 [node name="SegniTratteggio2" type="Sprite2D" parent="Props"]
+z_index = -1
 texture_filter = 1
 position = Vector2(544, 687)
+rotation = 1.5708
+texture = ExtResource("28_3548o")
+
+[node name="SegniTratteggio3" type="Sprite2D" parent="Props"]
+z_index = -1
+texture_filter = 1
+position = Vector2(544, 687)
+rotation = 1.5708
+texture = ExtResource("28_3548o")
+
+[node name="SegniTratteggio6" type="Sprite2D" parent="Props"]
+z_index = -2
+texture_filter = 1
+position = Vector2(544, 824)
 rotation = 1.5708
 texture = ExtResource("28_3548o")
 
@@ -336,6 +352,7 @@ position = Vector2(703, 208)
 texture = ExtResource("27_a50ff")
 
 [node name="SegniTratteggio4" type="Sprite2D" parent="Props"]
+z_index = -1
 texture_filter = 1
 position = Vector2(1200, 257)
 rotation = 1.5708
@@ -343,6 +360,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("28_3548o")
 
 [node name="SegniTratteggio5" type="Sprite2D" parent="Props"]
+z_index = -1
 texture_filter = 1
 position = Vector2(1200, 261)
 rotation = 1.5708
@@ -350,6 +368,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("28_3548o")
 
 [node name="SegniTratteggio7" type="Sprite2D" parent="Props"]
+z_index = -1
 texture_filter = 1
 position = Vector2(1200, 325)
 rotation = 1.5708
@@ -357,24 +376,28 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("28_3548o")
 
 [node name="SegniTratteggio8" type="Sprite2D" parent="Props"]
+z_index = -1
 texture_filter = 1
 position = Vector2(1258, 385)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("28_3548o")
 
 [node name="SegniTratteggio9" type="Sprite2D" parent="Props"]
+z_index = -1
 texture_filter = 1
 position = Vector2(1368, 385)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("28_3548o")
 
 [node name="SegniTratteggio10" type="Sprite2D" parent="Props"]
+z_index = -1
 texture_filter = 1
 position = Vector2(1414, 385)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("28_3548o")
 
 [node name="SegniTratteggio11" type="Sprite2D" parent="Props"]
+z_index = -1
 texture_filter = 1
 position = Vector2(1472, 446)
 rotation = 1.5708
@@ -382,6 +405,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("28_3548o")
 
 [node name="SegniTratteggio12" type="Sprite2D" parent="Props"]
+z_index = -1
 texture_filter = 1
 position = Vector2(1472, 558)
 rotation = 1.5708
@@ -389,6 +413,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("28_3548o")
 
 [node name="SegniTratteggio13" type="Sprite2D" parent="Props"]
+z_index = -1
 texture_filter = 1
 position = Vector2(1472, 666)
 rotation = 1.5708
@@ -396,6 +421,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("28_3548o")
 
 [node name="SegniTratteggio17" type="Sprite2D" parent="Props"]
+z_index = -1
 texture_filter = 1
 position = Vector2(1472, 687)
 rotation = 1.5708
@@ -403,12 +429,14 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("28_3548o")
 
 [node name="SegniTratteggio14" type="Sprite2D" parent="Props"]
+z_index = -1
 texture_filter = 1
 position = Vector2(1531, 752)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("28_3548o")
 
 [node name="SegniTratteggio15" type="Sprite2D" parent="Props"]
+z_index = -1
 texture_filter = 1
 position = Vector2(1641, 752)
 scale = Vector2(0.5, 0.5)
@@ -432,6 +460,7 @@ position = Vector2(478, 580)
 texture = ExtResource("31_icx61")
 
 [node name="SegniTratteggio16" type="Sprite2D" parent="Props"]
+z_index = -1
 texture_filter = 1
 position = Vector2(1751, 752)
 scale = Vector2(0.5, 0.5)
