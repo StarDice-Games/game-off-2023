@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tsweieg601d4"
-path="res://.godot/imported/Credits_levels_new.png-e2f57011509ee8b405e396f3e6812aeb.ctex"
+uid="uid://b0jv0a0i8bdal"
+path="res://.godot/imported/Background_home_02.jpg-1e3b7d1b15228850152b2b7314918643.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Assets/UI_e_tutorial/Credits_levels_new.png"
-dest_files=["res://.godot/imported/Credits_levels_new.png-e2f57011509ee8b405e396f3e6812aeb.ctex"]
+source_file="res://Resources/Assets/UI_e_tutorial/Background_home_02.jpg"
+dest_files=["res://.godot/imported/Background_home_02.jpg-1e3b7d1b15228850152b2b7314918643.ctex"]
 
 [params]
 

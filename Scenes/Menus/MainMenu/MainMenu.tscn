@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://dqijkmgdh5ulw"]
 
 [ext_resource type="Script" path="res://Scenes/Menus/MainMenu/MainMenu.gd" id="1_qdm7w"]
-[ext_resource type="Texture2D" uid="uid://dpkm83g44toxx" path="res://Resources/Assets/UI_e_tutorial/Background_home.jpg" id="2_rraye"]
+[ext_resource type="Texture2D" uid="uid://b0jv0a0i8bdal" path="res://Resources/Assets/UI_e_tutorial/Background_home_02.jpg" id="2_3srav"]
 [ext_resource type="Texture2D" uid="uid://qghasdrawflw" path="res://Resources/Assets/UI_e_tutorial/Start.png" id="3_5dsbo"]
 [ext_resource type="Texture2D" uid="uid://cqqo6a8blq0qy" path="res://Resources/Assets/UI_e_tutorial/exit.png" id="3_ncqee"]
 [ext_resource type="Texture2D" uid="uid://c3dbn7f08tcnw" path="res://Resources/Assets/UI_e_tutorial/effect_sound.png" id="4_76x7w"]
@@ -46,7 +46,7 @@ layout_mode = 0
 offset_right = 10603.0
 offset_bottom = 5521.0
 scale = Vector2(0.181089, 0.195609)
-texture = ExtResource("2_rraye")
+texture = ExtResource("2_3srav")
 
 [node name="NewGame" type="TextureButton" parent="Control2"]
 layout_mode = 0
