@@ -51,9 +51,9 @@ texture = ExtResource("2_3srav")
 [node name="NewGame" type="TextureButton" parent="Control2"]
 layout_mode = 0
 offset_left = 790.0
-offset_top = 355.0
+offset_top = 389.0
 offset_right = 963.0
-offset_bottom = 395.0
+offset_bottom = 429.0
 scale = Vector2(1.99241, 1.81114)
 focus_neighbor_top = NodePath("../Exit")
 focus_neighbor_bottom = NodePath("../LevelSelect")
@@ -68,9 +68,9 @@ stretch_mode = 0
 [node name="LevelSelect" type="TextureButton" parent="Control2"]
 layout_mode = 0
 offset_left = 792.0
-offset_top = 455.0
+offset_top = 485.0
 offset_right = 965.0
-offset_bottom = 499.0
+offset_bottom = 529.0
 scale = Vector2(1.99241, 1.81114)
 texture_normal = ExtResource("5_fdt5v")
 texture_hover = ExtResource("6_kntwn")
@@ -121,9 +121,9 @@ texture_pressed = ExtResource("12_rhahs")
 [node name="TextureCredits" type="TextureButton" parent="Control2"]
 layout_mode = 0
 offset_left = 792.0
-offset_top = 563.0
+offset_top = 588.0
 offset_right = 1136.0
-offset_bottom = 643.0
+offset_bottom = 668.0
 focus_neighbor_left = NodePath("../Exit")
 focus_neighbor_top = NodePath("../LevelSelect")
 focus_neighbor_right = NodePath("../TextureMusic")
