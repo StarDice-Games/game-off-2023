@@ -22,11 +22,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-	if Global.currentGameState != Global.GameState.IN_GAME:
+	if Global.currentGameState != Global.GameState.IN_GAME or Global.sfxMuted:
 		soundPLayer.stream_paused = true
 	else:
 		soundPLayer.stream_paused = false
-	pass
 
 
 func _on_area_2d_area_entered(area):
