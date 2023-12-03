@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=3 uid="uid://ctjnxt7nrlrlu"]
+
+[ext_resource type="PackedScene" uid="uid://cey1gdjnupbeh" path="res://Scenes/Darkness/Darkness.tscn" id="1_m2jn7"]
+[ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="2_w4tjy"]
+[ext_resource type="Texture2D" uid="uid://bf4xlmloblnw6" path="res://Resources/Assets/Test/Triangolo_rosso.png" id="3_36cnh"]
+[ext_resource type="Texture2D" uid="uid://cg1ymalfuxac" path="res://Resources/Images/New Piskel.png" id="5_43fff"]
+[ext_resource type="Material" uid="uid://bdjvh3cymune7" path="res://Resources/Materials/Unshaded.tres" id="7_gxf7x"]
+[ext_resource type="PackedScene" uid="uid://xai6e8p1v1tj" path="res://Scenes/Darkness/Flashlight/Lamplight.tscn" id="8_j7uym"]
+[ext_resource type="PackedScene" uid="uid://b1omndopqlxo6" path="res://Scenes/PlatformerPlayer/Obstacle/obstacle.tscn" id="9_oc4vh"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xkm4t"]
+light_mode = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0somh"]
+size = Vector2(32.194, 29.0322)
+
+[node name="platformer2" type="Node2D"]
+
+[node name="Darkness" parent="." instance=ExtResource("1_m2jn7")]
+position = Vector2(934, -30)
+scale = Vector2(0.500498, 0.949667)
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_xkm4t")
+position = Vector2(207, 270)
+texture = ExtResource("3_36cnh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(397, 1043)
+scale = Vector2(33.102, 1.25903)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("5_43fff")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+material = ExtResource("7_gxf7x")
+position = Vector2(0.000587463, -0.17218)
+shape = SubResource("RectangleShape2D_0somh")
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("9_oc4vh")]
+position = Vector2(653, 946)
+
+[node name="StaticBody2D3" parent="." instance=ExtResource("9_oc4vh")]
+position = Vector2(945, 1008)
+scale = Vector2(6.48, 0.64)
+
+[node name="PlatPlayer3" parent="." instance=ExtResource("2_w4tjy")]
+position = Vector2(196, 646)
+
+[node name="PlatPlayer" parent="." instance=ExtResource("2_w4tjy")]
+position = Vector2(1331, 762)
+side = 1
+
+[node name="Lamplight" parent="." instance=ExtResource("8_j7uym")]
+position = Vector2(545, 677)

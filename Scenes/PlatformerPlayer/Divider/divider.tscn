@@ -6,22 +6,24 @@
 size = Vector2(32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_56tun"]
+size = Vector2(13.3181, 20)
 
 [node name="Divider" type="StaticBody2D" groups=["Dividers"]]
-collision_layer = 4
 collision_mask = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 0.247059, 1, 1)
 texture = ExtResource("1_chxfk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_u70l6")
+debug_color = Color(0.823529, 0.192157, 0.854902, 0.764706)
 
 [node name="DividerArea" type="Area2D" parent="."]
-collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DividerArea"]
+position = Vector2(2.38419e-07, 0)
 scale = Vector2(3.60411, -1.5459)
 shape = SubResource("RectangleShape2D_56tun")

@@ -1,0 +1,106 @@
+[gd_scene load_steps=12 format=3 uid="uid://b8upryncqwmc6"]
+
+[ext_resource type="Script" path="res://Scenes/PlatformerPlayer/TriggerComponent/ReceiverComponent.gd" id="1_22d2v"]
+[ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Doors/SmallDoor/SmallDoor.gd" id="1_cg50m"]
+[ext_resource type="PackedScene" uid="uid://d144y04rmu6wx" path="res://Scenes/PlatformerPlayer/Doors/Indicators/SmallDoorIndicator.tscn" id="2_8hpr2"]
+[ext_resource type="Texture2D" uid="uid://bgfc8m50tu0pr" path="res://Resources/Assets/Upd_Assets/Porta_piccola_chiusa.png" id="3_gqb36"]
+[ext_resource type="AudioStream" uid="uid://bcbw2upfjn26b" path="res://Resources/Audio/Sound/sfx_door_unlock_blue.ogg" id="3_li6hb"]
+[ext_resource type="PackedScene" uid="uid://cs8xishx48a2x" path="res://Scenes/PlatformerPlayer/Goal/GoalComponent.tscn" id="4_v4atr"]
+[ext_resource type="Texture2D" uid="uid://bowonq6ytmfml" path="res://Resources/Assets/Upd_Assets/Porta_piccola_aperta.png" id="4_yt3ei"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a46u8"]
+size = Vector2(20, 64)
+
+[sub_resource type="Animation" id="Animation_qdsie"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite_Porta_Chiusa:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.625, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_wj3ie"]
+resource_name = "open"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite_Porta_Chiusa:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.625, -0.25, 0, 0.25, 0, -0.625, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Sprite_Porta_Chiusa:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.65625, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lgxr4"]
+_data = {
+"RESET": SubResource("Animation_qdsie"),
+"open": SubResource("Animation_wj3ie")
+}
+
+[node name="SmallDoor" type="StaticBody2D"]
+z_index = -1
+collision_mask = 3
+script = ExtResource("1_cg50m")
+indicatorScene = ExtResource("2_8hpr2")
+doorOpen = ExtResource("3_li6hb")
+
+[node name="Sprite_Porta_Chiusa" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+position = Vector2(19, -48)
+scale = Vector2(0.625, 0.65625)
+texture = ExtResource("3_gqb36")
+offset = Vector2(-30.4, -0.857159)
+
+[node name="Sprite_Porta_Aperta" type="Sprite2D" parent="."]
+z_index = -2
+texture_filter = 1
+position = Vector2(49, -47)
+scale = Vector2(0.625, 0.65625)
+texture = ExtResource("4_yt3ei")
+offset = Vector2(-78.4, -2.38095)
+
+[node name="ReceiverComponent" type="Node2D" parent="."]
+position = Vector2(0, 1)
+script = ExtResource("1_22d2v")
+
+[node name="Goal" parent="." instance=ExtResource("4_v4atr")]
+position = Vector2(0, 1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Goal"]
+position = Vector2(0, -33)
+shape = SubResource("RectangleShape2D_a46u8")
+debug_color = Color(0.811765, 0.258824, 0.792157, 0.419608)
+
+[node name="IndicatorStart" type="Marker2D" parent="."]
+position = Vector2(-16, -88)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite_Porta_Aperta")
+libraries = {
+"": SubResource("AnimationLibrary_lgxr4")
+}
+
+[connection signal="triggered" from="ReceiverComponent" to="." method="_on_receiver_component_triggered"]
+[connection signal="body_entered" from="Goal" to="." method="_on_goal_body_entered"]
+[connection signal="body_exited" from="Goal" to="." method="_on_goal_body_exited"]

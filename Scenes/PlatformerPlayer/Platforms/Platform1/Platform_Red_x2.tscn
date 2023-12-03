@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5jgo2b42vaf3"]
+
+[ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Platforms/MovingPlatform/MovingComponent.gd" id="1_r6tqf"]
+[ext_resource type="Texture2D" uid="uid://dv0miqfbnacbd" path="res://Resources/Assets/Nuovi_PNG/Blocco_2_rosso.png" id="2_o56gq"]
+[ext_resource type="PackedScene" uid="uid://bhntgodhqptoj" path="res://Scenes/PlatformerPlayer/TriggerComponent/ReceiverComponent.tscn" id="3_4wckt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bwo16"]
+size = Vector2(31.25, 41.4)
+
+[node name="Platform1" type="CharacterBody2D"]
+script = ExtResource("1_r6tqf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_o56gq")
+offset = Vector2(0, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -31.5)
+scale = Vector2(4, 1.52174)
+shape = SubResource("RectangleShape2D_bwo16")
+
+[node name="ReceiverComponent" parent="." instance=ExtResource("3_4wckt")]
+position = Vector2(0, -33)
+
+[connection signal="disabled" from="ReceiverComponent" to="." method="_on_receiver_component_disabled"]
+[connection signal="enabled" from="ReceiverComponent" to="." method="_on_receiver_component_enabled"]
+[connection signal="triggered" from="ReceiverComponent" to="." method="_on_receiver_component_triggered"]

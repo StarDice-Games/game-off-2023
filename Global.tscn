@@ -1,9 +1,185 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxeb2iva4yrgw"]
+[gd_scene load_steps=41 format=3 uid="uid://bxeb2iva4yrgw"]
 
 [ext_resource type="Script" path="res://Global.gd" id="1_j5qpw"]
-[ext_resource type="PackedScene" uid="uid://hokdakf8x4lx" path="res://platformer.tscn" id="2_4aw53"]
-[ext_resource type="PackedScene" uid="uid://b5sep273wr1mk" path="res://Scenes/Levels/level2.tscn" id="2_aueki"]
+[ext_resource type="Resource" uid="uid://4q02kbimxt6b" path="res://Resources/LevelsResources/level_1.tres" id="2_owt0f"]
+[ext_resource type="Resource" uid="uid://ijv66m5ac5i5" path="res://Resources/LevelsResources/level_2.tres" id="3_jtt7o"]
+[ext_resource type="PackedScene" uid="uid://d3w0vp34bfsu4" path="res://Scenes/Menus/PauseMenu/PauseMenu.tscn" id="3_kic5l"]
+[ext_resource type="PackedScene" uid="uid://dqijkmgdh5ulw" path="res://Scenes/Menus/MainMenu/MainMenu.tscn" id="3_wleec"]
+[ext_resource type="PackedScene" uid="uid://c231qmwyovhcq" path="res://main.tscn" id="4_56l5m"]
+[ext_resource type="PackedScene" uid="uid://c3k6y8yqg3qju" path="res://Scenes/Menus/SplashScreen/SplashScreen.tscn" id="4_bnw24"]
+[ext_resource type="Resource" uid="uid://c1c4k60242ob8" path="res://Resources/LevelsResources/level_3.tres" id="4_v6e8j"]
+[ext_resource type="Resource" uid="uid://cg3nfupqtj3ny" path="res://Resources/LevelsResources/level_5.tres" id="5_8wok5"]
+[ext_resource type="Resource" uid="uid://dnsdp82cxl2hu" path="res://Resources/LevelsResources/level_4.tres" id="5_jfyiu"]
+[ext_resource type="PackedScene" uid="uid://blauksugtg8ro" path="res://Scenes/Menus/LevelSelect/SelectLevel.tscn" id="6_6nmfb"]
+[ext_resource type="Resource" uid="uid://b88wusvh81hoe" path="res://Resources/LevelsResources/level_6.tres" id="6_558h2"]
+[ext_resource type="Resource" uid="uid://t8m4rcxflqt4" path="res://Resources/LevelsResources/level_8.tres" id="7_1wprs"]
+[ext_resource type="Resource" uid="uid://dxfy8fmwrsu6q" path="res://Resources/LevelsResources/level_7.tres" id="7_smhhi"]
+[ext_resource type="AudioStream" uid="uid://dfd45avut5cm0" path="res://Resources/Audio/Sound/sfx_lvl_start.ogg" id="8_3xu02"]
+[ext_resource type="Resource" uid="uid://cr8qxmhptla0j" path="res://Resources/LevelsResources/level_9.tres" id="8_yfkdj"]
+[ext_resource type="Resource" uid="uid://b0r8q0ews8c6p" path="res://Resources/LevelsResources/level_10.tres" id="9_ev42n"]
+[ext_resource type="AudioStream" uid="uid://b26k5msti3lug" path="res://Resources/Audio/Music/bgm_title.ogg" id="9_pvhhq"]
+[ext_resource type="AudioStream" uid="uid://bcqmvyqoq1bs6" path="res://Resources/Audio/Sound/sfx_victory.ogg" id="10_3yqsn"]
+[ext_resource type="AudioStream" uid="uid://2urbf3w65ht4" path="res://Resources/Audio/Music/bgm_level1A.ogg" id="10_gkp78"]
+[ext_resource type="AudioStream" uid="uid://b0v7l2t5fkkkf" path="res://Resources/Audio/Music/bgm_level1B.ogg" id="12_1yry6"]
+[ext_resource type="Resource" uid="uid://c8x8hcg82cu7o" path="res://Resources/LevelsResources/level_end.tres" id="12_y44ma"]
+[ext_resource type="PackedScene" uid="uid://0nxe15ge3pyq" path="res://Scenes/Menus/Credits/Credits.tscn" id="17_tjo4o"]
+[ext_resource type="AudioStream" uid="uid://dmym7sdqorugm" path="res://Resources/Audio/Sound/sfx_transfer.ogg" id="18_dvjt0"]
+[ext_resource type="PackedScene" uid="uid://0tw7jwo8dt2l" path="res://Scenes/Menus/Transition/LevelTransition.tscn" id="18_p31uf"]
+[ext_resource type="PackedScene" uid="uid://bw17dtk8hgbyn" path="res://Levels/End_Credits.tscn" id="20_6j0xb"]
+[ext_resource type="AudioStream" uid="uid://b4dl042lhjlhq" path="res://Resources/Audio/UI/ui_sfx_levelselection.ogg" id="20_n475r"]
+[ext_resource type="AudioStream" uid="uid://b3nj0tiafspjj" path="res://Resources/Audio/UI/ui_sfx_buttonpress.ogg" id="23_2c1i2"]
+[ext_resource type="AudioStream" uid="uid://cqwlnq555l6jq" path="res://Resources/Audio/UI/ui_sfx_buttonselection.ogg" id="24_ikb0p"]
+[ext_resource type="AudioStream" uid="uid://b3mcyw7a6q4qc" path="res://Resources/Audio/UI/ui_sfx_resume.ogg" id="26_u56oa"]
+[ext_resource type="Texture2D" uid="uid://dgd1aajmpr7vn" path="res://Resources/Assets/Explosion/clouds-pop0.png" id="27_lwim6"]
+[ext_resource type="Texture2D" uid="uid://c3vvdfmrhdnap" path="res://Resources/Assets/Explosion/clouds-pop1.png" id="28_o2o63"]
+[ext_resource type="Texture2D" uid="uid://bq6watv10024u" path="res://Resources/Assets/Explosion/clouds-pop2.png" id="29_gvbiu"]
+[ext_resource type="Texture2D" uid="uid://duyg8y5ljwpk3" path="res://Resources/Assets/Explosion/clouds-pop3.png" id="30_4tr2x"]
+[ext_resource type="Texture2D" uid="uid://dymgt6j4gk8cy" path="res://Resources/Assets/Explosion/clouds-pop4.png" id="31_7hqvr"]
+[ext_resource type="Texture2D" uid="uid://bu48jdw8lyyy7" path="res://Resources/Assets/Explosion/clouds-pop5.png" id="32_vr4q7"]
+
+[sub_resource type="Animation" id="Animation_xonw5"]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BigMusic:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(5.65686, 1),
+"update": 0,
+"values": [-80.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SmallMusic:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 5.27803),
+"update": 0,
+"values": [-20.0, -80.0]
+}
+
+[sub_resource type="Animation" id="Animation_vg1bu"]
+resource_name = "FadeToSmall"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BigMusic:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(4.59479, 1.03526),
+"update": 0,
+"values": [0.0, -80.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SmallMusic:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1.07177, 5.09824),
+"update": 0,
+"values": [-80.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_250ox"]
+_data = {
+"FadeToBig": SubResource("Animation_xonw5"),
+"FadeToSmall": SubResource("Animation_vg1bu"),
+"RESET": SubResource("Animation_xonw5")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ksdkw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("27_lwim6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_o2o63")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_gvbiu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_4tr2x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_7hqvr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_vr4q7")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="Global" type="Node2D"]
 script = ExtResource("1_j5qpw")
-scenes = Array[PackedScene]([ExtResource("2_4aw53"), ExtResource("2_aueki")])
+scenes = Array[Resource("res://Resources/LevelsResources/LevelResourceBase.gd")]([ExtResource("2_owt0f"), ExtResource("3_jtt7o"), ExtResource("4_v6e8j"), ExtResource("5_jfyiu"), ExtResource("5_8wok5"), ExtResource("6_558h2"), ExtResource("7_smhhi"), ExtResource("7_1wprs"), ExtResource("8_yfkdj"), ExtResource("9_ev42n"), ExtResource("12_y44ma")])
+splashScreen = ExtResource("4_bnw24")
+mainMenuScene = ExtResource("3_wleec")
+pauseMenuScene = ExtResource("3_kic5l")
+mainScene = ExtResource("4_56l5m")
+selectLevelScene = ExtResource("6_6nmfb")
+creditsScene = ExtResource("17_tjo4o")
+levelTransitionScene = ExtResource("18_p31uf")
+endCredits = ExtResource("20_6j0xb")
+levelStartSound = ExtResource("8_3xu02")
+tranferSound = ExtResource("18_dvjt0")
+levelCompleteSound = ExtResource("10_3yqsn")
+levelSelectionSound = ExtResource("20_n475r")
+menuMusic = ExtResource("9_pvhhq")
+inGameMusicBig = ExtResource("10_gkp78")
+inGameMusicSmall = ExtResource("12_1yry6")
+menuButtonPress = ExtResource("23_2c1i2")
+menuButtonSelect = ExtResource("24_ikb0p")
+resumeSound = ExtResource("26_u56oa")
+
+[node name="BackgroundMusic1" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0
+bus = &"Music"
+
+[node name="SmallMusic" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0
+bus = &"Music"
+
+[node name="BigMusic" type="AudioStreamPlayer" parent="."]
+volume_db = -80.0
+bus = &"Music"
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_250ox")
+}
+
+[node name="Explosion_Left" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ksdkw")
+frame = 6
+frame_progress = 1.0
+
+[node name="Explosion_Right" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ksdkw")
+frame = 6
+frame_progress = 1.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

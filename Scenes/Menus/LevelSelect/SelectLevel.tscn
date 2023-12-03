@@ -1,0 +1,242 @@
+[gd_scene load_steps=19 format=3 uid="uid://blauksugtg8ro"]
+
+[ext_resource type="Script" path="res://Scenes/Menus/LevelSelect/SelectLevel.gd" id="1_8sxpd"]
+[ext_resource type="Texture2D" uid="uid://b2h0wguux7sp6" path="res://Resources/Assets/UI_e_tutorial/Background_levels.png" id="2_41glp"]
+[ext_resource type="Texture2D" uid="uid://dqp2oqc6hol8j" path="res://Resources/Assets/UI_e_tutorial/home.png" id="3_12au3"]
+[ext_resource type="Texture2D" uid="uid://b50gej6qh68u3" path="res://Resources/Assets/UI_e_tutorial/home_hover.png" id="4_lqbku"]
+[ext_resource type="PackedScene" uid="uid://cylhgxe6wocod" path="res://Scenes/Menus/LevelSelect/SingleLevel/LevelSquare.tscn" id="5_5ld3b"]
+[ext_resource type="Resource" uid="uid://4q02kbimxt6b" path="res://Resources/LevelsResources/level_1.tres" id="6_lawfn"]
+[ext_resource type="ButtonGroup" path="res://Scenes/Menus/LevelSelect/new_button_group.tres" id="6_me2e6"]
+[ext_resource type="Resource" uid="uid://ijv66m5ac5i5" path="res://Resources/LevelsResources/level_2.tres" id="7_uo4q8"]
+[ext_resource type="Resource" uid="uid://c1c4k60242ob8" path="res://Resources/LevelsResources/level_3.tres" id="8_f2l7i"]
+[ext_resource type="Resource" uid="uid://cg3nfupqtj3ny" path="res://Resources/LevelsResources/level_5.tres" id="9_8mhn7"]
+[ext_resource type="Resource" uid="uid://dnsdp82cxl2hu" path="res://Resources/LevelsResources/level_4.tres" id="10_4s1qb"]
+[ext_resource type="Resource" uid="uid://b88wusvh81hoe" path="res://Resources/LevelsResources/level_6.tres" id="10_so2k4"]
+[ext_resource type="Resource" uid="uid://dxfy8fmwrsu6q" path="res://Resources/LevelsResources/level_7.tres" id="11_texmv"]
+[ext_resource type="Resource" uid="uid://t8m4rcxflqt4" path="res://Resources/LevelsResources/level_8.tres" id="12_u1bhc"]
+[ext_resource type="Resource" uid="uid://cr8qxmhptla0j" path="res://Resources/LevelsResources/level_9.tres" id="13_57va4"]
+[ext_resource type="Resource" uid="uid://b0r8q0ews8c6p" path="res://Resources/LevelsResources/level_10.tres" id="14_35u5y"]
+[ext_resource type="Texture2D" uid="uid://qghasdrawflw" path="res://Resources/Assets/UI_e_tutorial/Start.png" id="16_ckon8"]
+[ext_resource type="Texture2D" uid="uid://ocose2x1yj3x" path="res://Resources/Assets/UI_e_tutorial/Start_hover.png" id="17_k2ice"]
+
+[node name="SelectLevel" type="Control"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8sxpd")
+metadata/_edit_vertical_guides_ = [960.0]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 651.0
+texture = ExtResource("2_41glp")
+
+[node name="ItemList" type="ItemList" parent="."]
+visible = false
+modulate = Color(0.568627, 1, 1, 1)
+layout_mode = 0
+offset_left = 806.0
+offset_top = 329.0
+offset_right = 1123.0
+offset_bottom = 686.0
+focus_neighbor_left = NodePath("../Back")
+focus_neighbor_top = NodePath("../Back")
+max_columns = 2
+same_column_width = true
+
+[node name="Back" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 521.0
+offset_top = 129.0
+offset_right = 570.0
+offset_bottom = 179.0
+scale = Vector2(2.23602, 2.00834)
+focus_neighbor_right = NodePath("../ItemList")
+focus_neighbor_bottom = NodePath("../ItemList")
+texture_normal = ExtResource("3_12au3")
+texture_hover = ExtResource("4_lqbku")
+texture_focused = ExtResource("4_lqbku")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="LevelSquare" parent="." instance=ExtResource("5_5ld3b")]
+layout_mode = 1
+offset_left = 661.0
+offset_top = 400.0
+offset_right = 741.0
+offset_bottom = 512.0
+focus_neighbor_left = NodePath("../LevelSquare5")
+focus_neighbor_top = NodePath("../Back")
+focus_neighbor_right = NodePath("../LevelSquare2")
+focus_neighbor_bottom = NodePath("../LevelSquare6")
+toggle_mode = true
+button_group = ExtResource("6_me2e6")
+levelRes = ExtResource("6_lawfn")
+
+[node name="LevelSquare2" parent="." instance=ExtResource("5_5ld3b")]
+layout_mode = 1
+offset_left = 789.0
+offset_top = 400.0
+offset_right = 869.0
+offset_bottom = 512.0
+focus_neighbor_left = NodePath("../LevelSquare")
+focus_neighbor_top = NodePath("../Back")
+focus_neighbor_right = NodePath("../LevelSquare3")
+focus_neighbor_bottom = NodePath("../LevelSquare7")
+toggle_mode = true
+button_group = ExtResource("6_me2e6")
+levelRes = ExtResource("7_uo4q8")
+
+[node name="LevelSquare3" parent="." instance=ExtResource("5_5ld3b")]
+layout_mode = 1
+offset_left = 917.0
+offset_top = 400.0
+offset_right = 1006.0
+offset_bottom = 512.0
+focus_neighbor_left = NodePath("../LevelSquare2")
+focus_neighbor_top = NodePath("../Back")
+focus_neighbor_right = NodePath("../LevelSquare4")
+focus_neighbor_bottom = NodePath("../LevelSquare8")
+toggle_mode = true
+button_group = ExtResource("6_me2e6")
+levelRes = ExtResource("8_f2l7i")
+
+[node name="LevelSquare4" parent="." instance=ExtResource("5_5ld3b")]
+layout_mode = 1
+offset_left = 1045.0
+offset_top = 400.0
+offset_right = 1127.0
+offset_bottom = 512.0
+focus_neighbor_left = NodePath("../LevelSquare3")
+focus_neighbor_right = NodePath("../LevelSquare5")
+focus_neighbor_bottom = NodePath("../LevelSquare9")
+toggle_mode = true
+button_group = ExtResource("6_me2e6")
+levelRes = ExtResource("10_4s1qb")
+
+[node name="LevelSquare5" parent="." instance=ExtResource("5_5ld3b")]
+layout_mode = 1
+offset_left = 1173.0
+offset_top = 400.0
+offset_right = 1255.0
+offset_bottom = 512.0
+focus_neighbor_left = NodePath("../LevelSquare4")
+focus_neighbor_right = NodePath("../LevelSquare6")
+focus_neighbor_bottom = NodePath("../LevelSquare10")
+toggle_mode = true
+button_group = ExtResource("6_me2e6")
+levelRes = ExtResource("9_8mhn7")
+
+[node name="LevelSquare6" parent="." instance=ExtResource("5_5ld3b")]
+layout_mode = 1
+offset_left = 661.0
+offset_top = 560.0
+offset_right = 748.0
+offset_bottom = 676.0
+focus_neighbor_left = NodePath("../LevelSquare5")
+focus_neighbor_top = NodePath("../LevelSquare")
+focus_neighbor_right = NodePath("../LevelSquare7")
+focus_neighbor_bottom = NodePath("../TextureButton")
+toggle_mode = true
+button_group = ExtResource("6_me2e6")
+levelRes = ExtResource("10_so2k4")
+
+[node name="LevelSquare7" parent="." instance=ExtResource("5_5ld3b")]
+layout_mode = 1
+offset_left = 789.0
+offset_top = 560.0
+offset_right = 876.0
+offset_bottom = 671.0
+focus_neighbor_left = NodePath("../LevelSquare6")
+focus_neighbor_top = NodePath("../LevelSquare2")
+focus_neighbor_right = NodePath("../LevelSquare8")
+focus_neighbor_bottom = NodePath("../TextureButton")
+toggle_mode = true
+button_group = ExtResource("6_me2e6")
+levelRes = ExtResource("11_texmv")
+
+[node name="LevelSquare8" parent="." instance=ExtResource("5_5ld3b")]
+layout_mode = 1
+offset_left = 922.0
+offset_top = 560.0
+offset_right = 1006.0
+offset_bottom = 674.0
+focus_neighbor_left = NodePath("../LevelSquare7")
+focus_neighbor_top = NodePath("../LevelSquare3")
+focus_neighbor_right = NodePath("../LevelSquare9")
+focus_neighbor_bottom = NodePath("../TextureButton")
+toggle_mode = true
+button_group = ExtResource("6_me2e6")
+levelRes = ExtResource("12_u1bhc")
+
+[node name="LevelSquare9" parent="." instance=ExtResource("5_5ld3b")]
+layout_mode = 1
+offset_left = 1045.0
+offset_top = 560.0
+offset_right = 1132.0
+offset_bottom = 673.0
+focus_neighbor_left = NodePath("../LevelSquare8")
+focus_neighbor_top = NodePath("../LevelSquare4")
+focus_neighbor_right = NodePath("../LevelSquare10")
+focus_neighbor_bottom = NodePath("../TextureButton")
+toggle_mode = true
+button_group = ExtResource("6_me2e6")
+levelRes = ExtResource("13_57va4")
+
+[node name="LevelSquare10" parent="." instance=ExtResource("5_5ld3b")]
+layout_mode = 1
+offset_left = 1173.0
+offset_top = 560.0
+offset_right = 1265.0
+offset_bottom = 673.0
+focus_neighbor_left = NodePath("../LevelSquare9")
+focus_neighbor_top = NodePath("../LevelSquare5")
+focus_neighbor_right = NodePath("../LevelSquare6")
+focus_neighbor_bottom = NodePath("../TextureButton")
+toggle_mode = true
+button_group = ExtResource("6_me2e6")
+levelRes = ExtResource("14_35u5y")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 775.0
+offset_top = 800.0
+offset_right = 1132.0
+offset_bottom = 893.0
+texture_normal = ExtResource("16_ckon8")
+texture_hover = ExtResource("17_k2ice")
+texture_focused = ExtResource("17_k2ice")
+ignore_texture_size = true
+
+[connection signal="item_activated" from="ItemList" to="." method="_on_item_list_item_activated"]
+[connection signal="item_clicked" from="ItemList" to="." method="_on_item_list_item_clicked"]
+[connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]
+[connection signal="focus_entered" from="Back" to="." method="_on_button_focus"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="focus_entered" from="LevelSquare" to="." method="_on_button_focus"]
+[connection signal="level_selected" from="LevelSquare" to="." method="_on_level_square_level_selected"]
+[connection signal="focus_entered" from="LevelSquare2" to="." method="_on_button_focus"]
+[connection signal="level_selected" from="LevelSquare2" to="." method="_on_level_square_level_selected"]
+[connection signal="focus_entered" from="LevelSquare3" to="." method="_on_button_focus"]
+[connection signal="level_selected" from="LevelSquare3" to="." method="_on_level_square_level_selected"]
+[connection signal="focus_entered" from="LevelSquare4" to="." method="_on_button_focus"]
+[connection signal="level_selected" from="LevelSquare4" to="." method="_on_level_square_level_selected"]
+[connection signal="focus_entered" from="LevelSquare5" to="." method="_on_button_focus"]
+[connection signal="level_selected" from="LevelSquare5" to="." method="_on_level_square_level_selected"]
+[connection signal="focus_entered" from="LevelSquare6" to="." method="_on_button_focus"]
+[connection signal="level_selected" from="LevelSquare6" to="." method="_on_level_square_level_selected"]
+[connection signal="focus_entered" from="LevelSquare7" to="." method="_on_button_focus"]
+[connection signal="level_selected" from="LevelSquare7" to="." method="_on_level_square_level_selected"]
+[connection signal="focus_entered" from="LevelSquare8" to="." method="_on_button_focus"]
+[connection signal="level_selected" from="LevelSquare8" to="." method="_on_level_square_level_selected"]
+[connection signal="focus_entered" from="LevelSquare9" to="." method="_on_button_focus"]
+[connection signal="level_selected" from="LevelSquare9" to="." method="_on_level_square_level_selected"]
+[connection signal="focus_entered" from="LevelSquare10" to="." method="_on_button_focus"]
+[connection signal="level_selected" from="LevelSquare10" to="." method="_on_level_square_level_selected"]
+[connection signal="focus_entered" from="TextureButton" to="." method="_on_button_focus"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

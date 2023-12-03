@@ -1,0 +1,115 @@
+[gd_scene load_steps=12 format=3 uid="uid://dejvvmbnpvblp"]
+
+[ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Obstacle/Water/WaterFloor.gd" id="1_wmnvp"]
+[ext_resource type="PackedScene" uid="uid://bu75kel0q2p7r" path="res://Scenes/PlatformerPlayer/DeathComponent/DeathComponent.tscn" id="2_7oql1"]
+[ext_resource type="Texture2D" uid="uid://bnl6uu5lvfndx" path="res://Resources/Assets/Nuovi_PNG/Livello_acqua.png" id="2_ntxe1"]
+[ext_resource type="AudioStream" uid="uid://dy5hcgh0tv568" path="res://Resources/Audio/Effects/sfx_water-plop_big.ogg" id="2_syvh2"]
+[ext_resource type="AudioStream" uid="uid://du8gmognffgmg" path="res://Resources/Audio/Effects/sfx_waterpipe.ogg" id="3_avuno"]
+[ext_resource type="Texture2D" uid="uid://b7k8cjmoypoet" path="res://Resources/Assets/Oggetti/Acqua.png" id="4_a5nnv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o47hv"]
+size = Vector2(962, 81)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3fju"]
+size = Vector2(962, 81)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11aq3"]
+size = Vector2(961, 101.25)
+
+[sub_resource type="Animation" id="Animation_dl3pv"]
+resource_name = "water"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Onde_1:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(3, 3, 3, 3),
+"points": PackedFloat32Array(488, -0.5, -78.181, 0.5, 78.181, 566.155, -0.25, 0, 0.25, 0, 492.764, -0.4, 55.0432, 0.4, -55.0432, 488, -0.5, -67.3279, 0.5, 67.3279),
+"times": PackedFloat32Array(0, 1.2, 2.5, 4)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Onde_2:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(801, -0.25, 0, 0.25, 0, 841.37, -0.25, 0, 0.3, 24.4636, 712.936, -0.25, 0, 0.25, 0, 801, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.2, 2.7, 4)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ep78m"]
+_data = {
+"water": SubResource("Animation_dl3pv")
+}
+
+[node name="WaterFloor" type="StaticBody2D"]
+collision_layer = 64
+collision_mask = 6
+script = ExtResource("1_wmnvp")
+plopSound = ExtResource("2_syvh2")
+pipeSound = ExtResource("3_avuno")
+
+[node name="Acqua" type="Sprite2D" parent="."]
+visible = false
+z_index = -2
+position = Vector2(-392, -156)
+texture = ExtResource("4_a5nnv")
+
+[node name="Control" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -488.0
+offset_top = -273.0
+offset_right = 490.0
+
+[node name="Onde_1" type="Sprite2D" parent="Control"]
+modulate = Color(0.662745, 0.862745, 1, 1)
+z_index = -2
+texture_filter = 1
+position = Vector2(559.233, 273)
+texture = ExtResource("2_ntxe1")
+offset = Vector2(0, -54)
+
+[node name="Onde_2" type="Sprite2D" parent="Control"]
+z_index = -2
+texture_filter = 1
+position = Vector2(827.903, 273)
+texture = ExtResource("2_ntxe1")
+offset = Vector2(0, -54)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -40.5)
+shape = SubResource("RectangleShape2D_o47hv")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -40.5)
+shape = SubResource("RectangleShape2D_r3fju")
+
+[node name="DeathComponent" parent="." instance=ExtResource("2_7oql1")]
+position = Vector2(0, 8)
+scale = Vector2(1, 0.8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathComponent"]
+position = Vector2(-0.5, -60.625)
+shape = SubResource("RectangleShape2D_11aq3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ep78m")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

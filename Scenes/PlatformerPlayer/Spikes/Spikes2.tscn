@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3cbj1cjbxle3"]
+
+[ext_resource type="Script" path="res://Scenes/PlatformerPlayer/Spikes/Spikes.gd" id="1_1g7gq"]
+[ext_resource type="PackedScene" uid="uid://bu75kel0q2p7r" path="res://Scenes/PlatformerPlayer/DeathComponent/DeathComponent.tscn" id="2_22rcp"]
+[ext_resource type="Texture2D" uid="uid://dfkthofyvi3yt" path="res://Resources/Assets/Nuovi_PNG/Punta_piccola.png" id="2_41ekl"]
+
+[node name="Spikes" type="StaticBody2D"]
+texture_filter = 1
+collision_mask = 6
+script = ExtResource("1_1g7gq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_41ekl")
+offset = Vector2(0, -21)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -19)
+polygon = PackedVector2Array(-11, 18, 1, -15, 10, 18)
+
+[node name="DeathComponent" parent="." instance=ExtResource("2_22rcp")]
+process_mode = 4
+position = Vector2(3.8147e-06, -32)
+scale = Vector2(1.6, 1.6)

@@ -1,0 +1,92 @@
+[gd_scene load_steps=11 format=3 uid="uid://ch1k62rewst8"]
+
+[ext_resource type="Script" path="res://Scenes/PlatformerPlayer/PressurePlates/PressurePlateComponent.gd" id="1_ayd5l"]
+[ext_resource type="Texture2D" uid="uid://mrl3a7r8dl1i" path="res://Resources/Assets/Nuovi_PNG/Pressure_blu_sopra.png" id="2_onto7"]
+[ext_resource type="AudioStream" uid="uid://03jnhf0hxlij" path="res://Resources/Audio/Effects/sfx_pressureplate_small.ogg" id="2_x8hul"]
+[ext_resource type="Texture2D" uid="uid://cacl3xjo0qaow" path="res://Resources/Assets/Nuovi_PNG/Pressure_blu_base.png" id="3_kcxtf"]
+[ext_resource type="AudioStream" uid="uid://b87lw7qsy0whe" path="res://Resources/Audio/Effects/sfx_pressureplate_decompress_small.ogg" id="3_myw20"]
+[ext_resource type="PackedScene" uid="uid://db2r5vwiirvo8" path="res://Scenes/PlatformerPlayer/TriggerComponent/SenderComponent.tscn" id="3_oof6p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_27fqp"]
+size = Vector2(68, 15)
+
+[sub_resource type="Animation" id="Animation_vni5l"]
+resource_name = "push"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Sopra:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(18, -0.25, 0, 0.25, 0, 28, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="Animation" id="Animation_28t7f"]
+resource_name = "release"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Sopra:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(28, -0.25, 0, 0.25, 0, 18, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_arwsv"]
+_data = {
+"push": SubResource("Animation_vni5l"),
+"release": SubResource("Animation_28t7f")
+}
+
+[node name="PressurePlate2" type="Area2D"]
+collision_layer = 8
+collision_mask = 6
+script = ExtResource("1_ayd5l")
+compressSound = ExtResource("2_x8hul")
+decompressSound = ExtResource("3_myw20")
+
+[node name="Control" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -34.0
+offset_top = -18.0
+offset_right = 35.0
+offset_bottom = -1.0
+
+[node name="Sopra" type="Sprite2D" parent="Control"]
+texture_filter = 1
+position = Vector2(34, 18)
+texture = ExtResource("2_onto7")
+offset = Vector2(0, -8.5)
+
+[node name="Sotto" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("3_kcxtf")
+offset = Vector2(0, -0.5)
+
+[node name="SenderComponent" parent="." instance=ExtResource("3_oof6p")]
+position = Vector2(0, -9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_27fqp")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_arwsv")
+}
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

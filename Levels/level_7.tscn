@@ -1,0 +1,467 @@
+[gd_scene load_steps=34 format=3 uid="uid://bbe0qllt3ore1"]
+
+[ext_resource type="PackedScene" uid="uid://c7lc1cagba60g" path="res://Scenes/PlatformerPlayer/Obstacle/Water/WaterFloor_piccola.tscn" id="4_t55n8"]
+[ext_resource type="PackedScene" uid="uid://dejvvmbnpvblp" path="res://Scenes/PlatformerPlayer/Obstacle/Water/WaterFloor.tscn" id="5_xay8h"]
+[ext_resource type="PackedScene" uid="uid://cqnl53v0iei8b" path="res://Scenes/PlatformerPlayer/PlatPlayer.tscn" id="7_hle3n"]
+[ext_resource type="PackedScene" uid="uid://c8qbn2xe7w0yv" path="res://Scenes/PlatformerPlayer/Doors/BigDoor/BigDoor.tscn" id="8_2mltp"]
+[ext_resource type="PackedScene" uid="uid://ddfaeavjffgx6" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x5.tscn" id="9_m4vnp"]
+[ext_resource type="PackedScene" uid="uid://phjy1geq4nek" path="res://Scenes/PlatformerPlayer/Platforms/Platform1/Platform2.tscn" id="10_jqhcp"]
+[ext_resource type="PackedScene" uid="uid://do88ox8hahe8i" path="res://Scenes/PlatformerPlayer/Spikes/Spikes.tscn" id="11_fisk6"]
+[ext_resource type="PackedScene" uid="uid://cg5qp6djrjlof" path="res://Scenes/PlatformerPlayer/Platforms/DisappearPlatform2/DisapperaPlatform2.tscn" id="12_wnhos"]
+[ext_resource type="PackedScene" uid="uid://dc601pwyjee1" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x5.tscn" id="13_g0mog"]
+[ext_resource type="PackedScene" uid="uid://dvhrt43a8uu5r" path="res://Scenes/PlatformerPlayer/Pickable/Box/BoxPickable.tscn" id="14_txo8w"]
+[ext_resource type="PackedScene" uid="uid://c0yejb6v7hqpy" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed_x2.tscn" id="15_4ni5j"]
+[ext_resource type="PackedScene" uid="uid://dys77aiydaakp" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticRed.tscn" id="16_r2jtp"]
+[ext_resource type="PackedScene" uid="uid://6a1c38prt1a4" path="res://Scenes/PlatformerPlayer/Buttons/Button1/Button01.tscn" id="17_k1eik"]
+[ext_resource type="PackedScene" uid="uid://cdoatt4q6g2nt" path="res://Scenes/PlatformerPlayer/Walls/BreakableWall/BreakableWall.tscn" id="18_mfrcn"]
+[ext_resource type="PackedScene" uid="uid://b8upryncqwmc6" path="res://Scenes/PlatformerPlayer/Doors/SmallDoor/SmallDoor.tscn" id="19_4hkkt"]
+[ext_resource type="PackedScene" uid="uid://bc4tsc83nd2al" path="res://Scenes/PlatformerPlayer/PressurePlates/PressurePlate1.tscn" id="20_jwvkg"]
+[ext_resource type="PackedScene" uid="uid://js3ym6n0f3po" path="res://Scenes/PlatformerPlayer/Pickable/RigidBodyPickable/PicakbleBall.tscn" id="21_s87oj"]
+[ext_resource type="PackedScene" uid="uid://dn8ylngmbs0mt" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_x2.tscn" id="23_7by25"]
+[ext_resource type="PackedScene" uid="uid://dnpelmrygcwdv" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue_Oblique.tscn" id="24_sjih7"]
+[ext_resource type="PackedScene" uid="uid://b7mn5x5w28ccf" path="res://Scenes/PlatformerPlayer/Platforms/Static/PlatformStaticBlue.tscn" id="25_7k1js"]
+[ext_resource type="PackedScene" uid="uid://ch1k62rewst8" path="res://Scenes/PlatformerPlayer/PressurePlates/PressurePlate2.tscn" id="26_16uye"]
+[ext_resource type="PackedScene" uid="uid://din1h8ql506vb" path="res://Scenes/Background.tscn" id="26_wr6dd"]
+[ext_resource type="PackedScene" uid="uid://bm6c2dprd5k1l" path="res://Scenes/PlatformerPlayer/Platforms/DisappearPlatform2/DisapperaPlatform2_blue.tscn" id="27_83ncp"]
+[ext_resource type="Texture2D" uid="uid://dkncjjtpcesun" path="res://Resources/Assets/Upd_Assets/Exit_right.png" id="27_a50ff"]
+[ext_resource type="PackedScene" uid="uid://d4diwwos6tieb" path="res://Scenes/PlatformerPlayer/Platforms/Platform1/Platform1.tscn" id="27_oqqgw"]
+[ext_resource type="Texture2D" uid="uid://cqowkgmsfof6s" path="res://Resources/Assets/Archivio_segni/segni_tratteggio_1.png" id="28_3548o"]
+[ext_resource type="PackedScene" uid="uid://cxjw8tk4kep1p" path="res://Scenes/PlatformerPlayer/Keys/Key01/Key01.tscn" id="28_u42di"]
+[ext_resource type="PackedScene" uid="uid://pd5e2y2wk2ql" path="res://Scenes/PlatformerPlayer/Pickable/Spring/Spring.tscn" id="29_765x1"]
+[ext_resource type="Texture2D" uid="uid://sbtcujloclhi" path="res://Resources/Assets/Archivio_segni/segni_freccia_2.png" id="29_ajlcj"]
+[ext_resource type="Texture2D" uid="uid://dqn05jghgxtn8" path="res://Resources/Assets/Archivio_segni/segni_freccia_3.png" id="30_j86cd"]
+[ext_resource type="Texture2D" uid="uid://ndxgyhkbihrc" path="res://Resources/Assets/Archivio_segni/segni_attento.png" id="31_icx61"]
+
+[sub_resource type="Curve2D" id="Curve2D_wosg4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -48, 688, 0, 0, 0, 0, -47.6808, 510.049, 0, 0, 0, 0, -48, 32)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_c6i8q"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -16, -16, 0, 0, 0, 0, -336, -16, 0, 0, 0, 0, -336, -384, 0, 0, 0, 0, -608, -384, 0, 0, 0, 0, -608, -560)
+}
+point_count = 5
+
+[node name="Level 7" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(960, 540)
+
+[node name="Platform_Red" type="Node2D" parent="."]
+
+[node name="Platforms" type="Node2D" parent="Platform_Red"]
+
+[node name="PlatformStaticRed_x5" parent="Platform_Red/Platforms" instance=ExtResource("9_m4vnp")]
+position = Vector2(768, 320)
+
+[node name="PlatformStaticRed_x6" parent="Platform_Red/Platforms" instance=ExtResource("9_m4vnp")]
+position = Vector2(784, 976)
+
+[node name="PlatformStaticRed_x7" parent="Platform_Red/Platforms" instance=ExtResource("9_m4vnp")]
+z_index = 1
+position = Vector2(848, 752)
+
+[node name="PlatformStaticRed_x2" parent="Platform_Red/Platforms" instance=ExtResource("15_4ni5j")]
+position = Vector2(224, 896)
+
+[node name="PlatformStaticRed_x3" parent="Platform_Red/Platforms" instance=ExtResource("15_4ni5j")]
+position = Vector2(416, 320)
+
+[node name="PlatformStaticRed" parent="Platform_Red/Platforms" instance=ExtResource("16_r2jtp")]
+position = Vector2(592, 976)
+
+[node name="PlatformStaticRed2" parent="Platform_Red/Platforms" instance=ExtResource("16_r2jtp")]
+position = Vector2(640, 544)
+
+[node name="PlatformStaticRed3" parent="Platform_Red/Platforms" instance=ExtResource("16_r2jtp")]
+position = Vector2(640, 432)
+
+[node name="PlatformStaticRed4" parent="Platform_Red/Platforms" instance=ExtResource("16_r2jtp")]
+position = Vector2(960, 320)
+
+[node name="DisapperaPlatform3" parent="Platform_Red/Platforms" instance=ExtResource("12_wnhos")]
+position = Vector2(208, 320)
+
+[node name="DisapperaPlatform4" parent="Platform_Red/Platforms" instance=ExtResource("12_wnhos")]
+position = Vector2(368, 976)
+
+[node name="DisapperaPlatform6" parent="Platform_Red/Platforms" instance=ExtResource("12_wnhos")]
+position = Vector2(496, 976)
+
+[node name="Path2D" type="Path2D" parent="Platform_Red/Platforms"]
+position = Vector2(592, 256)
+curve = SubResource("Curve2D_wosg4")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Platform_Red/Platforms/Path2D"]
+position = Vector2(-48, 32.0003)
+rotation = -1.5708
+progress = 656.0
+rotates = false
+loop = false
+
+[node name="M_Platform" parent="Platform_Red/Platforms/Path2D/PathFollow2D" node_paths=PackedStringArray("path") instance=ExtResource("10_jqhcp")]
+position = Vector2(-32, -0.00012207)
+rotation = 1.5708
+speed = 100.0
+path = NodePath("..")
+active = false
+
+[node name="Spikes" parent="Platform_Red/Platforms/Path2D/PathFollow2D/M_Platform" instance=ExtResource("11_fisk6")]
+position = Vector2(0, -63)
+
+[node name="Spikes4" parent="Platform_Red/Platforms/Path2D/PathFollow2D/M_Platform" instance=ExtResource("11_fisk6")]
+position = Vector2(0, -1)
+rotation = 3.14159
+
+[node name="Objectives" type="Node2D" parent="Platform_Red"]
+
+[node name="BigDoor" parent="Platform_Red/Objectives" instance=ExtResource("8_2mltp")]
+position = Vector2(832, 259)
+maxButton = 3
+indicatorOffset = 40
+
+[node name="Button01" parent="Platform_Red/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("17_k1eik")]
+position = Vector2(864, 916)
+receivers = [NodePath("../BigDoor")]
+
+[node name="Button02" parent="Platform_Red/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("17_k1eik")]
+position = Vector2(848, 315)
+rotation = 3.14159
+receivers = [NodePath("../BigDoor")]
+
+[node name="Button03" parent="Platform_Red/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("17_k1eik")]
+position = Vector2(176, 43)
+rotation = 3.14159
+receivers = [NodePath("../BigDoor")]
+
+[node name="PressurePlate3" parent="Platform_Red/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("20_jwvkg")]
+position = Vector2(224, 832)
+receivers = [NodePath("../../Platforms/Path2D/PathFollow2D/M_Platform")]
+
+[node name="Obstacles" type="Node2D" parent="Platform_Red"]
+
+[node name="BreakableWall" parent="Platform_Red/Obstacles" instance=ExtResource("18_mfrcn")]
+position = Vector2(720, 928)
+
+[node name="WaterFloor" parent="Platform_Red/Obstacles" instance=ExtResource("5_xay8h")]
+z_index = 3
+position = Vector2(480, 1072)
+
+[node name="Pickables" type="Node2D" parent="Platform_Red"]
+
+[node name="BoxPickable" parent="Platform_Red/Pickables" instance=ExtResource("14_txo8w")]
+position = Vector2(737, 691)
+side = 1
+
+[node name="Spring" parent="Platform_Red/Pickables" instance=ExtResource("29_765x1")]
+position = Vector2(400, 256)
+side = 1
+JUMP_FORCE = -750
+
+[node name="Player1" parent="Platform_Red" instance=ExtResource("7_hle3n")]
+z_index = 2
+position = Vector2(669, 192)
+scale = Vector2(0.75, 0.75)
+AIR_SPEED = 150.0
+JUMP_VELOCITY = -430.0
+push_force = 50
+
+[node name="Platform_Blue" type="Node2D" parent="."]
+
+[node name="Platforms" type="Node2D" parent="Platform_Blue"]
+
+[node name="PlatformStaticBlue_x2" parent="Platform_Blue/Platforms" instance=ExtResource("23_7by25")]
+position = Vector2(1248, 544)
+
+[node name="PlatformStaticBlue_x4" parent="Platform_Blue/Platforms" instance=ExtResource("23_7by25")]
+position = Vector2(1856, 256)
+
+[node name="PlatformStaticBlue_x5" parent="Platform_Blue/Platforms" instance=ExtResource("23_7by25")]
+position = Vector2(1536, 256)
+
+[node name="PlatformStaticBlue_x3" parent="Platform_Blue/Platforms" instance=ExtResource("23_7by25")]
+position = Vector2(1680, 544)
+
+[node name="PlatformStaticBlue" parent="Platform_Blue/Platforms" instance=ExtResource("24_sjih7")]
+position = Vector2(1808, 256)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="PlatformStaticBlue2" parent="Platform_Blue/Platforms" instance=ExtResource("24_sjih7")]
+position = Vector2(1840, 224)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="PlatformStaticBlue3" parent="Platform_Blue/Platforms" instance=ExtResource("25_7k1js")]
+position = Vector2(1872, 224)
+
+[node name="PlatformStaticBlue4" parent="Platform_Blue/Platforms" instance=ExtResource("25_7k1js")]
+position = Vector2(1552, 288)
+
+[node name="PlatformStaticBlue_x16" parent="Platform_Blue/Platforms" instance=ExtResource("13_g0mog")]
+position = Vector2(1792, 544)
+
+[node name="PlatformStaticBlue_x17" parent="Platform_Blue/Platforms" instance=ExtResource("13_g0mog")]
+position = Vector2(1136, 544)
+
+[node name="PlatformStaticBlue_x19" parent="Platform_Blue/Platforms" instance=ExtResource("13_g0mog")]
+position = Vector2(1520, 224)
+
+[node name="PlatformStaticBlue_x20" parent="Platform_Blue/Platforms" instance=ExtResource("13_g0mog")]
+position = Vector2(1680, 224)
+
+[node name="PlatformStaticBlue_x21" parent="Platform_Blue/Platforms" instance=ExtResource("13_g0mog")]
+position = Vector2(1648, 288)
+
+[node name="PlatformStaticBlue_x22" parent="Platform_Blue/Platforms" instance=ExtResource("13_g0mog")]
+position = Vector2(1808, 288)
+
+[node name="PlatformStaticBlue_x18" parent="Platform_Blue/Platforms" instance=ExtResource("13_g0mog")]
+position = Vector2(1120, 976)
+
+[node name="PlatformStaticBlue_x23" parent="Platform_Blue/Platforms" instance=ExtResource("13_g0mog")]
+position = Vector2(1408, 976)
+
+[node name="Path2D2" type="Path2D" parent="Platform_Blue/Platforms"]
+position = Vector2(1808, 768)
+curve = SubResource("Curve2D_c6i8q")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Platform_Blue/Platforms/Path2D2"]
+position = Vector2(-608, -560)
+rotation = -1.5708
+progress = 1136.0
+rotates = false
+loop = false
+
+[node name="M_Platform2" parent="Platform_Blue/Platforms/Path2D2/PathFollow2D" node_paths=PackedStringArray("path") instance=ExtResource("27_oqqgw")]
+position = Vector2(-16.0059, 0)
+rotation = 1.5708
+speed = 100.0
+path = NodePath("..")
+active = false
+
+[node name="DisapperaPlatform2" parent="Platform_Blue/Platforms" instance=ExtResource("27_83ncp")]
+position = Vector2(1384, 544)
+
+[node name="DisapperaPlatform4" parent="Platform_Blue/Platforms" instance=ExtResource("27_83ncp")]
+position = Vector2(1328, 223)
+
+[node name="DisapperaPlatform3" parent="Platform_Blue/Platforms" instance=ExtResource("27_83ncp")]
+position = Vector2(1536, 544)
+
+[node name="Objectives" type="Node2D" parent="Platform_Blue"]
+
+[node name="SmallDoor" parent="Platform_Blue/Objectives" instance=ExtResource("19_4hkkt")]
+z_index = 0
+position = Vector2(1792, 515)
+maxKeys = 3
+goalNumber = 1
+indicatorOffset = 44
+
+[node name="Key01" parent="Platform_Blue/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("28_u42di")]
+position = Vector2(1104, 640)
+receivers = [NodePath("../SmallDoor")]
+
+[node name="Key02" parent="Platform_Blue/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("28_u42di")]
+position = Vector2(1792, 704)
+receivers = [NodePath("../SmallDoor")]
+
+[node name="Key03" parent="Platform_Blue/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("28_u42di")]
+position = Vector2(1200, 160)
+receivers = [NodePath("../SmallDoor")]
+
+[node name="PressurePlate2" parent="Platform_Blue/Objectives" node_paths=PackedStringArray("receivers") instance=ExtResource("26_16uye")]
+position = Vector2(1606, 257)
+receivers = [NodePath("../../Platforms/Path2D2/PathFollow2D/M_Platform2")]
+
+[node name="Obstacles" type="Node2D" parent="Platform_Blue"]
+
+[node name="WaterFloor_Piccola" parent="Platform_Blue/Obstacles" instance=ExtResource("4_t55n8")]
+z_index = 3
+position = Vector2(1472, 1056)
+
+[node name="Pickables" type="Node2D" parent="Platform_Blue"]
+
+[node name="BoxPickable3" parent="Platform_Blue/Pickables" instance=ExtResource("14_txo8w")]
+position = Vector2(1600, 192)
+
+[node name="BoxPickable5" parent="Platform_Blue/Pickables" instance=ExtResource("14_txo8w")]
+position = Vector2(1392, 944)
+
+[node name="Ball" parent="Platform_Blue/Pickables" instance=ExtResource("21_s87oj")]
+position = Vector2(1120, 512)
+lock_rotation = false
+
+[node name="Player2" parent="Platform_Blue" instance=ExtResource("7_hle3n")]
+z_index = 2
+position = Vector2(1728, 472)
+scale = Vector2(0.75, 0.75)
+GROUND_SPEED = 230.0
+AIR_SPEED = 150.0
+JUMP_VELOCITY = -350.0
+side = 1
+directionOffsetZ = 50.0
+
+[node name="Background" parent="." instance=ExtResource("26_wr6dd")]
+z_index = 1
+metadata/_edit_lock_ = true
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="SegniTratteggio1" type="Sprite2D" parent="Props"]
+z_index = -1
+texture_filter = 1
+position = Vector2(544, 469)
+rotation = 1.5708
+texture = ExtResource("28_3548o")
+
+[node name="SegniTratteggio2" type="Sprite2D" parent="Props"]
+z_index = -1
+texture_filter = 1
+position = Vector2(544, 687)
+rotation = 1.5708
+texture = ExtResource("28_3548o")
+
+[node name="SegniTratteggio3" type="Sprite2D" parent="Props"]
+z_index = -1
+texture_filter = 1
+position = Vector2(544, 687)
+rotation = 1.5708
+texture = ExtResource("28_3548o")
+
+[node name="SegniTratteggio6" type="Sprite2D" parent="Props"]
+z_index = -2
+texture_filter = 1
+position = Vector2(544, 824)
+rotation = 1.5708
+texture = ExtResource("28_3548o")
+
+[node name="ExitRight2" type="Sprite2D" parent="Props"]
+z_index = -3
+texture_filter = 1
+position = Vector2(1728, 487)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("27_a50ff")
+
+[node name="ExitRight" type="Sprite2D" parent="Props"]
+z_index = -3
+texture_filter = 1
+position = Vector2(703, 208)
+texture = ExtResource("27_a50ff")
+
+[node name="SegniTratteggio4" type="Sprite2D" parent="Props"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1200, 257)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("28_3548o")
+
+[node name="SegniTratteggio5" type="Sprite2D" parent="Props"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1200, 261)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("28_3548o")
+
+[node name="SegniTratteggio7" type="Sprite2D" parent="Props"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1200, 325)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("28_3548o")
+
+[node name="SegniTratteggio8" type="Sprite2D" parent="Props"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1258, 385)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("28_3548o")
+
+[node name="SegniTratteggio9" type="Sprite2D" parent="Props"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1368, 385)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("28_3548o")
+
+[node name="SegniTratteggio10" type="Sprite2D" parent="Props"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1414, 385)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("28_3548o")
+
+[node name="SegniTratteggio11" type="Sprite2D" parent="Props"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1472, 446)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("28_3548o")
+
+[node name="SegniTratteggio12" type="Sprite2D" parent="Props"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1472, 558)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("28_3548o")
+
+[node name="SegniTratteggio13" type="Sprite2D" parent="Props"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1472, 666)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("28_3548o")
+
+[node name="SegniTratteggio17" type="Sprite2D" parent="Props"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1472, 687)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("28_3548o")
+
+[node name="SegniTratteggio14" type="Sprite2D" parent="Props"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1531, 752)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("28_3548o")
+
+[node name="SegniTratteggio15" type="Sprite2D" parent="Props"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1641, 752)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("28_3548o")
+
+[node name="SegniFreccia2" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1387, 290)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("29_ajlcj")
+
+[node name="SegniFreccia3" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(1296, 499)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("30_j86cd")
+
+[node name="SegniAttento" type="Sprite2D" parent="Props"]
+texture_filter = 1
+position = Vector2(478, 580)
+texture = ExtResource("31_icx61")
+
+[node name="SegniTratteggio16" type="Sprite2D" parent="Props"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1751, 752)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("28_3548o")
