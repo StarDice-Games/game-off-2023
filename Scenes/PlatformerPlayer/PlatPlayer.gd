@@ -65,7 +65,7 @@ signal died
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-var canJump = true
+var bufferJump = false
 
 func recalculateGravity():
 	jump_velocity = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
@@ -162,6 +162,13 @@ func accelerate(direction: float, speed):
 func apply_friction():
 	velocity.x = move_toward(velocity.x, 0, FRICTION)
 
+func jump():
+	getActiveAnimationPlayer().play("Jump")
+	AudioManager.play(getSoundBySide(jumpSound, jumpSoundSmall))
+	jumpAnimationEnd = false
+	coyote_timer = 100
+	velocity.y = jump_velocity
+
 func _physics_process(delta):
 	if Global.currentGameState != Global.GameState.IN_GAME:
 		return
@@ -200,17 +207,18 @@ func _physics_process(delta):
 	if Global.activePlayer == side:
 
 		if is_on_floor():
-			canJump = true
 			coyote_timer = 0
+			if bufferJump:
+				jump()
+				bufferJump = false
+		
 #		$PointLight2D.enabled = true
 		# Handle Jump.
-		if Input.is_action_just_pressed("Jump") and (is_on_floor() or coyote_timer < coyote_time):
-			getActiveAnimationPlayer().play("Jump")
-			AudioManager.play(getSoundBySide(jumpSound, jumpSoundSmall))
-			jumpAnimationEnd = false
-			canJump = false
-			coyote_timer = 100
-			velocity.y = jump_velocity
+		if Input.is_action_just_pressed("Jump"):
+			if (is_on_floor() or coyote_timer < coyote_time):
+				jump()
+			else:
+				bufferJump = true
 
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
