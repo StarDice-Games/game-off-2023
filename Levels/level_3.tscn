@@ -80,6 +80,9 @@ position = Vector2(160, 288)
 [node name="PlatformStaticRed2" parent="LevelDesign_Red/Platforms" instance=ExtResource("15_n1d1x")]
 position = Vector2(320, 800)
 
+[node name="PlatformStaticRed3" parent="LevelDesign_Red/Platforms" instance=ExtResource("15_n1d1x")]
+position = Vector2(80, 992)
+
 [node name="PlatformStaticRed_x8" parent="LevelDesign_Red/Platforms" instance=ExtResource("12_djuxu")]
 position = Vector2(784, 720)
 
@@ -183,7 +186,7 @@ z_index = -2
 z_index = -1
 
 [node name="PlatformStaticBlue_x13" parent="LevelDesign_Blue/Platforms" instance=ExtResource("16_015o1")]
-position = Vector2(1600, 608)
+position = Vector2(1590, 608)
 
 [node name="PlatformStaticBlue_x12" parent="LevelDesign_Blue/Platforms" instance=ExtResource("16_015o1")]
 position = Vector2(1712, 752)
@@ -210,7 +213,7 @@ position = Vector2(1280, 640)
 position = Vector2(1104, 704)
 
 [node name="PlatformStaticBlue_x3" parent="LevelDesign_Blue/Platforms" instance=ExtResource("17_8l23t")]
-position = Vector2(1472, 560)
+position = Vector2(1474, 563)
 
 [node name="PlatformStaticBlue_x14" parent="LevelDesign_Blue/Platforms" instance=ExtResource("16_015o1")]
 position = Vector2(1456, 270)

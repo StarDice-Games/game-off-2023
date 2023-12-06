@@ -289,7 +289,7 @@ indicatorOffset = 44
 
 [node name="BoxPickable" parent="LevelDesign_Blue/Pickables" instance=ExtResource("11_axvy4")]
 z_index = 1
-position = Vector2(1232, 880)
+position = Vector2(1392, 880)
 
 [node name="BoxPickable5" parent="LevelDesign_Blue/Pickables" instance=ExtResource("11_axvy4")]
 position = Vector2(1648, 576)
