@@ -461,6 +461,8 @@ func restartLevel():
 	print("restart the current game")
 	AudioManager.play(menuButtonPress)
 	currentGameState = GameState.IN_GAME
+	bgInGameMusic.stream_paused = false
+	bgInGameMusic2.stream_paused = false
 	
 	#TODO reset the status of the player
 	activePlayer = 0
