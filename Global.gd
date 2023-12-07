@@ -49,6 +49,7 @@ var goals : Array[Node2D] = [null, null]
 var timerCallback : Callable
 var nodeInstance = null
 var next_scene = 1
+var timerHoldButtonReset = 0
 
 enum GameState {
 	MAIN_MENU,
@@ -310,8 +311,14 @@ func processGame(delta):
 	if Input.is_action_just_pressed("ChangeLevelDebug"):
 		get_tree().change_scene_to_packed(scenes[next_scene].scene)
 
-	if Input.is_action_just_pressed("ResetLevel"):
-		get_tree().reload_current_scene()
+	if Input.is_action_pressed("ResetLevel"):
+		timerHoldButtonReset += delta
+		print(timerHoldButtonReset)
+		if timerHoldButtonReset >= 1.0:
+			timerHoldButtonReset = 0
+			restartLevel()
+	if Input.is_action_just_released("ResetLevel"):
+		timerHoldButtonReset = 0
 	pass
 	
 	if Input.is_action_just_pressed("Pause"):
