@@ -1,24 +1,26 @@
 extends CharacterBody2D
 class_name PlatPlayer
 
-@export var GROUND_SPEED = 300.0
-@export var AIR_SPEED = 300.0
-@export var GROUND_FRICTION = 300.0
-@export var ACCELERATION: float = 30
-@export var FRICTION: float = 50
+#@export var GROUND_SPEED = 300.0
+#@export var AIR_SPEED = 300.0
+#@export var ACCELERATION: float = 30
+#@export var FRICTION: float = 50
 
 @export_category("Jump")
-@export var jump_height : float
-@export var jump_time_to_peak : float
-@export var jump_time_to_descent : float
-@export var coyote_time : float = 0.5
+@export var redJumpSettings : JumpSettingsResource
+@export var blueJumpSettings : JumpSettingsResource
+#@export var jump_height : float
+#@export var jump_time_to_peak : float
+#@export var jump_time_to_descent : float
+#@export var coyote_time : float = 0.5
 var coyote_timer = 0
 
-@onready var jump_velocity : float = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
-@onready var jump_gravity : float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1.0
-@onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
+var jump_velocity : float
+var jump_gravity : float 
+var fall_gravity : float 
 
-@export var JUMP_VELOCITY = -400.0
+var currentJumpSettings
+
 @export var push_force = 100
 @export var side = 0
 @export var directionOffsetZ = 75.0
@@ -63,14 +65,22 @@ var jumpAnimationEnd = false
 signal died
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+#var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var bufferJump = false
 
-func recalculateGravity():
-	jump_velocity = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
-	jump_gravity = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1.0
-	fall_gravity = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
+func getSettingsFromSide(side):
+	match  side:
+		0: #red
+			return redJumpSettings
+		1: #blue
+			return blueJumpSettings
+
+func recalculateGravity(side):
+	var jumpSettings = getSettingsFromSide(side)
+	jump_velocity = ((2.0 * jumpSettings.jump_height) / jumpSettings.jump_time_to_peak) * -1.0
+	jump_gravity = ((-2.0 * jumpSettings.jump_height) / (jumpSettings.jump_time_to_peak * jumpSettings.jump_time_to_peak)) * -1.0
+	fall_gravity = ((-2.0 * jumpSettings.jump_height) / (jumpSettings.jump_time_to_descent * jumpSettings.jump_time_to_descent)) * -1.0
 
 
 func _ready():
@@ -84,6 +94,10 @@ func _ready():
 	
 	thinkLeft.hide()
 	thinkRight.hide()
+	
+	currentJumpSettings = getSettingsFromSide(side)
+	
+	recalculateGravity(side)
 
 func get_gravity() -> float:
 	return jump_gravity if velocity.y < 0.0 else fall_gravity
@@ -157,10 +171,10 @@ func stopAnimation():
 	animationRed.play("Idle")
 
 func accelerate(direction: float, speed):
-	velocity.x = move_toward(velocity.x, speed * direction, ACCELERATION)
+	velocity.x = move_toward(velocity.x, speed * direction, currentJumpSettings.ACCELERATION)
  
 func apply_friction():
-	velocity.x = move_toward(velocity.x, 0, FRICTION)
+	velocity.x = move_toward(velocity.x, 0, currentJumpSettings.FRICTION)
 
 func jump():
 	getActiveAnimationPlayer().play("Jump")
@@ -173,7 +187,7 @@ func _physics_process(delta):
 	if Global.currentGameState != Global.GameState.IN_GAME:
 		return
 		
-	recalculateGravity()
+	recalculateGravity(side)
 	
 	if canDie == false:
 		return
@@ -195,11 +209,11 @@ func _physics_process(delta):
 	else:
 		holdObjectAnimation(false)
 				
-	var moveSpeed = GROUND_SPEED
+	var moveSpeed = currentJumpSettings.GROUND_SPEED
 	
 	if not is_on_floor():
-			moveSpeed = AIR_SPEED
-			if coyote_timer > coyote_time:
+			moveSpeed = currentJumpSettings.AIR_SPEED
+			if coyote_timer > currentJumpSettings.coyote_time:
 				velocity.y += get_gravity() * delta
 			else:
 				coyote_timer += 1 * delta
@@ -215,7 +229,7 @@ func _physics_process(delta):
 #		$PointLight2D.enabled = true
 		# Handle Jump.
 		if Input.is_action_just_pressed("Jump"):
-			if (is_on_floor() or coyote_timer < coyote_time):
+			if (is_on_floor() or coyote_timer < currentJumpSettings.coyote_time):
 				jump()
 			else:
 				bufferJump = true
@@ -235,7 +249,6 @@ func _physics_process(delta):
 				AudioManager.play(getSoundBySide(steps, stepsSmall))
 		else:
 			apply_friction()
-#			velocity.x = move_toward(velocity.x, 0, GROUND_FRICTION)
 			if jumpAnimationEnd == true:
 				getActiveAnimationPlayer().play("Idle")
 		

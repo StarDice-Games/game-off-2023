@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="JumpSettingsResource" load_steps=2 format=3 uid="uid://h3no2lwre5b1"]
+
+[ext_resource type="Script" path="res://Scenes/PlatformerPlayer/PlayerJumpSettings/JumpSettingsRes.gd" id="1_7h7tf"]
+
+[resource]
+script = ExtResource("1_7h7tf")
+GROUND_SPEED = 300.0
+AIR_SPEED = 200.0
+ACCELERATION = 230.0
+FRICTION = 90.0
+jump_height = 120.0
+jump_time_to_peak = 0.3
+jump_time_to_descent = 0.2
+coyote_time = 0.2
