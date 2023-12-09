@@ -164,8 +164,6 @@ position = Vector2(336, 435)
 z_index = 2
 position = Vector2(139, 920)
 scale = Vector2(0.75, 0.75)
-AIR_SPEED = 150.0
-JUMP_VELOCITY = -430.0
 push_force = 50
 
 [node name="LevelDesign_Blue" type="Node2D" parent="."]
@@ -274,6 +272,7 @@ position = Vector2(1616, 368)
 
 [node name="Spring" parent="LevelDesign_Blue/Pickables" instance=ExtResource("22_iwa48")]
 position = Vector2(1296, 992)
+JUMP_HEIGHT = 30
 
 [node name="Spring4" parent="LevelDesign_Blue/Pickables" instance=ExtResource("22_iwa48")]
 position = Vector2(1680, 448)
@@ -309,9 +308,6 @@ position = Vector2(1424, 371)
 z_index = 2
 position = Vector2(1739, 945)
 scale = Vector2(0.75, 0.75)
-GROUND_SPEED = 230.0
-AIR_SPEED = 150.0
-JUMP_VELOCITY = -350.0
 side = 1
 directionOffsetZ = 50.0
 
