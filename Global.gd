@@ -310,15 +310,16 @@ func processGame(delta):
 	#TODO remove this
 	if Input.is_action_just_pressed("ChangeLevelDebug"):
 		get_tree().change_scene_to_packed(scenes[next_scene].scene)
-
-	if Input.is_action_pressed("ResetLevel"):
-		timerHoldButtonReset += delta
-		print(timerHoldButtonReset)
-		if timerHoldButtonReset >= 1.0:
-			timerHoldButtonReset = 0
-			restartLevel()
-	if Input.is_action_just_released("ResetLevel"):
-		timerHoldButtonReset = 0
+		
+	#IL RESET VIENE FATTO NEL BACKGROUND
+	#if Input.is_action_pressed("ResetLevel"):
+	#	timerHoldButtonReset += delta
+	#	print(timerHoldButtonReset)
+	#	if timerHoldButtonReset >= 1.0:
+	#		timerHoldButtonReset = 0
+	#		restartLevel()
+	#if Input.is_action_just_released("ResetLevel"):
+	#	timerHoldButtonReset = 0
 	pass
 	
 	if Input.is_action_just_pressed("Pause"):
@@ -463,7 +464,7 @@ func restartLevel():
 	currentGameState = GameState.IN_GAME
 	bgInGameMusic.stream_paused = false
 	bgInGameMusic2.stream_paused = false
-	
+	Input.action_release("ResetLevel")
 	#TODO reset the status of the player
 	activePlayer = 0
 	
