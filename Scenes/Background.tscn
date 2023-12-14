@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://din1h8ql506vb"]
+[gd_scene load_steps=23 format=3 uid="uid://din1h8ql506vb"]
 
 [ext_resource type="Texture2D" uid="uid://dkkvcc7oo70c1" path="res://Resources/Assets/Background/Cornice_frontale.png" id="1_pj1no"]
 [ext_resource type="Script" path="res://Scenes/Background.gd" id="1_ppiel"]
@@ -8,66 +8,53 @@
 [ext_resource type="PackedScene" uid="uid://c5xj8w588i6aa" path="res://Scenes/Visual Indicator/visualIndicator.tscn" id="4_yydo2"]
 [ext_resource type="Texture2D" uid="uid://tnxh0cca4x77" path="res://Resources/Assets/Background/gomma.png" id="6_edo8t"]
 [ext_resource type="Texture2D" uid="uid://c0g18wu7ars4" path="res://Resources/Assets/Background/temperino.png" id="7_jjvwu"]
-[ext_resource type="Texture2D" uid="uid://c6p62m1ghpldf" path="res://Resources/Assets/Background/Rubber_anim/frame_00_delay-0.07s.png" id="8_gv2ae"]
-[ext_resource type="Texture2D" uid="uid://by4piv2wurid8" path="res://Resources/Assets/Background/Rubber_anim/frame_01_delay-0.07s.png" id="9_syxc8"]
-[ext_resource type="Texture2D" uid="uid://dlq1rny56xul8" path="res://Resources/Assets/Background/Rubber_anim/frame_02_delay-0.07s.png" id="10_eyy14"]
-[ext_resource type="Texture2D" uid="uid://b7x6uoj06yasw" path="res://Resources/Assets/Background/Rubber_anim/frame_03_delay-0.07s.png" id="11_rele2"]
-[ext_resource type="Texture2D" uid="uid://b7gdo6vbk7vfr" path="res://Resources/Assets/Background/Rubber_anim/frame_04_delay-0.07s.png" id="12_01iqw"]
-[ext_resource type="Texture2D" uid="uid://8v7y3ethwjgt" path="res://Resources/Assets/Background/Rubber_anim/frame_05_delay-0.07s.png" id="13_15biv"]
-[ext_resource type="Texture2D" uid="uid://bulk528ohmcir" path="res://Resources/Assets/Background/Rubber_anim/frame_06_delay-0.07s.png" id="14_gx3p8"]
-[ext_resource type="Texture2D" uid="uid://bmhl1bb63guwg" path="res://Resources/Assets/Background/Rubber_anim/frame_07_delay-0.07s.png" id="15_l4uhn"]
-[ext_resource type="Texture2D" uid="uid://dgpxxkj6xm7md" path="res://Resources/Assets/Background/Rubber_anim/frame_08_delay-0.07s.png" id="16_0ul1q"]
-[ext_resource type="Texture2D" uid="uid://d3o67wj3tfs4e" path="res://Resources/Assets/Background/Rubber_anim/frame_09_delay-0.07s.png" id="17_1k4jg"]
-[ext_resource type="Texture2D" uid="uid://1b21ts344j4u" path="res://Resources/Assets/Background/Rubber_anim/frame_10_delay-0.07s.png" id="18_bk7g6"]
-[ext_resource type="Texture2D" uid="uid://2malkv32ly1s" path="res://Resources/Assets/Background/Rubber_anim/frame_11_delay-0.07s.png" id="19_dx6mj"]
-[ext_resource type="Texture2D" uid="uid://w4cdfa6mljse" path="res://Resources/Assets/Background/Rubber_anim/frame_12_delay-0.07s.png" id="20_vbdlt"]
+[ext_resource type="Texture2D" uid="uid://d34owqhm60h72" path="res://Resources/Assets/Background/Rubber_anim/1.png" id="8_0y22m"]
+[ext_resource type="Texture2D" uid="uid://sw2ug83onvbx" path="res://Resources/Assets/Background/Rubber_anim/2.png" id="9_wcn2l"]
+[ext_resource type="Texture2D" uid="uid://dftoeo0glqicy" path="res://Resources/Assets/Background/Rubber_anim/3.png" id="10_0xo1d"]
+[ext_resource type="Texture2D" uid="uid://deqswua3thiht" path="res://Resources/Assets/Background/Rubber_anim/4.png" id="11_7kng3"]
+[ext_resource type="Texture2D" uid="uid://hpkupewo860a" path="res://Resources/Assets/Background/Rubber_anim/5.png" id="12_lj3bo"]
+[ext_resource type="Texture2D" uid="uid://d3cs06uwm3853" path="res://Resources/Assets/Background/Rubber_anim/6.png" id="13_3wwec"]
+[ext_resource type="Texture2D" uid="uid://c56h022vcvrkx" path="res://Resources/Assets/Background/Rubber_anim/7.png" id="14_ibtr8"]
+[ext_resource type="Texture2D" uid="uid://bvi5wqt6ql4iw" path="res://Resources/Assets/Background/Rubber_anim/8.png" id="15_m4yio"]
+[ext_resource type="Texture2D" uid="uid://cwogb0gd4ia03" path="res://Resources/Assets/Background/Rubber_anim/9.png" id="16_54fsn"]
 [ext_resource type="AudioStream" uid="uid://bpdltx2tsuhnr" path="res://Resources/Audio/Effects/sfx_erase.ogg" id="22_8m2ea"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2x3eu"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_gv2ae")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_syxc8")
+"texture": ExtResource("8_0y22m")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_eyy14")
+"texture": ExtResource("9_wcn2l")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_rele2")
+"texture": ExtResource("10_0xo1d")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_01iqw")
+"texture": ExtResource("11_7kng3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_15biv")
+"texture": ExtResource("12_lj3bo")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_gx3p8")
+"texture": ExtResource("13_3wwec")
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_l4uhn")
+"texture": ExtResource("14_ibtr8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_0ul1q")
+"texture": ExtResource("15_m4yio")
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_1k4jg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_bk7g6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_dx6mj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_vbdlt")
+"texture": ExtResource("16_54fsn")
 }],
 "loop": false,
 "name": &"default",
-"speed": 14.0
+"speed": 8.0
 }]
 
 [sub_resource type="Animation" id="Animation_s32li"]
@@ -113,7 +100,7 @@ tracks/2/keys = {
 resource_name = "hold"
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -125,7 +112,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("../ColorRect2:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -133,7 +120,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.772549)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 0.921569, 0.14902)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -205,15 +192,10 @@ position = Vector2(988, 1024)
 texture = ExtResource("6_edo8t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Gomma"]
-modulate = Color(1, 1, 1, 0.709804)
+modulate = Color(1, 1, 0.941176, 1)
+z_index = -4
 texture_filter = 1
-position = Vector2(-497, -487)
-sprite_frames = SubResource("SpriteFrames_2x3eu")
-
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Gomma"]
-modulate = Color(1, 1, 1, 0.709804)
-texture_filter = 1
-position = Vector2(480, -487)
+position = Vector2(-28, -484)
 sprite_frames = SubResource("SpriteFrames_2x3eu")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Gomma"]
@@ -229,7 +211,7 @@ texture = ExtResource("7_jjvwu")
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
-z_index = 4
+z_index = 1
 offset_top = -1.0
 offset_right = 40.0
 offset_bottom = 39.0
