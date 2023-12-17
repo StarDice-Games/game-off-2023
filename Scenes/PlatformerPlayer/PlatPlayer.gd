@@ -68,6 +68,8 @@ signal died
 #var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var bufferJump = false
+var jumpBufferTime : float = 0.2
+var jumpBufferCounter : float = 0
 
 func getSettingsFromSide(side):
 	match  side:
@@ -222,17 +224,21 @@ func _physics_process(delta):
 
 		if is_on_floor():
 			coyote_timer = 0
-			if bufferJump:
-				jump()
-				bufferJump = false
+#			if bufferJump:
+#				jump()
+#				bufferJump = false
 		
 #		$PointLight2D.enabled = true
 		# Handle Jump.
 		if Input.is_action_just_pressed("Jump"):
-			if (is_on_floor() or coyote_timer < currentJumpSettings.coyote_time):
-				jump()
-			else:
-				bufferJump = true
+			jumpBufferCounter = jumpBufferTime
+		else:
+			jumpBufferCounter -= delta
+		
+		if (jumpBufferCounter > 0 and coyote_timer < currentJumpSettings.coyote_time):
+			jump()
+			jumpBufferCounter = 0
+			
 
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
