@@ -1,11 +1,13 @@
-[gd_scene load_steps=23 format=3 uid="uid://cqnl53v0iei8b"]
+[gd_scene load_steps=25 format=3 uid="uid://cqnl53v0iei8b"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformerPlayer/PlatPlayer.gd" id="1_go3e0"]
 [ext_resource type="Material" uid="uid://bdjvh3cymune7" path="res://Resources/Materials/Unshaded.tres" id="2_4bwpy"]
 [ext_resource type="AudioStream" uid="uid://bcndcx2ykmoru" path="res://Resources/Audio/Sound/sfx_death.ogg" id="2_fmq1i"]
+[ext_resource type="Resource" uid="uid://h3no2lwre5b1" path="res://Scenes/PlatformerPlayer/PlayerJumpSettings/Redd-settings.tres" id="2_h1str"]
 [ext_resource type="PackedScene" uid="uid://dqsmn4tqyn4ca" path="res://Scenes/PlatformerPlayer/Players_animation/player_rosso.tscn" id="2_x7kcr"]
 [ext_resource type="PackedScene" uid="uid://dnuopb0n063hc" path="res://Scenes/PlatformerPlayer/Pickable/PickupComponent/PickupComponent.tscn" id="3_0rr4x"]
 [ext_resource type="AudioStream" uid="uid://dg8xotbkxu6si" path="res://Resources/Audio/Effects/sfx_jump_big.ogg" id="3_3equq"]
+[ext_resource type="Resource" uid="uid://85ojh8wfn7li" path="res://Scenes/PlatformerPlayer/PlayerJumpSettings/Blue-settings.tres" id="3_6gffm"]
 [ext_resource type="Texture2D" uid="uid://3q2g1gjl31kx" path="res://Resources/Assets/Elementi_rossi/Omino_rosso.png" id="3_ld05j"]
 [ext_resource type="PackedScene" uid="uid://dc75c5p24oslr" path="res://Scenes/PlatformerPlayer/Players_animation/player_blu.tscn" id="3_v5sda"]
 [ext_resource type="AudioStream" uid="uid://c5l04fx0incyk" path="res://Resources/Audio/Effects/sfx_pickup_big.ogg" id="4_6ywwo"]
@@ -45,6 +47,8 @@ collision_layer = 2
 collision_mask = 61
 platform_on_leave = 2
 script = ExtResource("1_go3e0")
+redJumpSettings = ExtResource("2_h1str")
+blueJumpSettings = ExtResource("3_6gffm")
 deathSound = ExtResource("2_fmq1i")
 jumpSound = ExtResource("3_3equq")
 grabObject = ExtResource("4_6ywwo")

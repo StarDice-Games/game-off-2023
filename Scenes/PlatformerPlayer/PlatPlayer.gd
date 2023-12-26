@@ -1,12 +1,26 @@
 extends CharacterBody2D
 class_name PlatPlayer
 
-@export var GROUND_SPEED = 300.0
-@export var AIR_SPEED = 300.0
-@export var GROUND_FRICTION = 300.0
+#@export var GROUND_SPEED = 300.0
+#@export var AIR_SPEED = 300.0
+#@export var ACCELERATION: float = 30
+#@export var FRICTION: float = 50
 
+@export_category("Jump")
+@export var redJumpSettings : JumpSettingsResource
+@export var blueJumpSettings : JumpSettingsResource
+#@export var jump_height : float
+#@export var jump_time_to_peak : float
+#@export var jump_time_to_descent : float
+#@export var coyote_time : float = 0.5
+var coyote_timer = 0
 
-@export var JUMP_VELOCITY = -400.0
+var jump_velocity : float
+var jump_gravity : float 
+var fall_gravity : float 
+
+var currentJumpSettings
+
 @export var push_force = 100
 @export var side = 0
 @export var directionOffsetZ = 75.0
@@ -51,9 +65,25 @@ var jumpAnimationEnd = false
 signal died
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+#var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-var canJump = true
+var bufferJump = false
+var jumpBufferTime : float = 0.2
+var jumpBufferCounter : float = 0
+
+func getSettingsFromSide(side):
+	match  side:
+		0: #red
+			return redJumpSettings
+		1: #blue
+			return blueJumpSettings
+
+func recalculateGravity(side):
+	var jumpSettings = getSettingsFromSide(side)
+	jump_velocity = ((2.0 * jumpSettings.jump_height) / jumpSettings.jump_time_to_peak) * -1.0
+	jump_gravity = ((-2.0 * jumpSettings.jump_height) / (jumpSettings.jump_time_to_peak * jumpSettings.jump_time_to_peak)) * -1.0
+	fall_gravity = ((-2.0 * jumpSettings.jump_height) / (jumpSettings.jump_time_to_descent * jumpSettings.jump_time_to_descent)) * -1.0
+
 
 func _ready():
 	Global.setPlayer(side, self)
@@ -66,6 +96,13 @@ func _ready():
 	
 	thinkLeft.hide()
 	thinkRight.hide()
+	
+	currentJumpSettings = getSettingsFromSide(side)
+	
+	recalculateGravity(side)
+
+func get_gravity() -> float:
+	return jump_gravity if velocity.y < 0.0 else fall_gravity
 
 func manageWaitLeft(state):
 	manageNode(thinkLeft,state)
@@ -135,11 +172,24 @@ func stopAnimation():
 	animationBlue.play("Idle")
 	animationRed.play("Idle")
 
+func accelerate(direction: float, speed):
+	velocity.x = move_toward(velocity.x, speed * direction, currentJumpSettings.ACCELERATION)
+ 
+func apply_friction():
+	velocity.x = move_toward(velocity.x, 0, currentJumpSettings.FRICTION)
 
+func jump():
+	getActiveAnimationPlayer().play("Jump")
+	AudioManager.play(getSoundBySide(jumpSound, jumpSoundSmall))
+	jumpAnimationEnd = false
+	coyote_timer = 100
+	velocity.y = jump_velocity
 
 func _physics_process(delta):
 	if Global.currentGameState != Global.GameState.IN_GAME:
 		return
+		
+	recalculateGravity(side)
 	
 	if canDie == false:
 		return
@@ -161,38 +211,50 @@ func _physics_process(delta):
 	else:
 		holdObjectAnimation(false)
 				
-	var moveSpeed = GROUND_SPEED
+	var moveSpeed = currentJumpSettings.GROUND_SPEED
 	
 	if not is_on_floor():
-			moveSpeed = AIR_SPEED
-			velocity.y += gravity * delta
+			moveSpeed = currentJumpSettings.AIR_SPEED
+			if coyote_timer > currentJumpSettings.coyote_time:
+				velocity.y += get_gravity() * delta
+			else:
+				coyote_timer += 1 * delta
 			
 	if Global.activePlayer == side:
 
 		if is_on_floor():
-			canJump = true
+			coyote_timer = 0
+#			if bufferJump:
+#				jump()
+#				bufferJump = false
+		
 #		$PointLight2D.enabled = true
 		# Handle Jump.
-		if Input.is_action_just_pressed("Jump") and is_on_floor():
-			getActiveAnimationPlayer().play("Jump")
-			AudioManager.play(getSoundBySide(jumpSound, jumpSoundSmall))
-			jumpAnimationEnd = false
-			canJump = false
-			velocity.y = (JUMP_VELOCITY - velocity.y)
+		if Input.is_action_just_pressed("Jump"):
+			jumpBufferCounter = jumpBufferTime
+		else:
+			jumpBufferCounter -= delta
+		
+		if (jumpBufferCounter > 0 and coyote_timer < currentJumpSettings.coyote_time):
+			jump()
+			jumpBufferCounter = 0
+			
 
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
 		# Todo change controls
 		var direction = Input.get_axis("MoveLeft", "MoveRight")
 		if direction:
-			velocity.x = direction * moveSpeed
+			
+#			velocity.x = direction * moveSpeed
+			accelerate(direction, moveSpeed)
 			lastDirection = direction
 			
 			if jumpAnimationEnd == true:
 				getActiveAnimationPlayer().play("Walk")
 				AudioManager.play(getSoundBySide(steps, stepsSmall))
 		else:
-			velocity.x = move_toward(velocity.x, 0, GROUND_FRICTION)
+			apply_friction()
 			if jumpAnimationEnd == true:
 				getActiveAnimationPlayer().play("Idle")
 		
