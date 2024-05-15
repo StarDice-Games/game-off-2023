@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_5ugwf")
 GROUND_SPEED = 300.0
-AIR_SPEED = 150.0
+AIR_SPEED = 210.0
 ACCELERATION = 230.0
 FRICTION = 90.0
 jump_height = 60.0
