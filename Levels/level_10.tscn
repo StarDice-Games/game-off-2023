@@ -166,14 +166,12 @@ side = 1
 JUMP_FORCE = -750
 
 [node name="WaterContainer" parent="LevelDesign_Red/Pickables" instance=ExtResource("7_v2vud")]
-position = Vector2(608, 992)
+position = Vector2(688, 992)
 
 [node name="Player1" parent="LevelDesign_Red" instance=ExtResource("5_dwfel")]
 z_index = 2
 position = Vector2(852, 923)
 scale = Vector2(0.75, 0.75)
-AIR_SPEED = 150.0
-JUMP_VELOCITY = -430.0
 push_force = 50
 
 [node name="LevelDesign_Blue" type="Node2D" parent="."]
@@ -279,9 +277,6 @@ position = Vector2(1264, 890)
 z_index = 2
 position = Vector2(1181, 845)
 scale = Vector2(0.75, 0.75)
-GROUND_SPEED = 230.0
-AIR_SPEED = 150.0
-JUMP_VELOCITY = -350.0
 side = 1
 directionOffsetZ = 50.0
 

@@ -68,7 +68,7 @@ position = Vector2(432, 720)
 position = Vector2(144, 928)
 
 [node name="PlatformStaticRed_x6" parent="LevelDesign_Red/Platforms" instance=ExtResource("13_0mt6o")]
-position = Vector2(208, 176)
+position = Vector2(208, 160)
 rotation = 1.57079
 
 [node name="PlatformStaticRed_x4" parent="LevelDesign_Red/Platforms" instance=ExtResource("13_0mt6o")]
